@@ -19,6 +19,9 @@ $human-settlements-alpha-color: rgba(130,54,140,0.7);
 $great-barrier-reef-theme-color: #009fe3;
 $great-barrier-alpha-theme-color: rgba(44,172,227,0.7);
 $great-barrier-reef-link-color: #006A96;
+$climate-change-theme-color: #666666;
+$climate-change-alpha-theme-color: rgba(128,128,128,0.7);
+$climate-change-link-color: #bbbbbb;
 
 
 
@@ -661,9 +664,7 @@ $great-barrier-reef-link-color: #006A96;
       font-size: 1rem;
     }
   
-    dl.keymessages.active dt.selected a.more {
-      display: none;
-    }
+
 
     dl.keymessages dd {
       margin-left: 0;
@@ -749,6 +750,174 @@ $great-barrier-reef-link-color: #006A96;
       }
 
     }
+
+
+    .responses {
+      
+      a.more {
+        font-size: 13px;
+        font-size: .8rem;
+        margin-left: 1em;
+        padding: .2em .7em;
+        border-left: 1px solid #596475;
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+      }
+    }
+
+    .responses h3.active, dl.keymessages.active dt {
+      cursor: pointer;
+      background-image: url(./?a=1260203);
+      background-repeat: no-repeat;
+      background-position: 2px 7px;
+      padding-left: 22px;
+    }
+
+    .responses h3.active.selected, dl.keymessages.active dt.selected {
+      background-image: url(./?a=1260204);
+    }
+
+    .responses {
+      border: 1px dashed #596475;
+      padding: 0 0 .5em;
+
+      h3 {
+        padding: 0 1em;
+
+        &.active {
+          padding-left: 40px;
+          background-position: 20px 7px;
+        }
+      }
+      
+      dl, div.dl {
+        padding: .5em;
+        margin: 0;
+        padding: .5em 1em;
+        margin: 0 0 1em;
+      }
+
+      dl dt, div.dl div.dt {
+        font: {
+          weight: normal;
+          size: 15px;
+          size: .9rem;
+        }
+        margin: 0 3px 0 0;
+        padding: .5em 0 .2em 0;
+        border-top: 1px solid #bbb;
+        width: 100%;
+      }
+
+      dl dd, div.dl div.dd {
+        margin: 0;
+        padding: .2em 0 .5em 0;
+        width: 100%;
+      }
+
+      dl dd p, div.dl div.dd p {
+        margin-top: 0;
+        margin-bottom: .7em;
+      }
+
+      dl dt:first-child, div.dl div.dt:first-child, dl dd:first-of-type, div.dl div.dd:first-of-type {
+        border-top: none;
+      }
+
+    }
+
+    dl.keymessages dt {
+      font-size: 15px;
+      font-size: 1rem;
+    }
+  
+
+
+    dl.keymessages dd {
+      margin-left: 0;
+      margin-bottom: 1em;
+    }
+
+    .finding-criteria {
+      background: #efefef;
+      padding: .3em .6em;
+      margin: 1em 0;
+    }
+
+    table {
+      margin-left: auto;
+      margin-right: auto;
+      
+      caption {
+        color: #444;
+      }
+
+      thead th {
+        background: $border-blue;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+        text-align: center;
+      }
+
+      tbody th[scope=row], tbody th[scope=rowgroup] {
+        background: #efefef;
+      }
+
+      &.assessment {
+        width: 100%;
+        margin-bottom: 2.5em;
+        border: none;
+        td, th {
+          border: none;
+        }
+        th {
+          background-color: #efefef;
+          color: #000;
+          text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+        }
+        td {
+          border-bottom: 1px solid #efefef;
+          text-align: center;
+          &:first-child {
+            text-align: left;
+          }
+        }
+        tr td:first-child {
+          @media (min-width: 43em) and (max-width: 65em) {
+            width: 25%;
+          }
+          @media (min-width: 65em) {
+            width: 35%;
+          }
+        }
+        p.grade {
+          display: block;
+          img {
+            margin: 0 auto;
+            width: 70%;
+            @media (min-width: 43em) {
+              width: auto;
+            }
+          }
+        }
+        .grade {
+          font-size: .7rem;
+          color: #444;
+          img {
+            display: block;
+          }
+        }
+        .confidence {
+          font-size: .7rem;
+          color: #444;
+          img {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
 
     .indicatorlinks {
       padding: 0 1em;
@@ -1372,6 +1541,20 @@ $great-barrier-reef-link-color: #006A96;
     }
   }
 
+  div.home-themes2-climate-change {
+    div.outer:hover {
+	    background-color: $climate-change-theme-color;
+    }
+    h2, li a   {
+      color: $climate-change-theme-color !important;
+    }
+    a {
+      text-decoration-color: $climate-change-theme-color !important;
+      -webkit-text-decoration-color: $climate-change-theme-color !important;
+    }
+  }
+
+
   div.themes2 h2 {
     text-align: center;
     margin-top: 0 !important;
@@ -1476,7 +1659,7 @@ $great-barrier-reef-link-color: #006A96;
       background: $biodiversity-link-color;
     }
     #content {
-      .programs {
+      .programs, .responses {
         border-color: $biodiversity-alpha-color;
         h3 {
           color: $biodiversity-theme-color;
@@ -1592,7 +1775,7 @@ $great-barrier-reef-link-color: #006A96;
         background: $heritage-link-color;
       }
 
-      .programs {
+      .programs, .responses {
         border-color: $heritage-alpha-color;
         h3 {
           color: $heritage-theme-color;
@@ -1707,7 +1890,7 @@ $great-barrier-reef-link-color: #006A96;
         background: $pollution-link-color;
       }
       
-      .programs {
+      .programs, .responses {
         border-color: $pollution-alpha-color;
         h3 {
           color: $pollution-theme-color;
@@ -1826,7 +2009,7 @@ $great-barrier-reef-link-color: #006A96;
         background: $climate-link-color;
       }
 
-      .programs {
+      .programs, .responses {
         border-color: $climate-alpha-color;
         h3 {
           color: $climate-theme-color;
@@ -1944,7 +2127,7 @@ $great-barrier-reef-link-color: #006A96;
         background: $biodiversity-link-color;
       }
 
-      .programs {
+      .programs, .responses {
         border-color: $human-settlements-alpha-color;
         h3 {
           color: $human-settlements-theme-color;
@@ -2099,6 +2282,76 @@ $great-barrier-reef-link-color: #006A96;
   }
 
 
+
+/* climate-change */
+
+  body.soe-theme-climate-change {
+    @media (min-width: 43em) {
+      body.soe-theme-climate-change {
+        background-image: url(./?a=1274111); // page-bg-great-barrier-reef.jpg
+      }
+    }
+        #content-container {
+      background-image: url(./?a=1274122); // heading-bg-great-barrier-reef.png
+    }
+
+    #nav-section {
+      h2, h2 a {
+        background-color: $climate-change-theme-color;
+      }
+      li.current {
+        a, a:link, a:visited, a:hover, a:focus {
+          color: $climate-change-link-color;
+        }
+        ul li {
+          a, a:link, a:visited, a:hover, a:focus {
+            color: #444;
+          }
+        }
+      }
+    } 
+    
+    #content {
+      #headingDiv {
+        background-color: $climate-change-alpha-theme-color;
+      }
+    }
+  }
+  
+  #nav-site {
+    li.theme-climate-change {
+      &.current, &:hover {
+        background: $climate-change-theme-color;
+        background: linear-gradient($climate-change-theme-color, $climate-change-theme-color);
+      }
+    }
+    .theme-climate-change ul {
+      background: $climate-change-theme-color;
+      background: linear-gradient($climate-change-theme-color, $climate-change-theme-color);
+    }
+  }
+
+  #content .theme-climate-change h2, 
+  #fat-footer .theme-climate-change h3 {
+    border-bottom-color: $climate-change-theme-color;
+  }
+
+  #fat-footer .theme-climate-change h3 a {
+    background-image: url(./?a=1274110); // great-barrier-reef.png
+  }
+
+  #content .themes .theme-climate-change ul, 
+  #fat-footer .theme-climate-change ul {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+
+  #content .theme-section.theme-climate-change h2 a {
+    background-image: url(./?a=1274107); // great-barrier-reef.png
+    color: $climate-change-theme-color;
+  }
+
+
 // social media icons
   
   ul.social-media-icon-list {
@@ -2190,7 +2443,7 @@ $great-barrier-reef-link-color: #006A96;
 
 
 #content {
-  .programs {
+  .programs, responses {
     table {
       margin: .5em 1em;
       border: {
@@ -2407,7 +2660,7 @@ body .section.col3 .topic {
 		display: none;
 	}
 
-  .soe-theme-biodiversity h1, .soe-theme-heritage h1, .soe-theme-pollution h1, .soe-theme-climate h1, .soe-theme-human-settlements h1, .soe-theme-great-barrier-reef h1 {
+  .soe-theme-biodiversity h1, .soe-theme-heritage h1, .soe-theme-pollution h1, .soe-theme-climate h1, .soe-theme-human-settlements h1, .soe-theme-great-barrier-reef h1, , .soe-theme-climate-change h1 {
 		padding: .5em 0 0 3em;
 		clear: both;
 	}
@@ -2434,6 +2687,10 @@ body .section.col3 .topic {
 	
   .soe-theme-great-barrier-reef h1 {
     border-top: 1.6rem solid $great-barrier-reef-theme-color;
+  }
+
+  .soe-theme-climate-change h1 {
+    border-top: 1.6rem solid $climate-change-theme-color;
   }
 }
 
