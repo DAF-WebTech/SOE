@@ -1,0 +1,532 @@
+.home {
+    background: linear-gradient(transparent 50%, #fff 75%), url("https://www.stateoftheenvironment.des.qld.gov.au/__data/assets/image/0011/1457174/homepage.jpg") 0 0 no-repeat #fff;
+    background-size: cover;
+}
+
+.soe-logo {
+    display: block;
+    margin: 1em 0 2.5em 0;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.75));
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+div + h3 {
+    margin-top: 3rem;
+}
+.subFindingCheckBox {
+    list-style-type: none;
+    margin: 0 0 3rem 1.5rem;
+    padding: 0;
+    column-count: 2;
+
+    label {
+        cursor: pointer;
+        margin-left: 0.35rem;
+    }
+}
+
+.sub-themes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 1em 0;
+    @include screen(tablet) {
+        margin: 0 0 2em 0;
+    }
+    
+    padding: 0;
+    list-style-type: none;
+
+    .tile {
+        text-align: center;
+        @include screen(tablet) {
+            width: 50%;
+        }
+        padding: 0 2em;
+        margin-bottom: 2.5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        img {
+            margin: 0 auto 4px auto;
+        }
+    
+        h2 {
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+    
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .more {
+            display: block;
+            padding: 0.75em 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            background-color: #fafafa;
+            color: #777;
+            text-decoration: none;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.case-studies {
+    margin-bottom: 2em;
+}
+
+.content-header {
+    overflow: hidden;
+    border-bottom: 7px solid #ccc;
+    margin-bottom: 0.5em;
+
+    .container {
+        position: relative;
+        height: 282px;
+        @include screen(tablet) {
+            height: 420px;
+        }
+    }
+    
+    h1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: flex;
+        width: 100%;
+        margin: 0 auto 0 0;
+        color: #fff;
+        background-color: rgba(0,0,0,0.6);
+        border-style: none;
+        padding: 0.75rem 1.25rem;
+        line-height: 1.15;
+        z-index: 2;
+        
+        @include screen(tablet) {
+            left: 20%;
+            right: 0;
+            padding-left: 2.5rem;
+            padding-bottom: 0.75rem;
+            width: 200%;
+            height: 110px;
+            align-items: flex-end;
+            line-height: 1.4;
+        }
+    }
+    
+    &.case-study h1 {
+        left: 12rem;
+    }
+}
+.content {
+    &.case-study {
+        .main-content {
+            padding-left: 15rem;
+        }
+    }
+}
+
+.icon-panel {
+    display: none;
+    
+    @media only screen and (min-width: 1555px) {
+        position: absolute;
+        top: 350px;
+        right: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #eee;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+    
+        &.offset {
+            top: 460px;
+        }
+    
+        li {
+            width: 110px;
+            height: 110px;
+            padding: 10px;
+        }
+        img {
+            margin: 0 auto;
+            width: 90px;
+            opacity: 0.5;
+        }
+        li:nth-child(1) {
+            order: 1;
+            
+            img {
+                filter: grayscale(1) brightness(20);
+                opacity: 1;
+            }
+        }
+        .active {
+            order: 2 !important;
+    
+            img {
+                filter: grayscale(1) brightness(20);
+                opacity: 1;
+            }
+        }
+        li:nth-child(2) { order: 20; }
+        li:nth-child(3) { order: 30; }
+        li:nth-child(4) { order: 40; }
+        li:nth-child(5) { order: 50; }
+    }
+}
+
+
+.programs table > tbody > tr > td {
+    display: block;
+    padding: 0.75rem 0;
+    
+    @include screen(tablet) {
+        display: table-cell;
+        padding: 0.75rem 1rem;
+    }
+
+    &:first-child {
+        @include screen(tablet) {
+            width: 25%;
+        }
+        font-weight: bold;
+    }
+}
+
+
+.biodiversity {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $biodiversity-medium; }
+    }
+    .content-header { border-bottom: 7px solid $biodiversity; }
+    .icon-panel { 
+        background-color: $biodiversity-light; 
+        li:nth-child(1) { background-color: $biodiversity; }
+        .active { background-color: $biodiversity-medium; }
+    }
+}
+.heritage {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $heritage-medium; }
+    }
+    .content-header { border-bottom: 7px solid $heritage; }
+    .icon-panel { 
+        background-color: $heritage-light; 
+        li:nth-child(1) { background-color: $heritage; }
+        .active { background-color: $heritage-medium; }
+    }
+}
+.pollution {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $pollution-medium; }
+    }
+    .content-header { border-bottom: 7px solid $pollution; }
+    .icon-panel { 
+        background-color: $pollution-light; 
+        li:nth-child(1) { background-color: $pollution; }
+        .active { background-color: $pollution-medium; }
+    }
+}
+.climate {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $climate-medium; }
+    }
+    .content-header { border-bottom: 7px solid $climate; }
+    .icon-panel { 
+        background-color: $climate-light; 
+        li:nth-child(1) { background-color: $climate; }
+        .active { background-color: $climate-medium; }
+    }
+}
+.liveability {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $liveability-medium; }
+    }
+    .content-header { border-bottom: 7px solid $liveability; }
+    .icon-panel { 
+        background-color: $liveability-light; 
+        li:nth-child(1) { background-color: $liveability; }
+        .active { background-color: $liveability-medium; }
+    }
+}
+.great-barrier-reef {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $great-barrier-reef-medium; }
+    }
+    .content-header { border-bottom: 7px solid $great-barrier-reef; }
+    .icon-panel { 
+        background-color: $great-barrier-reef-light; 
+        li:nth-child(1) { background-color: $great-barrier-reef; }
+        .active { background-color: $great-barrier-reef-medium; }
+    }
+}
+.climate-change {
+    @include screen(tablet) {
+        .left-column { border-right: 1px solid $climate-change-medium; }
+    }
+    .content-header { border-bottom: 7px solid $climate-change; }
+    .icon-panel { 
+        background-color: $climate-change-light; 
+        li:nth-child(1) { background-color: $climate-change; }
+        .active { background-color: $climate-change-medium; }
+    }
+}
+
+
+
+
+/* About Us styling */
+.highlight-content {
+    background-color: #f6f6f6;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    
+    p:last-child {
+        margin: 0;
+    }
+}
+
+.explore-panel {
+    padding: 1.5rem 2.5rem;
+    font-style: italic;
+    font-size: 1.5rem;
+    border-top: 4px solid #999;
+    border-bottom: 4px solid #999;
+    margin: 3rem 0;
+    text-align: center;
+    color: #666;
+    
+    p:last-child {
+        margin: 0;
+    }
+}
+
+fieldset {
+    &.about-theme {
+        border: 2px solid #ccc;
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        margin-bottom: 2rem;
+
+        legend {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        
+            h3 {
+                margin: 0 0 0.5rem 0;
+            }
+        
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                text-decoration: none;
+               
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        img {
+            max-height: 60px;
+            width: auto;
+            margin-right: 0.75rem;
+        }
+
+        &.about-theme-biodiversity {
+            border-color: $biodiversity;
+            legend a { color: $biodiversity-dark; }
+        }
+
+        &.about-theme-heritage {
+            border-color: $heritage;
+            legend a { color: $heritage-dark; }
+        }
+
+        &.about-theme-pollution {
+            border-color: $pollution;
+            legend a { color: $pollution-dark; }
+        }
+
+        &.about-theme-climate {
+            border-color: $climate;
+            legend a { color: $climate-dark; }
+        }
+
+        &.about-theme-liveability {
+            border-color: $liveability;
+            legend a { color: $liveability-dark; }
+        }
+
+        &.about-theme-great-barrier-reef {
+            border-color: $great-barrier-reef;
+            legend a { color: $great-barrier-reef-dark; }
+        }
+
+        &.about-theme-climate-change {
+            border-color: $climate-change;
+            legend a { color: $climate-change-dark; }
+        }
+    }
+}
+
+
+h3 + .conditions-container {
+    margin: 0 0 2rem 0.25rem;
+}
+
+.conditions-container {
+    @include screen(tablet) {
+        display: flex;
+    }
+    margin: 3rem 0 0 0;
+    padding: 0;
+    list-style-type: none;
+
+    .condition-dial {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        align-items: center;
+        @include screen(tablet) {
+            width: 275px;
+        }
+
+        .rank {
+            display: block;
+            margin-top: 0.75rem;
+            font-weight: bold;
+            text-align: center;
+
+            &.letter {
+                font-size: 6rem;
+            }
+            &.smaller {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    .rankings {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        @include screen(tablet) {
+            margin-left: 2rem;
+        }
+    
+        h4 {
+            margin-bottom: 0;
+        }
+        ul {
+            list-style-type: disc;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.soe-summary {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 6.5rem;
+    
+    &::after {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        background-color: rgba(255,255,255,0.7);        
+        /*
+        background-color: #edf8fe;
+        border-top: 1px solid #daedf4;
+        border-bottom: 1px solid #daedf4;
+        */
+        width: 100%;
+        height: 220px;
+        z-index: -1;
+        content: '';
+    }
+    
+    .soe-summary-container {
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem;
+        @include screen (desktop) {
+            width: 1360px;
+            margin: 0 auto;
+        }
+        
+
+        .cover-image {
+            border: 3px solid #fff;
+            transform: rotate(-3deg);
+            transition: all 0.15s ease;
+            
+            &:hover {
+                transform: rotate(-5deg);
+            }
+        }
+        .soe-summary-text {
+            margin-left: 2.5rem;
+            width: 460px;
+            
+            .soe-summary-logo {
+                width: 275px;
+                margin-top: 3.5rem;
+                display: block;
+            }
+            .soe-pdf-icon {
+                float: left;
+                margin-right: 1rem;
+                width: 75px;
+            }
+            p {
+                margin: 0;
+                padding-top: 0.75rem;
+            }
+        }
+    }
+}
+
+body {
+    @media only screen and (min-width: 1555px) {
+        &::before {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 110px;
+            height: 100%;
+            content: '';
+            z-index: -1;
+        }
+        &.biodiversity::before { background-color: $biodiversity-light; }
+        &.heritage::before { background-color: $heritage-light; }
+        &.pollution::before { background-color: $pollution-light; }
+        &.climate::before { background-color: $climate-light; }
+        &.liveability::before { background-color: $liveability-light; }
+        &.great-barrier-reef::before { background-color: $great-barrier-reef-light; }
+        &.climate-change::before { background-color: $climate-change-light; }
+    }
+}

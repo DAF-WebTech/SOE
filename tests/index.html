@@ -1,0 +1,201 @@
+<html>
+
+<head>
+	<style>
+		table,
+		thead,
+		tr,
+		th,
+		tbody,
+		td,
+		tfoot {
+			border: 1px black solid;
+		}
+
+		th,
+		td {
+			text-align: left;
+		}
+
+		th.num,
+		td.num {
+			text-align: right
+		}
+	</style>
+	<title>%frontend_asset_name%</title>
+
+</head>
+
+<body>
+	<div id=pre>hello there</div>
+
+	<script>
+		function print(regionInfo) {
+			document.getElementById("pre").innerHTML += regionInfo;
+		}
+
+	</script>
+	<script id=chartdata type=application/json> </script>
+	<script src=js/server-render.js> </script>
+	<script>
+"use strict";
+
+
+var request = new XMLHttpRequest();
+request.open("GET", "/data/indicator-3-4-0-4.csv", false);  // `false` makes the request synchronous
+request.send(null);
+var csv = "";
+if (request.status === 200) {
+	csv = request.responseText;
+}
+
+
+//%%% start matrix server side %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+////      var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+
+var results = Papa.parse(
+	csv,
+	{
+		skipEmptyLines: true,
+		dynamicTyping: true,
+		header: true
+	}
+);
+
+var years = results.meta.fields.slice(1);
+var latestYear = years[years.length - 1];
+var totalRow = results.data.pop();
+var index = 0;
+
+/////////////////////////////////////////// 1. pie
+
+var pie1 = { 
+	heading: "Proportion of Queensland’s agriculture emissions by category, " + latestYear,
+	kebab: "queensland",
+	headings: ["Category", "Emissions (million tonnes)"],
+	rows: results.data.map(function(d) { 
+		return [d.Category, d[latestYear].toFixed(3)];
+	}),
+	footer: [totalRow.Category, totalRow[latestYear]]
+};
+
+
+var chart1 = [[{label: "Category"}, {label: "Emissions (million tonnes)"}]];
+pie1.rows.forEach(function(d) { 
+		chart1.push([d[0], Number(d[1])]); 
+});
+var chartData = [{data: chart1, type: "pie", options: getDefaultPieChartOptions()}];
+
+
+/////////////////////////////////////////// 2. line
+
+var line2rows = [years];
+results.data.map(function(d) { 
+		var ret = [];
+		years.forEach(function(y) {
+			ret.push(d[y] ? d[y].toFixed(3) : "0" );
+		});
+		line2rows.push(ret);
+	});
+	line2rows = line2rows.transpose();
+
+var line2 = { 
+	heading: "Trends in Queensland’s agriculture emissions, by category",
+	kebab: "queensland",
+	headings: ["Year"].concat(results.data.map(function(d) { return d.Category} )),
+	rows: line2rows
+};
+
+//[{label: "Category"}, {label: "Emissions (million tonnes)"}]
+var chart2 = line2rows.map(function(row) { 
+	return row.map(function(d, i) { return i == 0 ?  d : Number(d) }); 	
+});
+
+chart2.unshift(line2.headings);
+
+var lineChartOptions = getDefaultLineChartOptions();
+lineChartOptions.vAxis.title = "Tonnes (million)";
+chartData.push({data: chart2, type: "line", options: lineChartOptions});
+
+
+/////////////////////////////////////////// 3. table
+
+var table3 = { 
+	heading: "Queensland’s total agriculture emissions",
+	kebab: "queensland",
+	headings: ["Year", "Emissions (million tonnes)"],
+	rows: years.map(function(y) {
+		return [y, totalRow[y].toFixed(3)]
+	}),
+	 hasNoChart: true
+};
+
+var regions = {regions: [ pie1, line2, table3 ] };
+
+var template = Handlebars.compile(chartTableTemplate);
+print(template(regions));
+
+
+
+
+
+		print("<script id=chartdata type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+		//%%%% end matrix server side %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+//		document.getElementById("chartdata").textContent = JSON.stringify(tables);
+//////////////////////////////////////////////////////////////////////////////////////
+
+	</script>
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+
+
+		google.charts.load("current", { packages: ["corechart"] });
+		google.charts.setOnLoadCallback(populateIndicatorCharts);
+
+		soejs = {
+			chartsLoaded3: function () {
+				console.log("chart drawn");
+			}
+		};
+
+		function populateIndicatorCharts() {
+
+			var chartData = JSON.parse(document.getElementById("chartdata").textContent);
+			soejs.num_charts = chartData.length;
+			chartData.forEach(function (cd, i) {
+				var element = document.getElementById("chart_" + i);
+				switch (cd.type) {
+					case "area":
+						var chart = new google.visualization.AreaChart(element);
+						break;
+					case "bar":
+						var chart = new google.visualization.BarChart(element);
+						break;
+					case "column":
+						var chart = new google.visualization.ColumnChart(element);
+						break;
+					case "combo":
+						var chart = new google.visualization.ComboChart(element);
+						break;
+					case "line":
+						var chart = new google.visualization.LineChart(element);
+						break;
+					case "pie":
+						var chart = new google.visualization.PieChart(element);
+						break;
+				}
+
+				var data = google.visualization.arrayToDataTable(cd.data);
+				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
+				chart.draw(data, cd.options);
+
+
+			});
+		}
+	</script>
+</body>
+
+</html>

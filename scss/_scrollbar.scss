@@ -1,0 +1,40 @@
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #777;
+    border-left: 2px solid #000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+}
+
+body.biodiversity::-webkit-scrollbar-thumb:hover {
+    background-color: $biodiversity;
+}
+body.heritage::-webkit-scrollbar-thumb:hover {
+    background-color: $heritage;
+}
+body.pollution::-webkit-scrollbar-thumb:hover {
+    background-color: $pollution;
+}
+body.climate::-webkit-scrollbar-thumb:hover {
+    background-color: $climate;
+}
+body.liveability::-webkit-scrollbar-thumb:hover {
+    background-color: $liveability;
+}
+body.great-barrier-reef::-webkit-scrollbar-thumb:hover {
+    background-color: $great-barrier-reef;
+}
+body.climate-change::-webkit-scrollbar-thumb:hover {
+    background-color: $climate-change;
+}

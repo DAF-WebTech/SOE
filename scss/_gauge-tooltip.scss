@@ -1,0 +1,41 @@
+.gauge-tooltip {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+}
+
+.gauge-tooltip .tooltiptext {
+    padding: 15px;
+    min-height: 30px;
+    visibility: hidden;
+    text-align: center;
+    border-radius: 6px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 150px;
+    font-size: .75rem;
+    
+}
+
+.gauge-tooltip .tooltiptext-biodiversity {
+  background-color:  rgba(110, 188, 68, 0.1);
+  border: 1px dashed rgba(110, 188, 68, 0.5);
+}
+.gauge-tooltip .tooltiptext-heritage {
+  background-color: rgba(236, 36, 40, 0.05);
+  border: 1px dashed rgba(236, 36, 40, 0.35);
+}
+.gauge-tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.gauge-tooltip .tooltiptext .tooltipgrade {
+  font-size: 2rem;
+}
+.gauge-tooltip .tooltiptext .tooltipgrade-biodiversity {
+  color: $biodiversity-dark;
+}
+.gauge-tooltip .tooltiptext .tooltipgrade-heritage {
+  color: $heritage-dark;
+}

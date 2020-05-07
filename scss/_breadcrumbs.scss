@@ -1,0 +1,15 @@
+.breadcrumbs {
+    border-bottom: 1px solid #ccc;
+    padding: 0.5em 0;
+    margin-bottom: 3em;
+
+    li:not(:last-child)::after {
+        color: #bbb;
+    }
+
+    a,
+    a:active,
+    a:visited {
+        color: #111;
+    }
+}

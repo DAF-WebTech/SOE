@@ -1,0 +1,130 @@
+.assessment {
+    margin-bottom: 3rem;
+    
+    caption {
+        text-align: left;
+        font-size: 1.15rem;
+        color: #111;
+        padding: 0.5rem 0;
+    }
+    
+    td {
+        width: 25%;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(4),
+    td:nth-child(4) {
+        text-align: center;
+    
+        img {
+            margin: 0 auto;
+        }
+    }
+}
+
+.assessment-grade {
+    list-style-type: none;
+    margin: 0 -1.5px 0.5rem -1.5px;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    
+    &.four {
+        li {
+            width: calc(25% - 3px);
+    
+            &:nth-child(1) { background-color: #BF1E2E; }
+            &:nth-child(2) { background-color: #F29E46; }
+            &:nth-child(3) { background-color: #87C24F; }
+            &:nth-child(4) { background-color: #009245; }
+            
+            &.marker {
+                &::before {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+    &.five {
+        li {
+            width: calc(20% - 3px);
+
+            &:nth-child(1) { background-color: #BF1E2E; }
+            &:nth-child(2) { background-color: #F29E46; }
+            &:nth-child(3) { background-color: #C3BC5F; }
+            &:nth-child(4) { background-color: #87C24F; }
+            &:nth-child(5) { background-color: #009245; }
+
+            &.marker {
+                &::before {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+
+    li {
+        position: relative;
+        height: 1.25rem;
+        margin: 1.5px;
+        background-color: #eee;
+        border: 1px solid rgba(0,0,0,0.1);
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &.marker {
+            &::before {
+                border-radius: 50%;
+                background-color: #fff;
+                content: '';
+                border: 1px solid #666;
+                box-shadow: 0 0 3px rgba(0,0,0,0.25);
+            }
+        }
+        
+        &.up,
+        &.down,
+        &.minus {
+            &::after {
+               color: #111;
+               font-weight: bold;
+               font-size: 1.35rem;
+               font-family: "Font Awesome 5 Free";
+            }
+        }
+        &.up {
+            &::after {
+               left: 52%;
+               content: '\f054';
+            }
+        }
+        &.down {
+            &::after {
+               left: 48%;
+               content: '\f053';
+            }
+        }
+        &.minus {
+            &::after {
+               left: 48%;
+               content: '\f068';
+            }
+        }
+    }
+}
+
+.grade-text {
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.3;
+}

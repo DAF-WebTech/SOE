@@ -1,0 +1,94 @@
+@include screen(desktop) {
+    .biodiversity .primary-nav-container:hover {
+        background-color: rgba(28, 80, 0, 0.85);
+    }
+    .heritage .primary-nav-container:hover {
+        background-color: rgba(93, 0, 2, 0.85);
+    }
+    .pollution .primary-nav-container:hover {
+        background-color: rgba(111, 43, 0, 0.85);
+    }
+    .climate .primary-nav-container:hover {
+        background-color: rgba(1, 19, 78, 0.85);
+    }
+    .liveability .primary-nav-container:hover {
+        background-color: rgba(56, 0, 78, 0.85);
+    }
+    .great-barrier-reef .primary-nav-container:hover {
+        background-color: rgba(0, 70, 97, 0.85);
+    }
+    .climate-change .primary-nav-container:hover {
+        background-color: rgba(71, 58, 0, 0.85);
+    }
+}
+
+.primary-nav-container {
+    background-color: #333;
+    position: absolute;
+    top: 180px;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    
+    @include screen(desktop) {
+        position: static;
+        background-color: rgba(0,0,0,0.85);
+        transition: all 0.5s ease;
+    }
+
+    .primary-nav {
+        @include screen(desktop) {
+            &.simple {
+                > li:nth-child(10) {
+                    margin-left: 4rem;
+                }
+                > li:nth-child(10),
+                > li:nth-child(11),
+                > li:nth-child(12) {
+                    a {
+                        color: #ccc;
+                    
+                        &:hover {
+                            color: #111;
+                        }
+                    }
+                }
+            }
+        }
+        
+        li {
+            transition: all 0.1s ease;
+        }
+        > li:hover {
+            background-color: #fff;
+        }
+        li a {
+            color: #fff;
+        }
+        > li:hover > a {
+            color: #111;
+        }
+        .mobile {
+            background-color: #444;
+        }
+    
+        &.simple {
+            .primary-sub-nav {
+                > li {
+                    background-color: #222;
+                }
+                > li:hover {
+                    background-color: #444;
+                }
+            }
+        }
+        &.mega {
+            .primary-sub-nav {
+                background-color: #111;
+            }
+            .sub-nav-topics {
+                color: #999;
+            }
+        }
+    }
+}

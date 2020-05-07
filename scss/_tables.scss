@@ -1,0 +1,176 @@
+table {
+    td.num, th.num {
+        text-align: right;
+    }
+
+    thead th {
+        border-bottom: 2px solid #999;
+    }
+    
+    tbody {
+        th {
+            font-weight: bold;
+        }
+        td {
+            p:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    tfoot {
+        th, td {
+            border-top: 2px solid #999;
+            font-weight: bold;
+        }
+    }
+    caption { 
+        color: #777;
+    }
+
+    &.zebra tbody {
+        th,
+        td {
+            border-bottom: 1px solid #e6e6e6;
+            padding: 0.5em 1em;
+        }
+        tr:nth-child(even) {
+            th,
+            td {
+                background-color: #f6f6f6;
+            }
+        }
+    }
+    &.assessment tbody {
+        th, td {
+            padding: 1em;
+        }
+    }
+}
+
+&.biodiversity .zebra {
+    tbody {
+        th, td { border-bottom: 1px solid rgba(110, 188, 68, 0.2); }
+        tr:nth-child(even) { 
+            th, td { background-color: #f8fcf5; }
+        }
+    }
+    tfoot, thead {
+        th, td {
+            border-color: #6ebc44;
+        }
+    }
+}
+&.heritage .zebra {
+    tbody {
+        th, td { border-bottom: 1px solid rgba(236, 36, 40, 0.2); }
+        tr:nth-child(even) { 
+            th, td { background-color: #fef4f4; }
+        }
+    }
+    tfoot, thead {
+        th, td {
+            border-color: rgb(236, 36, 40);
+        }
+    }
+}
+&.pollution .zebra {
+    tbody {
+        th, td { border-bottom: 1px solid rgba(241, 122, 47, 0.2); }
+        tr:nth-child(even) { 
+            th, td { background-color: #fef8f4 }
+        }
+    }
+    tfoot, thead {
+        th, td {
+            border-color: #f17a2f;
+        }
+    }
+}
+&.climate .zebra {
+    tbody {
+        th, td { border-bottom: 1px solid rgba(58, 83, 164, 0.2); }
+        tr:nth-child(even) { 
+            th, td { background-color: #f5f6fa; }
+        }
+    }
+    tfoot, thead {
+        th, td {
+            border-color: rgb(58, 83, 164);
+        }
+    }
+}
+&.liveability .zebra {
+    tbody {
+        th, td { border-bottom: 1px solid rgba(127, 63, 152, 0.2); }
+        tr:nth-child(even) { 
+            th, td { background-color: #f8f5fa; }
+        }
+    }
+    tfoot, thead {
+        th, td {
+            border-color: rgb(127, 63, 152);
+        }
+    }
+}
+
+.responsive-table.sticky thead tr th:first-child,
+.responsive-table.sticky tbody tr th:first-child,
+.responsive-table.sticky tbody tr td:first-child,
+.responsive-table.sticky tfoot tr th:first-child {
+    &::after {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        width: 1px;
+        border-right: 1px solid #ccc;
+        content: '';    
+    }
+}
+
+
+.biodiversity .sticky thead tr th:first-child,
+.biodiversity .sticky tbody tr th:first-child,
+.biodiversity .sticky tbody tr td:first-child,
+.biodiversity .sticky tfoot tr th:first-child {
+    &::after {
+        border-right: 1px solid rgba(110, 188, 68, 0.2);
+    }
+}
+.heritage .sticky thead tr th:first-child,
+.heritage .sticky tbody tr th:first-child,
+.heritage .sticky tbody tr td:first-child,
+.heritage .sticky tfoot tr th:first-child {
+    &::after {
+        border-right: 1px solid rgba(236, 36, 40, 0.2);
+    }
+}
+.pollution .sticky thead tr th:first-child,
+.pollution .sticky tbody tr th:first-child,
+.pollution .sticky tbody tr td:first-child,
+.pollution .sticky tfoot tr th:first-child {
+    &::after {
+        border-right: 1px solid rgba(241, 122, 47, 0.2);
+    }
+}
+.climate .sticky thead tr th:first-child,
+.climate .sticky tbody tr th:first-child,
+.climate .sticky tbody tr td:first-child,
+.climate .sticky tfoot tr th:first-child {
+    &::after {
+        border-right: 1px solid rgba(58, 83, 164, 0.2);
+    }
+}
+.liveability .sticky thead tr th:first-child,
+.liveability .sticky tbody tr th:first-child,
+.liveability .sticky tbody tr td:first-child,
+.liveability .sticky tfoot tr th:first-child {
+    &::after {
+        border-right: 1px solid rgba(127, 63, 152, 0.2);
+    }
+}
+
+.species-group-checkbox-list {
+    margin-bottom: 2em;
+}

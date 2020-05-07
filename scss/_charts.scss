@@ -1,0 +1,48 @@
+.chart-tabs {
+	list-style-type: none;
+	padding: 0;
+	margin: 1.5em 0 1em 0;
+	display: flex;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	text-transform: uppercase;
+	font-size: 14px;
+ 
+     > li {
+        padding-bottom: 0 !important;
+        cursor: pointer;
+    }
+
+    span {
+    	display: block;
+    	padding: 0.5em 0.75em;
+    	text-decoration: none;
+    	color: #999;
+    	transition: all 0.15s ease;
+    	border-bottom: 1px solid transparent;
+    	margin-bottom: -1px;
+
+        &:hover {
+	        color: #555;
+	        border-bottom: 1px solid #555;
+	        margin-bottom: -1px;
+        }
+    }
+    .active span {
+	    color: #fff;
+	    background-color: #666;
+    }
+}
+
+.chart-table {
+	margin-bottom: 3em;
+	padding: 0 1.5em;
+
+    > div {		
+	    display: block;
+    }
+
+    > div.inactive {		
+	    display: none;
+    }
+}

@@ -1,0 +1,136 @@
+.biodiversity .section-nav {
+    h3 a {
+        background-color: $biodiversity;
+        &::after { background-color: $biodiversity-medium }
+    }
+    .secondary-nav .active > a {
+        background-color: $biodiversity-light;
+        color: $biodiversity-dark;
+    }
+}
+.heritage .section-nav {
+    h3 a {
+        background-color: $heritage;
+        &::after { background-color: $heritage-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $heritage-light;
+        color: $heritage-dark;
+    }
+}
+.pollution .section-nav {
+    h3 a {
+        background-color: $pollution;
+        &::after { background-color: $pollution-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $pollution-light;
+        color: $pollution-dark;
+    }
+}
+.climate .section-nav {
+    h3 a {
+        background-color: $climate;
+        &::after { background-color: $climate-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $climate-light;
+        color: $climate-dark;
+    }
+}
+.liveability .section-nav {
+    h3 a {
+        background-color: $liveability;
+        &::after { background-color: $liveability-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $liveability-light;
+        color: $liveability-dark;
+    }
+}
+.great-barrier-reef .section-nav {
+    h3 a {
+        background-color: $great-barrier-reef;
+        &::after { background-color: $great-barrier-reef-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $great-barrier-reef-light;
+        color: $great-barrier-reef-dark;
+    }
+}
+.climate-change .section-nav {
+    h3 a {
+        background-color: #f4ac00;
+        &::after { background-color: $climate-change-medium; }
+    }
+    .secondary-nav .active > a {
+        background-color: $climate-change-light;
+        color: $climate-change-dark;
+    }
+}
+
+.section-nav {
+    h3 a {
+        color: #fff;
+        background-color: #007eb1;
+        position: relative;
+        padding: 0.5em 1em;
+
+        &::after {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 45px;
+            height: 45px;
+            content: '';
+            z-index: -1;
+            background-color: #39afe0;
+        }
+        &:hover {
+            color: #fff;
+        }
+    }
+    a {
+        color: #111;
+        &:hover { color: #111; }
+    }
+    .secondary-nav {
+        a {
+            position: relative;
+            
+            &::after {
+                background-color: #bbb;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                display: block;
+                background-color: #bbb;
+                content: "";
+                transition: width 0.1s ease;
+            }
+            &:hover {
+                background-color: #fff;
+            }
+            &:hover::after {
+                width: 6px;
+            }
+        }
+        
+        .active {
+            > a {
+                background-color: #eee;
+            }
+        }
+
+        .secondary-sub-nav {
+            > li  a {
+                padding-left: 3em;
+            }
+            > li > a {
+                border-bottom: 1px dotted #ccc;
+            }
+        }
+    }
+}

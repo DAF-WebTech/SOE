@@ -1,0 +1,544 @@
+blockquote {
+    color: #007eb1;
+
+    footer {
+        color: #777;
+    }
+    &::after {
+        color: #e6e6e6;
+    }
+}
+.pullquote {
+    color: #007eb1;
+}
+
+dl.glossary {
+    dt, dd {
+        padding: 0;
+    }
+    dd {
+        margin-bottom: 1.5em;
+    }
+    ul:nth-of-type(1) {
+        margin-bottom: 1em;
+    }
+}
+
+
+.main-content {
+    h1 {
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 0.25em;
+    }
+    .content-header h1 {
+        font-size: 2.5rem;
+        font-weight: normal;
+        text-shadow: 0 3px 5px rgba(0,0,0,0.6);
+    }
+    
+    dt {
+        padding: 0.75rem 1.25rem;
+    
+        &:first-child {
+            padding-bottom: 0;
+        }
+    
+        a.more { 
+            display: none;
+            float: right;
+            font-weight: normal;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: #666 !important;
+        
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    dd { 
+        margin: 0; 
+        padding: 0.75rem 1.25rem;
+    
+        p:last-child { margin: 0; }
+        ul { margin-bottom: 0; }
+    }
+    hr { border-top: 1px dashed #bbb; }
+
+    > h2,
+    .key-findings > h2,
+    .box-heading,
+    .youtube-container h2 {
+        position: relative;
+        padding-left: 1em;
+        line-height: 1.05;
+
+        &::before,
+        &::after {
+            position: absolute;
+            height: 100%;
+            width: 15px;
+            content: '';
+        }
+        &::before {
+            top: 0;
+            left: 0;
+            background-color: #ddd;
+        }
+        &::after {
+            top: -4px;
+            left: -4px;
+            z-index: -1;
+            background-color: #ccc;
+        }
+    }
+    
+    .key-messages {
+        margin-bottom: 2em;
+        dt {
+            margin-bottom: 0.5em;
+            padding-bottom: 0.35em;
+            font-size: 1.17em;
+        }
+    }
+
+    .region-info {
+        > h4 {
+            margin: 5rem 0 0 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    h4 {
+        margin-bottom: 1em;
+    }
+    p ~ h3,
+    p ~ h4 {
+        margin-top: 2em;
+    }
+    
+    h3.criteria {
+        padding-bottom: 0.25em;
+    }
+    .finding-text,
+    .programs {
+        padding: 1em 1.5em;
+        margin-bottom: 2em;
+    }
+    .finding-text p:last-child {
+        margin: 0;
+    }
+    
+    .key-findings {
+        .dark-heading {
+            padding: 0;
+            
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+    
+    .findings {
+        h3 {
+            font-size: 1.5em;
+        }
+        .box-heading {
+            padding: 0 1em;
+            border-style: none;
+        
+            + dl {
+                border-top: 2px solid #aaa;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+    
+    .findings,
+    .programs {
+        margin-bottom: 3em;
+        
+        dl {
+            width: 100%;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            @include screen(tablet) {
+                flex-direction: row;
+            }
+        }
+
+        dt {
+            @include screen(tablet) {
+                width: 25%;
+                border-bottom: 1px solid #e1e1e1;
+            }
+            &:last-of-type {
+                border-style: none;
+            }
+        }
+        dd {
+            @include screen(tablet) {
+                width: 75%;
+            }
+            border-bottom: 1px solid #e1e1e1;
+            &:last-of-type {
+                border-style: none;
+            }
+        }
+        > h3 {
+            border-bottom: 2px solid #aaa;
+            margin-bottom: 0;
+            padding:0 1.25rem 0.35em 1.25rem;
+        }
+    }
+    
+    .programs {
+        padding-bottom: 0;
+        
+        h3 {
+            padding-left: 0;
+        }
+        table {
+            margin: 0;
+            tbody tr td:first-child {
+                padding-left: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.biodiversity {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #306910;
+            &::before { background-color: #6fbc44; }
+            &::after  { background-color: #b7dda2; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #427429; }
+
+        h3.criteria,
+        .programs h3 { 
+            border-bottom: 2px solid #6fbc44; 
+        }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(110, 188, 68, 0.1);
+            border: 1px dashed rgba(110, 188, 68, 0.5);
+        }
+        .programs {
+            table {
+                tbody tr th {
+                    @include screen(tablet) {
+                        border-bottom: 1px dashed rgba(110, 188, 68, 0.5);
+                    }
+                } 
+                tbody tr td {
+                    border-bottom: 1px dashed rgba(110, 188, 68, 0.5);
+                    
+                    &:first-child {
+                        border-style: none;
+        
+                        @include screen(tablet) {
+                            border-bottom: 1px dashed rgba(110, 188, 68, 0.5);
+                        }
+                    }
+                }
+                tbody tr:last-child th,
+                tbody tr:last-child td {
+                    border-style: none;
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #6fbc44;
+        }
+    }
+}
+.heritage {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #bd0004;
+            &::before { background-color: #ec2428; }
+            &::after  { background-color: #f6987d; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #bd0004; }
+
+        h3.criteria,
+        .programs h3 { 
+            border-bottom: 2px solid #ec2428; 
+        }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(236, 36, 40, 0.05);
+            border: 1px dashed rgba(236, 36, 40, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr th {
+                    @include screen(tablet) {
+                        border-bottom: 1px dashed rgba(236, 36, 40, 0.35);
+                    }
+                } 
+                tbody tr td {
+                    border-bottom: 1px dashed rgba(236, 36, 40, 0.35);
+                    
+                    &:first-child {
+                        border-style: none;
+        
+                        @include screen(tablet) {
+                            border-bottom: 1px dashed rgba(236, 36, 40, 0.35);
+                        }
+                    }
+                }
+                tbody tr:last-child th,
+                tbody tr:last-child td {
+                    border-style: none;
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #ec2428;
+        }
+    }
+}
+.pollution {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #b74700;
+            &::before { background-color: #f17a2f; }
+            &::after  { background-color: #f9b88b; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #b74700; }
+
+        h3.criteria,
+        .programs h3 { 
+            border-bottom: 2px solid #f17a2f; 
+        }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(241, 122, 47, 0.05);
+            border: 1px dashed rgba(241, 122, 47, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr th {
+                    @include screen(tablet) {
+                        border-bottom: 1px dashed rgba(241, 122, 47, 0.35);
+                    }
+                } 
+                tbody tr td {
+                    border-bottom: 1px dashed rgba(241, 122, 47, 0.35);
+                    
+                    &:first-child {
+                        border-style: none;
+        
+                        @include screen(tablet) {
+                            border-bottom: 1px dashed rgba(241, 122, 47, 0.35);
+                        }
+                    }
+                }
+                tbody tr:last-child th,
+                tbody tr:last-child td {
+                    border-style: none;
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #f17a2f;
+        }
+    }
+}
+.climate {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #001865;
+            &::before { background-color: #3a53a4; }
+            &::after  { background-color: #9195ca; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #001865; }
+
+        h3.criteria,
+        .programs h3 { border-bottom: 2px solid #3a53a4; }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(58, 83, 164, 0.05);
+            border: 1px dashed rgba(58, 83, 164, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr th {
+                    @include screen(tablet) {
+                        border-bottom: 1px dashed rgba(58, 83, 164, 0.35);
+                    }
+                } 
+                tbody tr td {
+                    border-bottom: 1px dashed rgba(58, 83, 164, 0.35);
+                    
+                    &:first-child {
+                        border-style: none;
+        
+                        @include screen(tablet) {
+                            border-bottom: 1px dashed rgba(58, 83, 164, 0.35);
+                        }
+                    }
+                }
+                tbody tr:last-child th,
+                tbody tr:last-child td {
+                    border-style: none;
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #3a53a4;
+        }
+    }
+}
+.liveability {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #6d1490;
+            &::before { background-color: #7f3f98; }
+            &::after  { background-color: #b292c4; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #6d1490; }
+
+        h3.criteria,
+        .programs h3 { border-bottom: 2px solid #7f3f98; }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(127, 63, 152, 0.05);
+            border: 1px dashed rgba(127, 63, 152, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr th {
+                    @include screen(tablet) {
+                        border-bottom: 1px dashed rgba(127, 63, 152, 0.35);
+                    }
+                } 
+                tbody tr td {
+                    border-bottom: 1px dashed rgba(127, 63, 152, 0.35);
+                    
+                    &:first-child {
+                        border-style: none;
+        
+                        @include screen(tablet) {
+                            border-bottom: 1px dashed rgba(127, 63, 152, 0.35);
+                        }
+                    }
+                }
+                tbody tr:last-child th,
+                tbody tr:last-child td {
+                    border-style: none;
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #7f3f98;
+        }
+    }
+}
+.great-barrier-reef {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #008ec3;
+            &::before { background-color: #00aeef; }
+            &::after  { background-color: #68d6ff; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #008ec3; }
+
+        h3.criteria,
+        .programs h3 { border-bottom: 2px solid #00aeef; }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(0, 174, 239, 0.05);
+            border: 1px dashed rgba(0, 174, 239, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr:not(:last-child) th, 
+                tbody tr:not(:last-child) td {
+                    border-bottom: 1px dashed rgba(0, 174, 239, 0.35);
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #00aeef;
+        }
+    }
+}
+.climate-change {
+    .main-content {
+        > h2,
+        .key-findings > h2,
+        .box-heading,
+        .youtube-container h2 {
+            color: #f4ac00;
+            &::before { background-color: #f4c900; }
+            &::after  { background-color: #ffe671; }
+        }
+        .key-findings > .dark-heading { color: #222; }
+
+        a { color: #f4ac00; }
+
+        h3.criteria,
+        .programs h3 { border-bottom: 2px solid #f4c900; }
+
+        .finding-text,
+        .programs {
+            background-color: rgba(244, 201, 0, 0.05);
+            border: 1px dashed rgba(244, 201, 0, 0.35);
+        }
+        .programs {
+            table {
+                tbody tr:not(:last-child) th, 
+                tbody tr:not(:last-child) td {
+                    border-bottom: 1px dashed rgba(244, 201, 0, 0.35);
+                }
+            }
+        }
+        .key-messages dt {
+            border-bottom: 2px solid #f4c900;
+        }
+    }
+}

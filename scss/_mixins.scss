@@ -1,0 +1,48 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1000px)";
+    $tablet: "(min-width: 750px)";
+    $mobile: "(max-width: 749px)";
+
+    @if $size == desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+    @else if $size == mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and #{$size} {
+            @content;
+        }
+    }
+}
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}
+
+@mixin abs-position ($top, $right, $bottom, $left) {
+    position: absolute; 
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin clear {
+    &::after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+}

@@ -1,0 +1,98 @@
+<div id=app>
+	<regioninfo v-for="table in tables" :table=table></regioninfo>
+	<pre>{{ $data }}</pre>
+</div>
+
+
+<template id=region-template>
+	<div :id="'region_' + table.index" class="region-info region-queensland">
+		<h4 v-text="table.heading"></h4>
+		<ul class=chart-tabs :data-index=table.index v-if=table.hasChart>
+			<li class=active><span>Chart</span>
+			<li><span>Table</span>
+		</ul>
+		<div class=chart-table>
+			<div :id="'chart_' + table.index" class=chart v-if=table.hasChart></div>
+			<div :id="'table_' + table.index" class="responsive-table sticky inactive">
+				<table class="indicators zebra">
+					<thead>
+						<tr>
+							<th v-for="(th, i) in table.rows[0]" scope=col :class="{num: i > 0}" v-text=th>
+					<tbody>
+						<tr v-for="tr in table.rows.slice(1)">
+							<th scope=row v-text=tr[0]>
+							<td v-for="td in tr.slice(1)" class=num v-text=td.toFixed(3)>
+
+				</table>
+			</div>
+		</div>
+	</div>
+
+	</div>
+</template>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!-- set "yes" for vue in metadata -->
+
+
+<script>
+
+	function populateIndicatorCharts() {
+
+		var tables = JSON.parse(document.getElementById("tabledata").textContent);
+
+		Vue.component("regioninfo", {
+			props: ["table"],
+			template: "#region-template"
+		});
+
+		var vm = new Vue({
+			el: "#app",
+			data: { tables: tables }, // data: {tables: tables 
+			mounted: function () {
+
+				var myTables = tables.filter(function (t) { return t.hasChart });
+
+				soejs.num_charts = myTables.length;
+				myTables.forEach(function (table, i) {
+
+					var rows = table.rows;
+					if (table.transpose)
+						rows = rows.transpose();
+
+					var data = google.visualization.arrayToDataTable(rows);
+
+					var chartElement = document.getElementById("chart_" + table.index);
+
+					switch (table.type) {
+						case "pie":
+							var chart = new google.visualization.PieChart(chartElement);
+							break;
+						case "line":
+							var chart = new google.visualization.LineChart(chartElement);
+							break;
+						case "column":
+							var chart = new google.visualization.ColumnChart(chartElement);
+							break;
+						case "bar":
+							var chart = new google.visualization.BarChart(chartElement);
+							break;
+						case "area":
+							var chart = new google.visualization.AreaChart(chartElement);
+							break;
+					}//~ end switch chart type
+
+					chart.draw(data, table.options);
+
+
+				}); //~ end charts.foreach
+
+
+
+			}//~ end mounted
+		}); //~ end new Vue
+
+
+	} //~ end charts setonloadcallback
+</script>

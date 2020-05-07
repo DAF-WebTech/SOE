@@ -1,0 +1,32 @@
+.news-article {
+    .news-date {
+        font-size: 0.9em;
+        color: #666;
+    }
+    .news-summary {
+        font-weight: bold;
+    }
+}
+
+.news-listing {
+    background-color: #f6f6f6;
+    border: 1px solid #e6e6e6;
+    border-top-width: 2px;
+    
+    .news-item {
+        border: 1px solid #e6e6e6;
+        border-bottom-width: 2px;
+
+        .news-image {
+            background-color: #e6e6e6;
+        }
+        .news-summary {
+            background-color: #fff;
+
+            .news-date {
+                font-size: 0.9em;
+                color: #666;
+            }
+        }
+    }
+}

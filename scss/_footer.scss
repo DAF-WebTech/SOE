@@ -1,0 +1,25 @@
+.footer {
+    .container {
+        border-top: 2px solid #ccc;
+        padding-top: 1em;
+    }
+}
+
+footer.footer {
+
+    .footer-links {
+
+        li:not(:last-child) {
+            border-right: 1px solid #999;
+            @include print {
+                border-style: none;
+            }
+        }
+    }
+    
+    a,
+    a:active,
+    a:visited {
+        color: #000;
+    }
+}

@@ -1,0 +1,94 @@
+form {
+    
+    .sq-form-required-field {
+        color: #d00;
+        text-decoration: none;
+        font-size: 1.1em;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="file"], 
+    textarea,
+    select {
+        background-color: #fff;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        color: #555;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="password"]:focus,
+    input[type="file"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #007eb1;
+        box-shadow: 0 0 3px 0 rgb(17, 206, 180);
+        color: #111;
+        outline: none;
+    }
+    input[type="text"]:disabled,
+    input[type="email"]:disabled,
+    input[type="tel"]:disabled,
+    input[type="password"]:disabled,
+    input[type="file"]:disabled,
+    textarea:disabled,
+    select:disabled {
+        background-color: #e5e5e5;
+        color: #666;
+    }
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        border-radius: 4px;
+        background-color: #2980b9;
+        color: #fff;
+    }
+    input[type="reset"] {
+        background-color: #c0392b;
+    }
+    button:hover,
+    input[type="button"]:hover,
+    input[type="submit"]:hover {
+        background-color: #3498db;
+    }
+    input[type="reset"]:hover {
+        background-color:  #e74c3c;
+    }
+
+    fieldset {
+        border-style: none;
+        padding: 0;
+        /*
+        background-color: #fff;
+        border: 1px solid #aaa;
+        border-bottom-width: 2px;
+        */
+
+        legend {
+            font-weight: 700;
+            background-color: #fff;
+        }
+    }
+
+    .sq-form-section-title {
+        color: #007eb1;
+        font-size: 1.1em;
+        margin: 0.5em 0;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid #ddd;
+        display: block;
+        width: 100%;
+    }
+
+    .sq-form-error {
+        color: #c0392b;
+        background-color: rgba(192, 57, 43, 0.065);
+        border-left: 6px solid #c0392b;
+    }
+}

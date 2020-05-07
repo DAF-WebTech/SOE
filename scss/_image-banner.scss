@@ -1,0 +1,62 @@
+.image-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 470px;
+    @include screen(tablet) {
+        height: 570px;
+    }
+    background-size: cover;
+    background-color: #fff;
+    z-index: 1;
+    content: '';
+    
+    .image-rights {
+        flex-direction: column;
+        position: absolute;
+        bottom: -55px;
+        left: 0;
+        right: auto;
+        font-size: 0.75em;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.35);
+        opacity: 1;
+        padding: 0.25em;
+
+        .owner {
+            flex-direction: column;
+            align-items: flex-start;
+         
+            .location {
+                font-weight: bold;
+                font-size: 1.05em;
+            }
+            .holder {
+                
+            }
+            .attribution {
+                
+            }
+        }
+    }
+    
+    &:hover .image-rights{
+        bottom: 0;
+    }
+}
+
+.parallax-mirror {
+    z-index: -1 !important;
+    background-color: #fff;
+}
+
+/*
+.biodiversity .image-rights { background-color: $biodiversity; }
+.heritage .image-rights { background-color: $heritage; }
+.pollution .image-rights { background-color: $pollution; }
+.climate .image-rights { background-color: $climate; }
+.human-settlements .image-rights { background-color: $human-settlements; }
+.great-barrier-reef .image-rights { background-color: $great-barrier-reef; }
+.climate-change .image-rights { background-color: $climate-change; }
+*/

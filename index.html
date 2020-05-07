@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<style>table,thead,tr,th,tbody,td,tfoot{border:1px black solid;}
+th,td{text-align:left;}
+th.num,td.num{text-align:right}</style>
+<title>%frontend_asset_name%</title>
+</head>
+
+<body>
+	<div id=pre>hello there</div>
+
+	<script>
+		function print(regionInfo) {
+			document.getElementById("pre").innerHTML += regionInfo;
+		}
+
+	</script>
+	<script id=chartdata type=application/json></script> 
+	<script src=/js/server-render.js> </script>
+	<script>
+		var request = new XMLHttpRequest();
+		request.open("GET", "/data/indicator-1-2-0-4.csv", false);  // `false` makes the request synchronous
+		request.send(null);
+		var csv = "";
+		if (request.status === 200) {
+			csv = request.responseText;
+		}
+</script>
+
+<script src=/js/biodiversity/freshwater/condition-of-riverine-ecosystem-health.js></script>
+
+<script>
+		document.getElementById("chartdata").textContent = JSON.stringify(chartData);
+</script>
+//////////////////////////////////////////////////////////////////////////////////////
+
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		// scaffolding
+		google.charts.load("current", { packages: ["corechart"] });
+		google.charts.setOnLoadCallback(populateIndicatorCharts);
+		soejs = {
+			chartsLoaded3: function () {
+				console.log("chart drawn");
+			}
+		};
+		//~scaffolding
+
+
+		//############
+		// client side
+		//############
+		function populateIndicatorCharts() {
+
+			var chartData = JSON.parse(document.getElementById("chartdata").textContent);
+			soejs.num_charts = chartData.length;
+			chartData.forEach(function (cd, i) {
+				var data = google.visualization.arrayToDataTable(cd.data);
+				switch (cd.type) {
+					case "pie":
+						var chart = new google.visualization.PieChart(document.getElementById("chart_" + i));
+						break;
+					case "line":
+						var chart = new google.visualization.LineChart(document.getElementById("chart_" + i));
+						break;
+					case "column":
+						var chart = new google.visualization.ColumnChart(document.getElementById("chart_" + i));
+					case "bar":
+						var chart = new google.visualization.BarChart(document.getElementById("chart_" + i));
+				}
+
+
+				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
+				chart.draw(data, cd.options);
+
+				// });
+				// }
+				//~ end client side
+
+
+				// more scaffolding
+				window.setTimeout(function () {
+					document.querySelectorAll("div.initial-hide").forEach(function (d) { d.style.display = "none"; });
+				}, 250);
+			});
+
+		}
+
+		function showHideChart(cb) {
+			console.log(cb.value);
+			var div = document.querySelector("div.region-queensland.region-" + cb.value);
+			if (div.style.display == "none")
+				div.style.display = "block";
+			else
+				div.style.display = "none";
+		}
+
+	</script>
+</body>
+
+</html>

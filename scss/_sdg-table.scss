@@ -1,0 +1,332 @@
+$goal-1: #e02b40;
+$goal-2: #d19f2a;
+$goal-3: #4c9f38;
+$goal-4: #c5192d;
+$goal-5: #ff3a21;
+$goal-6: #27bde2;
+$goal-7: #fcc312;
+$goal-8: #a21942;
+$goal-9: #fd6925;
+$goal-10: #dd1367;
+$goal-11: #fd9d24;
+$goal-12: #bf8b2e;
+$goal-13: #48773c;
+$goal-14: #007dbb;
+$goal-15: #40ae49;
+$goal-16: #00558a;
+$goal-17: #1a3668;
+
+.accordion.sdg {
+    margin: 2em 0;
+    padding: 0;
+    @include screen(tablet) {
+        padding: 0 5em;
+    }
+    
+    .accordion-item {
+        .accordion-title {
+            padding: 0;
+            border-style: none;
+            margin: 0.5em 0 0 0;
+    
+            .toggle {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 2.5em;
+                height: 100%;
+                background-color: rgba(255,255,255,0.1);
+                transition: all 0.15s ease;
+            }
+            .toggle:hover {
+                background-color: rgba(255,255,255,0.3);
+            }
+            .toggle::after {
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                font-weight: 900;
+                font-family: "Font Awesome 5 Free";
+                line-height: 1;
+                content: "\f078";
+            }
+        }
+        &.active .toggle::after {
+            border-color: #fff;
+            content: "\f077";
+        }
+
+        .accordion-content {
+            padding: 0;
+            overflow-x: auto;
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        
+        .no-report {
+            margin-bottom: 2em;
+        }
+    }
+}
+
+
+.sdg-table {
+    margin-bottom: 1em;
+    border: 2px solid #ddd;
+    
+    caption {
+        font-style: italic;
+        padding: 0.5rem 1rem;
+    }
+    
+    thead {
+        th {
+            border: 1px solid #ddd;
+            border-bottom-width: 2px;
+            line-height: 1.1;
+        
+            &:nth-child(3) {
+                width: 35%;
+            }
+            &:nth-child(4) {
+                width: 20%;
+            }
+        }
+    }
+    tbody {
+        td {
+            border: 1px solid #ddd;
+            line-height: 1.3;
+        }
+    }
+
+    &.goal-1 {
+        border-color: $goal-1;
+        caption { 
+            border-left: 2px solid $goal-1;
+            border-right: 2px solid $goal-1;
+        }
+        thead th,
+        tbody td { border-color: $goal-1; }
+        
+    }
+    &.goal-2 {
+        border-color: $goal-2;
+        caption { 
+            border-left: 2px solid $goal-2;
+            border-right: 2px solid $goal-2;
+        }
+        
+        thead th,
+        tbody td { border-color: $goal-2; }
+    }
+    &.goal-3 {
+        border-color: $goal-3;
+        caption { 
+            border-left: 2px solid $goal-3;
+            border-right: 2px solid $goal-3;
+        }
+        
+        thead th,
+        tbody td { border-color: $goal-3; }
+    }
+    &.goal-4 {
+        border-color: $goal-4;
+        caption { 
+            border-left: 2px solid $goal-4;
+            border-right: 2px solid $goal-4;
+        }
+    
+        thead th,
+        tbody td { border-color: $goal-4; }
+    }
+    &.goal-5 {
+        border-color: $goal-5;
+        caption { 
+            border-left: 2px solid $goal-5;
+            border-right: 2px solid $goal-5;
+        }
+        thead th,
+        tbody td { border-color: $goal-5; }
+    }
+    &.goal-6 {
+        border-color: $goal-6;
+        caption { 
+            border-left: 2px solid $goal-6;
+            border-right: 2px solid $goal-6;
+        }        
+        thead th,
+        tbody td { border-color: $goal-6; }
+    }
+    &.goal-7 {
+        border-color: $goal-7;
+        caption { 
+            border-left: 2px solid $goal-7;
+            border-right: 2px solid $goal-7;
+        }        
+        thead th,
+        tbody td { border-color: $goal-7; }
+    }
+    &.goal-8 {
+        border-color: $goal-8;
+        caption { 
+            border-left: 2px solid $goal-8;
+            border-right: 2px solid $goal-8;
+        }        
+        thead th,
+        tbody td { border-color: $goal-8; }
+    }
+    &.goal-9 {
+        border-color: $goal-9;
+        caption { 
+            border-left: 2px solid $goal-9;
+            border-right: 2px solid $goal-9;
+        }        
+        thead th,
+        tbody td { border-color: $goal-9; }
+    }
+    &.goal-10 {
+        border-color: $goal-10;
+        caption { 
+            border-left: 2px solid $goal-10;
+            border-right: 2px solid $goal-10;
+        }        
+        thead th,
+        tbody td { border-color: $goal-10; }
+    }
+    &.goal-11 {
+        border-color: $goal-11;
+        caption { 
+            border-left: 2px solid $goal-11;
+            border-right: 2px solid $goal-11;
+        }        
+        thead th,
+        tbody td { border-color: $goal-11; }
+    }
+    &.goal-12 {
+        border-color: $goal-12;
+        caption { 
+            border-left: 2px solid $goal-12;
+            border-right: 2px solid $goal-12;
+        }        
+        thead th,
+        tbody td { border-color: $goal-12; }
+    }
+    &.goal-13 {
+        border-color: $goal-13;
+        caption { 
+            border-left: 2px solid $goal-13;
+            border-right: 2px solid $goal-13;
+        }        
+        thead th,
+        tbody td { border-color: $goal-13; }
+    }
+    &.goal-14 {
+        border-color: $goal-14;
+        caption { 
+            border-left: 2px solid $goal-14;
+            border-right: 2px solid $goal-14;
+        }        
+        thead th,
+        tbody td { border-color: $goal-14; }
+    }
+    &.goal-15 {
+        border-color: $goal-15;
+        caption { 
+            border-left: 2px solid $goal-15;
+            border-right: 2px solid $goal-15;
+        }        
+        thead th,
+        tbody td { border-color: $goal-15; }
+    }
+    &.goal-16 {
+        border-color: $goal-16;
+        caption { 
+            border-left: 2px solid $goal-16;
+            border-right: 2px solid $goal-16;
+        }        
+        thead th,
+        tbody td { border-color: $goal-16; }
+    }
+    &.goal-17 {
+        border-color: $goal-17;
+        caption { 
+            border-left: 2px solid $goal-17;
+            border-right: 2px solid $goal-17;
+        }        
+        thead th,
+        tbody td { border-color: $goal-17; }
+    }
+
+    ul {
+        list-style-type: square;
+        margin: 0 0 0 1.2em;
+    
+        li {
+            margin-bottom: 0.35em;
+        }
+    }
+}
+
+ol.sdg-list {
+    margin-bottom: 2em;
+    
+    li {
+        font-weight: bold;
+        margin: 0;
+        padding: 0.75em 1em;
+
+        h4 {
+            margin-bottom: 0;
+        }
+        p {
+            font-weight: normal;
+            margin: 0;
+        }
+    
+        &:nth-child(even) {
+            background-color: #f6f6f6;
+        }
+    }
+}
+
+.sdg-panel, .finding-sdg-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none !important;
+    padding: 0 !important;
+    margin: 0 -0.25rem 1rem -0.25rem !important;
+    justify-content: center;
+    @include screen(tablet) {
+        justify-content: start;
+    }
+    
+    li {
+        width: 75px;
+        height: 75px;
+        margin: 0.25rem;
+        transform: scale(1);
+        transition: all 0.1s ease;
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+}
+
+ul + .sdg-panel  {
+    margin-top: 2rem;
+}
+
+.finding-sdg-panel {
+    margin-top: 2rem !important;
+}

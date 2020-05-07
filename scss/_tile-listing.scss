@@ -1,0 +1,240 @@
+.tile-listing {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 -20px 6em -20px;
+
+    .tile {
+        width: calc(20% - 40px);
+        margin: 0 20px;
+        box-shadow: 0 16px 13px 0 rgba(0,0,0,0.25);
+        background-color: rgba(0, 22, 54, 0.55);
+
+        &:hover .tile-head {
+            transform: scale(1.075);
+            box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
+        }
+    
+        .tile-head {
+            display: block;
+            /*box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15), 0 0 0 0 rgba(0,0,0,0.15);*/
+            box-shadow: 0 0 0 0 rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.15s ease;
+            z-index: 1;
+            
+            a {
+                display: block;
+                padding: 0.75em 0.75em 0.5em 0.75em;
+                color: #fff;
+                text-decoration: none;
+                position: relative;
+                z-index: 3;
+            }
+        
+            h2 {
+                font-size: 1.15rem;
+                text-align: center;
+                margin: 0.4rem 0 0 0;
+            }
+            
+            .disc {
+                width: 110px;
+                height: 110px;
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 1px;
+                margin: 0 auto;
+            }
+            .overlay {
+                display: none;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                z-index: -1;
+                width: 240px;
+                height: 240px;
+                opacity: 0.08;
+                transform: translateX(-50%);
+
+                img {
+                    filter: grayscale(1) brightness(20);
+                    width: 100%;
+                }
+            }
+        }
+        
+        &.biodiversity .tile-head { background-color: #6DBD45; }
+        &.heritage .tile-head { background-color: #EC2027; }
+        &.pollution .tile-head { background-color: #F48641; }
+        &.climate .tile-head { background-color: #3A54A4; }
+        &.liveability .tile-head { background-color: #82358C; }
+
+        .tile-foot {
+            padding: 0.5em 1em 1em 1em;
+            
+            ul {
+                list-style-type: none;
+                margin: 0.25em 0 0 0;
+                padding: 0;
+
+                li {
+                    padding: 0.5em;
+                    text-align: center;
+                }
+            
+                li:not(:last-child) {
+                    border-bottom: 1px dotted #406e9e;
+                }
+                
+                a {
+                    color: #fff;
+                    font-size: 1.1rem;
+                    text-decoration: none;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+.tab-listing {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+    .tile {
+        background-color: #fff;
+        width: calc(20% - 20px);
+        margin: 0 20px 0 0;
+        position: relative;
+
+        &:hover .tile-head {
+        }
+    
+        .tile-head {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.15s ease;
+            z-index: 1;
+            
+            a {
+                display: block;
+                padding: 0.75em 0.75em 0.5em 0.75em;
+                color: #fff;
+                text-decoration: none;
+                position: relative;
+                z-index: 3;
+            }
+        
+            h2 {
+                font-size: 1.15rem;
+                text-align: center;
+                margin: 0.4rem 0 0 0;
+            }
+            
+            .disc {
+                width: 110px;
+                height: 110px;
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 1px;
+                margin: 0 auto;
+            }
+        }
+        &.biodiversity .tile-head { background-color: #6DBD45; }
+        &.heritage .tile-head { background-color: #EC2027; }
+        &.pollution .tile-head { background-color: #F48641; }
+        &.climate .tile-head { background-color: #3A54A4; }
+        &.liveability .tile-head { background-color: #82358C; }        
+    }
+}
+.tab-listing-content {
+    list-style-type: none;
+    margin: 0 0 6em 0;
+    padding: 0;
+    width: 100%;
+    height: 200px;
+
+    li {
+        display: none;
+        background-color: #fff;
+    }
+
+    .tile-content-biodiversity {
+        display: block;
+    }
+}
+
+.sub-theme-panel {
+    width: 100vw;
+    height: 220px;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 5.5rem;
+    background-color: rgba(0, 22, 54, 0.55);
+
+    .container {
+        height: 100%;
+    }
+    
+    .tile {
+        width: 175px;
+        height: 175px;
+        text-align:center;
+        padding-top: 0.85em;
+        margin: 1.35em auto 0;
+        transition: all 0.15s ease;
+        
+        &.great-barrier-reef {
+            background-color: #00aeef;
+        }
+        &.climate-change {
+            background-color: #f4c900;
+        }
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .icon {
+            margin: 0 auto 0.25em auto;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 4px 0 0 4px;
+            width: 118px;
+            height: 118px;
+        }
+        &:hover {
+            transform: scale(1.075);
+            box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
+        }
+    }
+    ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        height: 100%;
+    }
+    .intro {
+        font-size: 1.75em;
+        color: #fff;
+        font-style: italic;
+        text-align: center;
+        text-shadow: 0 2px 2px rgba(0,0,0,0.25);
+        display: flex;
+        align-items: center;
+        padding: 0 3em;
+    }
+}

@@ -1,0 +1,62 @@
+.youtube-container {
+    margin-bottom: 4rem;
+    
+    .youtube-video {
+        margin: 0 auto;
+        color: #fff;
+        
+        a {
+            color: #fff !important;
+            font-size: 2em;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.55);
+        }
+    }
+}
+
+.home {
+    .youtube-container {
+        margin: 5rem auto 4rem auto;
+
+        h2 {
+            margin: 0 0 1.5rem 0;
+            padding: 0;
+            text-align: center;
+            color: #1a3777;
+            
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+        
+        .youtube-video {
+            width: 60%;
+    
+            a {
+                border: 3px solid #fff;
+            }
+        }
+    }
+}
+
+.biodiversity .youtube-video {
+    border-bottom: 4px solid $biodiversity;
+}
+.heritage .youtube-video {
+    border-bottom: 4px solid $heritage;
+}
+.pollution .youtube-video {
+    border-bottom: 4px solid $pollution;
+}
+.climate .youtube-video {
+    border-bottom: 4px solid $climate;
+}
+.liveability .youtube-video {
+    border-bottom: 4px solid $liveability;
+}
+.great-barrier-reef .youtube-video {
+    border-bottom: 4px solid $great-barrier-reef;
+}
+.climate-change .youtube-video {
+    border-bottom: 4px solid $climate-change;
+}

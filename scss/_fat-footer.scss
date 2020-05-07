@@ -1,0 +1,28 @@
+.fat-footer {
+    background-color: #333;
+    color: #fff;
+    
+    h3 {
+        border-bottom: 1px solid #777;
+
+        button {
+            color: #fff;
+
+            &::after {
+                border-top: 3px solid #fff;
+                border-right: 3px solid #fff;
+            }
+        }
+        a { 
+            color: #fff; 
+        }
+    }
+    
+    a {
+        color: #ccc;
+        transition: all 0.15s ease;
+    }
+    a:hover {
+        color: #fff;
+    }
+}

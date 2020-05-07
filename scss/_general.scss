@@ -1,0 +1,27 @@
+body {
+    color: #222;
+}
+
+a {
+    color: #007eb1;
+}
+a:hover {
+    color: #ff8100;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+@include screen(tablet) {
+    .left-column { border-right: 1px solid #ddd; }
+}
+
+:focus {
+    outline-color: #c00;
+    outline-style: auto;
+    outline-width: 1px;
+}
+.content-image.original img {
+    width: auto;
+}

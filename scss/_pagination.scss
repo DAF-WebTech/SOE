@@ -1,0 +1,24 @@
+.pagination {
+    li {
+        a {
+            border: 1px solid #ccc;
+        
+            &:hover {
+                background-color: #f1f1f1;
+                border-color: #aaa;
+                color: #007eb1;
+            }
+        }
+        a:active,
+        &.active a:hover,
+        &.active a {
+            border-color: #007eb1;
+            background-color: #007eb1;
+            color: #fff;
+        }
+    }
+
+    &.glossary {
+        margin-bottom: 2em;
+    }
+}
