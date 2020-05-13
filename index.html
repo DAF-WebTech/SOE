@@ -1,5 +1,4 @@
 <html>
-
 <head>
 <style>table,thead,tr,th,tbody,td,tfoot{border:1px black solid;}
 th,td{text-align:left;}
@@ -30,8 +29,9 @@ th.num,td.num{text-align:right}</style>
 
 <script src=/js/biodiversity/freshwater/condition-of-riverine-ecosystem-health.js></script>
 
+
 <script>
-		document.getElementById("chartdata").textContent = JSON.stringify(chartData);
+		document.getElementById("chartData").textContent = JSON.stringify(chartData);
 </script>
 //////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,11 +53,11 @@ th.num,td.num{text-align:right}</style>
 		//############
 		function populateIndicatorCharts() {
 
-			var chartData = JSON.parse(document.getElementById("chartdata").textContent);
+			var chartData = JSON.parse(document.getElementById("chartData").textContent);
 			soejs.num_charts = chartData.length;
 			chartData.forEach(function (cd, i) {
 				var data = google.visualization.arrayToDataTable(cd.data);
-				switch (cd.type) {
+				switch (cd.chartType) {
 					case "pie":
 						var chart = new google.visualization.PieChart(document.getElementById("chart_" + i));
 						break;

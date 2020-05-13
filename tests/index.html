@@ -1,29 +1,10 @@
 <html>
 
 <head>
-	<style>
-		table,
-		thead,
-		tr,
-		th,
-		tbody,
-		td,
-		tfoot {
-			border: 1px black solid;
-		}
-
-		th,
-		td {
-			text-align: left;
-		}
-
-		th.num,
-		td.num {
-			text-align: right
-		}
-	</style>
+<style>table,thead,tr,th,tbody,td,tfoot {border: 1px black solid;}
+th,td {text-align: left;}
+th.num,td.num {text-align: right}</style>
 	<title>%frontend_asset_name%</title>
-
 </head>
 
 <body>
@@ -42,7 +23,7 @@
 
 
 var request = new XMLHttpRequest();
-request.open("GET", "/data/indicator-3-4-0-4.csv", false);  // `false` makes the request synchronous
+request.open("GET", "/data/indicator-1-2-0-4.csv", false);  // `false` makes the request synchronous
 request.send(null);
 var csv = "";
 if (request.status === 200) {

@@ -1,4 +1,6 @@
-var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+if (typeof csv == "undefined") {
+	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+}
 
 var results = Papa.parse(
 	csv,
@@ -120,4 +122,4 @@ regions.forEach(function (region, i) {
 
 
 
-print("<script id=chartdata type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");

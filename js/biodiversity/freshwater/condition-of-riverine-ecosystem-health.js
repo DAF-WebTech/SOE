@@ -1,13 +1,14 @@
-if (typeof csv === "undefined")
+if (typeof csv === "undefined") {
 	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+}
 
 var chartData = [];
-var gauges = [];
+var dials = [];
 var result = [];
 var data = {};
 
 
-var result = Papa.parse("%globals_asset_file_contents:1469689^replace:\r\n:\\n%", { header: true, dynamicTyping: true, skipEmptyLines: true });
+var result = Papa.parse(csv, { header: true, dynamicTyping: true, skipEmptyLines: true });
 
 //group records by area 
 
@@ -70,35 +71,31 @@ Object.keys(data).forEach(function (k) {
 
 	var kebab = k.toKebabCase();
 
-	// first we'll collate the gauges
+	// first we'll collate the dials
 	var area = data[k];
 	if (k.indexOf("QCatchment") == 0) {
 
 		// it's a 1 to 4 scale
-		var letterGrades = ["", "D", "C", "B", "A"];
-		var gauge = {
-			element: "gauge-" + kebab,
-			theme: "biodiversity",
-			segments: 4,
-			grade: letterGrades[area[0]["Numeric equivalent"]], //assuming there's only one record
-			label: area[0].Grade,
-			rangeLabels: ["Poor", "Good"]
-		};
-		if (gauge.grade == "2" || gauge.grade == "3")
-			gauge.fontSize = 12;
+		var numericEquivalents = [0, 2, 4, 6, 8];
+		dials.push({
+			dial: numericEquivalents[area["Numeric Equivalent"]],
+			val: area.Grade,
+			measure: "Condition",
+			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"],
+			region: k.toKebabCase()
+        });
 
-		gauges.push(gauge)
 	}
-	else if (k.indexOf("Fitzroy") == 0 || k.indexOf("Condamine") == 0) {
-		// these have 5 grades, and we have to get the latest one
-		var gauge = {
-			element: "gauge-" + k.toKebabCase(),
-			theme: "biodiversity",
-			segments: 5,
-			grade: String(area[area.length - 1].Grade) //assuming there's only one record
-		};
+	else if (k.indexOf("Fitzroy") == 0 /* removed in 20120 || k.indexOf("Condamine") == 0 */) {
+		var numericEquivalents = [0, 1, 3, 5, 7, 9];
+		dials.push({
+			dial: numericEquivalents[area["Numeric Equivalent"]],
+			val: area.Grade,
+			measure: "Condition",
+			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"]
+        });
 
-		gauges.push(gauge)
+		
 	}
 
 	var heading = "Report card grades";
@@ -168,15 +165,18 @@ print(checkboxen);
 
 
 
-var grades = ["not used", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
-var ticks = [];
-for (var i = 2; i < grades.length; i += 3) {
-	ticks.push({ v: i, f: grades[i] });
+function getDialNumber (grade) {
+	switch(grade.charAt()) {
+		case "D":
+			return "2";
+		case "C":
+			return "4";
+		case "B":
+			return "6";
+		case "A":
+			return "8"
+	}
 }
-
-
-
-
 
 var templateSubCatchment = "\
 <div class=\"subregion-info subregion-{0} {6}\">\
@@ -209,47 +209,56 @@ var regionKebab = "region-healthy-land-and-water-south-east-queensland-report-ca
 Object.keys(subCatchments).forEach(function (k, i) {
 
 	var subCatchment = subCatchments[k];
+	var grade = subCatchment[subCatchment.length-1].Grade
 	var kebab = k.toKebabCase();
 	print(String.format(
-	
-		"<div id=gauge-{0} class=\"subregion-info subregion-{0} gauge-{0} {2}\">\
-		<h4>Report card grades for {1}</h4>\
-		<ul class=\"conditions-container\">\
-			<li>\
-				<div class=\"condition\">\
-					<h4>CONDITION</h4>\
-					<span class=\"rank letter\"></span>\
-					<span class=\"smaller\"></span>\
-				</div>\
-			</li>\
-			<li class=\"rankings\">\
-				<h4>Condition rankings:</h4>\
-				<ul>\
-				</ul>\
-				<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>\
-			</li>\
-		</ul>\
+		// this reproduces [1480411]
+		"<div id=dial-{0} class=\"subregion-info subregion-{0} {2}\"> \
+			<h4>Report card grades for {1}</h4> \
+			<ul class=conditions-container> \
+			    <li class=condition-dial> \
+			        <img src=\"./?a=147990{3}:v4'\" alt=\"{4}\" v-bind:title=\"{4}\" /> \
+			        <h2 class=rank>{4}</h2> \
+			    </li> \
+			    <li class=rankings> \
+			        <h4>Condition rankings:</h4> \
+			        <ul> \
+			            <li>Very Good<li>Good<li>Fair<li>Poor<li>Very Poor \
+			        </ul> \
+			    </li> \
+			</ul> \
 	</div>"
+	, kebab, k, i == 0 ? "" : "initial-hide"), getDialNumber(grade), grade);
 
-		, kebab, k, i == 0 ? "" : "initial-hide"));
+	// grades are for our dial
+	var grades = ["not used", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
+	// ticks are for our charts to be able to show the  + and -
+	var ticks = [];
+	for (var i = 2; i < grades.length; i += 3) {
+		ticks.push({ v: i, f: grades[i] });
+	}
+
+
 
 	// charts and tables
+
 	var thead = "<th scope=col>Year";
 	var tbody = "<tr><th scope=row>Grade";
 	var chart0 = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]];
 	subCatchment.forEach(function (s, i) {
-		thead += "<th scope=col>" + s.Year;
+		thead += "<th scope=col class=num>" + s.Year;
 		tbody += "<td>" + s.Grade;
 		chart0.push([s.Year, grades.indexOf(s.Grade), s.Grade]);
 		if (i == subCatchment.length - 1) {
 			// last one, use this for a gauge
-			var gauge = {
-				element: "gauge-" + kebab,
-				theme: "biodiversity",
-				segments: 4,
-				grade: s.Grade
-			};
-			gauges.push(gauge)
+			dials.push({
+				dial: getDialNumber(s.Grade),
+				val: s.Grade,
+				measure: "Condition",
+				rankings: ["Very Good", "Good", "Fair", "Poor", "Very Poor"],
+				region: s["Water quality report card"].toKebabCase(),
+				subregion: s["Sub-catchment"].toKebabCase()
+			});
 		}
 	});
 
@@ -276,6 +285,6 @@ Object.keys(subCatchments).forEach(function (k, i) {
 print("</div>");
 
 // write the chart data to the page
-print("\n<script id=jsonchartdata type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
-print("\n<script id=jsongaugedata type=application/json>" + JSON.stringify(gauges) + "</" + "script>");
+print("\n<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+print("\n<script id=dialData type=application/json>" + JSON.stringify(dials) + "</" + "script>");
 
