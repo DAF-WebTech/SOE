@@ -18,7 +18,6 @@ result.data.forEach(function(d) {
 	areas[area][d.Subcatchment].push(d);
 });
 
-console.log(areas);
 
 var dials = [];
 Object.keys(areas).forEach(function(k) {
@@ -38,7 +37,8 @@ Object.keys(areas).forEach(function(k) {
 	}
 
 });
-console.log(dials);
+
+
 
 
 
