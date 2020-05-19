@@ -23,7 +23,7 @@ var dials = [];
 Object.keys(areas).forEach(function(k) {
 	if (k.startsWith("QCatchment")) {
 		// we write a dial
-		print(String.format(dialTemplate, k.toKebabCase()));
+		//print(String.format(dialTemplate, k.toKebabCase()));
 
 		// create data which the front end will populate with vue
 		var catchment = areas[k][k][0];
@@ -31,7 +31,7 @@ Object.keys(areas).forEach(function(k) {
 			dial: catchment["Numeric equivalent"] * 2,
 			val: catchment.Grade,
 			measure: "Condition",
-			rankings: ["Poor", "Moderate Disturbance", "Minor Disturbance", "Good"],
+			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"],
 			region: k.toKebabCase()
 		});
 	}
