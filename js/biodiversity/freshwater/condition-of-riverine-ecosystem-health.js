@@ -29,10 +29,10 @@ Object.keys(areas).forEach(function(k) {
 		// create data which the front end will populate with vue
 		var catchment = areas[k][k][0];
 		dials.push({
-			dial: catchment["Numeric equivalent"] * 2,
-			val: catchment.Grade,
-			measure: "Condition",
-			rankings: ["Poor", "Moderate Disturbance", "Minor Disturbance", "Good"],
+			dial: catchment["Numeric equivalent"] * 2,
+			val: catchment.Grade,
+			measure: "Condition",
+			rankings: ["Poor", "Moderate Disturbance", "Minor Disturbance", "Good"],
 			region: k.toKebabCase()
 		});
 	}
