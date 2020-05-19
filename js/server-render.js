@@ -305,9 +305,21 @@ var chartTableTemplate = " \
 </div> \
 {{/each}}";
 
-
+// this is a copy of 1480412, so make sure you propogate changes
+// not double {{ is for String.format
 var dialTemplate = "\
 <div class=\"region-info region-{0} dial-{0}\"> \
-%globals_asset_contents_raw:1480412^replace:\":\\\"% \
+	<ul class=\"conditions-container\"> \
+		<li class=\"condition-dial\"> \
+			<img v-bind:src=\"'./?a=147990' + dial + ':v4'\" v-bind:alt=\"val.toLowerCase()\" v-bind:title=\"val\" /> \
+			<h2 class=\"rank\" v-bind:class=\"{{'smaller': val.length>18}}\" v-text=\"val.toUpperCase()\"></h2> \
+		</li> \
+		<li class=\"rankings\"> \
+			<h4 v-text=\"measure + ' rankings:'\"></h4> \
+			<ul> \
+				<li v-for=\"rank in rankings\" v-text=\"rank\"></li> \
+			</ul> \
+		</li> \
+	</ul> \
 </div> \
 ";
