@@ -304,3 +304,10 @@ var chartTableTemplate = " \
 	</div> \
 </div> \
 {{/each}}";
+
+
+var dialTemplate = '\
+<div class="region-info region-{0} dial-{0}"> \
+%globals_asset_contents_raw:1480412% \
+</div> \
+';
