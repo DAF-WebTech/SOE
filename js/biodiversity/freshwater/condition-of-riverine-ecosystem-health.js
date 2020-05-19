@@ -125,10 +125,10 @@ Object.keys(data).forEach(function (k) {
 	else {
 		// charts and tables
 		var thead = "<th scope=col>Year<th scope=col class=num>Grade";
-		var tbody = "<tr>";
+		var tbody = "";
 		var chart0 = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]];
 		area.forEach(function (a) {
-			tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", a.year, a.Grade);
+			tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", a.Year, a.Grade);
 			chart0.push([a.Year, a["Numeric equivalent"], a.Grade]);
 		});
 		var markup = String.format(templateChartAndTable, kebab, heading, ++counter, thead, tbody);
