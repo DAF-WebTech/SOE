@@ -77,6 +77,15 @@ String.prototype.toKebabCase = function () {
 	return this.toLowerCase().replace(/ /g, "-");
 }
 
+if (!String.prototype.startsWith) {
+    Object.defineProperty(String.prototype, 'startsWith', {
+        value: function(search, rawPos) {
+            var pos = rawPos > 0 ? rawPos|0 : 0;
+            return this.substring(pos, pos + search.length) === search;
+        }
+    });
+}
+
 
 String.format = function (format, args) {
 	var result = '';
