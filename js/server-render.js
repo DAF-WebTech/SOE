@@ -345,7 +345,7 @@ var regionInfoTemplateDialAndTable = "\
 ";
 
 var regionInfoTemplateDialAndChart = "\
-<div class=\"region-info region-{0} subregion-{1} dial-{1}  \"> \n\
+<div class=\"region-info region-{0} region-{1} dial-{1}  \"> \n\
 	<h3>{2}</h3>\n\
 	<ul class=\"conditions-container\"> \n\
 		<li class=\"condition-dial\"> \n\
@@ -372,5 +372,5 @@ var regionInfoTemplateDialAndChart = "\
 				</div> \n\
 			</div>\n\
 	</div>\n\
-</div> \
+</div> \n\
 ";
