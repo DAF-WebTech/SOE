@@ -346,7 +346,7 @@ var regionInfoTemplateDialAndTable = "\
 
 var regionInfoTemplateDialAndChart = "\
 <div class=\"subregion-info subregion-{0} dial-{0} {5} \"> \n\
-	<h3>{2}</h3>\n\
+	<h3>{1}</h3>\n\
 	<ul class=\"conditions-container\"> \n\
 		<li class=\"condition-dial\"> \n\
 			<img v-bind:src=\"'./?a=147990' + dial + ':v4'\" v-bind:alt=\"val.toLowerCase()\" v-bind:title=\"val\" /> \n\
