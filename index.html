@@ -52,7 +52,7 @@ th.num,td.num{text-align:right}</style>
 		// client side
 		//############
 		function populateIndicatorCharts() {
-
+			if (! document.getElementById("chartData")) return;
 			var chartData = JSON.parse(document.getElementById("chartData").textContent);
 			soejs.num_charts = chartData.length;
 			chartData.forEach(function (cd, i) {

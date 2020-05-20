@@ -316,19 +316,31 @@ var chartTableTemplate = " \
 
 // this is a copy of 1480412, so make sure you propogate changes
 // not double {{ is for String.format
-var dialTemplate = "\
-<div class=\"region-info region-{0} dial-{0}\"> \
-	<ul class=\"conditions-container\"> \
-		<li class=\"condition-dial\"> \
-			<img v-bind:src=\"'./?a=147990' + dial + ':v4'\" v-bind:alt=\"val.toLowerCase()\" v-bind:title=\"val\" /> \
-			<h2 class=\"rank\" v-bind:class=\"{{'smaller': val.length>18}}\" v-text=\"val.toUpperCase()\"></h2> \
-		</li> \
-		<li class=\"rankings\"> \
-			<h4 v-text=\"measure + ' rankings:'\"></h4> \
+var regionInfoTemplateDialAndTable = "\
+<div class=\"region-info region-{0} dial-{0}\"> \n\
+	<h3>{1}</h3>\n\
+	<ul class=\"conditions-container\"> \n\
+		<li class=\"condition-dial\"> \n\
+			<img v-bind:src=\"'./?a=147990' + dial + ':v4'\" v-bind:alt=\"val.toLowerCase()\" v-bind:title=\"val\" /> \n\
+			<h2 class=\"rank\" v-bind:class=\"{{'smaller': val.length>18}}\" v-text=\"val.toUpperCase()\"></h2> \n\
+		</li> \n\
+		<li class=\"rankings\"> \n\
+			<h4 v-text=\"measure + ' rankings:'\"></h4> \n\
 			<ul> \
-				<li v-for=\"rank in rankings\" v-text=\"rank\"></li> \
-			</ul> \
-		</li> \
-	</ul> \
+				<li v-for=\"rank in rankings\" v-text=\"rank\"></li> \n\
+			</ul> \n\
+		</li> \n\
+	</ul> \n\
+	<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p> \n\
+	<h4>Report card grades in {1}</h4>\n\
+	<div class=chart-table>\n\
+			<div id=table_{2} class=\"responsive-table sticky inactive\">\n\
+					<table class=\"indicators zebra\">\n\
+						<thead><tr>{3}\n\
+						<tbody>{4}\n\
+						{5}\
+					</table>\n\
+			</div>\n\
+	</div>\n\
 </div> \
 ";

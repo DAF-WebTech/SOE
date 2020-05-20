@@ -20,20 +20,35 @@ result.data.forEach(function(d) {
 
 
 var dials = [];
+var counter = 0;
+
+//First we'll deal with the QCatchment items, they are simplest.
 Object.keys(areas).forEach(function(k) {
 	if (k.startsWith("QCatchment")) {
-		// we write a dial
-		//print(String.format(dialTemplate, k.toKebabCase()));
+
+		var catchment = areas[k][k][0];
+
+		// we write a dial and table
+		// note that in 2020 report there was only one line per qcatchment
+
+		print(String.format(regionInfoTemplateDialAndTable, 
+			k.toKebabCase(),
+			k,
+			counter,
+			"<th>Year<th>Grade",
+			String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
+		));
 
 		// create data which the front end will populate with vue
-		var catchment = areas[k][k][0];
 		dials.push({
 			dial: catchment["Numeric equivalent"] * 2,
 			val: catchment.Grade,
 			measure: "Condition",
-			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"],
+			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Severe Disturbance"],
 			region: k.toKebabCase()
 		});
+
+		++counter;
 	}
 
 });
