@@ -93,8 +93,7 @@ var seq = function(seq) {
 			subname.replace(/-/, "&ndash;"),
 			counter,
 			"<th>Year<th>Grade",
-			tbody,
-			(i == 0 ? "" : "hidden")
+			tbody
 		));
 
 
