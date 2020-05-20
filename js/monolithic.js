@@ -893,6 +893,10 @@ var soejs = {
 			region.style.display = "none";
 		});
 
+		// 7. do anything else required by the page
+		if (soejs.afterCharts)
+			soejs.afterCharts();
+
 
 	}, //~ chartsLoaded3
 
