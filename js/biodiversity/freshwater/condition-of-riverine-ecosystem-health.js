@@ -71,7 +71,7 @@ var seq = function(seq) {
 		var chart = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]]
 		subcatchment.forEach(function(sc) {
 			tbody += String.format("<tr><th>{0}<td>{1}", sc.Year, sc.Grade)
-			chart.push([sc.Year, sc.Grade, grades.indexOf(sc.Grade)]);
+			chart.push([String(sc.Year), sc.Grade, grades.indexOf(sc.Grade)]);
 		});
 
 		print(String.format(regionInfoTemplateDialAndChart, 
