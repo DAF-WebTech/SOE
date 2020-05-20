@@ -36,7 +36,7 @@ var qcatchment = function(catchment) {
 			String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
 		));
 
-		// create data which the front end will populate with vue
+		// create dial data which the front end will populate with vue
 		dials.push({
 			dial: catchment["Numeric equivalent"] * 2,
 			val: catchment.Grade,
@@ -46,16 +46,69 @@ var qcatchment = function(catchment) {
 		});
 
 		++counter;
-
 }
 
-//First we'll deal with the QCatchment items, they are simplest.
+var seq = function(seq) {
+	Object.keys(seq).forEach(function(key) {
+		var name = seq[key][0]["Water quality report card"];
+		var subcatchment = seq[key];
+		var subname = key;
+
+		// create table and chart data
+		//String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
+		var tbody = "";
+		subcatchment.forEach(function(sc) {
+			tbody += String.format("<tr><th>{0}<td>{1}", sc.Year, sc.Grade)
+		});
+
+		print(String.format(regionInfoTemplateDialAndChart, 
+			name.toKebabCase(),
+			subname.toKebabCase(),
+			subname,
+			counter,
+			"<th>Year<th>Grade",
+			tbody
+		));
+		++counter;
+
+
+
+		// create dial data which the front end will populate with vue
+		var latestYear = subcatchment[subcatchment.length - 1]
+		var grade = "1";
+		if (latestYear.Grade.startsWith("D"))
+			grade = "3";
+		else if (latestYear.Grade.startsWith("C"))
+			grade = "5";
+		else if (latestYear.Grade.startsWith("B"))
+			grade = "7";
+		else if (latestYear.Grade.startsWith("A"))
+			grade = "9";
+
+		dials.push({
+			dial: latestYear["Numeric equivalent"] * 2,
+			val: grade,
+			measure: "Condition",
+			rankings: ["Excellent", "Good", "Fair", "Poor", "Fail"],
+			region: subname.toKebabCase()
+		});
+
+
+	});
+}
+
+
+
+
+
 Object.keys(areas).forEach(function(k) {
 	if (k.startsWith("QCatchment")) {
 		qcatchment(areas[k][k][0]);
-
 	}
 
+	if (k.startsWith("Healthy Land and Water South East Queensland")) {
+		seq(areas[k]);
+	}
 });
 
 
