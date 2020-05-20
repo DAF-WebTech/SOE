@@ -71,7 +71,7 @@ if (request.status === 200) {
 
 				var data = google.visualization.arrayToDataTable(cd.data);
 				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
-				chart.draw(data, cd.options);
+				chart.draw(data, cd.chartOptions);
 
 
 			});

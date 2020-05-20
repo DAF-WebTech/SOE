@@ -72,7 +72,13 @@ th.num,td.num{text-align:right}</style>
 
 
 				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
-				chart.draw(data, cd.options);
+
+				///////////////////////// temp
+				data.setColumnProperty(2, "role", "tooltip");
+				//////
+
+
+				chart.draw(data, cd.chartOptions);
 
 				// });
 				// }

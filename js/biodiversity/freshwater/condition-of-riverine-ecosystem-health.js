@@ -68,16 +68,16 @@ var seq = function(seq) {
 		//String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
 
 		var tbody = "";
-		var chart = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]]
+		var chart = [[{ label: "Year", type: 'string' }, { label: "Numeric equivalent", type: 'number' }, { label: "Grade", type: 'string' }]];
 		subcatchment.forEach(function(sc) {
 			tbody += String.format("<tr><th>{0}<td>{1}", sc.Year, sc.Grade)
-			chart.push([String(sc.Year), sc.Grade, grades.indexOf(sc.Grade)]);
+			chart.push([String(sc.Year), grades.indexOf(sc.Grade), sc.Grade]);
 		});
 
 		print(String.format(regionInfoTemplateDialAndChart, 
 			name.toKebabCase(),
 			subname.toKebabCase(),
-			subname.replace(/-/, "&ndash"),
+			subname.replace(/-/, "&ndash;"),
 			counter,
 			"<th>Year<th>Grade",
 			tbody
