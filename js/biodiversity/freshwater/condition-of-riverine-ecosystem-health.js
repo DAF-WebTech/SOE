@@ -50,17 +50,18 @@ var qcatchment = function(catchment) {
 }
 
 var seq = function(seq) {
+	print("<div class=\"region-info region-healthy-land-and-water-south-east-queensland-report-card\">");
 
 	// print out checkboxes for each subcatchment
 	var checkboxen = ""
 	Object.keys(seq).forEach(function(key, i) {
 		if (i == 0) {
-			checkboxen += String.format("<div class=\"region-info region-{0} checkboxdiv\"><h4>Select sub-catchments</h4><ul>", seq[key][0]["Water quality report card"].toKebabCase());
+			checkboxen += "<h4>Select sub-catchments</h4><ul class=checkbox-list>";
 		}
 		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-subregion={0} class=checkbox-subregion {2} /><label for=checkbox-{0}>{1}</label>",
 		key.toKebabCase(), key, (i == 0 ? "checked" : ""));
 	});
-	checkboxen += "</ul></div>";
+	checkboxen += "</ul>";
 	print(checkboxen);
 
 
@@ -78,8 +79,6 @@ var seq = function(seq) {
 		var subname = key;
 
 		// create table and chart data
-		//String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
-
 		var tbody = "";
 		var chart = [[{ label: "Year", type: 'string' }, { label: "Numeric equivalent", type: 'number' }, { label: "Grade", type: 'string' }]];
 		subcatchment.forEach(function(sc) {
@@ -88,7 +87,6 @@ var seq = function(seq) {
 		});
 
 		print(String.format(regionInfoTemplateDialAndChart, 
-			name.toKebabCase(),
 			subname.toKebabCase(),
 			subname.replace(/-/, "&ndash;"),
 			counter,
@@ -131,6 +129,8 @@ var seq = function(seq) {
 
 
 	});
+
+	print("</div>");
 }
 
 

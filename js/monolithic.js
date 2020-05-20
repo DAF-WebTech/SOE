@@ -920,6 +920,8 @@ var soejs = {
 
 		document.querySelectorAll("." + selected_region).forEach(function (sr) {
 			sr.style.display = "block";
+
+			// if 
 		});
 
 		soejs.firstHash ? (window.location.hash = selected_region) : (soejs.firstHash = true);

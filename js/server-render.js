@@ -345,7 +345,7 @@ var regionInfoTemplateDialAndTable = "\
 ";
 
 var regionInfoTemplateDialAndChart = "\
-<div class=\"region-info region-{0} region-{1} dial-{1} subregion {6} \"> \n\
+<div class=\"subregion-info subregion-{0} dial-{0} {5} \"> \n\
 	<h3>{2}</h3>\n\
 	<ul class=\"conditions-container\"> \n\
 		<li class=\"condition-dial\"> \n\
@@ -360,17 +360,17 @@ var regionInfoTemplateDialAndChart = "\
 		</li> \n\
 	</ul> \n\
 	<!--<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>--> \n\
-	<h4>Report card grades in {2}</h4>\n\
-	<ul class=chart-tabs data-index={3}> \n\
+	<h4>Report card grades in {1}</h4>\n\
+	<ul class=chart-tabs data-index={2}> \n\
 		<li class=active><span>Chart</span></li> \n\
 		<li><span>Table</span></li> \n\
 	</ul>\n\
-	<div class=chart-table id=chartgroup_{3}> \n\
-		<div id=chart_{3} class=\"chart ui-tabs-panel\"></div> \n\
-		<div id=table_{3} class=inactive>\n\
+	<div class=chart-table id=chartgroup_{2}> \n\
+		<div id=chart_{2} class=\"chart ui-tabs-panel\"></div> \n\
+		<div id=table_{2} class=inactive>\n\
 			<table class=\"indicators zebra\">\n\
-				<thead><tr>{4}\n\
-				<tbody>{5}\n\
+				<thead><tr>{3}\n\
+				<tbody>{4}\n\
 			</table> \n\
 		</div> \n\
 	</div>\n\
