@@ -22,18 +22,15 @@ result.data.forEach(function(d) {
 var dials = [];
 var counter = 0;
 
-//First we'll deal with the QCatchment items, they are simplest.
-Object.keys(areas).forEach(function(k) {
-	if (k.startsWith("QCatchment")) {
-
-		var catchment = areas[k][k][0];
+var qcatchment = function(catchment) {
 
 		// we write a dial and table
 		// note that in 2020 report there was only one line per qcatchment
+		var name = catchment["Water quality report card"];
 
 		print(String.format(regionInfoTemplateDialAndTable, 
-			k.toKebabCase(),
-			k,
+			name.toKebabCase(),
+			name,
 			counter,
 			"<th>Year<th>Grade",
 			String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
@@ -45,10 +42,18 @@ Object.keys(areas).forEach(function(k) {
 			val: catchment.Grade,
 			measure: "Condition",
 			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Severe Disturbance"],
-			region: k.toKebabCase()
+			region: name.toKebabCase()
 		});
 
 		++counter;
+
+}
+
+//First we'll deal with the QCatchment items, they are simplest.
+Object.keys(areas).forEach(function(k) {
+	if (k.startsWith("QCatchment")) {
+		qcatchment(areas[k][k][0]);
+
 	}
 
 });
