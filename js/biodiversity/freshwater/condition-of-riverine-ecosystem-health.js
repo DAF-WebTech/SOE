@@ -49,12 +49,16 @@ var qcatchment = function(catchment) {
 		++counter;
 }
 
-var seq = function(seq) {
-	print("<div class=\"region-info region-healthy-land-and-water-south-east-queensland-report-card\">");
+var doCatchments = function(options) {
+
+	var catchment = options.data;
+	var name = options.name;
+
+	print(String.format("<div class=\"region-info region-{0}\">", name.toKebabCase()));
 
 	// print out checkboxes for each subcatchment
 	var checkboxen = ""
-	Object.keys(seq).forEach(function(key, i) {
+	Object.keys(catchment).forEach(function(key, i) {
 		if (i == 0) {
 			checkboxen += "<h4>Select sub-catchments</h4><ul class=checkbox-list>";
 		}
@@ -65,17 +69,17 @@ var seq = function(seq) {
 	print(checkboxen);
 
 
-	var grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
+	var grades = options.grades;
 	// ticks are are our chart lines
-	var ticks = [{v:0, f: ""}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "B"}, {v:11, f: "A"} ];
+	var ticks = options.ticks;
 	var chartOptions = getDefaultLineChartOptions();
 	chartOptions.legend = { position: "none" };
 	chartOptions.vAxis.title = "Grade";
 	chartOptions.vAxis.ticks = ticks;
 
-	Object.keys(seq).forEach(function(key, i) {
-		var name = seq[key][0]["Water quality report card"];
-		var subcatchment = seq[key];
+	Object.keys(catchment).forEach(function(key, i) {
+		var name = catchment[key][0]["Water quality report card"];
+		var subcatchment = catchment[key];
 		var subname = key;
 
 		// create table and chart data
@@ -108,22 +112,14 @@ var seq = function(seq) {
 
 
 		// create dial data which the front end will populate with vue
-		var latestYear = subcatchment[subcatchment.length - 1]
-		var grade = "1";
-		if (latestYear.Grade.startsWith("D"))
-			grade = "3";
-		else if (latestYear.Grade.startsWith("C"))
-			grade = "5";
-		else if (latestYear.Grade.startsWith("B"))
-			grade = "7";
-		else if (latestYear.Grade.startsWith("A"))
-			grade = "9";
+		var latestYear = subcatchment[subcatchment.length - 1];
+		var dialGrade = options.getDialGrade(latestYear.Grade);
 
 		dials.push({
-			dial: grade,
+			dial: dialGrade,
 			val: latestYear.Grade,
 			measure: "Condition",
-			rankings: ["Excellent", "Good", "Fair", "Poor", "Fail"],
+			rankings: options.rankings,
 			region: subname.toKebabCase()
 		});
 
@@ -131,6 +127,10 @@ var seq = function(seq) {
 	});
 
 	print("</div>");
+}
+
+var reef = function(reefs) {
+
 }
 
 
@@ -141,238 +141,78 @@ Object.keys(areas).forEach(function(k) {
 	if (k.startsWith("QCatchment")) {
 		qcatchment(areas[k][k][0]);
 	}
+});
 
-	counter = 0;
-	if (k.startsWith("Healthy Land and Water South East Queensland")) {
-		seq(areas[k]);
+// reset the counter
+counter = 0;
+Object.keys(areas).forEach(function(k) {
+	if (k.startsWith("QCatchment")) {
+		return;
+	}
+
+	if (k.startsWith("Reef")) {
+		//reef(areas[k]);
+	}
+	else {
+		var options = {
+			data: areas[k], 
+			name: k
+		};
+
+		if (k.startsWith("Healthy")) {
+			options.grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
+			options.ticks = [{v:0, f: ""}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "B"}, {v:11, f: "A"} ];
+			options.rankings = ["Excellent", "Good", "Fair", "Poor", "Fail"];
+			options.getDialGrade = function(grade) {
+				if (grade.startsWith("D"))
+					return "3";
+				else if (grade.startsWith("C"))
+					return "5";
+				else if (grade.startsWith("B"))
+					return "7";
+				else if (grade.startsWith("A"))
+					return "9";
+				else
+					return "1";
+			}
+		}
+			
+		
+		if (k.startsWith("Wet") || k.startsWith("Mackay") || k.startsWith("Townsville")) {
+			options.rankings = ["Very Good", "Good", "Moderate", "Poor", "Very Poor"];
+			options.ticks = [{v:0, f: ""}, {v:1, f: "D"}, {v:2, f: "C"}, {v:3, f: "B"}, {v:4, f: "A"} ];
+			options.grades = ["E", "D", "C", "B", "A"];
+			options.getDialGrade = function(grade){
+				switch(grade) {
+					case "D" : return "3";
+					case "C" : return "5";
+					case "B" : return "7";
+					case "A" : return "9";
+					default: return "1";
+				}
+			}
+		}
+		else if (k.startsWith("Fitzroy")) {
+			options.rankings = ["Excellent", "Good", "Fair", "Poor", "Fail"];
+			options.ticks = [{v:0, f: ""}, {v:1, f: "D"}, {v:2, f: "C"}, {v:3, f: "B"}, {v:4, f: "A"} ];
+			options.grades = ["E", "D", "C", "B", "A"];
+			options.getDialGrade = function(grade){
+				switch(grade) {
+					case "D" : return "3";
+					case "C" : return "5";
+					case "B" : return "7";
+					case "A" : return "9";
+					default: return "1";
+				}
+			}
+		}
+
+		doCatchments(options);
 	}
 });
 
 
 
-
-
-// var counter = -1;
-// var subCatchments = {};
-// var subCatchmentNames = [];
-// var checkboxen = "";
-// Object.keys(data).forEach(function (k) {
-
-// 	var kebab = k.toKebabCase();
-
-// 	// first we'll collate the dials
-// 	var area = data[k];
-// 	if (k.indexOf("QCatchment") == 0) {
-
-// 		// it's a 1 to 4 scale
-// 		var numericEquivalents = [0, 2, 4, 6, 8];
-// 		dials.push({
-// 			dial: numericEquivalents[area["Numeric Equivalent"]],
-// 			val: area.Grade,
-// 			measure: "Condition",
-// 			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"],
-// 			region: k.toKebabCase()
-//         });
-
-// 	}
-// 	else if (k.indexOf("Fitzroy") == 0 /* removed in 20120 || k.indexOf("Condamine") == 0 */) {
-// 		var numericEquivalents = [0, 1, 3, 5, 7, 9];
-// 		dials.push({
-// 			dial: numericEquivalents[area["Numeric Equivalent"]],
-// 			val: area.Grade,
-// 			measure: "Condition",
-// 			rankings: ["Good", "Minor Disturbance", "Moderate Disturbance", "Poor"]
-//         });
-
-		
-// 	}
-
-// 	var heading = "Report card grades";
-
-// 	// now do charts/tables
-// 	if (k.indexOf("Healthy") == 0) {
-// 		//healthy seq get special treatment, because they have sub-regions
-// 		area.forEach(function (a) {
-// 			if (!subCatchments[a["Sub-catchment"]])
-// 				subCatchments[a["Sub-catchment"]] = [];
-// 			subCatchments[a["Sub-catchment"]].push(a)
-// 			//subCatchmentNames.push(area.Year);
-// 		});
-// 		checkboxen += String.format("\n<div class=\"region-info region-{0}\"><h4>Select sub-catchments</h4><ul class=subFindingCheckBox>", kebab);
-
-// 		// we'll do these separate and last because we have to list checkboxes for each
-
-// 	}
-// 	else if (area.length == 1) {
-// 		//Those areas with only one record get a plain table, no chart
-// 		var thead = "<th scope=col>Year<th scope=col>" + area[0].Year;
-// 		var tbody = "<tr><th scope=row>Grade<td>" + area[0].Grade;
-// 		var markup = String.format(templateTableOnly, kebab, heading, ++counter, thead, tbody);
-// 		print(markup);
-
-// 	}
-// 	else {
-// 		// charts and tables
-// 		var thead = "<th scope=col>Year<th scope=col>Grade";
-// 		var tbody = "";
-// 		var chart0 = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]];
-// 		area.forEach(function (a) {
-// 			tbody += String.format("<tr><th scope=row>{0}<td>{1}", a.Year, a.Grade);
-// 			chart0.push([a.Year, a["Numeric equivalent"], a.Grade]);
-// 		});
-// 		var markup = String.format(templateChartAndTable, kebab, heading, ++counter, thead, tbody);
-// 		print(markup);
-
-// 		var chartOptions = getDefaultLineChartOptions();
-// 		chartOptions.legend = { position: "none" };
-// 		chartOptions.vAxis.title = "Grade";
-// 		chartOptions.vAxis.ticks = [{ v: 1, f: "E" }, { v: 2, f: "D" }, { v: 3, f: "C" }, { v: 4, f: "B" }, { v: 5, f: "A" }];
-
-// 		chartData.push({
-// 			data: chart0,
-// 			chartType: "line",
-// 			chartOptions: chartOptions,
-// 			index: counter
-// 		});
-
-// 	}
-
-// });
-
-
-
-
-
-
-
-// Object.keys(subCatchments).forEach(function (s, i) {
-// 	checkboxen += String.format("\n<li><input type=checkbox value={0} data-sub={0} id={0}_checkbox onchange=\"showhidechart(this)\" {2}><label for={0}_checkbox>{1}</label>", s.toKebabCase(), s, i == 0 ? "checked" : "");
-// });
-// checkboxen += ("</ul>");
-// print(checkboxen);
-
-
-
-// function getDialNumber (grade) {
-// 	switch(grade.charAt()) {
-// 		case "D":
-// 			return "2";
-// 		case "C":
-// 			return "4";
-// 		case "B":
-// 			return "6";
-// 		case "A":
-// 			return "8"
-// 	}
-// }
-
-// var templateSubCatchment = "\
-// <div class=\"subregion-info subregion-{0} {6}\">\
-// 	<h4>{1}</h4>\
-// 	<ul class=chart-tabs data-index={2}>\
-// 	    <li class=active><span>Chart</span>\
-// 	    <li><span>Table</span>\
-// 	</ul>\
-// 	<div class=chart-table>\
-// 		<div id=chart_{2} class=chart></div>\
-// 		<div id=table_{2} class=\"responsive-table sticky inactive\">\
-// 			<table class=\"indicators zebra\">\
-// 				<thead><tr>{3}\
-// 				<tbody>{4}\
-// 				{5}\
-// 			</table>\
-// 		</div>\
-// 	</div>\
-// </div>";
-// // {0} sub region, used for hide/show on checkbox change
-// // {1} heading
-// // {2} 0-based index of chart/table div being added
-// // {3} table head ths
-// // {4} table body rows
-// // {5} table footer often not used.
-
-
-// var regionKebab = "region-healthy-land-and-water-south-east-queensland-report-card";
-
-// Object.keys(subCatchments).forEach(function (k, i) {
-
-// 	var subCatchment = subCatchments[k];
-// 	var grade = subCatchment[subCatchment.length-1].Grade
-// 	var kebab = k.toKebabCase();
-// 	print(String.format(
-// 		// this reproduces [1480411]
-// 		"<div id=dial-{0} class=\"subregion-info subregion-{0} {2}\"> \
-// 			<h4>Report card grades for {1}</h4> \
-// 			<ul class=conditions-container> \
-// 			    <li class=condition-dial> \
-// 			        <img src=\"./?a=147990{3}:v4'\" alt=\"{4}\" v-bind:title=\"{4}\" /> \
-// 			        <h2 class=rank>{4}</h2> \
-// 			    </li> \
-// 			    <li class=rankings> \
-// 			        <h4>Condition rankings:</h4> \
-// 			        <ul> \
-// 			            <li>Very Good<li>Good<li>Fair<li>Poor<li>Very Poor \
-// 			        </ul> \
-// 			    </li> \
-// 			</ul> \
-// 	</div>"
-// 	, kebab, k, i == 0 ? "" : "initial-hide"), getDialNumber(grade), grade);
-
-// 	// grades are for our dial
-// 	var grades = ["not used", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
-// 	// ticks are for our charts to be able to show the  + and -
-// 	var ticks = [];
-// 	for (var i = 2; i < grades.length; i += 3) {
-// 		ticks.push({ v: i, f: grades[i] });
-// 	}
-
-
-
-// 	// charts and tables
-
-// 	var thead = "<th scope=col>Year";
-// 	var tbody = "<tr><th scope=row>Grade";
-// 	var chart0 = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]];
-// 	subCatchment.forEach(function (s, i) {
-// 		thead += "<th scope=col class=num>" + s.Year;
-// 		tbody += "<td>" + s.Grade;
-// 		chart0.push([s.Year, grades.indexOf(s.Grade), s.Grade]);
-// 		if (i == subCatchment.length - 1) {
-// 			// last one, use this for a gauge
-// 			dials.push({
-// 				dial: getDialNumber(s.Grade),
-// 				val: s.Grade,
-// 				measure: "Condition",
-// 				rankings: ["Very Good", "Good", "Fair", "Poor", "Very Poor"],
-// 				region: s["Water quality report card"].toKebabCase(),
-// 				subregion: s["Sub-catchment"].toKebabCase()
-// 			});
-// 		}
-// 	});
-
-// 	var heading = "";
-// 	var markup = String.format(templateSubCatchment, kebab, heading, ++counter, thead, tbody, "", i == 0 ? "" :"initial-hide");
-// 	print(markup);
-
-// 	var chartOptions = getDefaultLineChartOptions();
-// 	chartOptions.legend = { position: "none" };
-// 	chartOptions.vAxis.title = "Grade";
-// 	chartOptions.vAxis.ticks = ticks;
-// 	chartOptions.vAxis.viewWindow = { min: 0, max: grades.length };
-
-// 	chartData.push({
-// 		data: chart0,
-// 		chartType: "line",
-// 		chartOptions: chartOptions,
-// 		index: counter,
-// 		kebab: kebab,
-// 	});
-
-// });
-
-// print("</div>");
-
-// write the chart data to the page
 
 print("\n<script id=chartData type=application/json>" + JSON.stringify(charts) + "</" + "script>");
 print("\n<script id=dialData type=application/json>" + JSON.stringify(dials) + "</" + "script>");
