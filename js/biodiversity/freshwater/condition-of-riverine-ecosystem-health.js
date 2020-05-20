@@ -55,7 +55,7 @@ var seq = function(seq) {
 	var checkboxen = ""
 	Object.keys(seq).forEach(function(key, i) {
 		if (i == 0) {
-			checkboxen += String.format("<div class=\"region-{0} checkboxdiv\"><h4>Select sub-catchments</h4><ul>", seq[key][0]["Water quality report card"].toKebabCase());
+			checkboxen += String.format("<div class=\"region-info region-{0} checkboxdiv\"><h4>Select sub-catchments</h4><ul>", seq[key][0]["Water quality report card"].toKebabCase());
 		}
 		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-subregion={0} class=checkbox-subregion {2} /><label for=checkbox-{0}>{1}</label>",
 		key.toKebabCase(), key, (i == 0 ? "checked" : ""));
