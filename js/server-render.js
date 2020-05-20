@@ -334,12 +334,12 @@ var regionInfoTemplateDialAndTable = "\
 	<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p> \n\
 	<h4>Report card grades in {1}</h4>\n\
 	<div class=chart-table>\n\
-			<div id=table_{2} class=\"responsive-table sticky inactive\">\n\
-					<table class=\"indicators zebra\">\n\
-						<thead><tr>{3}\n\
-						<tbody>{4}\n\
-					</table>\n\
-			</div>\n\
+		<div id=table_{2}>\n\
+			<table class=\"indicators zebra\">\n\
+				<thead><tr>{3}\n\
+				<tbody>{4}\n\
+			</table>\n\
+		</div>\n\
 	</div>\n\
 </div> \
 ";
@@ -365,16 +365,14 @@ var regionInfoTemplateDialAndChart = "\
 		<li class=active><span>Chart</span></li> \n\
 		<li><span>Table</span></li> \n\
 	</ul>\n\
-	<div class='chart-table' id='chartgroup_{3}'> \n\
-		<div id='chart_{3}' class='chart ui-tabs-panel'></div> \n\
-			<div class=chart-table>\n\
-				<div id=table_{3} class=\"responsive-table sticky inactive\">\n\
-					<table class=\"indicators zebra\">\n\
-						<thead><tr>{4}\n\
-						<tbody>{5}\n\
-					</table> \n\
-				</div> \n\
-			</div>\n\
+	<div class=chart-table id=chartgroup_{3}> \n\
+		<div id=chart_{3} class=\"chart ui-tabs-panel\"></div> \n\
+		<div id=table_{3} class=inactive>\n\
+			<table class=\"indicators zebra\">\n\
+				<thead><tr>{4}\n\
+				<tbody>{5}\n\
+			</table> \n\
+		</div> \n\
 	</div>\n\
 </div> \n\
 ";
