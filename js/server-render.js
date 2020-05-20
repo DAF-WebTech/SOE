@@ -345,7 +345,7 @@ var regionInfoTemplateDialAndTable = "\
 ";
 
 var regionInfoTemplateDialAndChart = "\
-<div class=\"region-info region-{0} region-{1} dial-{1} subregion \"> \n\
+<div class=\"region-info region-{0} region-{1} dial-{1} subregion {6} \"> \n\
 	<h3>{2}</h3>\n\
 	<ul class=\"conditions-container\"> \n\
 		<li class=\"condition-dial\"> \n\
@@ -359,7 +359,7 @@ var regionInfoTemplateDialAndChart = "\
 			</ul> \n\
 		</li> \n\
 	</ul> \n\
-	<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p> \n\
+	<!--<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>--> \n\
 	<h4>Report card grades in {2}</h4>\n\
 	<ul class=chart-tabs data-index={3}> \n\
 		<li class=active><span>Chart</span></li> \n\

@@ -55,9 +55,10 @@ var seq = function(seq) {
 	var checkboxen = ""
 	Object.keys(seq).forEach(function(key, i) {
 		if (i == 0) {
-			checkboxen += String.format("<div class=\"region-{0} checkboxdiv\"><ul>", seq[key][0]["Water quality report card"].toKebabCase());
+			checkboxen += String.format("<div class=\"region-{0} checkboxdiv\"><h4>Select sub-catchments</h4><ul>", seq[key][0]["Water quality report card"].toKebabCase());
 		}
-		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-region={0} class=checkbox-subregion /><label for=checkbox-{0}>{1}</label>", key.toKebabCase(), key);
+		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-subregion={0} class=checkbox-subregion {2} /><label for=checkbox-{0}>{1}</label>",
+		key.toKebabCase(), key, (i == 0 ? "checked" : ""));
 	});
 	checkboxen += "</ul></div>";
 	print(checkboxen);
@@ -71,7 +72,7 @@ var seq = function(seq) {
 	chartOptions.vAxis.title = "Grade";
 	chartOptions.vAxis.ticks = ticks;
 
-	Object.keys(seq).forEach(function(key) {
+	Object.keys(seq).forEach(function(key, i) {
 		var name = seq[key][0]["Water quality report card"];
 		var subcatchment = seq[key];
 		var subname = key;
@@ -92,7 +93,8 @@ var seq = function(seq) {
 			subname.replace(/-/, "&ndash;"),
 			counter,
 			"<th>Year<th>Grade",
-			tbody
+			tbody,
+			(i == 0 ? "" : "hidden")
 		));
 
 
