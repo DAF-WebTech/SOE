@@ -86,8 +86,8 @@ var seq = function(seq) {
 			grade = "9";
 
 		dials.push({
-			dial: latestYear["Numeric equivalent"] * 2,
-			val: grade,
+			dial: grade,
+			val: latestYear.Grade,
 			measure: "Condition",
 			rankings: ["Excellent", "Good", "Fair", "Poor", "Fail"],
 			region: subname.toKebabCase()
