@@ -20,6 +20,7 @@ result.data.forEach(function(d) {
 
 
 var dials = [];
+var charts = [];
 var counter = 0;
 
 var qcatchment = function(catchment) {
@@ -31,7 +32,7 @@ var qcatchment = function(catchment) {
 		print(String.format(regionInfoTemplateDialAndTable, 
 			name.toKebabCase(),
 			name,
-			counter,
+			counter + 1000,
 			"<th>Year<th>Grade",
 			String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
 		));
@@ -49,6 +50,15 @@ var qcatchment = function(catchment) {
 }
 
 var seq = function(seq) {
+
+	var grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
+	// ticks are for our charts to be able to show the  + and -
+	var ticks = [{v:0, f: "F"}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "C"}, {v:11, f: "A"} ];
+	var chartOptions = getDefaultLineChartOptions();
+	chartOptions.legend = { position: "none" };
+	chartOptions.vAxis.title = "Grade";
+	chartOptions.vAxis.ticks = ticks;
+
 	Object.keys(seq).forEach(function(key) {
 		var name = seq[key][0]["Water quality report card"];
 		var subcatchment = seq[key];
@@ -56,19 +66,32 @@ var seq = function(seq) {
 
 		// create table and chart data
 		//String.format("<tr><th>{0}<td>{1}", catchment.Year, catchment.Grade)
+
 		var tbody = "";
+		var chart = [[{ label: "Year", type: "string" }, "Grade", "Numeric equivalent"]]
 		subcatchment.forEach(function(sc) {
 			tbody += String.format("<tr><th>{0}<td>{1}", sc.Year, sc.Grade)
+			chart.push([sc.Year, sc.Grade, grades.indexOf(sc.Grade)]);
 		});
 
 		print(String.format(regionInfoTemplateDialAndChart, 
 			name.toKebabCase(),
 			subname.toKebabCase(),
-			subname,
+			subname.replace(/-/, "&ndash"),
 			counter,
 			"<th>Year<th>Grade",
 			tbody
 		));
+
+
+		charts.push({
+			data: chart,
+			chartType: "line",
+			chartOptions: chartOptions,
+			index: counter
+		});
+
+
 		++counter;
 
 
@@ -106,6 +129,7 @@ Object.keys(areas).forEach(function(k) {
 		qcatchment(areas[k][k][0]);
 	}
 
+	counter = 0;
 	if (k.startsWith("Healthy Land and Water South East Queensland")) {
 		seq(areas[k]);
 	}
@@ -336,6 +360,7 @@ Object.keys(areas).forEach(function(k) {
 // print("</div>");
 
 // write the chart data to the page
-//print("\n<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+
+print("\n<script id=chartData type=application/json>" + JSON.stringify(charts) + "</" + "script>");
 print("\n<script id=dialData type=application/json>" + JSON.stringify(dials) + "</" + "script>");
 
