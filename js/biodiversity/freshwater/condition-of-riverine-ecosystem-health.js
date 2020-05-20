@@ -51,9 +51,21 @@ var qcatchment = function(catchment) {
 
 var seq = function(seq) {
 
+	// print out checkboxes for each subcatchment
+	var checkboxen = ""
+	Object.keys(seq).forEach(function(key, i) {
+		if (i == 0) {
+			checkboxen += String.format("<div class=\"region-{0} checkboxdiv\"><ul>", seq[key][0]["Water quality report card"].toKebabCase());
+		}
+		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-region={0} class=checkbox-subregion /><label for=checkbox-{0}>{1}</label>", key.toKebabCase(), key);
+	});
+	checkboxen += "</ul></div>";
+	print(checkboxen);
+
+
 	var grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
-	// ticks are for our charts to be able to show the  + and -
-	var ticks = [{v:0, f: "F"}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "B"}, {v:11, f: "A"} ];
+	// ticks are are our chart lines
+	var ticks = [{v:0, f: ""}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "B"}, {v:11, f: "A"} ];
 	var chartOptions = getDefaultLineChartOptions();
 	chartOptions.legend = { position: "none" };
 	chartOptions.vAxis.title = "Grade";
