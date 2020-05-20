@@ -53,7 +53,7 @@ var seq = function(seq) {
 
 	var grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
 	// ticks are for our charts to be able to show the  + and -
-	var ticks = [{v:0, f: "F"}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "C"}, {v:11, f: "A"} ];
+	var ticks = [{v:0, f: "F"}, {v:2, f: "D"}, {v:5, f: "C"}, {v:8, f: "B"}, {v:11, f: "A"} ];
 	var chartOptions = getDefaultLineChartOptions();
 	chartOptions.legend = { position: "none" };
 	chartOptions.vAxis.title = "Grade";

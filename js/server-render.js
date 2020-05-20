@@ -333,6 +333,10 @@ var regionInfoTemplateDialAndTable = "\
 	</ul> \n\
 	<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p> \n\
 	<h4>Report card grades in {1}</h4>\n\
+	<ul class=chart-tabs data-index={2}> \n\
+		<li class=active><span>Chart</span></li> \n\
+		<li><span>Table</span></li> \n\
+	</ul>\n\
 	<div class=chart-table>\n\
 			<div id=table_{2} class=\"responsive-table sticky inactive\">\n\
 					<table class=\"indicators zebra\">\n\
