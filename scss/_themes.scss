@@ -406,8 +406,11 @@ h3 + .conditions-container {
         align-items: center;
         @include screen(tablet) {
             width: 275px;
-        }
-
+		}
+		img {
+			margin-left: 12px;
+		}
+		
         .rank {
             display: block;
             margin-top: 0.75rem;
