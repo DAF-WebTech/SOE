@@ -466,6 +466,13 @@ h3 + .conditions-container {
 		&::after {
 			display: none;
 		}
+		.soe-summary-container
+			width: 100%;
+			
+			.cover-image {
+				width: 270px;
+			}
+		}
 	}
 	
 	&::after {
