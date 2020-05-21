@@ -456,7 +456,19 @@ h3 + .conditions-container {
     margin-right: -50vw;
     margin-top: 6.5rem;
     
-    &::after {
+    &.eea {
+		width: 100%;
+		left: 0;
+		right: 0;
+		margin-left: 0;
+		margin-right: 0;
+	
+		&::after {
+			display: none;
+		}
+	}
+	
+	&::after {
         position: absolute;
         top: 3.5rem;
         left: 0;
