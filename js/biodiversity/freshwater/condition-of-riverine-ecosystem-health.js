@@ -319,7 +319,7 @@ print(getCheckboxes(reefs));
 
 var name = "Loss of extent of natural wetlands";
 var subcatchment = reefs[name];
-print(String.format("\n<div class=\"region-info subregion-{0}\">\n", name.toKebabCase()));
+print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
 print(String.format("<h3>{0}</h3>\n", name));
 printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
