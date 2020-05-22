@@ -338,7 +338,7 @@ print("</div>");//~subregion div
 // //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 var name = "State of Freshwater Wetland Condition";
 var subcatchment = reefs[name];
-print(String.format("\n<div class=\"region-info subregion-{0}\">\n", name.toKebabCase()));
+print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
 print(String.format("<h3>{0}</h3>\n", name));
 printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
@@ -353,7 +353,7 @@ print("</div>");//~subregion div
 // //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 var name = "Loss of riparian vegetation extent";
 var subcatchment = reefs[name];
-print(String.format("\n<div class=\"region-info subregion-{0}\">\n", name.toKebabCase()));
+print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
 print(String.format("<h3>{0}</h3>\n", name));
 printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
@@ -371,7 +371,7 @@ print("</div>");//~subregion div
 // //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 var name = "Late dry season ground cover";
 var subcatchment = reefs[name];
-print(String.format("\n<div class=\"region-info subregion-{0}\">\n", name.toKebabCase()));
+print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
 print(String.format("<h3>{0}</h3>\n", name));
 printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
@@ -416,7 +416,7 @@ print("</div>");//~subregion div
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 var name = "Area with target ground cover";
 var subcatchment = reefs[name];
-print(String.format("\n<div class=\"region-info subregion-{0}\">\n", name.toKebabCase()));
+print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
 print(String.format("<h3>{0}</h3>\n", name));
 printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
