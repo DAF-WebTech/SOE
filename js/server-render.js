@@ -375,3 +375,18 @@ var regionInfoTemplateDialAndChart = "\
 	</div>\n\
 </div> \n\
 ";
+
+var dialTemplate = " \n \
+<ul class=\"conditions-container\"> \n\
+<li class=\"condition-dial\"> \n\
+	<img v-bind:src=\"'./?a=147990' + dial + ':v4'\" v-bind:alt=\"val.toLowerCase()\" v-bind:title=\"val\" /> \n\
+	<h2 class=\"rank\" v-bind:class=\"{{'smaller': val.length>18}}\" v-text=\"val.toUpperCase()\"></h2> \n\
+</li> \n\
+<li class=\"rankings\"> \n\
+	<h4 v-text=\"measure + ' rankings:'\"></h4> \n\
+	<ul> \
+		<li v-for=\"rank in rankings\" v-text=\"rank\"></li> \n\
+	</ul> \n\
+</li> \n\
+</ul> \n\
+";

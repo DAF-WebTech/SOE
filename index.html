@@ -27,6 +27,9 @@ ul.checkbox-list {columns: 2;list-style-type: none;}
 		if (request.status === 200) {
 			csv = request.responseText;
 		}
+
+
+
 </script>
 
 <script src=/js/biodiversity/freshwater/condition-of-riverine-ecosystem-health.js></script>
@@ -36,7 +39,16 @@ ul.checkbox-list {columns: 2;list-style-type: none;}
 		//document.getElementById("chartData").textContent = JSON.stringify(chartData);
 </script>
 //////////////////////////////////////////////////////////////////////////////////////
-
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var dials = JSON.parse(document.getElementById("dialData").textContent);
+		dials.forEach(function(d) {
+			new Vue({
+				el: String.format("div.subregion-{0} ul.conditions-container, div.region-{0} ul.conditions-container", d.region),
+				data:d
+			});
+		});
+	</script>
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
 		// scaffolding
@@ -68,15 +80,22 @@ ul.checkbox-list {columns: 2;list-style-type: none;}
 						break;
 					case "column":
 						var chart = new google.visualization.ColumnChart(document.getElementById("chart_" + i));
+						break;
 					case "bar":
 						var chart = new google.visualization.BarChart(document.getElementById("chart_" + i));
+						break;
+					case "combo":
+						var chart = new google.visualization.ComboChart(document.getElementById("chart_" + i));
+						break;
 				}
 
 
 				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
 
 				///////////////////////// temp
-				data.setColumnProperty(2, "role", "tooltip");
+				//if (data.noTooltip)
+				if (typeof cd.tooltip == "undefined" || cd.tooltip == true)
+					data.setColumnProperty(2, "role", "tooltip");
 				//////
 
 
