@@ -251,6 +251,35 @@ var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncAr
 	return ret;
 }
 
+var tableChartInner = " \n \
+<h4>{0}</h4> \n\
+<ul class=chart-tabs data-index={1}> \n\
+		<li class=active><span>Chart</span></li> \n\
+		<li><span>Table</span></li> \n\
+</ul> \n\
+<div class=chart-table> \n\
+		<div id=chart_{1} class=chart></div> \n\
+		<div id=table_{1} class=\"responsive-table sticky inactive\"> \n\
+				<table class=\"indicators zebra\"> \n\
+					<thead><tr>{2} \n\
+					<tbody>{3} \n\
+				</table> \n\
+		</div> \n\
+</div> \n\
+";
+
+var tableOnlyInner = " \n \
+<h4>{0}</h4> \n\
+<div class=chart-table> \n\
+		<div id=table_{1} class=\"responsive-table sticky inactive\"> \n\
+				<table class=\"indicators zebra\"> \n\
+					<thead><tr>{2} \n\
+					<tbody>{3} \n\
+				</table> \n\
+		</div> \n\
+</div> \n\
+";
+
 
 var regionInfoTemplate = "\n\
 <div class=\"region-info region-{0} {6}\" {7}>\n\

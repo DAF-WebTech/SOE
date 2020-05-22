@@ -239,7 +239,12 @@ var printReefDial = function (data, name) {
 	});
 }
 
+
+
+
+
 var printReefLineChart = function (subcatchment, name) {
+	
 	var tbody = "";
 	var chart = [[{ label: "Year", type: 'string' }, { label: "Numeric equivalent", type: 'number' }, { label: "Grade", type: 'string' }]];
 
@@ -247,9 +252,8 @@ var printReefLineChart = function (subcatchment, name) {
 		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", data.Year, data.Grade);
 		chart.push([String(data.Year), data["Numeric equivalent"], data.Grade]);
 	});
-	print(String.format(regionInfoTemplate,
-		name.toKebabCase(),
-		name,
+	print(String.format(tableChartInner,
+		"Report card grades for " + name,
 		counter,
 		"<th scope=col>Year<th scope=col class=num>Grade",
 		tbody
@@ -281,8 +285,7 @@ var doReefComboChart = function(subcatchment, name) {
 			data["Loss of extent of natural wetlands/riparian extent (ha)"], 
 			data["Loss of extent of natural wetlands/riparian extent (%)"]]);
 	});
-	print(String.format(regionInfoTemplate,
-		name.toKebabCase(),
+	print(String.format(tableChartInner,
 		name,
 		counter,
 		"<th scope=col rowspan=2>Year<th colspan=2>Loss of extent of natural wetlands/riparian extent<tr><th scope=col class=num>Hectares<th scope=col class=num>Percent",
@@ -387,8 +390,7 @@ subcatchment.forEach(function (data) {
 	chart.push([String(data.Year), data["Late dry season ground cover (%)"]]);
 });
 
-print(String.format(regionInfoTemplate,
-	name.toKebabCase(),
+print(String.format(tableChartInner,
 	name,
 	counter,
 	"<th scope=col>Year<th scope=col class=num>Percent",
@@ -423,8 +425,7 @@ printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 //first chart/table is the historic grades in a line
 //this one is table only, because there's only one value
 var tbody = String.format("<tr><th scope=row>{0}<td class=num>{1}", subcatchment[0].Year, subcatchment[0].Grade);
-print(String.format(regionInfoTemplateTableOnly,
-	name.toKebabCase(),
+print(String.format(tableOnlyInner,
 	name,
 	counter,
 	"<th scope=col>Year<th scope=col class=num>Grade",
@@ -433,8 +434,7 @@ print(String.format(regionInfoTemplateTableOnly,
 
 // a second table to show the area percentage
 tbody = String.format("<tr><th scope=row>{0}<td class=num>{1}", subcatchment[0].Year, subcatchment[0]["Area with target ground cover"]);
-print(String.format(regionInfoTemplateTableOnly,
-	name.toKebabCase(),
+print(String.format(tableOnlyInner,
 	name,
 	counter,
 	"<th scope=col>Year<th scope=col class=num>Area with target ground cover (%)",
@@ -446,7 +446,7 @@ print(String.format(regionInfoTemplateTableOnly,
 print("</div>");//~subregion div
 
 
-print("<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>\n");
+//print("<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>\n");
 print("</div>"); //~ this closes the reef div.region-info
 
 
