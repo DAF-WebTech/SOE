@@ -94,7 +94,7 @@ var doCatchments = function (options) {
 		var tbody = "";
 		var chart = [[{ label: "Year", type: 'string' }, { label: "Numeric equivalent", type: 'number' }, { label: "Grade", type: 'string' }]];
 		subcatchment.forEach(function (sc) {
-			tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", sc.Year, sc.Grade)
+			tbody += String.format("<tr><th scope=row>{0}<td>{1}", sc.Year, sc.Grade)
 			chart.push([String(sc.Year), grades.indexOf(sc.Grade), sc.Grade]);
 		});
 
@@ -102,7 +102,7 @@ var doCatchments = function (options) {
 			subname.toKebabCase(),
 			subname.replace(/-/, "&ndash;"),
 			counter,
-			"<th scope=col>Year<th class=num>Grade",
+			"<th scope=col>Year<th>Grade",
 			tbody
 		));
 
