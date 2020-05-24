@@ -35,7 +35,7 @@ var qcatchment = function (catchment) {
 		name.toKebabCase(),
 		name,
 		counter + 1000,
-		"<th scope=col>Year<th scope=col class=num>Grade",
+		"<th scope=col>Year<th scope=col>Grade",
 		String.format("<tr><th scope=row>{0}<td>{1}", catchment.Year, catchment.Grade)
 	));
 
@@ -56,12 +56,12 @@ var getCheckboxes = function (catchment) {
 	var checkboxen = ""
 	Object.keys(catchment).forEach(function (key, i) {
 		if (i == 0) {
-			checkboxen += "<h4>Select sub-catchments</h4><ul class=checkbox-list>";
+			checkboxen += "<h4>Select sub-catchments</h4><ul class=checkbox-list>\n";
 		}
-		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-subregion={0} class=checkbox-subregion {2} /><label for=checkbox-{0}>{1}</label>",
-			key.toKebabCase(), key, (i == 0 ? "checked" : ""));
+		checkboxen += String.format("<li><input type=checkbox id=checkbox-{0} data-subregion={0} class=checkbox-subregion {2} /><label for=checkbox-{0}>{1}</label>\n",
+			key.toKebabCase(), key.replace(/-/, "&ndash;"), (i == 0 ? "checked" : ""));
 	});
-	checkboxen += "</ul>";
+	checkboxen += "</ul>\n";
 	return checkboxen;
 
 };
