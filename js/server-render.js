@@ -257,14 +257,14 @@ var tableChartInner = " \n \
 		<li class=active><span>Chart</span></li> \n\
 		<li><span>Table</span></li> \n\
 </ul> \n\
-<div class=chart-table> \n\
-		<div id=chart_{1} class=chart></div> \n\
-		<div id=table_{1} class=\"responsive-table sticky inactive\"> \n\
-				<table class=\"indicators zebra\"> \n\
-					<thead><tr>{2} \n\
-					<tbody>{3} \n\
-				</table> \n\
-		</div> \n\
+<div class=chart-table id=chartgroup_{1}> \n\
+	<div id=chart_{1} class=chart ui-tabs-panel></div> \n\
+	<div id=table_{1} class=inactive> \n\
+		<table class=\"indicators zebra\"> \n\
+			<thead><tr>{2} \n\
+			<tbody>{3} \n\
+		</table> \n\
+	</div> \n\
 </div> \n\
 ";
 
