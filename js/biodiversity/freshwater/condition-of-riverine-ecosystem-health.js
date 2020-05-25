@@ -433,6 +433,7 @@ print(String.format(tableOnlyInner,
 ));
 
 // a second table to show the area percentage
+++counter;
 tbody = String.format("<tr><th scope=row>{0}<td class=num>{1}", subcatchment[0].Year, subcatchment[0]["Area with target ground cover"]);
 print(String.format(tableOnlyInner,
 	name,

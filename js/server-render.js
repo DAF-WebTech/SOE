@@ -271,12 +271,12 @@ var tableChartInner = " \n \
 var tableOnlyInner = " \n \
 <h4>{0}</h4> \n\
 <div class=chart-table> \n\
-		<div id=table_{1} class=\"responsive-table sticky inactive\"> \n\
-				<table class=\"indicators zebra\"> \n\
-					<thead><tr>{2} \n\
-					<tbody>{3} \n\
-				</table> \n\
-		</div> \n\
+	<div id=table_{1}> \n\
+		<table class=\"indicators zebra\"> \n\
+			<thead><tr>{2} \n\
+			<tbody>{3} \n\
+		</table> \n\
+	</div> \n\
 </div> \n\
 ";
 
