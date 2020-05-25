@@ -424,21 +424,21 @@ printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 
 //first chart/table is the historic grades in a line
 //this one is table only, because there's only one value
-var tbody = String.format("<tr><th scope=row>{0}<td class=num>{1}", subcatchment[0].Year, subcatchment[0].Grade);
+var tbody = String.format("<tr><th scope=row>{0}<td>{1}", subcatchment[0].Year, subcatchment[0].Grade);
 print(String.format(tableOnlyInner,
 	name,
 	counter,
-	"<th scope=col>Year<th scope=col class=num>Grade",
+	"<th scope=col>Year<th scope=col>Grade",
 	tbody
 ));
 
 // a second table to show the area percentage
 ++counter;
-tbody = String.format("<tr><th scope=row>{0}<td class=num>{1}", subcatchment[0].Year, subcatchment[0]["Area with target ground cover"]);
+tbody = String.format("<tr><th scope=row>{0}<td>{1}", subcatchment[0].Year, subcatchment[0]["Area with target ground cover"]);
 print(String.format(tableOnlyInner,
 	name,
 	counter,
-	"<th scope=col>Year<th scope=col class=num>Area with target ground cover (%)",
+	"<th scope=col>Year<th scope=col>Area with target ground cover (%)",
 	tbody
 ));
 
