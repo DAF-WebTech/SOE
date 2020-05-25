@@ -295,6 +295,8 @@ var doReefComboChart = function(subcatchment, name) {
 // we changed this to a column chart
 	var chartOptions = getDefaultColumnChartOptions();
 	chartOptions.vAxis.title = "Hectares";
+	chartOptions.legend = {position: "none"};
+	chartOptions.annotations = { textStyle:{fontSize: "20"} };
 	charts.push({
 		data: chartData,
 		chartType: "column",
@@ -328,7 +330,7 @@ printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 printReefLineChart(subcatchment, name);
 
 // second chart/table is a dual bar/column
-doReefComboChart(subcatchment, name);
+doReefComboChart(subcatchment, name + "/ riparian extent");
 
 
 print("</div>");//~subregion div
