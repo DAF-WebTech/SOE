@@ -234,7 +234,7 @@ var printReefDial = function (data, name) {
 		dial: String((data["Numeric equivalent"] * 2) - 1),
 		val: data.Grade,
 		measure: "Condition",
-		rankings: ["Very Good", "Good", "Moderate Disturbance", "Poor", "Very Poor"],
+		rankings: ["Very Good", "Good", "Moderate", "Poor", "Very Poor"],
 		region: name.toKebabCase()
 	});
 }
