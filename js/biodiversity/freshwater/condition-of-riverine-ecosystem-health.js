@@ -275,20 +275,18 @@ var printReefLineChart = function (subcatchment, name) {
 var doReefComboChart = function(subcatchment, name) {
 
 	var tbody = "";
-	var chartData = [["Year", "Hectares", { role: 'annotation' } ]];
+	var chartData = [["Year", "Hectares"]];
 	subcatchment.forEach(function (data) {
-		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}<td class=num>{2}", 
+		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", 
 			data.Year, 
-			data["Loss of extent of natural wetlands/riparian extent (ha)"], 
-			data["Loss of extent of natural wetlands/riparian extent (%)"]);
+			data["Loss of extent of natural wetlands/riparian extent (ha)"]);
 		chartData.push([String(data.Year), 
-			data["Loss of extent of natural wetlands/riparian extent (ha)"], 
-			String(data["Loss of extent of natural wetlands/riparian extent (%)"]) + "%"]);
+			data["Loss of extent of natural wetlands/riparian extent (ha)"]]);
 	});
 	print(String.format(tableChartInner,
 		name,
 		counter,
-		"<th scope=col>Year<th scope=col class=num>Hectares<th scope=col class=num>Percent",
+		"<th scope=col>Year<th scope=col class=num>Hectares",
 		tbody
 	));
 
@@ -296,7 +294,6 @@ var doReefComboChart = function(subcatchment, name) {
 	var chartOptions = getDefaultColumnChartOptions();
 	chartOptions.vAxis.title = "Hectares";
 	chartOptions.legend = {position: "none"};
-	chartOptions.annotations = { textStyle:{fontSize: "20"} };
 	charts.push({
 		data: chartData,
 		chartType: "column",
