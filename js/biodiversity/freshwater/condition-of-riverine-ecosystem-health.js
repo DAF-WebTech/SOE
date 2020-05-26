@@ -279,7 +279,7 @@ var doReefComboChart = function(subcatchment, name) {
 	subcatchment.forEach(function (data) {
 		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", 
 			data.Year, 
-			data["Loss of extent of natural wetlands/riparian extent (ha)"]);
+			data["Loss of extent of natural wetlands/riparian extent (ha)"].toLocaleString());
 		chartData.push([String(data.Year), 
 			data["Loss of extent of natural wetlands/riparian extent (ha)"]]);
 	});
