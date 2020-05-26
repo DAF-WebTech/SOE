@@ -307,34 +307,6 @@ var doReefComboChart = function(subcatchment, name) {
 
 var doReefPercentLineChart = function(subcatchment, name) {
 
-	var tbody = "";
-	var chartData = [["Year", "Percent"]];
-	subcatchment.forEach(function (data) {
-		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", 
-			data.Year, 
-			data["Loss of extent of natural wetlands/riparian extent (%)"] + "%");
-		chartData.push([String(data.Year), 
-			Number(data["Loss of extent of natural wetlands/riparian extent (%)"].replace(/</, ""))]);
-	});
-	print(String.format(tableChartInner,
-		name,
-		counter,
-		"<th scope=col>Year<th scope=col class=num>Percent",
-		tbody
-	));
-
-// we changed this to a column chart
-	var chartOptions = getDefaultLineChartOptions();
-	chartOptions.vAxis.title = "Percent";
-	chartOptions.legend = {position: "none"};
-	charts.push({
-		data: chartData,
-		chartType: "line",
-		chartOptions: chartOptions,
-		index: counter,
-		/*tooltip: false*/
-	});
-	++counter;
 }
 
 
