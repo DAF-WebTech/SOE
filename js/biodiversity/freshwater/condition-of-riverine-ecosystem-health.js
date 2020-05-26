@@ -307,6 +307,39 @@ var doReefComboChart = function(subcatchment, name) {
 
 var doReefPercentLineChart = function(subcatchment, name) {
 
+	var tbody = "";
+	var chartData = [["Year", "Percent", {role: "tooltip"}]];
+	subcatchment.forEach(function (data) {
+		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", 
+			data.Year, 
+			data["Loss of extent of natural wetlands/riparian extent (%)"] + "%");
+		var mypercent = data["Loss of extent of natural wetlands/riparian extent (%)"];
+		if (typeof (mypercent) == "string") {
+			mypercent = Number(mypercent.replace(/</, ""));
+		}
+		chartData.push([String(data.Year), mypercent, data["Loss of extent of natural wetlands/riparian extent (%)"] + "%"]);
+	});
+	print(String.format(tableChartInner,
+		name,
+		counter,
+		"<th scope=col>Year<th scope=col class=num>Percent",
+		tbody
+	));
+
+// we changed this to a column chart
+	var chartOptions = getDefaultLineChartOptions();
+	chartOptions.vAxis.title = "Percent";
+	chartOptions.legend = {position: "none"};
+	charts.push({
+		data: chartData,
+		chartType: "line",
+		chartOptions: chartOptions,
+		index: counter,
+		tooltip: true
+	});
+	++counter;
+
+
 }
 
 
@@ -330,8 +363,11 @@ printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 //first chart/table is the historic grades in a line
 printReefLineChart(subcatchment, name);
 
-// second chart/table is a dual bar/column
-doReefComboChart(subcatchment, name + "/ riparian extent");
+// second chart/table is a column for hectares
+doReefComboChart(subcatchment, name + " / riparian extent");
+
+// third chart is a line chart for %
+doReefPercentLineChart(subcatchment, name);
 
 
 print("</div>");//~subregion div
@@ -369,6 +405,7 @@ doReefComboChart(subcatchment, name);
 
 // third chart is a line chart for %
 doReefPercentLineChart(subcatchment, name);
+
 
 
 print("</div>");//~subregion div
