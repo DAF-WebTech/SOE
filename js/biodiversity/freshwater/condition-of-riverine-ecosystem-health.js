@@ -38,6 +38,7 @@ var qcatchment = function (catchment) {
 		"<th scope=col>Year<th scope=col>Grade",
 		String.format("<tr><th scope=row>{0}<td>{1}", catchment.Year, catchment.Grade)
 	));
+	print("<h6>N.B. The range of measures that is used to create the grade may have changed over the years</h6>");
 
 	// create dial data which the front end will populate with vue
 	dials.push({
