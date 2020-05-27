@@ -105,7 +105,7 @@ var doCatchments = function (options) {
 			counter,
 			"<th scope=col>Year<th>Grade",
 			tbody,
-			"<h6>N.B. The range of measures that is used to create the grade may have changed over the years.</h6>"
+			(name == "Townsville Dry Tropics report card" ? "" : "<h6>N.B. The range of measures that is used to create the grade may have changed over the years.</h6>" )
 		));
 
 
@@ -258,7 +258,8 @@ var printReefLineChart = function (subcatchment, name) {
 		"Report card grades for " + name,
 		counter,
 		"<th scope=col>Year<th scope=col class=num>Grade",
-		tbody
+		tbody,
+		"<h6>N.B. The range of measures that is used to create the grade may have changed over the years.</h6>"
 	));
 	var chartOptions = getDefaultLineChartOptions();
 	chartOptions.legend = { position: "none" };

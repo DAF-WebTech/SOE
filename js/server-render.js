@@ -265,6 +265,7 @@ var tableChartInner = " \n \
 			<tbody>{3} \n\
 		</table> \n\
 	</div> \n\
+	{4} \
 </div> \n\
 ";
 
