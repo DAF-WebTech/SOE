@@ -403,8 +403,8 @@ var regionInfoTemplateDialAndChart = "\
 				<tbody>{4}\n\
 			</table> \n\
 		</div> \n\
+		{5} \
 	</div>\n\
-	{5} \
 </div> \n\
 ";
 
