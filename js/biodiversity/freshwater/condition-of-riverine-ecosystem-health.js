@@ -104,7 +104,8 @@ var doCatchments = function (options) {
 			subname.replace(/-/, "&ndash;"),
 			counter,
 			"<th scope=col>Year<th>Grade",
-			tbody
+			tbody,
+			"<h6>N.B. The range of measures that is used to create the grade may have changed over the years.</h6>"
 		));
 
 
