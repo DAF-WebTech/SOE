@@ -368,8 +368,9 @@ var regionInfoTemplateDialAndTable = "\
 				<thead><tr>{3}\n\
 				<tbody>{4}\n\
 			</table>\n\
-		</div>\n\
-	</div>\n\
+		</div> \
+	</div> \
+	{5} \
 </div> \
 ";
 
