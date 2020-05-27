@@ -404,6 +404,7 @@ var regionInfoTemplateDialAndChart = "\
 			</table> \n\
 		</div> \n\
 	</div>\n\
+	{5} \
 </div> \n\
 ";
 
