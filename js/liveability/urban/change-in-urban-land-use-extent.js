@@ -66,7 +66,7 @@ print("<div class=subregions><ul id=regionCheckboxes>\n");
 regions.forEach(function (r, i) {
 	print(String.format("<li><input type=checkbox value=\"{0}\" id=checkbox_{0} {2} onchange=\"showHideChart(this)\" /><label for=checkbox_{0}>{1}</label>\n", r.toKebabCase(), r, i == 0 ? "checked" : ""));
 });
-print("</ul></div>\n");
+print("</ul>\n");
 
 
 regions.forEach(function (region, i) {
