@@ -23,7 +23,7 @@ var index = 0;
 var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, "*current data is composed of regional data sourced at different times"));
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, "*current data is composed of regional data sourced at different times"));
 
 arrayTable[0][0] = "Year";
 chart1 = arrayTable.transpose();
