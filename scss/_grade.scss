@@ -64,12 +64,6 @@
                     height: 2rem;
                 }
             }
-			&.up {
-				&::after { left: 52%; }
-			}
-        	&.down {
-            	&::after { left: 48%; }
-        	}
         	&.minus {
 				&::after { left: 48%; }
 			}		
@@ -113,10 +107,16 @@
             }
         }
         &.up {
-            &::after { content: '\f054'; }
+            &::after { 
+				content: '\f054';
+				left: 52%;
+			}
         }
         &.down {
-            &::after { content: '\f053'; }
+            &::after { 
+				content: '\f053'; 
+				left: 48%;
+			}
         }
         &.minus {
             &::after { content: '\f068';  }
