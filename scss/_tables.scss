@@ -26,10 +26,15 @@ table {
     }
     caption { 
         color: #777;
+		font-size: 0.8rem;
     }
 	
-	.left { text-align: left; }
-	.center { text-align: center; }
+	.left { text-align: left !important; }
+	.center,
+	tr.center td,
+	tr.center th { 
+		text-align: center; 
+	}
 	.right { text-align: right; }	
 
     &.zebra tbody {
