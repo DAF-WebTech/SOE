@@ -57,12 +57,14 @@ chartData.push({ type: "pie", options: pieChartOptions, data: chart2 });
 
 //////////////////////////////////////////////////////////////////////
 
-print("<h3>Urban area growth between 1999 and current by region</h3>(Current data is composed of regional data sourced at different times)");
+print("<div class=\"region-info region-queensland\">\n");
+
+print("<h3>Urban area growth between 1999 and current by region</h3>(Current data is composed of regional data sourced at different times)\n");
 
 var regions = dataHead.slice(1, dataHead.length - 2);
 
 
-print("<div class=region-queensland><ul id=regionCheckboxes>\n");
+print("<ul id=regionCheckboxes>\n");
 regions.forEach(function (r, i) {
 	print(String.format("<li><input type=checkbox value=\"{0}\" id=checkbox_{0} {2} onchange=\"showHideChart(this)\" /><label for=checkbox_{0}>{1}</label>\n", r.toKebabCase(), r, i == 0 ? "checked" : ""));
 });
