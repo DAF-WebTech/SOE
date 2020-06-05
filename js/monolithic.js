@@ -123,6 +123,7 @@ if (typeof Object.assign != 'function') {
 	});
 }
 
+/* New DES style guid says we don't need this any more.
 (function () { // this one needs a variable so wrap it in a function invoke
 	var proxied = Number.prototype.toLocaleString;
 	Number.prototype.toLocaleString = function () {
@@ -132,6 +133,7 @@ if (typeof Object.assign != 'function') {
 			return proxied.apply(this);
 	};
 }());
+*/ 
 //~ end helpers
 
 
@@ -908,9 +910,11 @@ var soejs = {
 		}
 
 		// Hide all the region infos
-		document.querySelectorAll(".region-info").forEach(function (regionInfo) {
+		var regionInfos = document.querySelectorAll(".region-info");
+		for (var i = 0; i < regionInfos.length; ++i) {
+			var regionInfo = regionInfos[i];
 			regionInfo.style.display = "none";
-		});
+		};
 
 
 		// Check we have a valid region class name (should be 'region-' followed by region code)
@@ -918,9 +922,10 @@ var soejs = {
 			selected_region = 'region-' + selected_region;
 		}
 
-		document.querySelectorAll("." + selected_region).forEach(function (sr) {
-			sr.style.display = "block";
-		});
+		var selectedRegions = document.querySelectorAll("." + selected_region);
+		for (var i = 0; i < selectedRegions.length; ++i) {
+			selectedRegions[i].style.display = "block";
+		};
 
 		soejs.firstHash ? (window.location.hash = selected_region) : (soejs.firstHash = true);
 
