@@ -1,4 +1,5 @@
-var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+if (typeof csv == "undefined")
+	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
 
 var results = Papa.parse(
 	csv,
@@ -17,22 +18,26 @@ var totalQueenslandUrbanArea = data[2][13];
 var arrayTable = [["", "1999", "current"]];
 arrayTable.push(["Hectares", data[1][13], totalQueenslandUrbanArea]);
 
-var heading = "Queensland urban area growth between 1999 and current (current data is composed of regional data sourced at different times)";
+var heading = "Queensland urban area growth between 1999 and current*";
 var index = 0;
 var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, "*current data is composed of regional data sourced at different times"));
 
 arrayTable[0][0] = "Year";
 chart1 = arrayTable.transpose();
 var columnChartOptions = getDefaultColumnChartOptions(1);
 columnChartOptions.vAxis.minValue = 0;
+columnChartOptions.vAxis.title = "Hectares";
+columnChartOptions.hAxis.title = "Time";
 chartData = [{ type: "column", options: columnChartOptions, data: chart1 }];
 
 
 
 /////////////////////////////////////////////////////////////////////////////
+// chart 2, queensland pie chart
+
 var totalQueenslandArea = data[0][13];
 var queenslandNonUrbanArea = totalQueenslandArea - totalQueenslandUrbanArea;
 
@@ -52,7 +57,7 @@ chartData.push({ type: "pie", options: pieChartOptions, data: chart2 });
 
 //////////////////////////////////////////////////////////////////////
 
-print("<h3>Urban area growth between 1999 and current by region (Current data is composed of regional data sourced at different times)</h3>");
+print("<h3>Urban area growth between 1999 and current by region</h3>(Current data is composed of regional data sourced at different times)");
 
 var regions = dataHead.slice(1, dataHead.length - 2);
 
@@ -71,8 +76,9 @@ regions.forEach(function (region, i) {
 
 	heading = String.format("{0} urban area growth between 1999 and {1}", region, data[3][i + 1]);
 
-	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
+	htmlTable = tableToHtml(arrayTable, false);
+	// this chart is shown both for the checkbox selection queensland, and on each map region
+	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, null, "region-queensland"));
 
 	arrayTable[0][0] = "Year";
 	arrayTable[0][2] = data[3][i + 1];
@@ -80,7 +86,47 @@ regions.forEach(function (region, i) {
 	columnChartOptions = getDefaultColumnChartOptions(1);
 	columnChartOptions.vAxis.minValue = 0;
 	columnChartOptions.vAxis.format = "short";
+	columnChartOptions.vAxis.title = "Total Area (hectares)";
+	columnChartOptions.hAxis.title = "Time";
 	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
+
+	// two pie charts for each map region.
+
+	// 1. Showing proportion of region area covered by Urban. 
+	// Made up of two parts, first, Region Non Urban Area (Region area minus urban area) and second, Region Urban area.
+
+	var heading = String.format("{0} urban area as a proportion of total Region area in {1}", region, data[3][i + 1]);
+
+	var regionUrbanArea = data[2][i + 1];
+	var regionNonUrbanArea = data[0][i + 1] - regionUrbanArea;
+	var arrayTable = [["", "Urban", "Non-Urban"]];
+	arrayTable.push(["Hectares", regionUrbanArea, regionNonUrbanArea]);
+	var htmlTable = tableToHtml(arrayTable, false)
+	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
+	
+	arrayTable[0][0] = "Year";
+	var pieChart = arrayTable.transpose();
+	
+	var pieChartOptions = getDefaultPieChartOptions(2);
+	chartData.push({ type: "pie", options: pieChartOptions, data: pieChart });
+		
+	// 2. Showing proportion of region area covered by Urban. 
+	// Made up of two parts, first, Queensland Non Urban Area (Queensland area minus region urban area) and second, Region Urban area.
+	heading = String.format("{0} urban area as a proportion of total Queensland area in {1}", region, data[3][i + 1]);
+	var qldIndex = data[0].length - 1;
+	var queenslandArea = data[0][qldIndex];
+	var queenslandNonUrbanArea = queenslandArea - regionUrbanArea;
+	
+	arrayTable = [["", "Queensland urban", region + " urban"]];
+	arrayTable.push(["Hectares", queenslandArea, regionUrbanArea]);
+	htmlTable = tableToHtml(arrayTable, false)
+	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
+	
+	arrayTable[0][0] = "Year";
+	pieChart = arrayTable.transpose();
+	
+	chartData.push({ type: "pie", options: pieChartOptions, data: pieChart });
+	
 
 
 

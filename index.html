@@ -1,129 +1,146 @@
 <html>
-<head>
-<style>table,thead,tr,th,tbody,td,tfoot{border:1px black solid;}
-th,td{text-align:left;}
-th.num,td.num{text-align:right}
-ul.checkbox-list {columns: 2;list-style-type: none;}
-</style>
-<title>%frontend_asset_name%</title>
-</head>
+		<head>
+<style>table,tbody,td,tfoot,th,thead,tr {border: 1px black solid;}td,th {text-align: left;}td.num,th.num {text-align: right;}
+ul.checkbox-list {columns: 2;list-style-type: none;}</style>
+				<title>%frontend_asset_name%</title>
+		</head>
 
-<body>
-	<div id=pre>hello there</div>
+		<body>
+				<div id="pre">hello there</div>
 
-	<script>
-		function print(regionInfo) {
-			document.getElementById("pre").innerHTML += regionInfo;
-		}
+				<script>
+						function print(regionInfo) {
+								document
+										.getElementById("pre")
+										.innerHTML += regionInfo;
+						}
+				</script>
+				<script id="chartdata" type="application/json"></script>
+				<script src=/js/server-render.js></script>
+				<script>
+						var request = new XMLHttpRequest();
+						request.open("GET", "/data/indicator-5-1-0-7.csv", false); // `false` makes the request synchronous
+						request.send(null);
+						var csv = "";
+						if (request.status === 200) {
+								csv = request.responseText;
+						}
+				</script>
 
-	</script>
-	<script id=chartdata type=application/json></script> 
-	<script src=/js/server-render.js> </script>
-	<script>
-		var request = new XMLHttpRequest();
-		request.open("GET", "/data/indicator-1-2-0-4.csv", false);  // `false` makes the request synchronous
-		request.send(null);
-		var csv = "";
-		if (request.status === 200) {
-			csv = request.responseText;
-		}
+				<script src="js\liveability\urban\change-in-urban-land-use-extent.js"></script>
 
+				<script>
+						//document.getElementById("chartData").textContent = JSON.stringify(chartData);
+				</script>
+				//////////////////////////////////////////////////////////////////////////////////////
+				<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+				<script>
+						var jsonElement = document.getElementById("dialData");
+						if (jsonElement) {
+								var dials = JSON.parse(jsonElement.textContent);
+								dials.forEach(function (d) {
+										new Vue({
+												el: String.format("div.subregion-{0} ul.conditions-container, div.region-{0} ul.conditions-container", d.region),
+												data: d
+										});
+								});
+						}
+				</script>
+				<script src="https://www.gstatic.com/charts/loader.js"></script>
+				<script>
+						// scaffolding
+						google
+								.charts
+								.load("current", {packages: ["corechart"]});
+						google
+								.charts
+								.setOnLoadCallback(populateIndicatorCharts);
+						soejs = {
+								chartsLoaded3: function () {
+										console.log("chart drawn");
+								}
+						};
+						//~scaffolding
 
+						//############
+						// client side
+						//############
+						function populateIndicatorCharts() {
+								if (!document.getElementById("chartdata")) 
+										return;
+								var chartData = JSON.parse(document.getElementById("chartdata").textContent);
+								soejs.num_charts = chartData.length;
+								chartData.forEach(function (cd, i) {
+										var data = google
+												.visualization
+												.arrayToDataTable(cd.data);
+										switch (cd.type) {
+												case "pie":
+														var chart = new google
+																.visualization
+																.PieChart(document.getElementById("chart_" + i));
+														break;
+												case "line":
+														var chart = new google
+																.visualization
+																.LineChart(document.getElementById("chart_" + i));
+														break;
+												case "column":
+														var chart = new google
+																.visualization
+																.ColumnChart(document.getElementById("chart_" + i));
+														break;
+												case "bar":
+														var chart = new google
+																.visualization
+																.BarChart(document.getElementById("chart_" + i));
+														break;
+												case "combo":
+														var chart = new google
+																.visualization
+																.ComboChart(document.getElementById("chart_" + i));
+														break;
+										}
 
-</script>
+										google
+												.visualization
+												.events
+												.addListener(chart, "ready", soejs.chartsLoaded3);
 
-<script src=/js/biodiversity/freshwater/condition-of-riverine-ecosystem-health.js></script>
+										///////////////////////// temp
+										//if (data.noTooltip)
+										// if (typeof cd.tooltip == "undefined" || cd.tooltip == true) 
+										// 		data.setColumnProperty(2, "role", "tooltip");
+										
+										//////
 
+										chart.draw(data, cd.options);
 
-<script>
-		//document.getElementById("chartData").textContent = JSON.stringify(chartData);
-</script>
-//////////////////////////////////////////////////////////////////////////////////////
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script>
-		var dials = JSON.parse(document.getElementById("dialData").textContent);
-		dials.forEach(function(d) {
-			new Vue({
-				el: String.format("div.subregion-{0} ul.conditions-container, div.region-{0} ul.conditions-container", d.region),
-				data:d
-			});
-		});
-	</script>
-	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script>
-		// scaffolding
-		google.charts.load("current", { packages: ["corechart"] });
-		google.charts.setOnLoadCallback(populateIndicatorCharts);
-		soejs = {
-			chartsLoaded3: function () {
-				console.log("chart drawn");
-			}
-		};
-		//~scaffolding
+										// });
+										// }
+										//~ end client side
 
+										// more scaffolding
+										window.setTimeout(function () {
+												document
+														.querySelectorAll("div.initial-hide")
+														.forEach(function (d) {
+																d.style.display = "none";
+														});
+										}, 250);
+								});
 
-		//############
-		// client side
-		//############
-		function populateIndicatorCharts() {
-			if (! document.getElementById("chartData")) return;
-			var chartData = JSON.parse(document.getElementById("chartData").textContent);
-			soejs.num_charts = chartData.length;
-			chartData.forEach(function (cd, i) {
-				var data = google.visualization.arrayToDataTable(cd.data);
-				switch (cd.chartType) {
-					case "pie":
-						var chart = new google.visualization.PieChart(document.getElementById("chart_" + i));
-						break;
-					case "line":
-						var chart = new google.visualization.LineChart(document.getElementById("chart_" + i));
-						break;
-					case "column":
-						var chart = new google.visualization.ColumnChart(document.getElementById("chart_" + i));
-						break;
-					case "bar":
-						var chart = new google.visualization.BarChart(document.getElementById("chart_" + i));
-						break;
-					case "combo":
-						var chart = new google.visualization.ComboChart(document.getElementById("chart_" + i));
-						break;
-				}
+						}
 
-
-				google.visualization.events.addListener(chart, "ready", soejs.chartsLoaded3);
-
-				///////////////////////// temp
-				//if (data.noTooltip)
-				if (typeof cd.tooltip == "undefined" || cd.tooltip == true)
-					data.setColumnProperty(2, "role", "tooltip");
-				//////
-
-
-				chart.draw(data, cd.chartOptions);
-
-				// });
-				// }
-				//~ end client side
-
-
-				// more scaffolding
-				window.setTimeout(function () {
-					document.querySelectorAll("div.initial-hide").forEach(function (d) { d.style.display = "none"; });
-				}, 250);
-			});
-
-		}
-
-		function showHideChart(cb) {
-			console.log(cb.value);
-			var div = document.querySelector("div.region-queensland.region-" + cb.value);
-			if (div.style.display == "none")
-				div.style.display = "block";
-			else
-				div.style.display = "none";
-		}
-
-	</script>
-</body>
+						function showHideChart(cb) {
+								console.log(cb.value);
+								var div = document.querySelector("div.region-queensland.region-" + cb.value);
+								if (div.style.display == "none") 
+										div.style.display = "block";
+								else 
+										div.style.display = "none";
+								}
+				</script>
+		</body>
 
 </html>
