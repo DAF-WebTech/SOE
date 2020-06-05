@@ -63,7 +63,6 @@ print("<h3>Urban area growth between 1999 and current by region</h3>(Current dat
 
 var regions = dataHead.slice(1, dataHead.length - 2);
 
-
 print("<ul id=regionCheckboxes>\n");
 regions.forEach(function (r, i) {
 	print(String.format("<li><input type=checkbox value=\"{0}\" id=checkbox_{0} {2} onchange=\"showHideChart(this)\" /><label for=checkbox_{0}>{1}</label>\n", r.toKebabCase(), r, i == 0 ? "checked" : ""));
@@ -78,8 +77,10 @@ regions.forEach(function (region, i) {
 	heading = String.format("{0} urban area growth between 1999 and {1}", region, data[3][i + 1]);
 
 	htmlTable = tableToHtml(arrayTable, false);
+
 	// this chart is shown both for the checkbox selection queensland, and on each map region
-	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, null, "region-queensland"));
+	// once for queensland, and a subregion class for checkbox click
+	print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody, null, "subregion-" + region.toKebabCase()));
 
 	arrayTable[0][0] = "Year";
 	arrayTable[0][2] = data[3][i + 1];
@@ -89,6 +90,10 @@ regions.forEach(function (region, i) {
 	columnChartOptions.vAxis.format = "short";
 	columnChartOptions.vAxis.title = "Total Area (hectares)";
 	columnChartOptions.hAxis.title = "Time";
+	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
+
+	// second time for map region click
+	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, null));
 	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
 
 	// two pie charts for each map region.
