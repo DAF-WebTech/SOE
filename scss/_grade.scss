@@ -64,9 +64,9 @@
                     height: 2rem;
                 }
             }
-        	&.minus {
-				&::after { left: 48%; }
-			}		
+        	&.up    { &::after { left: 52%; } }		
+        	&.down  { &::after { left: 48%; } }		
+			&.minus { &::after { left: 48%; } }		
 		}
     }
 
@@ -109,13 +109,13 @@
         &.up {
             &::after { 
 				content: '\f054';
-				left: 52%;
+				left: 53%;
 			}
         }
         &.down {
             &::after { 
 				content: '\f053'; 
-				left: 48%;
+				left: 49%;
 			}
         }
         &.minus {
