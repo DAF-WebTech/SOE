@@ -3,48 +3,50 @@ if (typeof csv == "undefined") {
 }
 
 try {
-	var result = Papa.parse(csv, { header: true, dynamicTyping: true, skipEmptyLines: true});
-} catch(e) {
-	print (e.name, e.message, e.toString());
+	var result = Papa.parse(csv, { header: true, dynamicTyping: true, skipEmptyLines: true });
+} catch (e) {
+	print(e.name, e.message, e.toString());
 }
-
-result.data.pop(); //don't need the last row
 
 var chartData = [];
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 1 is qld., 
 var heading = "Proportion of land by use";
+var keys = result.meta.fields.slice(1);
 
 arrayTable = [["Use", "Hectares"]];
-result.data.forEach(function(record) {
-	arrayTable.push([record.LABEL, record.Totals]);
+keys.forEach(function (key) {
+	var sum = 0;
+	result.data.forEach(function (record) {
+		sum += record[key];
+	});
+	arrayTable.push([key, sum]);
 });
 
 htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [2]);
 var index = 0;
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
-chartData.push({data: arrayTable});
+chartData.push({ data: arrayTable });
 
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 2 is per region
+result.data.forEach(function (record) {
 
-for (var i = 1; i < result.meta.fields.length - 1; ++i) {
-	var region = result.meta.fields[i]
-
+	var heading = "Proportion of land by use in " + record.Region;
 	arrayTable = [["Use", "Hectares"]];
-	result.data.forEach(function(record) {
-		arrayTable.push([record.LABEL, record[region]]);
+	keys.forEach(function (key) {
+		arrayTable.push([key, record[key]]);
 
 	})
 
 	htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [2]);
-	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
-	
-	chartData.push({data: arrayTable});
-	
-}
+	print(String.format(regionInfoTemplate, record.Region, heading, index++, htmlTable.thead, htmlTable.tbody));
+
+	chartData.push({ data: arrayTable });
+
+});
 
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
