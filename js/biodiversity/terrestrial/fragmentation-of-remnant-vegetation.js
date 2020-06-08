@@ -195,7 +195,7 @@ regions.forEach(function(region) {
 	
 
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-	chartData[chartData.length - 1].options.vAxis.title = "Count";
+	chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
 	chartData[chartData.length - 1].options.hAxis.title = "Subregion";
 
 	
