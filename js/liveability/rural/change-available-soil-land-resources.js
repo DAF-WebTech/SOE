@@ -78,7 +78,7 @@ result.data.forEach(function(record) {
 	});
 	
 	htmlTable = tableToHtml(arrayTable, false);
-	print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
+	print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
 	
 	chartData.push({ data: arrayTable });
 	var options = getDefaultColumnChartOptions();
