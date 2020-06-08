@@ -28,7 +28,6 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 chartData.push({data: arrayTable});
 
 
-
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 2 is per region
 
@@ -46,12 +45,6 @@ for (var i = 1; i < result.meta.fields.length - 1; ++i) {
 	
 	chartData.push({data: arrayTable});
 	
-
-
 }
-
-
-
-
 
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
