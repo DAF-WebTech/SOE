@@ -19,7 +19,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 				<script src=/js/server-render.js></script>
 				<script>
 						var request = new XMLHttpRequest();
-						request.open("GET", "/data/indicator-5-2-0-10.csv", false); // `false` makes the request synchronous
+						request.open("GET", "/data/indicator-5-2-0-11.csv", false); // `false` makes the request synchronous
 						request.send(null);
 						var csv = "";
 						if (request.status === 200) {
@@ -27,7 +27,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 						}
 				</script>
 
-				<script src="js\liveability\rural\soil-land-resources-availability-capability.js"></script>
+				<script src="js\liveability\rural\change-available-soil-land-resources.js"></script>
 
 				<script>
 						//document.getElementById("chartData").textContent = JSON.stringify(chartData);
