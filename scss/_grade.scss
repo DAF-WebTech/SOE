@@ -64,7 +64,10 @@
                     height: 2rem;
                 }
             }
-        }
+        	&.up    { &::after { left: 52%; } }		
+        	&.down  { &::after { left: 48%; } }		
+			&.minus { &::after { left: 48%; } }		
+		}
     }
 
     li {
@@ -96,29 +99,27 @@
         &.down,
         &.minus {
             &::after {
-               color: #111;
-               font-weight: bold;
-               font-size: 1.35rem;
-               font-family: "Font Awesome 5 Free";
+				color: #111;
+				font-weight: bold;
+				font-size: 1.35rem;
+				font-family: "Font Awesome 5 Free";
+				left: 50%;
             }
         }
         &.up {
-            &::after {
-               left: 52%;
-               content: '\f054';
-            }
+            &::after { 
+				content: '\f054';
+				left: 53%;
+			}
         }
         &.down {
-            &::after {
-               left: 48%;
-               content: '\f053';
-            }
+            &::after { 
+				content: '\f053'; 
+				left: 49%;
+			}
         }
         &.minus {
-            &::after {
-               left: 48%;
-               content: '\f068';
-            }
+            &::after { content: '\f068';  }
         }
     }
 }
