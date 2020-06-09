@@ -75,17 +75,23 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 
 	var arrayTable = [["Year", record.Quantity]];
 	var sum = 0;
+	var areAllNull = true;
 	var hasNP = false;  // if there's at least one np value, then we'll add the disclaimer
 	tonnesYears.forEach(function (key) {
+		areAllNull = areAllNull && record[key] == null;
 		sum += Number(record[key]);
 		arrayTable.push([key.replace("-", "–"), record[key]]); // replace with &ndash;
 		hasNP = hasNP || record[key] == "n.p.";
 	});
 
+	if (areAllNull)
+		return;
+
 	if (typeof numberFormattingOptions == "undefined")
 		var htmlTable = tableToHtml(arrayTable, false);
 	else
 		var htmlTable = tableToHtml(arrayTable, false, numberFormattingOptions);
+
 	if (sum == 0) {
 		print(String.format(regionInfoTemplateTableOnly, record.Region.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
 	}
@@ -115,13 +121,20 @@ var drawLineChart = function (records, regionName, isSQSubregion) {
 	});
 	records.forEach(function(record) {
 		var row = [record.Product];
+		var areAllNull = true;
 		valuesYears.forEach(function(year) {
 			row.push(record[year]);
+			areAllNull = areAllNull && record[year] == null;
 		});
+		if (areAllNull)
+			return;
 		arrayTable.push(row);
 	});
 
-	var htmlTable = tableToHtml(arrayTable, false);
+	if (typeof numberFormattingOptions == "undefined")
+		var htmlTable = tableToHtml(arrayTable, false);
+	else
+		var htmlTable = tableToHtml(arrayTable, false, numberFormattingOptions);
 	
 	arrayTable = arrayTable.transpose();
 
