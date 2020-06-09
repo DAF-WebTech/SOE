@@ -95,7 +95,7 @@ var drawLineChart = function (records, regionName, isSQSubregion) {
 
 	var heading = String.format("Production values in {0} {1}", 
 		regionName, 
-		(isSQSubregion ? " — " + record.SubRegion : "")
+		(isSQSubregion ? " — " + records[0].SubRegion : "")
 	);
 
 	var arrayTable = [["Product"]];
@@ -146,7 +146,7 @@ Object.keys(sq).forEach(function (regionName) {
 		drawColumnCharts(record, true); // one row from the data file, true to show it's subregions
 	});
 
-	drawLineChart(sq[regionName], SQ_REGION); // array of lines from the data file
+	drawLineChart(sq[regionName], SQ_REGION, true); // array of lines from the data file
 
 });
 
