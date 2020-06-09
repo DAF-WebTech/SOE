@@ -53,14 +53,14 @@ Object.keys(regions).forEach(function(regionName) {
 		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		// first charts are column chart for tonnes for each region for each product, including queensland as a region
 
-		var heading = String.format("Production amount of {0} in {1} (Tonnes)", record.Product, regionName);
+		var heading = String.format("Production amount of {0} in {1}", record.Product, regionName);
 
 		arrayTable = [["Year", "Tonnes"]];
 		var sum = 0;
 		var hasNP = false;
 		tonnesYears.forEach(function (key) {
 			sum += Number(record[key]);
-			arrayTable.push([key, record[key]]);
+			arrayTable.push([key.replace("-", "–"), record[key]]); // replace with &ndash;
 			hasNP = hasNP ||  record[key] == "n.p.";
 		});
 
@@ -83,12 +83,12 @@ Object.keys(regions).forEach(function(regionName) {
 
 		heading = String.format("Production value of {0} in {1}", record.Product, regionName);
 
-		arrayTable = [["Year", "Value7"]];
+		arrayTable = [["Year", "Value"]];
 		sum = 0;
 		hasNP = false;
 		valuesYears.forEach(function (key) {
 			sum += Number(record[key]);
-			arrayTable.push([key.replace("v", ""), record[key]]);
+			arrayTable.push([key.replace("v", "").replace("-", "–"), record[key]]);
 			hasNP = hasNP ||  record[key] == "n.p.";
 		});
 
