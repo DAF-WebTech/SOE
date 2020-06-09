@@ -150,6 +150,6 @@ Object.keys(sq).forEach(function (regionName) {
 
 });
 
-
+// test
 
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
