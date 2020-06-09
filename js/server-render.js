@@ -232,8 +232,8 @@ var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncAr
 		for (var j = 1; j < table[i].length; ++j) {
 			ret.tbody += "<td class=num>";
 			if (table[i][j] != null) {
-				ret.tbody += numberFormatFunc.apply(table[i][j], numberFormatFuncArg).toLocaleString();
-			}//? "" : table[i][j].toLocaleString());
+				ret.tbody += Number(numberFormatFunc.apply(table[i][j], numberFormatFuncArg)).toLocaleString();
+			}
 			if (hasFoot)
 				if (table[i][j] != null)
 					sums[j - 1] += table[i][j];
