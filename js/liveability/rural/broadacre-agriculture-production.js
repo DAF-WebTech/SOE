@@ -151,18 +151,4 @@ Object.keys(sq).forEach(function (regionName) {
 });
 
 
-
-print("\n\
-<div class=\"region-info region-torres-strait-nrm-region\">\n\
-		<h4>No data recorded in Torres Strait</h4>\n\
-</div>\n");
-
-
-
-
-
-
-
-
-
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
