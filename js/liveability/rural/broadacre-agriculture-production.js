@@ -6,10 +6,12 @@ as well as
 this file is also used for:
 
 5.2.0.4 Horticulture production
+5.2.0.6 Livestock and meat production
 */ 
 //
 
 "use strict";
+
 
 if (typeof csv == "undefined") {
 	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
@@ -71,7 +73,7 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 		(isSQSubregion ? " — " + record.SubRegion : "")
 	);
 
-	var arrayTable = [["Year", "Tonnes"]];
+	var arrayTable = [["Year", record.Quantity]];
 	var sum = 0;
 	var hasNP = false;  // if there's at least one np value, then we'll add the disclaimer
 	tonnesYears.forEach(function (key) {
@@ -80,7 +82,10 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 		hasNP = hasNP || record[key] == "n.p.";
 	});
 
-	var htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [0]);
+	if (typeof numberFormattingOptions == "undefined")
+		var htmlTable = tableToHtml(arrayTable, false);
+	else
+		var htmlTable = tableToHtml(arrayTable, false, numberFormattingOptions);
 	if (sum == 0) {
 		print(String.format(regionInfoTemplateTableOnly, record.Region.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
 	}
@@ -90,7 +95,7 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 			(hasNP ? "NB In 2018–19 some hay crops were not reported at the NRM level due to confidentiality, therefore the sum of the regions does not equal the Queensland total for value and production.  This is indicated by n.p. (not published) " : "")));
 		chartData.push({ data: arrayTable, type: "column" });
 		var options = getDefaultColumnChartOptions();
-		options.vAxis.title = "Tonnes";
+		options.vAxis.title = record.Quantity;
 		chartData[chartData.length - 1].options = options;
 	}
 

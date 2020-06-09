@@ -45,6 +45,7 @@ License: MIT
 
 
 // we need to clobber this because it doesn't work right
+/*
 Number.prototype.toLocaleString = function (sep, grp) {
 	var sx = ('' + this).split('.'), s = '', i, j;
 	sep || (sep = ','); // default seperator
@@ -59,6 +60,7 @@ Number.prototype.toLocaleString = function (sep, grp) {
 	sx[0] = s;
 	return sx.join('.');
 }
+*/
 
 Array.prototype.transpose = function () {
 	var ret = [];
@@ -214,7 +216,7 @@ var getDefaultPieChartOptions = function () {
 // makes assumptions about the structure of the table
 // so if your 2-d array does not fit the structure
 // you will need to make your own method
-var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncArg) {
+var tableToHtml = function (table, hasFoot, numberFormattingOptions) {
 
 	var ret = { thead: "", tbody: "" };
 	ret.thead = "<th scope=col>" + table[0][0];
@@ -230,12 +232,7 @@ var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncAr
 		for (var j = 1; j < table[i].length; ++j) {
 			ret.tbody += "<td class=num>";
 			if (table[i][j] != null) {
-				var val = table[i][j];
-				if (numberFormatFunc) {
-					val = numberFormatFunc.apply(val, numberFormatFuncArg);
-					val = Number(val);
-				}
-				ret.tbody += val.toLocaleString();
+				ret.tbody += table[i][j].toLocaleString("en-AU", numberFormattingOptions);
 			}
 			if (hasFoot)
 				if (table[i][j] != null)
