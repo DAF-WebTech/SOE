@@ -535,6 +535,48 @@ h3 + .conditions-container {
     }
 }
 
+.content-pdf {
+	display: flex;
+	justify-content: center;
+	padding: 1.5rem;
+
+	.cover-image {
+		border: 3px solid #fff;
+		transform: rotate(-3deg);
+		transition: all 0.15s ease;
+		width: 250px;
+
+		&:hover {
+			transform: rotate(-5deg);
+		}
+	}
+	.pdf-text {
+		margin-left: 2.5rem;
+		width: 460px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		
+		.report-logo {
+			display: block;
+			margin-bottom: 1rem;
+			width: fit-content;
+		}
+		.pdf-file {
+			display: flex;
+			
+			.pdf-icon {
+				margin-right: 1rem;
+				width: 75px;
+			}
+			p {
+				margin: 0;
+				padding-top: 0.75rem;
+			}
+		}
+	}
+}
+
 body {
     @media only screen and (min-width: 1555px) {
         &::before {
