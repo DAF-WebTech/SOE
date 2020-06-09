@@ -8,7 +8,7 @@ try {
 		dynamicTyping: true, 
 		skipEmptyLines: true,
 		transformHeader: function(header) {
-			return headerIndex++ > 7 ? header + "v" : header;
+			return headerIndex++ > 7 ? header + "v" : header; // handle our duplicate keys
 		}
 	});
 } catch (e) {
@@ -42,22 +42,16 @@ var index = 0;
 // find out what we are to do
 
 
-Object.keys(regions).forEach(function(regionName) {
+var drawCharts = function(record) { // a row from the data file
 
-
-
-	regions[regionName].forEach(function(record) {
-		if (record.Product == "Total")
-			return;
-
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		// first charts are column chart for tonnes for each region for each product, including queensland as a region
 
-		var heading = String.format("Production amount of {0} in {1}", record.Product, regionName);
+		var heading = String.format("Production amount of {0} in {1}", record.Product, record.Region);
 
 		arrayTable = [["Year", "Tonnes"]];
 		var sum = 0;
-		var hasNP = false;
+		var hasNP = false;  // if there's at least one np value, then we'll add the disclaimer
 		tonnesYears.forEach(function (key) {
 			sum += Number(record[key]);
 			arrayTable.push([key.replace("-", "–"), record[key]]); // replace with &ndash;
@@ -66,10 +60,10 @@ Object.keys(regions).forEach(function(regionName) {
 
 		htmlTable = tableToHtml(arrayTable, false);
 		if (sum == 0) {
-			print(String.format(regionInfoTemplateTableOnly, regionName.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
+			print(String.format(regionInfoTemplateTableOnly, record.Region.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
 		}
 		else {
-			print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, 
+			print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, 
 				null, null, null, 
 				(hasNP ? "NB In 2018–19 some hay crops were not reported at the NRM level due to confidentiality, therefore the sum of the regions does not equal the Queensland total for value and production.  This is indicated by n.p. (not published) " : "")));
 			chartData.push({ data: arrayTable, type: "column" });
@@ -81,11 +75,11 @@ Object.keys(regions).forEach(function(regionName) {
 		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		// second charts are line chart for dollars for each region for each product, including queensland as a region
 
-		heading = String.format("Production value of {0} in {1}", record.Product, regionName);
+		heading = String.format("Production value of {0} in {1}", record.Product, record.Region);
 
 		arrayTable = [["Year", "Value"]];
 		sum = 0;
-		hasNP = false;
+		hasNP = false; // if there's at least one np value, then we'll add the disclaimer
 		valuesYears.forEach(function (key) {
 			sum += Number(record[key]);
 			arrayTable.push([key.replace("v", "").replace("-", "–"), record[key]]);
@@ -94,10 +88,10 @@ Object.keys(regions).forEach(function(regionName) {
 
 		htmlTable = tableToHtml(arrayTable, false);
 		if (sum == 0) {
-			print(String.format(regionInfoTemplateTableOnly, regionName.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
+			print(String.format(regionInfoTemplateTableOnly, record.Region.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
 		}
 		else {
-			print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, 
+			print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, 
 				null, null, null, 
 				(hasNP ? "NB In 2018–19 some hay crops were not reported at the NRM level due to confidentiality, therefore the sum of the regions does not equal the Queensland total for value and production.  This is indicated by n.p. (not published) " : "")));
 			chartData.push({ data: arrayTable, type: "line" });
@@ -106,6 +100,17 @@ Object.keys(regions).forEach(function(regionName) {
 			chartData[chartData.length - 1].options = options;
 		}
 
+}
+
+
+
+Object.keys(regions).forEach(function(regionName) {
+
+	regions[regionName].forEach(function(record) {
+		if (record.Product == "Total")
+			return;
+
+		drawCharts(record); // one row from the data file
 
 	});
 
