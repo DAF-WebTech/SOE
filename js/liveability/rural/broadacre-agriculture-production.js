@@ -19,17 +19,23 @@ try {
 }
 
 // group by region
+var SQ_REGION = "Southern Queensland NRM region";
 var regions = {};
+var sq = {};
 result.data.forEach(function (record) {
 
 	if (record.Product == "Total") return;
 
-	if (!regions[record.Region])
-		regions[record.Region] = [];
-
-	
-	regions[record.Region].push(record);
-
+	if (record.Region == SQ_REGION) {
+		if (!sq[record.SubRegion])
+			sq[record.SubRegion] = [];
+		sq[record.SubRegion].push(record);
+	}
+	else {
+		if (!regions[record.Region])
+			regions[record.Region] = [];
+		regions[record.Region].push(record);
+	}
 });
 
 delete regions["Torres Strait NRM region"]; // no data for this one
@@ -48,12 +54,16 @@ var index = 0;
 // find out what we are to do
 
 
-var drawColumnCharts = function (record) { // a row from the data file
+var drawColumnCharts = function (record, isSQSubregion) { // a row from the data file
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	// first charts are column chart for tonnes for each region for each product, including queensland as a region
 
-	var heading = String.format("Production amount of {0} in {1}", record.Product, record.Region);
+	var heading = String.format("Production amount of {0} in {1} {2}", 
+		record.Product, 
+		record.Region,
+		(isSQSubregion ? " — " + record.SubRegion : "")
+	);
 
 	var arrayTable = [["Year", "Tonnes"]];
 	var sum = 0;
@@ -81,9 +91,12 @@ var drawColumnCharts = function (record) { // a row from the data file
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // second charts are line chart for dollars for each region for each product, including queensland as a region
-var drawLineChart = function (records, regionName) {
+var drawLineChart = function (records, regionName, isSQSubregion) {
 
-	var heading = String.format("Production values in {0}", regionName);
+	var heading = String.format("Production values in {0} {1}", 
+		regionName, 
+		(isSQSubregion ? " — " + record.SubRegion : "")
+	);
 
 	var arrayTable = [["Product"]];
 	valuesYears.forEach(function(year) {
@@ -117,8 +130,6 @@ var drawLineChart = function (records, regionName) {
 
 };
 
-
-
 Object.keys(regions).forEach(function (regionName) {
 
 	regions[regionName].forEach(function (record) {
@@ -128,6 +139,17 @@ Object.keys(regions).forEach(function (regionName) {
 	drawLineChart(regions[regionName], regionName); // array of lines from the data file
 
 });
+
+Object.keys(sq).forEach(function (regionName) {
+
+	sq[regionName].forEach(function (record) {
+		drawColumnCharts(record, true); // one row from the data file, true to show it's subregions
+	});
+
+	drawLineChart(sq[regionName], SQ_REGION); // array of lines from the data file
+
+});
+
 
 
 print("\n\
