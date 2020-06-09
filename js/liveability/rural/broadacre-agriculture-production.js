@@ -49,11 +49,6 @@ var valuesYears = result.meta.fields.slice(-3);
 var chartData = [];
 var index = 0;
 
-//!!!!!!!!!!!!!!!!!!!
-// TOOD: Southern Queensland NRM region has multiple subregions
-// find out what we are to do
-
-
 var drawColumnCharts = function (record, isSQSubregion) { // a row from the data file
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -150,6 +145,6 @@ Object.keys(sq).forEach(function (regionName) {
 
 });
 
-// test
+
 
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
