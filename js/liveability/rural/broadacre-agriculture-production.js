@@ -1,3 +1,14 @@
+//N.B. N.B. N.B. N.B. N.B. N.B. N.B. N.B. N.B.
+/*
+as well as 
+5.2.0.3 Broad acre agriculture production
+
+this file is also used for:
+
+5.2.0.4 Horticulture production
+*/ 
+//
+
 "use strict";
 
 if (typeof csv == "undefined") {
@@ -69,7 +80,7 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 		hasNP = hasNP || record[key] == "n.p.";
 	});
 
-	var htmlTable = tableToHtml(arrayTable, false);
+	var htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [0]);
 	if (sum == 0) {
 		print(String.format(regionInfoTemplateTableOnly, record.Region.toKebabCase(), heading, 9999, htmlTable.thead, htmlTable.tbody));
 	}
