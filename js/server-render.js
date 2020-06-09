@@ -216,8 +216,6 @@ var getDefaultPieChartOptions = function () {
 // you will need to make your own method
 var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncArg) {
 
-	numberFormatFunc = numberFormatFunc || Number.prototype.toLocaleString;
-
 	var ret = { thead: "", tbody: "" };
 	ret.thead = "<th scope=col>" + table[0][0];
 	if (hasFoot)
@@ -232,7 +230,12 @@ var tableToHtml = function (table, hasFoot, numberFormatFunc, numberFormatFuncAr
 		for (var j = 1; j < table[i].length; ++j) {
 			ret.tbody += "<td class=num>";
 			if (table[i][j] != null) {
-				ret.tbody += Number(numberFormatFunc.apply(table[i][j], numberFormatFuncArg)).toLocaleString();
+				var val = table[i][j];
+				if (numberFormatFunc) {
+					val = numberFormatFunc.apply(val, numberFormatFuncArg);
+					val = Number(val);
+				}
+				ret.tbody += val.toLocaleString();
 			}
 			if (hasFoot)
 				if (table[i][j] != null)
