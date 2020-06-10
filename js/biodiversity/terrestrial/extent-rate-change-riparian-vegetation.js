@@ -8,9 +8,36 @@ try {
 	print (e.name, e.message, e.toString());
 }
 
+var chartData = [];
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 1 is qld., 
-var heading = "Change in number of fragmentation classes";
+var heading = "Loss of woody vegetation";
+var index = 0;
+result.data.forEach(function(record) {
+	if (record.Catchment == record.Subcatchment) {
+		var myheading = heading + " in " + record.Catchment;
+		var keys = result.meta.fields.slice(3, 5);
+		var arrayTable = [["Catchment"]];
+		keys.forEach(function(key) {
+			arrayTable[0].push(key.replace("_", "–")); // &endash;
+		});
+		arrayTable.push([record.Catchment, record[keys[0]], record[keys[1]]]);
+
+		var htmlTable = tableToHtml(arrayTable, false)
+		print(String.format(regionInfoTemplate, record.Catchment, myheading , index++, htmlTable.thead, htmlTable.tbody));
+		
+		var options = getDefaultLineChartOptions();
+		options.vAxis.title = "Percent (%)"
+		options.legend.position = "none";
+		for (var i = 0; i < arrayTable[0].length; ++i)
+			arrayTable[0][i] = arrayTable[0][i].split(" ")[0];
+		chartData.push({data: arrayTable.transpose(), options: options, type: "line" });
+
+	}
+
+
+});
 
 
 
