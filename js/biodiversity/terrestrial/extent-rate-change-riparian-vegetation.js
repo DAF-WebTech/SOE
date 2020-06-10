@@ -15,14 +15,14 @@ var chartData = [];
 var heading = "Loss of woody vegetation";
 var index = 0;
 result.data.forEach(function(record) {
-	if (record.Catchment == record.Subcatchment) {
-		var myheading = heading + " in " + record.Catchment;
+	
+		var myheading = heading + " in " + record.Subcatchment;
 		var keys = result.meta.fields.slice(3, 5);
 		var arrayTable = [["Catchment"]];
 		keys.forEach(function(key) {
 			arrayTable[0].push(key.replace("_", "–")); // &endash;
 		});
-		arrayTable.push([record.Catchment, record[keys[0]], record[keys[1]]]);
+		arrayTable.push([record.Subcatchment, record[keys[0]], record[keys[1]]]);
 
 		var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2})
 		print(String.format(regionInfoTemplate, record.Catchment.toKebabCase(), myheading , index++, htmlTable.thead, htmlTable.tbody));
@@ -34,7 +34,7 @@ result.data.forEach(function(record) {
 			arrayTable[0][i] = arrayTable[0][i].split(" ")[0];
 		chartData.push({data: arrayTable.transpose(), options: options, type: "line" });
 
-	}
+	
 
 
 });
