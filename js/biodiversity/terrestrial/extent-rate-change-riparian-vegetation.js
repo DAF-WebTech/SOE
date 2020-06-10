@@ -39,7 +39,4 @@ result.data.forEach(function(record) {
 
 });
 
-
-
 print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
-
