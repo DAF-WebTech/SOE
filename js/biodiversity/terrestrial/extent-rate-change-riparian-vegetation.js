@@ -24,7 +24,7 @@ result.data.forEach(function(record) {
 		});
 		arrayTable.push([record.Catchment, record[keys[0]], record[keys[1]]]);
 
-		var htmlTable = tableToHtml(arrayTable, false)
+		var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2})
 		print(String.format(regionInfoTemplate, record.Catchment.toKebabCase(), myheading , index++, htmlTable.thead, htmlTable.tbody));
 		
 		var options = getDefaultLineChartOptions();
