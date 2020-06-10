@@ -41,7 +41,7 @@ var heading = "Proportion of Queensland’s emissions by sector, " + latestYear;
 var index = 0;
 var region = "queensland";
 
-var htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [3]);
+var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 var chartOptions = getDefaultPieChartOptions();
@@ -66,7 +66,7 @@ arrayBody.sort(function (a, b) {
 arrayTable = [arrayHead].concat(arrayBody);
 
 heading = "Comparison of state and territory emissions by sector,  " + latestYear;
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartOptions = getDefaultBarChartOptions();
@@ -94,7 +94,7 @@ arrayTable = [arrayHead].concat(arrayBody);
 arrayTable = arrayTable.transpose();
 
 heading = "Trends in Queensland emissions, by sector";
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartOptions = getDefaultLineChartOptions();

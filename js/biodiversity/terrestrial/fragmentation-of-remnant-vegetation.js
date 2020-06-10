@@ -29,7 +29,7 @@ data.forEach(function(record) {
 	arrayTable.push(item);
 });
 
-var htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [4]);
+var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 4, maximumFractionDigits: 4});
 var index = 0;
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
@@ -58,7 +58,7 @@ data.forEach(function(record) {
 	arrayTable.push(item);
 });
 
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [4]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() }); 
@@ -124,7 +124,7 @@ regions.forEach(function(region) {
 		arrayTable.push(item);
 	});
 	
-	htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [4]);
+	htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
 	
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
@@ -157,7 +157,7 @@ regions.forEach(function(region) {
 		arrayTable.push(item);
 	});
 	
-	htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [4]);
+	htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
 	
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });

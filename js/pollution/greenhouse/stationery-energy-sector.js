@@ -26,7 +26,7 @@ chartData.pop(); // "all"
 var index = 0;
 var region = "queensland";
 var heading = "Proportion of Queensland’s stationary energy emissions by category, " + latestYear;
-var htmlTable = tableToHtml(chartData, false, Number.prototype.toFixed, [3]);
+var htmlTable = tableToHtml(chartData, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 var chartItems = [
@@ -56,7 +56,7 @@ foot = chartData.pop();
 chartData = chartData.transpose();
 
 heading = "Trends in Queensland’s stationary energy emissions, by category";
-htmlTable = tableToHtml(chartData, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(chartData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 var options = getDefaultAreaChartOptions();
@@ -80,7 +80,7 @@ keys.forEach(function (y) {
 });
 
 heading = "Queensland’s total stationary energy emissions";
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 

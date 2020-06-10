@@ -26,7 +26,7 @@ keys.forEach(function (key) {
 	arrayTable.push([key, sum]);
 });
 
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [2]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 var index = 0;
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
@@ -54,7 +54,7 @@ keys.forEach(function (key, i) {
 	arrayTable.push([key, sum / extras[i] * 100]);
 });
 
-htmlTable = tableToHtml(arrayTable, false, Number.prototype.toFixed, [2]);
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartData.push({ data: arrayTable });

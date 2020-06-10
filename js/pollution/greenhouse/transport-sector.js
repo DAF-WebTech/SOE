@@ -35,7 +35,7 @@ var heading = "Proportion of Queensland’s transport emissions by category, " +
 var index = 0;
 var region = "queensland";
 
-var htmlTable = tableToHtml(tableData, false, Number.prototype.toFixed, [3]);
+var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
@@ -61,7 +61,7 @@ chart.unshift(headRow);
 chart = chart.transpose();
 
 heading = "Trends in Queensland’s transport emissions, by category";
-htmlTable = tableToHtml(tableData, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
@@ -83,7 +83,7 @@ var data = totalRow.slice(1).map(function (row, i) {
 data.unshift(["Year", "Emissions (million tonnes)"]);
 
 heading = "Queensland’s total transport emissions";
-htmlTable = tableToHtml(data, false, Number.prototype.toFixed, [3]);
+htmlTable = tableToHtml(data, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 

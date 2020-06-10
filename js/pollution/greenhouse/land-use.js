@@ -49,7 +49,7 @@ var heading = "Comparison of state and territory land use, land use change and f
 var index = 0;
 var region = "queensland";
 
-var htmlTable = comparisonTableToHtml(tableData, false, Number.prototype.toFixed, [3]);
+var htmlTable = comparisonTableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 var options = getDefaultBarChartOptions();
@@ -82,7 +82,7 @@ qld.unshift(["Year"].concat(years));
 tableData = qld.transpose();
 heading = "Trends in Queensland's net land use, land use change and forestry (LULUCF) emissions, by category";
 
-var htmlTable = tableToHtml(tableData, false, Number.prototype.toFixed, [3]);
+var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
@@ -110,7 +110,7 @@ var data = qldTotalRow[0].slice(2).map(function (row, i) {
 data.unshift(["Year", "Emissions (million tonnes)"]);
 
 heading = "Queensland's total land use, land use change and forestry (LULUCF) emissions";
-htmlTable = tableToHtml(data, false, Number.prototype.toFixed, [5]);
+htmlTable = tableToHtml(data, false, {minimumFractionDigits: 5, maximumFractionDigits: 5});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
