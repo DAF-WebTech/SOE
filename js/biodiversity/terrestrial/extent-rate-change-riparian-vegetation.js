@@ -56,7 +56,7 @@ catchments.forEach(function(record) {
 		// make checkboxes
 		var div = String.format("<div class='region-info region-{0}'>\n", record.Catchment.toKebabCase());
 		div += "<h3>Choose a subcatchment</h3>\n";
-		div += "<ul style=columns:2 class=subcatchmentCheckboxList>\n";
+		div += "<ul>\n";
 		subcatchments.forEach(function(subrecord) {
 			if (subrecord.Catchment == record.Catchment) {
 				div += String.format("<li><input id=subregion_{0} type=checkbox data-subregion={0}><label for=subregion_{0}>{1}</label>\n", 
