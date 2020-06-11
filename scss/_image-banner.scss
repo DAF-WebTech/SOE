@@ -23,7 +23,10 @@
         background-color: rgba(0, 0, 0, 0.35);
         opacity: 1;
         padding: 0.25em;
-
+		min-width: 20%;		
+		@media only screen and (min-width: 1600px) {
+			min-width: 25%;
+		}
         .owner {
             flex-direction: column;
             align-items: flex-start;
