@@ -1,4 +1,5 @@
 var makeChart = function(record, isSubcatchment) {
+
 	var heading = "Loss of woody vegetation";
 	var myheading = heading + " in " + record.Subcatchment;
 
@@ -12,14 +13,19 @@ var makeChart = function(record, isSubcatchment) {
 	var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 	htmlTable.thead = htmlTable.thead.toLowerCase();
 
-	if (isSubcatchment)
-		regionClass = record.Catchment.toKebabCase() + " region-" + record.Subcatchment.toKebabCase();
-	else
+	if (isSubcatchment) {
+		regionClass = record.Subcatchment.toKebabCase();
+		var chartTableMarkup = String.format(regionInfoTemplate, regionClass, myheading , index++, htmlTable.thead, htmlTable.tbody);
+		chartTableMarkup = chartTableMarkup.replace("region-info", "");
+	}
+	else {
 		regionClass = record.Catchment.toKebabCase();
+		var chartTableMarkup = String.format(regionInfoTemplate, regionClass, myheading , index++, htmlTable.thead, htmlTable.tbody);
+	}
 	
-	print(String.format(regionInfoTemplate, regionClass, myheading , index++, htmlTable.thead, htmlTable.tbody));
+	print(chartTableMarkup);
 	
-	
+
 	arrayTable[0][0] == "Catchment";
 	var options = getDefaultLineChartOptions();
 	options.vAxis.title = "Percent (%)"
