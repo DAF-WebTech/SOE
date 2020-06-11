@@ -24,8 +24,11 @@
         opacity: 1;
         padding: 0.25em;
 		min-width: 20%;		
+				
 		@media only screen and (min-width: 1600px) {
-			min-width: 25%;
+			.image-rights {
+				min-width: 25%;
+			}
 		}
         .owner {
             flex-direction: column;
