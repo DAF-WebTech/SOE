@@ -66,6 +66,8 @@ catchments.forEach(function(record) {
 			}
 		});
 		div += "</ul>";
+		div += "</div>";
+		print (div);
 		
 		subcatchments.forEach(function(subrecord) {
 			if (subrecord.Catchment == record.Catchment) {
@@ -73,11 +75,6 @@ catchments.forEach(function(record) {
 			}
 		});
 
-
-		div += "</div>";
-
-		print (div);
-		
 	
 });
 
