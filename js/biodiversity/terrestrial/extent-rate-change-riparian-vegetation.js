@@ -11,11 +11,13 @@ var makeChart = function(record, isSubcatchment) {
 
 	var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 	htmlTable.thead = htmlTable.thead.toLowerCase();
-	var extraClass = null;
+
 	if (isSubcatchment)
-		extraClass = "subregion-" + record.Subcatchment.toKebabCase();
-	print(String.format(regionInfoTemplate, 
-		record.Catchment.toKebabCase(), myheading , index++, htmlTable.thead, htmlTable.tbody, null, extraClass));
+		regionClass = record.Subcatchment.toKebabCase();
+	else
+		regionClass = record.Catchment.toKebabCase();
+	
+	print(String.format(regionInfoTemplate, regionClass, myheading , index++, htmlTable.thead, htmlTable.tbody));
 	
 	arrayTable[0][0] == "Catchment";
 	var options = getDefaultLineChartOptions();
@@ -63,19 +65,22 @@ catchments.forEach(function(record) {
 					subrecord.Subcatchment.toKebabCase(), subrecord.Subcatchment);
 			}
 		});
-		div += "</ul></div>";
+		div += "</ul>";
+		
+		subcatchments.forEach(function(subrecord) {
+			if (subrecord.Catchment == record.Catchment) {
+				makeChart(subrecord, true);
+			}
+		});
+
+
+		div += "</div>";
+
 		print (div);
 		
 	
 });
 
-// iterate again, this time getting only the subcatchments
-result.data.forEach(function(record) {
-	if (record.Catchment != record.Subcatchment) {
-		// make the charts for each catchment area
-		makeChart(record, true);
-	}
-});
 
 
 

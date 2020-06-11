@@ -152,7 +152,7 @@ for (var i = 0; i < catchments.length; ++i) {
 		}
 		else { // hide all others
 			var subcatchmentname = checkbox.dataset.subregion;
-			var subcatchmentdiv = document.querySelector("div.subregion-" + subcatchmentname);
+			var subcatchmentdiv = document.querySelector("div.region-" + subcatchmentname);
 			subcatchmentdiv.style.display = "none";
 		}
 
@@ -160,7 +160,7 @@ for (var i = 0; i < catchments.length; ++i) {
 		checkbox.addEventListener("change", function(evt) {
 			var checkbox = evt.target;
 			var subcatchmentname = checkbox.dataset.subregion;
-			var subcatchmentdiv = document.querySelector("div.subregion-" + subcatchmentname);
+			var subcatchmentdiv = document.querySelector("div.region-" + subcatchmentname);
 			subcatchmentdiv.style.display = checkbox.checked ? "block" : "none";
 		});
 
