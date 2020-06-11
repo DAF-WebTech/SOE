@@ -76,14 +76,13 @@ catchments.forEach(function(record) {
 		div += "</div>";
 		print (div);
 		
-		var div = String.format("<div class='region-info region-{0}'>\n", record.Catchment.toKebabCase());
+		print(String.format("<div class='region-info region-{0}'>\n", record.Catchment.toKebabCase()));
 		subcatchments.forEach(function(subrecord) {
 			if (subrecord.Catchment == record.Catchment) {
 				makeChart(subrecord, true);
 			}
 		});
-		div += "</div>";
-		print (div);
+		print ("</div>");
 
 	
 });
