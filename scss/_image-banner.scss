@@ -23,7 +23,7 @@
         background-color: rgba(0, 0, 0, 0.35);
         opacity: 1;
         padding: 0.25em;
-		min-width: 20%;		
+		max-width: 20%;		
 				
         .owner {
             flex-direction: column;
@@ -43,7 +43,7 @@
 
 		@media only screen and (min-width: 1600px) {
 			.image-rights {
-				min-width: 25%;
+				max-width: 25% !important;
 			}
 		}	
 	}
