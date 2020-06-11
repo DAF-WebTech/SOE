@@ -13,11 +13,12 @@ var makeChart = function(record, isSubcatchment) {
 	htmlTable.thead = htmlTable.thead.toLowerCase();
 
 	if (isSubcatchment)
-		regionClass = record.Subcatchment.toKebabCase();
+		regionClass = record.Catchment.toKebabCase() + " region-" + record.Subcatchment.toKebabCase();
 	else
 		regionClass = record.Catchment.toKebabCase();
 	
 	print(String.format(regionInfoTemplate, regionClass, myheading , index++, htmlTable.thead, htmlTable.tbody));
+	
 	
 	arrayTable[0][0] == "Catchment";
 	var options = getDefaultLineChartOptions();
