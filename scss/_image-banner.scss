@@ -12,7 +12,13 @@
     z-index: 1;
     content: '';
     
-    .image-rights {
+	@media only screen and (min-width: 1600px) {
+		.image-rights {
+			min-width: 25%;
+		}
+	}
+	
+	.image-rights {
         flex-direction: column;
         position: absolute;
         bottom: -55px;
@@ -25,11 +31,6 @@
         padding: 0.25em;
 		min-width: 20%;		
 				
-		@media only screen and (min-width: 1600px) {
-			.image-rights {
-				min-width: 25%;
-			}
-		}
         .owner {
             flex-direction: column;
             align-items: flex-start;
