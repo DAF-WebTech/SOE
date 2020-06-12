@@ -34,9 +34,9 @@ data.forEach(function(record) {
 });
 
 // convert to html
-var htmlTable = tableToHtml(table.transpose(), true);
+var htmlTable = tableToHtml(table.transpose(), false);
 var heading = "Cumulated number of each protected area";
-print(String.format(regionInfoTemplate, "queensland", heading, 0, htmlTable.thead, htmlTable.tbody, htmlTable.tfoot));
+print(String.format(regionInfoTemplate, "queensland", heading, 0, htmlTable.thead, htmlTable.tbody));
 
 var chartData = [];
 var chartTable = table.transpose();
@@ -65,9 +65,9 @@ data.forEach(function(record) {
 	table.push(row);
 });
 // convert to html
-htmlTable = tableToHtml(table, true);
+htmlTable = tableToHtml(table.transpose, false);
 heading = "Cumulated extent of all protected areas";
-print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody, htmlTable.tfoot));
+print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody));
 
 
 chartTable = table.transpose();
