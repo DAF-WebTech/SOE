@@ -1,5 +1,7 @@
-var csv = "%globals_asset_file_contents:76^replace:\r\n:\\n%";
-//var csv = "% frontend_asset_metadata_csv^as_asset:asset_file_contents^replace:\r\n:\\n %";
+if (typeof csv == "undefined") {
+	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+}
+
 var results = Papa.parse(
 	csv,
 	{
@@ -76,4 +78,4 @@ chartData.push({type: "column", options: options, data: chartTable});
 
 //////////////////////////////////////////////////////////////////////////
 
-print("<script id=chartdata type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
