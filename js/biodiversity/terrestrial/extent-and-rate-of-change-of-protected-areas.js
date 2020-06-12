@@ -34,7 +34,7 @@ data.forEach(function(record) {
 });
 
 // convert to html
-var htmlTable = tableToHtml(table, true);
+var htmlTable = tableToHtml(table.transpose(), true);
 var heading = "Cumulated number of each protected area";
 print(String.format(regionInfoTemplate, "queensland", heading, 0, htmlTable.thead, htmlTable.tbody, htmlTable.tfoot));
 
