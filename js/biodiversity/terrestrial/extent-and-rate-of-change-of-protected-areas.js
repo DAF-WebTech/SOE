@@ -65,7 +65,7 @@ data.forEach(function(record) {
 	table.push(row);
 });
 // convert to html
-htmlTable = tableToHtml(table.transpose, false);
+htmlTable = tableToHtml(table.transpose(), false);
 heading = "Cumulated extent of all protected areas";
 print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody));
 
