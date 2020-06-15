@@ -42,7 +42,7 @@ var index = 0;
 var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null ,"current data is composed of regional data sourced at different times"));
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null ,"<em>*current data is composed of regional data sourced at different times</em>"));
 
 arrayTable[0][0] = "Time";
 chart1 = arrayTable.transpose();
@@ -99,7 +99,7 @@ checkboxes += "  </ul>\n";
 //#################################################################
 // 3  these charts show/hide depending on region checkboxes
 var subregionTemplate = "\n\
-<div class=\"subregion-{0}\"> \n\
+<div class=\"subregion subregion-{0}\"> \n\
 		<h4>{1}</h4> \n\
 		<ul class=chart-tabs data-index={2}> \n\
 				<li class=active><span>Chart</span></li> \n\
