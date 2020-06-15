@@ -210,7 +210,7 @@ Object.keys(regions).forEach(function(regionName) {
 	arrayTable.push(["Non Rural area", totalArea - totalRural])
 	
 	var htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 	
 	chartData.push({ type: "pie", data: arrayTable })
 	var pieChartOptions = getDefaultPieChartOptions()
@@ -234,7 +234,7 @@ Object.keys(regions).forEach(function(regionName) {
 	})
 	
 	var htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 	
 	chartData.push({ type: "pie", data: arrayTable })
 	var pieChartOptions = getDefaultPieChartOptions()
