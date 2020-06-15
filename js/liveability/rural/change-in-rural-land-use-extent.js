@@ -137,7 +137,7 @@ Object.keys(regions).forEach(function(regionName) {
 	});
 	
 	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(subregionTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, "*current data is composed of regional data sourced at different times"))
+	checkboxes += String.format(subregionTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, "*current data is composed of regional data sourced at different times")
 	
 	arrayTable[0][0] = "Time"
 	chartData.push({ type: "column", data: arrayTable.transpose() })
