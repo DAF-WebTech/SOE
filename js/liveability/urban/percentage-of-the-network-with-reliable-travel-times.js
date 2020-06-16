@@ -74,7 +74,7 @@ data.filter(function (d) {
 heading = "On-Time Running by Public Transport Mode in SEQ — % of Trips";
 
 arrayTable = arrayTable.transpose();
-var htmlTable = tableToHtml(arrayTable, false)
+var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2})
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartData.push({ type: "line", options: chartOptions, data: arrayTable });
