@@ -66,7 +66,7 @@ License: MIT
 		return +((+number).toFixed(precision));
 	};
 	var replaceSeparators = function(sNum, separators) {
-		sNum = '' + roundOff(sNum, 3);
+		// wtf ?? sNum = '' + roundOff(sNum, 3);
 		var sNumParts = sNum.split('.');
 		if(separators && separators.thousands) {
 			sNumParts[0] = sNumParts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1" + separators.thousands);
