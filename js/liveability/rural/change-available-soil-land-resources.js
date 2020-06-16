@@ -77,7 +77,7 @@ result.data.forEach(function(record) {
 		arrayTable.push([key, record[key]]);
 	});
 	
-	htmlTable = tableToHtml(arrayTable, false);
+	htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 	print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
 	
 	chartData.push({ data: arrayTable });
