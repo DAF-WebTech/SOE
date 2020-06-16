@@ -48,6 +48,16 @@
                     height: 2rem;
                 }
             }
+			&.middle {
+				&::before {
+					left: 105%;
+					z-index: 50;
+				}
+				&::after {
+					left: 103%;
+					z-index: 60;
+				}
+			}
         }
     }
     &.five {
