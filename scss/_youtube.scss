@@ -33,8 +33,11 @@
             }
         }
         
-        .youtube-video {
-            width: 60%;
+        .youtube-video {            
+			width: 100%;
+			@include screen(tablet) {
+				width: 60%;
+			}
     
             a {
                 border: 3px solid #fff;
