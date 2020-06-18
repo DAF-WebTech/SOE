@@ -108,7 +108,7 @@ chartData.push({ type: "line", options: chartOptions, data: arrayTable });
 arrayTable = [["Year", "Emissions (million tonnes)"]];
 for (var i = 2; i <= lastIndex; ++i)
 	arrayTable.push([dataHead[i].toString(), allQld[i]]);
-console.log(arrayTable);
+
 heading = "Total Queensland emissions";
 htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
