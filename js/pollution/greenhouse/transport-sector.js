@@ -66,8 +66,8 @@ htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFraction
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
-options = getDefaultLineChartOptions();
-options.vAxis.title = "Tonnes (millions)";
+options = getDefaultAreaChartOptions()
+options.vAxis.title = "Tonnes (millions)"
 
 tables.push({
 	data: chart,
