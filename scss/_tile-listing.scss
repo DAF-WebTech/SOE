@@ -38,6 +38,7 @@
             a {
 				display: flex;
 				flex-direction: row;
+				align-items: center;
 
 				@include screen(tablet) {
 					display: block;
@@ -52,20 +53,24 @@
             h2 {
                 font-size: 1.15rem;
                 text-align: center;
-                margin: 0.4rem 0 0 0;
+                margin: 0;
+				@include screen(tablet) {
+					margin: 0.4rem 0 0 0;
+				}
             }
             
             .disc {
                 width: 55px;
 				height: 55px;
+				margin-right: 1rem;
 				@include screen(tablet) {
 					width: 110px;
                 	height: 110px;
+	                margin: 0 auto;
 				}
                 background-color: #fff;
                 border-radius: 50%;
                 padding: 1px;
-                margin: 0 auto;
             }
             .overlay {
                 display: none;
