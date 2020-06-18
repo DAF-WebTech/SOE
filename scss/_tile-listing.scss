@@ -242,7 +242,10 @@
         a {
             color: #fff;
             text-decoration: none;
-			font-size: 1.15rem;
+			@include screen(tablet) {
+				font-size: 1.15rem;
+				font-weight: bold;
+			}
         }
         
         .icon {
@@ -296,17 +299,17 @@
 		.intro {
 			order: 1;
 			width: 100%;
+			margin-bottom: 1rem;
 			@include screen(tablet) {
 				order: 2;
 				width: 60%;
+				font-size: 1.75em;
+				margin: 0;
 			}
 			display: flex;
 			align-items: center;
 			text-align: center;
 			font-size: 1.35em;
-			@include screen(tablet) {
-				font-size: 1.75em;
-			}
 			color: #fff;
 			font-style: italic;
 			text-shadow: 0 2px 2px rgba(0,0,0,0.25);
