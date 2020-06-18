@@ -215,7 +215,10 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top: 5.5rem;
+	margin-top: 2.5rem;
+    @include screen(tablet) {
+		margin-top: 5.5rem;
+	}
 
 	.container {
         height: 100%;
