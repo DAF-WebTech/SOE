@@ -71,9 +71,9 @@ htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFra
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartOptions = getDefaultBarChartOptions();
-chartOptions.hAxis.title = "State";
+chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
 chartOptions.isStacked = true;
-chartOptions.vAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
+chartOptions.vAxis.title = "State";
 chartData.push({ type: "bar", options: chartOptions, data: arrayTable.transpose() });
 
 //##########################################################################
