@@ -274,9 +274,11 @@
     	        height: 118px;				
 			}
         }
-        &:hover {
-            transform: scale(1.075);
-            box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
+		@include screen(tablet) {
+			&:hover {
+            	transform: scale(1.075);
+            	box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
+			}
         }
     }
     ul {
