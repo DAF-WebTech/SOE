@@ -51,14 +51,15 @@ var tables = [{
 
 
 //////////////////////////////////////////////////////////////////////////////////////
-// line
+// area
 
 var chart = categoryData;
 chart.sort(function (a, b) {
 	return a[a.length - 1] < b[b.length - 1] ? 1 : -1;
 });
-chart.unshift(headRow);
-chart = chart.transpose();
+chart.unshift(headRow)
+chart[0][0] = "Year"
+chart = chart.transpose()
 
 heading = "Trends in Queensland’s transport emissions, by category";
 htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
@@ -70,7 +71,7 @@ options.vAxis.title = "Tonnes (millions)";
 
 tables.push({
 	data: chart,
-	type: "line",
+	type: "area",
 	options: options,
 });
 
