@@ -220,11 +220,14 @@
 		display: flex;
 		padding: 0.5em 0.75em;
 		align-items: center;
+		margin-bottom: 1rem;
+		
 		@include screen(tablet) {
 			display: block;
 			width: 175px;
         	height: 175px;
 	        padding-top: 0.85em;
+			margin: 0;
 		}
         text-align: center;
         transition: all 0.15s ease;
@@ -239,6 +242,7 @@
         a {
             color: #fff;
             text-decoration: none;
+			font-size: 1.15rem;
         }
         
         .icon {
