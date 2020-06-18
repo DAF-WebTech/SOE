@@ -1,6 +1,6 @@
-
-var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
-
+if (typeof csv == "undefined") {
+	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+}
 
 var results = Papa.parse(
 	csv,
@@ -11,16 +11,16 @@ var results = Papa.parse(
 );
 var headRow = results.data.shift().map(function (th) { return th.toString(); });
 var latestYear = headRow[headRow.length - 1];
-var totalRow = results.data.pop();
 
-console.log("data from papaparse", results);
+var categoryData = results.data.slice(0, 8);
+var stateData = results.data.slice(8);
 
 var index = 0;
 
 ///////////////////////////////////////////////////
 // pie
 
-var tableData = results.data.map(function (record) {
+var tableData = categoryData.map(function (record) {
 	return [record[0], record[record.length - 1]];
 });
 
@@ -53,7 +53,7 @@ var tables = [{
 //////////////////////////////////////////////////////////////////////////////////////
 // line
 
-var chart = results.data;
+var chart = categoryData;
 chart.sort(function (a, b) {
 	return a[a.length - 1] < b[b.length - 1] ? 1 : -1;
 });
@@ -61,7 +61,7 @@ chart.unshift(headRow);
 chart = chart.transpose();
 
 heading = "Trends in Queensland’s transport emissions, by category";
-htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
@@ -77,7 +77,7 @@ tables.push({
 
 //////////////////////////////////////////////
 // none
-var data = totalRow.slice(1).map(function (row, i) {
+var data = stateData[0].slice(1).map(function (row, i) {
 	return [headRow[i + 1], row];
 });
 data.unshift(["Year", "Emissions (million tonnes)"]);
@@ -87,4 +87,4 @@ htmlTable = tableToHtml(data, false, {minimumFractionDigits: 3, maximumFractionD
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
-print("<script id=chartdata type=application/json>" + JSON.stringify(tables) + "</" + "script>");
+print("<script id=chartData type=application/json>" + JSON.stringify(tables) + "</" + "script>");
