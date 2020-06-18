@@ -81,7 +81,7 @@ chartData.push({ type: "bar", options: chartOptions, data: arrayTable.transpose(
 var qldRecords = records.Queensland;
 var allQld = qldRecords["All (incl. LULUCF)"];
 delete qldRecords.All;
-arrayHead = ["Sector"].concat(dataHead.slice(2));
+arrayHead = ["Year"].concat(dataHead.slice(2));
 arrayHead = arrayHead.map(function (h) { return h.toString() }); // turns year Number types into strings
 arrayBody = [];
 for (sector in qldRecords) {
