@@ -199,26 +199,25 @@
 }
 
 .sub-theme-panel {
+    background-color: rgba(0, 22, 54, 0.55);
     width: 100vw;
-    height: 220px;
+    padding: 1.5rem 0;
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
     margin-top: 5.5rem;
-    background-color: rgba(0, 22, 54, 0.55);
 
-    .container {
+	.container {
         height: 100%;
     }
     
     .tile {
         width: 175px;
         height: 175px;
-        text-align:center;
+        text-align: center;
         padding-top: 0.85em;
-        margin: 1.35em auto 0;
         transition: all 0.15s ease;
         
         &.great-barrier-reef {
@@ -252,15 +251,19 @@
         padding: 0;
         list-style-type: none;
         height: 100%;
-    }
-    .intro {
-        font-size: 1.75em;
-        color: #fff;
-        font-style: italic;
-        text-align: center;
-        text-shadow: 0 2px 2px rgba(0,0,0,0.25);
-        display: flex;
-        align-items: center;
-        padding: 0 3em;
-    }
+
+		.small-tile {
+			justify-content: center;
+		}
+		.intro {
+			font-size: 1.75em;
+			color: #fff;
+			font-style: italic;
+			text-shadow: 0 2px 2px rgba(0,0,0,0.25);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0 3em;
+		}
+	}
 }
