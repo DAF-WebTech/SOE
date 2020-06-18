@@ -266,6 +266,9 @@
 				order: 1;
 			}
 		}
+		.small-tile:nth-child(3) {
+			order: 3;
+		}
 		.intro {
 			order: 1;
 			@include screen(tablet) {
