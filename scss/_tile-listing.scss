@@ -3,7 +3,7 @@
 	flex-direction: column;
     list-style-type: none;
     padding: 0;
-	margin: 0 0 3em 0;
+	margin: 0;
 	
 	@include screen(tablet) {
 		margin: 0 -20px 6em -20px;
@@ -100,11 +100,17 @@
         &.liveability .tile-head { background-color: #82358C; }
 
         .tile-foot {
-            padding: 0.5em 1em 1em 1em;
+            padding: 0 1.5rem;
+			@include screen(tablet) {
+				padding: 0.5em 1em 1em 1em;
+			}
             
             ul {
                 list-style-type: none;
-                margin: 0.25em 0 0 0;
+				margin: 0;
+				@include screen(tablet) {
+    	            margin: 0.25em 0 0 0;
+				}
                 padding: 0;
 
                 li {
