@@ -22,10 +22,12 @@
 		box-shadow: 0 16px 13px 0 rgba(0,0,0,0.25);
         background-color: rgba(0, 22, 54, 0.55);
 
-        &:hover .tile-head {
-            transform: scale(1.075);
-            box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
-        }
+        @include screen(desktop) {
+			&:hover .tile-head {            
+				transform: scale(1.075);
+				box-shadow: 0 10px 5px -5px rgba(0,0,0,0.15);
+			}
+		}
     
         .tile-head {
             display: block;
