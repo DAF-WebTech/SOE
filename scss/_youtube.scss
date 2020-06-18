@@ -19,7 +19,10 @@
 
 .home {
     .youtube-container {
-        margin: 5rem auto 4rem auto;
+        margin: 5rem auto 0 auto;
+		@include screen(tablet) {
+			margin: 5rem auto 4rem auto;
+		}
 
         h2 {
             margin: 0 0 1.5rem 0;
