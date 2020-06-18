@@ -85,7 +85,7 @@ data.unshift(["Year", "Emissions (million tonnes)"]);
 
 heading = "Queensland’s total transport emissions";
 htmlTable = tableToHtml(data, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
 print("<script id=chartData type=application/json>" + JSON.stringify(tables) + "</" + "script>");
