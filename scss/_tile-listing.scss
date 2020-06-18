@@ -258,7 +258,11 @@
 
 		.small-tile {
 			display: flex;
-			justify-content: center;			
+			justify-content: center;
+			width: 100%;
+			@include screen(tablet) {
+				width: 20%;
+			}
 		}
 		.small-tile:nth-child(1) {
 			order: 2;
@@ -271,8 +275,10 @@
 		}
 		.intro {
 			order: 1;
+			width: 100%;
 			@include screen(tablet) {
 				order: 2;
+				width: 60%;
 			}
 			display: flex;
 			align-items: center;
