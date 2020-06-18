@@ -79,7 +79,7 @@ chartData = qldData.map(function (record) {
 	return ret;
 });
 
-var head = ["Category"].concat(keys);
+var head = ["Year"].concat(keys);
 chartData.unshift(head);
 
 chartData = chartData.transpose();
