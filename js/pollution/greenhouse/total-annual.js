@@ -95,7 +95,7 @@ arrayTable = [arrayHead].concat(arrayBody);
 arrayTable = arrayTable.transpose();
 
 heading = "Trends in Queensland emissions, by sector";
-htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartOptions = getDefaultLineChartOptions();
