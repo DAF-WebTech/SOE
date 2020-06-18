@@ -50,7 +50,7 @@ var chartData = [{ type: "pie", options: chartOptions, data: arrayTable }];
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// 2. column
+// 2. bar
 arrayHead = ["Sector", "Qld", "NSW", "Vic", "WA", "SA", "NT", "Tas", "ACT"];
 arrayBody = [];
 Object.keys(records).forEach(function (state) {
@@ -74,7 +74,7 @@ chartOptions = getDefaultBarChartOptions();
 chartOptions.hAxis.title = "State";
 chartOptions.isStacked = true;
 chartOptions.vAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
-chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
+chartData.push({ type: "bar", options: chartOptions, data: arrayTable.transpose() });
 
 //##########################################################################
 // 3. line
