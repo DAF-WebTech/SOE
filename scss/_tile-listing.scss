@@ -101,7 +101,9 @@
 
         .tile-foot {
             padding: 0 1.5rem;
+			display: none;
 			@include screen(tablet) {
+				display: block;
 				padding: 0.5em 1em 1em 1em;
 			}
             
