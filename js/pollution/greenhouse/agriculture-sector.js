@@ -1,96 +1,128 @@
-var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+if (typeof csv == "undefined") {
+	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
+}
 
 var results = Papa.parse(
 	csv,
 	{
 		skipEmptyLines: true,
 		dynamicTyping: true,
-		header: true
 	}
 );
+var headRow = results.data.shift().map(function (th) { return th.toString(); });
+var latestYear = headRow[headRow.length - 1];
 
-// pull out some meta info
-var years = results.meta.fields.slice(1);
-var latestYear = years[years.length - 1];
-var totalRow = results.data.pop();
+var categoryData = results.data.slice(0, 7);
+var stateData = results.data.slice(7);
+
 var index = 0;
 
-/////////////////////////////////////////// 1. pie
 
-var pie1 = {
-	heading: "Proportion of Queensland’s agriculture emissions by category, " + latestYear,
-	kebab: "queensland",
-	headings: ["Category", "Emissions (million tonnes)"],
-	
-	// the latest year value for each category	
-	rows: results.data.map(function (d) {
-		return [d.Category, d[latestYear].toFixed(3)];
-	}),
-	footer: [totalRow.Category, totalRow[latestYear]]
-};
+///////////////////////////////////////////////////
+// pie 1
 
-// chart heading
-var chart1 = [[{ label: "Category" }, { label: "Emissions (million tonnes)" }]]; 
-// convert the string representation in the table back to Number type
-pie1.rows.forEach(function (d) {
-	chart1.push([d[0], Number(d[1])]);
-});
-var chartData = [{ data: chart1, type: "pie", options: getDefaultPieChartOptions() }];
-
-
-/////////////////////////////////////////// 2. line
-
-// build a table directly from the data, but it will need to be transposed
-// first row (ie column after transposition) is the year names
-var line2rows = [years];
-// papaparse converted each row to an object keyed by year, so we conver that back to an array
-results.data.map(function (d) {
-	var ret = [];
-	years.forEach(function (y) {
-		ret.push(d[y] ? d[y].toFixed(3) : "0");
-	});
-	line2rows.push(ret);
-});
-line2rows = line2rows.transpose();
-
-var line2 = {
-	heading: "Trends in Queensland’s agriculture emissions, by category",
-	kebab: "queensland",
-	headings: ["Year"].concat(results.data.map(function (d) { return d.Category })),
-	rows: line2rows
-};
-
-// convert the formatted string for each value back to a Number type
-var chart2 = line2rows.map(function (row) {
-	return row.map(function (d, i) { return i == 0 ? d : Number(d) });
+var tableData = stateData.map(function (record) {
+	return [record[0], record[record.length - 1]];
 });
 
-// add the table's headings to the top of the chart data array
-chart2.unshift(line2.headings);
+tableData.sort(function (a, b) {
+	return a[1] < b[1] ? 1 : -1;
+});
 
-var lineChartOptions = getDefaultLineChartOptions();
-lineChartOptions.vAxis.title = "Tonnes (million)";
-chartData.push({ data: chart2, type: "line", options: lineChartOptions });
+var head = ["State", "Emissions (million tonnes)"];
+tableData.unshift(head);
 
+var heading = "Proportion of agriculture emissions by state, " + latestYear;
+var index = 0;
+var region = "queensland";
 
-/////////////////////////////////////////// 3. table
-
-var table3 = {
-	heading: "Queensland’s total agriculture emissions",
-	kebab: "queensland",
-	headings: ["Year", "Emissions (million tonnes)"],
-	// this data is the year and the value in the Total row
-	rows: years.map(function (y) {
-		return [y, totalRow[y].toFixed(3)]
-	}),
-	hasNoChart: true
-};
-
-var regions = { regions: [pie1, line2, table3] };
-
-var template = Handlebars.compile(chartTableTemplate);
-print(template(regions));
+var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
+var options = getDefaultPieChartOptions();
+options.sliceVisibilityThreshold = 0;
 
-print("<script id=chartdata type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+
+var tables = [{
+	data: tableData,
+	type: "pie",
+	options: options,
+}];
+
+
+
+///////////////////////////////////////////////////
+// pie 2
+
+var tableData = categoryData.map(function (record) {
+	return [record[0], record[record.length - 1]];
+});
+
+tableData.sort(function (a, b) {
+	return a[1] < b[1] ? 1 : -1;
+});
+
+var head = ["Category", "Emissions (million tonnes)"];
+tableData.unshift(head);
+
+var heading = "Proportion of Queensland’s agriculture emissions by category, " + latestYear;
+
+var region = "queensland";
+
+var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+
+
+var options = getDefaultPieChartOptions();
+options.sliceVisibilityThreshold = 0;
+
+
+tables.push({
+	data: tableData,
+	type: "pie",
+	options: options,
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// area
+
+var chart = categoryData;
+chart.sort(function (a, b) {
+	return a[a.length - 1] < b[b.length - 1] ? 1 : -1;
+});
+chart.unshift(headRow)
+chart[0][0] = "Year"
+chart = chart.transpose()
+
+heading = "Trends in Queensland’s agriculture emissions, by category";
+htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+
+
+options = getDefaultLineChartOptions()
+options.vAxis.title = "Tonnes (millions)"
+
+tables.push({
+	data: chart,
+	type: "line",
+	options: options,
+});
+
+
+//////////////////////////////////////////////
+// none
+var data = stateData[0].slice(1).map(function (row, i) {
+	return [headRow[i + 1], row];
+});
+data.unshift(["Year", "Emissions (million tonnes)"]);
+
+heading = "Queensland’s total agriculture emissions";
+htmlTable = tableToHtml(data, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+
+
+
+
+print("<script id=chartData type=application/json>" + JSON.stringify(tables) + "</" + "script>");
