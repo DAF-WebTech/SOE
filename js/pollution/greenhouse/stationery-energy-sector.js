@@ -43,7 +43,7 @@ var chartItems = [
 
 
 
-/*
+
 
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -112,6 +112,5 @@ heading = "Queensland’s total stationary energy emissions";
 htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
-*/
 
 print("<script id=chartData type=application/json>" + JSON.stringify(chartItems) + "</" + "script>");
