@@ -253,16 +253,17 @@
         height: 100%;
 
 		.small-tile {
-			justify-content: center;
+			display: flex;
+			justify-content: center;			
 		}
 		.intro {
+			display: flex;
+			align-items: center;
+			text-align: center;
 			font-size: 1.75em;
 			color: #fff;
 			font-style: italic;
 			text-shadow: 0 2px 2px rgba(0,0,0,0.25);
-			display: flex;
-			align-items: center;
-			justify-content: center;
 			padding: 0 3em;
 		}
 	}
