@@ -94,37 +94,6 @@ frontEndCharts.push({
 
 
 //####################################################################
-// 3 second chart
-heading = "Annual average PM<sub>10</sub> concentrations (µg/m<sup>3</sup>)"
-
-data = results.data.filter(function(record) {
-	return record["Air quality standard"] == "Annual average PM10 concentrations (micrograms/m3)"
-})
-
-tableChartData = [head]; // reuse head from previous
-data.forEach(function(record) {
-	var item = [record.Airshed];
-	var isNull = true;
-	years.forEach(function(year) {
-		item.push(record[year]);
-		isNull = isNull && record[year] == null;
-	})
-	if (!isNull)
-		tableChartData.push(item);
-})
-
-
-htmlTable = tableToHtml(tableChartData.transpose(), false);
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
-
-frontEndCharts.push({
-	data: tableChartData.transpose(),
-	type: "column",
-	options: options,
-});
-
-
-//####################################################################
 // 3 third chart
 heading = "Annual average PM<sub>10</sub> concentrations (µg/m<sup>3</sup>)"
 
@@ -155,8 +124,9 @@ frontEndCharts.push({
 });
 
 
+
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-// 3 fourth chart
+// 4 fourth chart
 heading = "Annual average PM<sub>2.5</sub> concentrations (µg/m<sup>3</sup>)"
 
 data = results.data.filter(function(record) {
