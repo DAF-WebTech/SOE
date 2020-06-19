@@ -66,6 +66,7 @@ if (!String.prototype.toKebabCase) {
 		var returnValue = this.toLowerCase().replace(/ /g, "-");
 		returnValue = returnValue.replace(/\(/g, "");
 		returnValue = returnValue.replace(/\)/g, "");
+		returnValue = returnValue.replace(/,/g, "");
 		return returnValue;
 	};
 }
