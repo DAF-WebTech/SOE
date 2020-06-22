@@ -28,7 +28,7 @@ results.data.forEach(function(record) {
 		})
 
 		var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 1, maximumFractionDigits: 1})
-		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null ,heading + record.Region));
+		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + record.Region, index++, htmlTable.thead, htmlTable.tbody));
 		
 		chartData.push({ type: "line", data: arrayTable })
 		var columnChartOptions = getDefaultLineChartOptions()
