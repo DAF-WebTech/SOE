@@ -9,17 +9,20 @@ var results = Papa.parse(
 		dynamicTyping: true,
 	}
 );
+
 var headRow = results.data.shift().map(function (th) { return th.toString(); });
 var latestYear = headRow[headRow.length - 1];
 
-var categoryData = results.data.slice(0, 7);
-var stateData = results.data.slice(7);
+var categoryData = results.data.slice(0, 6);
+var stateData = results.data.slice(6);
 
-var index = 0;
+var index = 0
+var region = "queensland"
 
 
 ///////////////////////////////////////////////////
 // pie 1
+var heading = "Proportion of industrial processes emissions by state, " + latestYear
 
 var tableData = stateData.map(function (record) {
 	return [record[0], record[record.length - 1]];
@@ -32,22 +35,15 @@ tableData.sort(function (a, b) {
 var head = ["State", "Emissions (million tonnes)"];
 tableData.unshift(head);
 
-var heading = "Proportion of agriculture emissions by state, " + latestYear;
-var index = 0;
-var region = "queensland";
 
 var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
-var options = getDefaultPieChartOptions();
-options.sliceVisibilityThreshold = 0;
-
-
 var tables = [{
 	data: tableData,
 	type: "pie",
-	options: options,
+	options: getDefaultPieChartOptions(),
 }];
 
 
@@ -66,27 +62,27 @@ tableData.sort(function (a, b) {
 var head = ["Category", "Emissions (million tonnes)"];
 tableData.unshift(head);
 
-var heading = "Proportion of Queensland’s agriculture emissions by category, " + latestYear;
+var heading = "Proportion of Queensland’s industrial processes emissions by category, " + latestYear
 
 var region = "queensland";
 
 var htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
-
-var options = getDefaultPieChartOptions();
-options.sliceVisibilityThreshold = 0;
-
+tableData = tableData.filter(function(record) {
+	return record[1] != "Data is confidential"
+});
 
 tables.push({
 	data: tableData,
 	type: "pie",
-	options: options,
+	options: getDefaultPieChartOptions(),
 });
 
 
 //////////////////////////////////////////////////////////////////////////////////////
 // area
+heading = "Trends in Queensland’s industrial processes emissions, by category"
 
 var chart = categoryData;
 chart.sort(function (a, b) {
@@ -96,33 +92,33 @@ chart.unshift(headRow)
 chart[0][0] = "Year"
 chart = chart.transpose()
 
-heading = "Trends in Queensland’s agriculture emissions, by category";
+
 htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
-options = getDefaultLineChartOptions()
+options = getDefaultAreaChartOptions()
 options.vAxis.title = "Tonnes (millions)"
 
 tables.push({
 	data: chart,
-	type: "line",
+	type: "area",
 	options: options,
 });
 
 
 //////////////////////////////////////////////
-// none
+// table only
+
+heading = "Queensland’s total industrial processes emissions";
 var data = stateData[0].slice(1).map(function (row, i) {
 	return [headRow[i + 1], row];
 });
 data.unshift(["Year", "Emissions (million tonnes)"]);
 
-heading = "Queensland’s total agriculture emissions";
+
 htmlTable = tableToHtml(data, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplateTableOnly, region, heading, index++, htmlTable.thead, htmlTable.tbody));
-
-
 
 
 print("<script id=chartData type=application/json>" + JSON.stringify(tables) + "</" + "script>");

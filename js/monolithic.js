@@ -66,6 +66,7 @@ if (!String.prototype.toKebabCase) {
 		var returnValue = this.toLowerCase().replace(/ /g, "-");
 		returnValue = returnValue.replace(/\(/g, "");
 		returnValue = returnValue.replace(/\)/g, "");
+		returnValue = returnValue.replace(/,/g, "");
 		return returnValue;
 	};
 }
@@ -663,7 +664,8 @@ var soejs = {
 	selectPinRegion: function (region_code) {
 
 		if (region_code === 'region-queensland') {
-			infoWindows[0].close();
+			if (soejs.infoWindows.length > 0)
+				soejs.infoWindows[0].close();
 			soejs.showHideRegionInfo(region_code);
 			soejs.map.fitBounds(soejs.map_bounds);
 			soejs.map.setZoom(5);

@@ -13,12 +13,17 @@ var results = Papa.parse(
 
 var latestYear = results.meta.fields[results.meta.fields.length - 1]
 
-var categoryData = results.data.slice(0, 4);
+var qldData = results.data.filter(function(record) {
+	return record.State == "Queensland" && record.Category != "All"
+});
 
-var qldData = results.data[4];
+var qldTotal = results.data.filter(function(record) {
+	return record.State == "Queensland" && record.Category == "All"
+})[0];
 
-var stateData = results.data.slice(4);
-
+var stateData = results.data.filter(function(record) {
+	return record.Category == "All"
+});
 
 var index = 0
 var region = "queensland"
@@ -26,11 +31,11 @@ var region = "queensland"
 
 ///////////////////////////////////////////////////
 // pie 1
-var heading = "Proportion of waste emissions by state, " + latestYear
+var heading = "Proportion of fugitive emissions by state, " + latestYear
 
 var tableChartData = []
 stateData.forEach(function(record) {
-	tableChartData.push([record.Category, record[latestYear]])
+	tableChartData.push([record.State, record[latestYear]])
 })
 
 tableChartData.sort(function (a, b) {
@@ -54,10 +59,10 @@ var frontEndCharts = [{
 ///////////////////////////////////////////////////
 // pie 2
 
-heading = "Proportion of Queensland’s waste emissions by category, " + latestYear
+heading = "Proportion of Queensland’s fugitive emissions by category, " + latestYear
 
 tableChartData = [];
-categoryData.forEach(function(record) {
+qldData.forEach(function(record) {
 	tableChartData.push([record.Category, record[latestYear]])
 })
 
@@ -81,14 +86,14 @@ frontEndCharts.push({
 
 //////////////////////////////////////////////////////////////////////////////////////
 // area
-heading = "Trends in Queensland’s waste emissions, by category"
+heading = "Trends in Queensland’s fugitive emissions, by category"
 
 tableChartData = [["Year"]];
 results.meta.fields.slice(2).forEach(function(year) {
 	tableChartData[0].push(year);
 })
 
-categoryData.forEach(function(record) {
+qldData.forEach(function(record) {
 	var item = [record.Category]
 	results.meta.fields.slice(2).forEach(function(year) {
 		item.push(record[year]);
@@ -111,12 +116,12 @@ frontEndCharts.push({
 
 //////////////////////////////////////////////
 // table only
-heading = "Queensland’s total waste emissions";
+heading = "Queensland’s total fugitive emissions";
 
 var tableData = [["Year", "Emissions (million tonnes)"]];
 
 results.meta.fields.slice(2).forEach(function(year) {
-	tableData.push([year, qldData[year]]);
+	tableData.push([year, qldTotal[year]]);
 })
 
 htmlTable = tableToHtml(tableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
