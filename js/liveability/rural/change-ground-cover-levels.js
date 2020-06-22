@@ -36,10 +36,9 @@ results.data.forEach(function(record) {
 		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + record.Region, index++, htmlTable.thead, htmlTable.tbody))
 		
 		chartData.push({ 
-			type: "line", 
 			data: arrayTable, 
-			options: chartOptions })
-
+			options: chartOptions 
+		})
 	}
 
 })
