@@ -34,7 +34,7 @@ var totalQueenslandUrbanArea = data[2][13];
 var arrayTable = [["", "1999", "current"]];
 arrayTable.push(["Hectares", data[1][13], totalQueenslandUrbanArea]);
 
-var heading = "Queensland urban area growth between 1999 and current*";
+var heading = "Queensland urban area growth between 1999 and 2017*";
 var index = 0;
 var region = "queensland";
 
@@ -46,7 +46,6 @@ chart1 = arrayTable.transpose();
 var columnChartOptions = getDefaultColumnChartOptions(1);
 columnChartOptions.vAxis.minValue = 0;
 columnChartOptions.vAxis.title = "Hectares";
-columnChartOptions.hAxis.title = "Time";
 chartData = [{ type: "column", options: columnChartOptions, data: chart1 }];
 
 
@@ -77,7 +76,7 @@ print("<div class=\"region-info region-queensland\">\n");
 
 print("<h3>Urban area growth between 1999 and current by region</h3>(Current data is composed of regional data sourced at different times)\n");
 
-var regions = dataHead.slice(1, dataHead.length - 2);
+var regions = dataHead.slice(1, dataHead.length - 1);
 
 print("<ul id=regionCheckboxes>\n");
 regions.forEach(function (r, i) {
