@@ -17,6 +17,11 @@ var chartData = []
 
 var years = results.meta.fields.slice(2, results.meta.fields.length - 1)
 
+var chartOptions = getDefaultLineChartOptions()
+chartOptions.vAxis.title = "Groundcover (%)"
+chartOptions.legend.position =  "none"
+
+
 results.data.forEach(function(record) {
 
 	if (record.Type == "Region") {
@@ -28,13 +33,12 @@ results.data.forEach(function(record) {
 		})
 
 		var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 1, maximumFractionDigits: 1})
-		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + record.Region, index++, htmlTable.thead, htmlTable.tbody));
+		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + record.Region, index++, htmlTable.thead, htmlTable.tbody))
 		
-		chartData.push({ type: "line", data: arrayTable })
-		var columnChartOptions = getDefaultLineChartOptions()
-		columnChartOptions.vAxis.title = "Groundcover (%)"
-		chartData[chartData.length - 1].options = columnChartOptions;
-		
+		chartData.push({ 
+			type: "line", 
+			data: arrayTable, 
+			options: chartOptions })
 
 	}
 
