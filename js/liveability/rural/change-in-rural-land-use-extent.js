@@ -1,3 +1,18 @@
+function getCheckBoxLabel(region) {
+
+	switch (region) {
+		case "SEQ NRM region":
+			return "South East Queensland NRM region"
+			
+		case "NQ Dry Tropics NRM region":
+			return "North Queensland Dry Tropics NRM region"
+
+		default:
+			return region
+	}
+
+}
+
 if (typeof csv == "undefined") {
 	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
 }
@@ -28,7 +43,7 @@ data.forEach(function(record) {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 1. stacked column chart for qld figures
-var heading = "Rural area growth between 1999 and Current*";
+var heading = String.format("Rural area growth between 1999 and {0}*", latestYear);
 
 var arrayTable = [["Use", "1999", latestYear]];
 
@@ -74,7 +89,7 @@ qld.forEach(function(qldRecord) {
 arrayTable.push(["Non Rural area", totalQldArea - totalRural])
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null /* i think probably not needed in this one , "current data is composed of regional data sourced at different times"*/))
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody))
 
 chartData.push({ type: "pie", data: arrayTable })
 var pieChartOptions = getDefaultPieChartOptions()
@@ -90,7 +105,7 @@ checkboxes += String.format("<h3>Rural area growth between 1999 and {0} by regio
 checkboxes += "  <ul id=regionCheckboxList> \n";
 Object.keys(regions).forEach(function(regionName) {
 	var region = regions[regionName];
-	checkboxes += String.format("    <li><input type=checkbox id=checkbox_{0} value={0}><label for=checkbox_{0}>{1}</label> \n", regionName.toKebabCase(), regionName);
+	checkboxes += String.format("    <li><input type=checkbox id=checkbox_{0} value={0}><label for=checkbox_{0}>{1}</label> \n", regionName.toKebabCase(), getCheckBoxLabel(regionName));
 });
 checkboxes += "  </ul>\n";
 
@@ -137,7 +152,7 @@ Object.keys(regions).forEach(function(regionName) {
 	});
 	
 	htmlTable = tableToHtml(arrayTable, false)
-	checkboxes += String.format(subregionTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody, "*current data is composed of regional data sourced at different times")
+	checkboxes += String.format(subregionTemplate, regionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody)
 	
 	arrayTable[0][0] = "Time"
 	chartData.push({ type: "column", data: arrayTable.transpose() })
