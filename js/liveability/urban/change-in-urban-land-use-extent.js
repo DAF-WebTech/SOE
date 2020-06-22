@@ -1,3 +1,19 @@
+function getCheckBoxLabel(region) {
+
+	switch (region) {
+		case "SEQ NRM region":
+			return "South East Queensland NRM region"
+			
+		case "NQ Dry Tropics NRM region":
+			return "North Queensland Dry Tropics NRM region"
+
+		default:
+			return region
+	}
+
+}
+
+
 if (typeof csv == "undefined")
 	var csv = '%frontend_asset_metadata_data-file^as_asset:asset_file_contents^replace:\r\n:\\n%';
 
@@ -65,7 +81,7 @@ var regions = dataHead.slice(1, dataHead.length - 2);
 
 print("<ul id=regionCheckboxes>\n");
 regions.forEach(function (r, i) {
-	print(String.format("<li><input type=checkbox value=\"{0}\" id=checkbox_{0} {2} onchange=\"showHideChart(this)\" /><label for=checkbox_{0}>{1}</label>\n", r.toKebabCase(), r, i == 0 ? "checked" : ""));
+	print(String.format("<li><input type=checkbox value=\"{0}\" id=checkbox_{0} {2} onchange=\"showHideChart(this)\" /><label for=checkbox_{0}>{1}</label>\n", r.toKebabCase(), getCheckBoxLabel(r), i == 0 ? "checked" : ""));
 });
 print("</ul></div>\n");
 
