@@ -62,7 +62,12 @@ Object.keys(years).forEach(function(year) {
 	arrayTable.push(item)
 })
 
-arrayTable.unshift(["Year", "Shipwreck", "Aircraft wreck", "Artefacts"])
+arrayTable.unshift([
+	{label: "Year", type: "string"}, 
+	{label: "Shipwreck", type:"number"},
+	{label: "Aircraft wreck", type: "number"},
+	{label: "Artefacts", type: "number"}
+])
 
 htmlTable = tableToHtml(arrayTable, false)
 //print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
