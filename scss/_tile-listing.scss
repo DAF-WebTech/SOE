@@ -9,6 +9,9 @@
 		margin: 0 -20px 6em -20px;
 		flex-direction: row;
 	}
+	@include screen((max-width: 1024px)) {
+		margin: 0 -10px 6em -10px;
+	}
 	
     .tile {
         width: 100%;
@@ -19,6 +22,10 @@
 		@include screen(tablet) {
 			width: calc(20% - 40px);
 		}	
+		@include screen((max-width: 1024px)) {
+			width: calc(20% - 20px);
+		}
+		
 		box-shadow: 0 16px 13px 0 rgba(0,0,0,0.25);
         background-color: rgba(0, 22, 54, 0.55);
 
