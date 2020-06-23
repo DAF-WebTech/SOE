@@ -18,7 +18,7 @@ var endKeys = results.meta.fields.slice(-3)
 
 var options = getDefaultColumnChartOptions()
 options.legend.position = "none"
-options.vAxis.format = "0"
+options.vAxis.format = "#"
 
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
