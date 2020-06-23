@@ -50,9 +50,9 @@ chartData.push({ options: options, data: arrayTable })
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. same but use different column
 
-var heading = "Queensland underwater cultural heritage entries added to the ANSDB"
+heading = "Queensland underwater cultural heritage entries added to the ANSDB"
 
-var arrayTable = []
+arrayTable = []
 Object.keys(years).forEach(function(year) {
 	var item = [year]
 	var records = years[year]
@@ -64,10 +64,10 @@ Object.keys(years).forEach(function(year) {
 
 arrayTable.unshift(["Year", "Shipwreck", "Aircraft wreck", "Artefacts"])
 
-var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
+htmlTable = tableToHtml(arrayTable, false)
+//print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
 
-chartData.push({ options: options, data: arrayTable })
+//chartData.push({ options: options, data: arrayTable })
 
 
 
