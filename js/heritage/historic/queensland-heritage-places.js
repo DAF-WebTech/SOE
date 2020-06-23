@@ -16,6 +16,10 @@ var index = 0
 var keys = results.meta.fields.slice(1, 12)
 var endKeys = results.meta.fields.slice(-3)
 
+var columnChartOptions = getDefaultColumnChartOptions()
+columnChartOptions.legend.position = "none"
+columnChartOptions.vAxis.format = "0"
+
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // queensland total by year, column chart
@@ -42,7 +46,6 @@ Object.keys(result).forEach(function(key) {
 var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
 
-var columnChartOptions = getDefaultColumnChartOptions()
 chartData.push({ options: columnChartOptions, data: arrayTable })
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -73,7 +76,7 @@ print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index+10
 
 //##################################################################
 // for each region a column chart
-columnChartOptions.vAxis.format = "0"
+
 
 results.data.forEach(function(record) {
 	heading = "Number of places on the heritage register in " + record.LGA
