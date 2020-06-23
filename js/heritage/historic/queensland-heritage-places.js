@@ -16,9 +16,9 @@ var index = 0
 var keys = results.meta.fields.slice(1, 12)
 var endKeys = results.meta.fields.slice(-3)
 
-var columnChartOptions = getDefaultColumnChartOptions()
-columnChartOptions.legend.position = "none"
-columnChartOptions.vAxis.format = "0"
+var options = getDefaultColumnChartOptions()
+options.legend.position = "none"
+options.vAxis.format = "0"
 
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -46,7 +46,7 @@ Object.keys(result).forEach(function(key) {
 var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
 
-chartData.push({ options: columnChartOptions, data: arrayTable })
+chartData.push({ options: options, data: arrayTable })
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. queensland table only
@@ -93,7 +93,7 @@ results.data.forEach(function(record) {
 
 	if (sum > 0) {
 		print(String.format(regionInfoTemplate, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
-		chartData.push({ options: columnChartOptions, data: arrayTable })
+		chartData.push({ options: options, data: arrayTable })
 	} else {
 		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
 	}
