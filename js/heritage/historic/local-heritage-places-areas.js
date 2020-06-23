@@ -60,14 +60,24 @@ print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+ind
 
 //###############################################################
 // 3. same table per region
+var groups = {}
 results.data.forEach(function(record) {
+	if (!groups[record.LGA]) {
+		groups[record.LGA] = []
+	}
+	groups[record.LGA].push(record)
+})
 
-	heading = "Local heritage places and areas by planning scheme in " + record.LGA
-	arrayTable = [[results.meta.fields[1]].concat(results.meta.fields.slice(2))]
-	arrayTable.push([record[results.meta.fields[0]], record[results.meta.fields[2]], record[results.meta.fields[3]], record[results.meta.fields[4]]])
+Object.keys(groups).forEach(function(lga) {
 
+	heading = "Local heritage places and areas by planning scheme in " + lga
+	arrayTable = [["Planning Scheme"].concat(results.meta.fields.slice(2))]
+	groups[lga].forEach(function(record) {
+		arrayTable.push([record[results.meta.fields[1]], record[results.meta.fields[2]], record[results.meta.fields[3]], record[results.meta.fields[4]]])
+	})
+	
 	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, 1000+index, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplateTableOnly, lga.toKebabCase(), heading, 1000+index, htmlTable.thead, htmlTable.tbody))
 	
 
 })
