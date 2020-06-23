@@ -19,7 +19,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 				<script src=/js/server-render.js></script>
 				<script>
 						var request = new XMLHttpRequest();
-						request.open("GET", "/data/indicator-2-2-0-2.csv", false);  // `false` makes the request synchronous
+						request.open("GET", "/data/indicator-2-2-0-3.csv", false);  // `false` makes the request synchronous
 						var numberFormattingOptions =	{minimumFractionDigits: 2, maximumFractionDigits: 2}; 
 						request.send(null);
 						var csv = "";
@@ -28,7 +28,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 						}
 				</script>
 
-				<script src="js\heritage\historic\local-heritage-places-areas.js"></script>
+				<script src="js\heritage\historic\underwater-cultural-heritage.js"></script>
 
 				<script>
 						//document.getElementById("chartData").textContent = JSON.stringify(chartData);
@@ -104,7 +104,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 												default:
 													var chart = new google
 																.visualization
-																.PieChart(document.getElementById("chart_" + i));
+																.ColumnChart(document.getElementById("chart_" + i));
 										}
 
 										google
