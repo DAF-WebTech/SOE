@@ -92,7 +92,7 @@ results.data.forEach(function(record) {
 		print(String.format(regionInfoTemplate, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 		chartData.push({ options: columnChartOptions, data: arrayTable })
 	} else {
-		print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index+1000, htmlTable.thead, htmlTable.tbody))
+		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
 	}
 
 
