@@ -39,7 +39,13 @@ Object.keys(years).forEach(function(year) {
 	arrayTable.push(item)
 })
 
-arrayTable.unshift(["Year", "Shipwreck", "Aircraft wreck", "Artefacts"])
+var head = [
+	{label: "Year", type: "string"}, 
+	{label: "Shipwreck", type:"number"},
+	{label: "Aircraft wreck", type: "number"},
+	{label: "Artefacts", type: "number"}
+]
+arrayTable.unshift(head)
 
 var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
@@ -62,12 +68,7 @@ Object.keys(years).forEach(function(year) {
 	arrayTable.push(item)
 })
 
-arrayTable.unshift([
-	{label: "Year", type: "string"}, 
-	{label: "Shipwreck", type:"number"},
-	{label: "Aircraft wreck", type: "number"},
-	{label: "Artefacts", type: "number"}
-])
+arrayTable.unshift(head)
 
 htmlTable = tableToHtml(arrayTable, false)
 //print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
