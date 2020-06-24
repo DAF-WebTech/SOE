@@ -43,7 +43,7 @@ data.forEach(function(record) {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 1. stacked column chart for qld figures
-var heading = String.format("Rural area growth between 1999 and {0}*", latestYear);
+var heading = "Rural area growth between 1999 and current*"
 
 var arrayTable = [["Use", "1999", latestYear]];
 
