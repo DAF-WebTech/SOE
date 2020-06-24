@@ -104,7 +104,7 @@ regions.forEach(function (region, i) {
 	columnChartOptions.vAxis.minValue = 0;
 	columnChartOptions.vAxis.format = "short";
 	columnChartOptions.vAxis.title = "Total Area (hectares)";
-	columnChartOptions.hAxis.title = "Time";
+	columnChartOptions.hAxis.title = "Year";
 	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
 
 	// second time for map region click
