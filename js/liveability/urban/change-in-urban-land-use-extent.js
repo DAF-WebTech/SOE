@@ -89,7 +89,7 @@ regions.forEach(function (region, i) {
 	arrayTable = [["", "1999", "current"]];
 	arrayTable.push(["Hectares", data[1][i + 1], data[2][i + 1]]);
 
-	heading = String.format("{0} urban area growth between 1999 and {1}", region, data[3][i + 1]);
+	heading = String.format("Urban area growth between 1999 and {0} in {1}", data[3][i + 1], region);
 
 	htmlTable = tableToHtml(arrayTable, false);
 
@@ -104,7 +104,7 @@ regions.forEach(function (region, i) {
 	columnChartOptions.vAxis.minValue = 0;
 	columnChartOptions.vAxis.format = "short";
 	columnChartOptions.vAxis.title = "Total Area (hectares)";
-	columnChartOptions.hAxis.title = "Time";
+	columnChartOptions.hAxis.title = "Year";
 	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
 
 	// second time for map region click
