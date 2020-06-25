@@ -3,7 +3,7 @@ var makeChart = function(record, isSubcatchment) {
 	var heading = "Loss of woody vegetation";
 	var myheading = heading + " in " + record.Subcatchment;
 
-	var keys = result.meta.fields.slice(3, 5);
+	var keys = result.meta.fields.slice(2, 4);
 	var arrayTable = [[""]];
 	keys.forEach(function(key) {
 		arrayTable[0].push(key.replace("_", "–")); // &endash;
