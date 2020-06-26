@@ -77,7 +77,7 @@ regionNames.forEach(function(regionName) {
 		table[2][1] += group.np;
 	});
 	htmlTable = tableToHtml(table);
-	heading = String.format("Proportion of total remnant vegetation in protected areas {0}, {1}" + year, 
+	heading = String.format("Proportion of total remnant vegetation in protected areas {0}, {1}", 
 		regionName == "queensland" ? "" : ("in " + regionName), year);
 	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index, htmlTable.thead, htmlTable.tbody));
 
