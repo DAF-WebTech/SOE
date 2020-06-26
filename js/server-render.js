@@ -436,26 +436,9 @@ String.format = function (format, args) {
 	return result;
 };
 
-/*
-these were my corresponding light colors
-google material charts
-would set out colours in dark/light pairs
-if there were more than 7 colours needed 
-var getColours = function (num) {
-	var dark = ["#4285f4", "#db4437", "#f4b400", "#0f9d58", "#ab47bc", "#00acc1", "#ff7043"]; //*darker*
-	var light = ["#5e97f5", "#e06055", "#f5bf26", "#33ab71", "#b762c6", "#26b8ca", "#ff855f"]; //*lighter*
-	var ret = [];
-	if (num < 8) {
-		ret = dark.slice(0, num);
-		return ret;
-	}
-	for (var i = 0; i < num / 2; ++i) {
-		ret.push(dark[i]);
-		ret.push(light[i]);
-	}
-	return ret
-}
-*/
+
+var twelvechartColors = ["#4285f4", "#db4437", "#f4b400", "#0f9d58", "#ab47bc", "#00acc1", "#ff7043", "#9e9d24", "#5c6bc0", "#f06292", "#00796b", "#c2185b"],
+
 
 var chartColours = ["#4285f4", "#db4437", "#f4b400", "#0f9d58", "#ab47bc", "#00acc1", "#ff7043"];
 
