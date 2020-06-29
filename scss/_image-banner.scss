@@ -14,7 +14,7 @@
     
 	.image-rights {
 		position: absolute;
-        top: 200px;
+        top: 181px;
         left: 0;
         right: auto;
 		bottom: auto;
@@ -55,8 +55,11 @@
         }
 	}
     
-    @include screen(tablet) {
-		&:hover .image-rights{
+	&:hover .image-rights{
+		top: 0;
+		opacity: 0;
+		
+		@include screen(tablet) {
         	bottom: 0;
     	}
 	}
