@@ -55,9 +55,11 @@
         }
 	}
     
-    &:hover .image-rights{
-        bottom: 0;
-    }
+    @include screen(tablet) {
+		&:hover .image-rights{
+        	bottom: 0;
+    	}
+	}
 }
 
 .parallax-mirror {
