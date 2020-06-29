@@ -14,7 +14,7 @@
     
 	.image-rights {
 		position: absolute;
-        top: 181px;
+        top: 0;
         left: 0;
         right: auto;
 		bottom: auto;
@@ -24,7 +24,7 @@
 		font-size: 0.75em;
         color: #fff;
         background-color: rgba(0, 0, 0, 0.35);
-        opacity: 1;
+        opacity: 0;
         padding: 0.25em;
 		width: 100%;
 		
@@ -56,11 +56,12 @@
 	}
     
 	&:hover .image-rights{
-		top: 0;
-		opacity: 0;
+		top: 181px;
+		opacity: 1;
 		
 		@include screen(tablet) {
-        	bottom: 0;
+        	opacity: 1;
+			bottom: 0;
     	}
 	}
 }
