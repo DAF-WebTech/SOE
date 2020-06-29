@@ -13,17 +13,27 @@
     content: '';
     
 	.image-rights {
-        flex-direction: column;
-        position: absolute;
-        bottom: -56px;
+		position: absolute;
+        top: 200px;
         left: 0;
         right: auto;
-        font-size: 0.75em;
+		bottom: auto;
+        
+        display: flex;
+		flex-direction: column;        
+		font-size: 0.75em;
         color: #fff;
         background-color: rgba(0, 0, 0, 0.35);
         opacity: 1;
         padding: 0.25em;
-		max-width: 20%;		
+		width: 100%;
+		
+		@include screen(tablet) {
+			top: auto;
+			bottom: -56px;	
+			max-width: 20%;		
+		}
+		
 		@media only screen and (min-width: 1600px) {
 			max-width: 25%;
 		}	
@@ -54,13 +64,3 @@
     z-index: -1 !important;
     background-color: #fff;
 }
-
-/*
-.biodiversity .image-rights { background-color: $biodiversity; }
-.heritage .image-rights { background-color: $heritage; }
-.pollution .image-rights { background-color: $pollution; }
-.climate .image-rights { background-color: $climate; }
-.human-settlements .image-rights { background-color: $human-settlements; }
-.great-barrier-reef .image-rights { background-color: $great-barrier-reef; }
-.climate-change .image-rights { background-color: $climate-change; }
-*/
