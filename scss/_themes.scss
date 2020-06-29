@@ -5,16 +5,25 @@
 
 .homepage-logos {
 	display: flex;
-	flex-direction: row;
-	margin: 1em 0 2.5em 0;
+	flex-direction: column;
 	align-items: flex-end;
 	justify-content: space-between;
+	margin: 1em 0 2.5em 0;
+
+	@include screen(tablet) {
+		flex-direction: row;
+	}		
 	
 	.soe-logo,
 	.aoc-logo {
     	display: block;    
     	filter: drop-shadow(0 2px 3px rgba(0,0,0,0.75));
-	}	
+	}
+	@include screen(mobile) {
+		.soe-logo {
+			margin-bottom: 1rem;
+		}
+	}
 }
 
 .main-content {
