@@ -531,8 +531,15 @@ h3 + .conditions-container {
             width: 1360px;
             margin: 0 auto;
         }
+		@include screen(ipad-pro-portrait) {
+			justify-content: flex-start;			
+		}
 
         .soe-cover-image {
+			@include screen(ipad-pro-portrait) {
+				margin-left: 220px;
+			}
+			
 			a {
 				display: block;
 				border: 3px solid #fff;
@@ -547,7 +554,10 @@ h3 + .conditions-container {
         .soe-summary-text {
             margin-left: 2.5rem;
             width: 460px;
-            
+            @include screen(ipad-pro-portrait) {
+				width: 330px;
+			}			
+			
             .soe-summary-logo {
                 width: 275px;
                 margin-top: 3.5rem;
