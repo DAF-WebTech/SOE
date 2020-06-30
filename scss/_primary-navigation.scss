@@ -37,7 +37,7 @@
     }
 
     .primary-nav {
-        @include screen(desktop) {
+		@include screen(desktop) {
             &.simple {
                 > li:nth-child(10) {
                     margin-left: 4rem;
@@ -58,6 +58,13 @@
 				white-space: nowrap;
 			}
         }
+		@include screen(ipad-pro-portrait) {
+			&.simple {
+				> li:nth-child(10) {
+					margin: 0;
+				}
+			}
+		}
         
         li {
             transition: all 0.1s ease;
