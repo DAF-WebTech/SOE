@@ -32,6 +32,16 @@
             @content;
         }
 	}	
+	@else if $size == ipad-pro-portrait {
+        @media only screen and #{$ipad-pro-portrait} {
+            @content;
+        }
+	}	
+	@else if $size == ipad-pro-landscape {
+        @media only screen and #{$ipad-pro-landscape} {
+            @content;
+        }
+	}	
 	@else if $size == print {
         @media print {
             @content;
