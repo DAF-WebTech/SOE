@@ -8,7 +8,7 @@
         height: 570px;
     }
 	@include screen(ipad-pro-portrait) {
-		height: 592px;
+		height: 586px;
 	}
     background-size: cover;
     background-color: #fff;
@@ -76,7 +76,7 @@
 			bottom: 0;
     	}
 		@include screen(ipad-pro-portrait) {
-			top: 172px;
+			top: 166px;
 			bottom: auto;
 		}
 	}
