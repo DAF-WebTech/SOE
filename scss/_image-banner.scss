@@ -38,10 +38,11 @@
 			width: auto;
 		}
 		@include screen(ipad-pro-portrait) {
-			top: auto;
-			bottom: -56px;	
-			max-width: 20%;	
-			width: auto;
+			top: 0;
+        	right: auto;
+			bottom: auto;		
+        	left: 0;
+			width: 100%;
 		}
 		
 		@media only screen and (min-width: 1600px) {
@@ -70,14 +71,12 @@
 		opacity: 1;
 		
 		@include screen(tablet) {
-        	opacity: 1;
 			top: auto;
 			bottom: 0;
     	}
 		@include screen(ipad-pro-portrait) {
-			opacity: 1;
-			top: auto;
-			bottom: 0;		
+			top: 181px;
+			bottom: auto;		
 		}
 	}
 }
