@@ -63,6 +63,13 @@
 				> li:nth-child(10) {
 					margin: 0;
 				}
+			
+				> li > a {
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+					justify-content: center;
+				}
 			}
 		}
         
@@ -74,12 +81,6 @@
         }
         li a {
             color: #fff;
-			@include screen(ipad-pro-portrait) {
-				display: flex;
-				flex-direction: column;
-				height: 100%;
-				justify-content: center;
-			}
         }
         > li:hover > a {
             color: #111;
