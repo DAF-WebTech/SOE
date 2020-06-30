@@ -27,13 +27,11 @@
 	@include screen(ipad-pro-portrait) {
 		.soe-logo {
 			margin-right: 1rem;
-			width: 50%;
+			width: calc(50% - 1rem);
 		}
 		a {
-			width: 50%;
-		}
-		.aoc-logo {
 			margin-left: 1rem;
+			width: calc(50% - 1rem);
 		}
 	}
 }
