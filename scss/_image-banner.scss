@@ -61,6 +61,7 @@
 		
 		@include screen(tablet) {
         	opacity: 1;
+			top: auto;
 			bottom: 0;
     	}
 	}
