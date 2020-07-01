@@ -275,7 +275,9 @@
 				"Findings": [],
 				"ManagementResponses": [
 					"Climate Change",
-					"Biodiversity"
+					"Biodiversity",
+					"Pollution",
+					"Circular Economy"
 				]
 			},
 			{
@@ -298,7 +300,8 @@
 				"Findings": [],
 				"ManagementResponses": [
 					"Climate Change",
-					"Heritage"
+					"Heritage",
+					"Liveability"
 				]
 			}
 		]
@@ -331,7 +334,8 @@
 				"ManagementResponses": [
 					"Climate Change",
 					"Pollution",
-					"Liveability"
+					"Liveability",
+					"Circular Economy"
 				]
 			}
 		]
@@ -420,7 +424,9 @@
 				],
 				"ManagementResponses": [
 					"Great Barrier Reef",
-					"Heritage"
+					"Heritage",
+					"Biodiversity",
+					"Liveability"
 				]
 			},
 			{
@@ -476,7 +482,8 @@
 					"Great Barrier Reef",
 					"Climate Change",
 					"Pollution",
-					"Liveability"
+					"Liveability",
+					"Circular Economy"
 				]
 			},
 			{
@@ -508,7 +515,9 @@
 				"ManagementResponses": [
 					"Great Barrier Reef",
 					"Biodiversity",
-					"Pollution"
+					"Pollution",
+					"Liveability",
+					"Circular Economy"
 				]
 			},
 			{
@@ -578,7 +587,8 @@
 					"Biodiversity",
 					"Climate Change",
 					"Pollution",
-					"Liveability"
+					"Liveability",
+					"Circular Economy"
 				]
 			},
 			{
@@ -593,7 +603,8 @@
 					"1435461"
 				],
 				"ManagementResponses": [
-					"Pollution"
+					"Pollution",
+					"Circular Economy"
 				]
 			}
 		]
@@ -779,7 +790,8 @@
 				],
 				"ManagementResponses": [
 					"Biodiversity",
-					"Heritage"
+					"Heritage",
+					"Liveability"
 				]
 			}
 		]
@@ -841,7 +853,8 @@
 				"ManagementResponses": [
 					"Biodiversity",
 					"Heritage",
-					"Pollution"
+					"Pollution",
+					"Liveability"
 				]
 			},
 			{
@@ -856,7 +869,8 @@
 				"ManagementResponses": [
 					"Climate Change",
 					"Biodiversity",
-					"Pollution"
+					"Pollution",
+					"Liveability"
 				]
 			},
 			{
