@@ -122,14 +122,14 @@
 					"Pollution",
 					"Liveability"
 				]
-			}
+			},
 			{
 				"TargetNumber": "3.D",
 				"Text": "Strengthen the capacity of all countries, in particular developing countries, for early warning, risk reduction and management of national and global health risks.",
 				"Findings": [],
 				"ManagementResponses": [
-					"1434165",
-					"1434029"
+					"Climate Change",
+					"Climate"
 				]
 			}
 		]
