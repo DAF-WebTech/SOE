@@ -72,10 +72,11 @@ div + h3 {
 
     .tile {
         text-align: center;
-        @include screen(tablet) {
+    	padding: 0;		
+		@include screen(tablet) {
             width: 50%;
+	        padding: 0 2em;
         }
-        padding: 0 2em;
         margin-bottom: 2.5em;
         display: flex;
         flex-direction: column;
