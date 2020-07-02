@@ -1066,7 +1066,8 @@
 				"Findings": [],
 				"ManagementResponses": [
 					"Climate Change",
-					"Liveability"
+					"Liveability",
+					"EEA"
 				]
 			},
 			{
@@ -1097,7 +1098,8 @@
 					"Heritage",
 					"Pollution",
 					"Climate",
-					"Liveability"
+					"Liveability",
+					"EEA"
 				]
 			}
 		]
