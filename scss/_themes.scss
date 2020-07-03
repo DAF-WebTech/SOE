@@ -639,6 +639,68 @@ h3 + .conditions-container {
 	}
 }
 
+.pdf-panel {
+	display: flex;
+    margin-top: 3rem;
+	@include screen(tablet) {
+		margin-top: 6.5rem;
+	}
+	
+	.pdf-panel-container {
+        display: flex;
+		flex-direction: column;
+        justify-content: center;
+        padding: 1.5rem;
+        @include screen(tablet) {			
+			flex-direction: row;
+		}
+
+        .pdf-cover {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			a {
+				display: block;
+				border: 3px solid #fff;
+				transform: rotate(-3deg);
+				transition: all 0.15s ease;
+
+				&:hover {
+					transform: rotate(-5deg);
+				}
+			}
+        }
+        
+		.pdf-text {
+            @include screen(tablet) {
+				margin-left: 2.5rem;
+			}
+            @include screen(ipad-pro-portrait) {
+				width: 330px;
+			}			
+			
+            .soe-summary-logo {
+                width: 275px;
+                margin: 2rem auto 0 auto;
+				@include screen(tablet) {
+					margin: 3.5rem 0 0 0;
+				}
+                display: block;
+            }
+            .soe-pdf-icon {
+                float: left;
+                margin-right: 1rem;
+                width: 75px;
+            }
+            p {
+                margin: 0;
+                padding-top: 0.75rem;
+            }
+        }	
+	}
+}
+
 body {
     @media only screen and (min-width: 1555px) {
         &::before {
