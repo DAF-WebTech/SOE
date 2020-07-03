@@ -488,7 +488,10 @@ h3 + .conditions-container {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-top: 6.5rem;
+    margin-top: 3rem;
+	@include screen(tablet) {
+		margin-top: 6.5rem;
+	}
     
     &.eea {
 		width: 100%;
