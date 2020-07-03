@@ -530,10 +530,15 @@ h3 + .conditions-container {
     
     .soe-summary-container {
         display: flex;
+		flex-direction: column;
         justify-content: center;
         padding: 1.5rem;
-        @include screen (desktop) {
-            width: 1360px;
+        @include screen(tablet) {			
+			flex-direction: row;
+		}
+		
+		@include screen (desktop) {
+            width: 800px;
             margin: 0 auto;
         }
 		@include screen(ipad-pro-portrait) {
@@ -558,7 +563,6 @@ h3 + .conditions-container {
         }
         .soe-summary-text {
             margin-left: 2.5rem;
-            width: 460px;
             @include screen(ipad-pro-portrait) {
 				width: 330px;
 			}			
