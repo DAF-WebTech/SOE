@@ -89,7 +89,14 @@
         background-color: #eee;
         border: 1px solid rgba(0,0,0,0.1);
 
-        &::before,
+        &::before {
+			z-index: 60;
+		}
+		&::after {
+			z-index: 50;
+		}
+		
+		&::before,
         &::after {
             position: absolute;
             top: 50%;
