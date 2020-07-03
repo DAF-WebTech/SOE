@@ -566,7 +566,9 @@ h3 + .conditions-container {
 			}
         }
         .soe-summary-text {
-            margin-left: 2.5rem;
+            @include screen(tablet) {
+				margin-left: 2.5rem;
+			}
             @include screen(ipad-pro-portrait) {
 				width: 330px;
 			}			
