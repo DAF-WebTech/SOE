@@ -546,6 +546,10 @@ h3 + .conditions-container {
 		}
 
         .soe-cover-image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
 			@include screen(ipad-pro-portrait) {
 				margin-left: 220px;
 			}
