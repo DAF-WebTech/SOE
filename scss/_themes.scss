@@ -663,6 +663,9 @@ h3 + .conditions-container {
 				transform: rotate(-3deg);
 				transition: all 0.15s ease;
 				max-width: 250px;
+				@include screen(mobile) {
+					max-width: 150px;
+				}
 
 				&:hover {
 					transform: rotate(-5deg);
@@ -674,6 +677,9 @@ h3 + .conditions-container {
             display: flex;
 			flex-direction: column;
 			justify-content: center;
+			@include screen(mobile) {
+				margin-top: 2rem;
+			}
 			
 			@include screen(tablet) {
 				margin-left: 2.5rem;
