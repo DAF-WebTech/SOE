@@ -674,7 +674,11 @@ h3 + .conditions-container {
         }
         
 		.pdf-text {
-            @include screen(tablet) {
+            display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			@include screen(tablet) {
 				margin-left: 2.5rem;
 			}
             @include screen(ipad-pro-portrait) {
