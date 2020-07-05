@@ -664,7 +664,7 @@ h3 + .conditions-container {
 				transition: all 0.15s ease;
 				max-width: 250px;
 				@include screen(mobile) {
-					max-width: 150px;
+					max-width: 200px;
 				}
 
 				&:hover {
