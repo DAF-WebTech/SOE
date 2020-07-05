@@ -665,6 +665,7 @@ h3 + .conditions-container {
 				border: 3px solid #fff;
 				transform: rotate(-3deg);
 				transition: all 0.15s ease;
+				max-width: 250px;
 
 				&:hover {
 					transform: rotate(-5deg);
@@ -680,7 +681,7 @@ h3 + .conditions-container {
 				width: 330px;
 			}			
 			
-            .soe-summary-logo {
+            .pdf-logo {
                 width: 275px;
                 margin: 2rem auto 0 auto;
 				@include screen(tablet) {
@@ -688,7 +689,7 @@ h3 + .conditions-container {
 				}
                 display: block;
             }
-            .soe-pdf-icon {
+            .pdf-icon {
                 float: left;
                 margin-right: 1rem;
                 width: 75px;
