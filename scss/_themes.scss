@@ -641,10 +641,6 @@ h3 + .conditions-container {
 
 .pdf-panel {
 	display: flex;
-    margin-top: 3rem;
-	@include screen(tablet) {
-		margin-top: 6.5rem;
-	}
 	
 	.pdf-panel-container {
         display: flex;
