@@ -682,12 +682,8 @@ h3 + .conditions-container {
 			}			
 			
             .pdf-logo {
-                width: 275px;
-                margin: 2rem auto 0 auto;
-				@include screen(tablet) {
-					margin: 3.5rem 0 0 0;
-				}
-                display: block;
+				display: block;
+    			margin-bottom: 1rem;
             }
             .pdf-icon {
                 float: left;
