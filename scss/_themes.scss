@@ -698,7 +698,10 @@ h3 + .conditions-container {
 		.pdf-icon {
 			float: left;
 			margin-right: 1rem;
-			width: 75px;
+			width: 35px;
+			@include screen(tablet) {
+				width: 75px;
+			}			
 			align-self: start;
 		}
 		p {
