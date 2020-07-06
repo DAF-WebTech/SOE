@@ -680,6 +680,7 @@ h3 + .conditions-container {
 		flex-direction: column;
 		justify-content: center;
 		@include screen(mobile) {
+			max-width: 425px;
 			margin-top: 2rem;
 		}
 
