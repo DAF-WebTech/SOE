@@ -5,7 +5,10 @@
 
 .biodiversity {
     .checkbox-panel {
-		background-color: rgba(110, 188, 68, 0.1); 
+		background-color: rgba(110, 188, 68, 0.1);
+		h3 {
+			background-color: rgba(110, 188, 68);
+		}
 	}
 	
 	.regiontabs { 
