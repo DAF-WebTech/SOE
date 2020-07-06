@@ -493,28 +493,6 @@ h3 + .conditions-container {
 		margin-top: 6.5rem;
 	}
     
-    &.eea {
-		width: 100%;
-		left: 0;
-		right: 0;
-		margin: 0;
-	
-		&::after {
-			display: none;
-		}
-		.soe-summary-container {
-			width: 100%;
-			
-			.cover-image {
-				width: 270px;
-			}
-			
-			.eea-logo {
-    			margin: 2.25rem 0 2rem 0;
-			}
-		}
-	}
-	
 	&::after {
         position: absolute;
         top: 3.5rem;
@@ -597,52 +575,6 @@ h3 + .conditions-container {
     }
 }
 	
-.content-pdf {
-	display: flex;
-	justify-content: center;
-	padding: 1.5rem;
-	@include screen(tablet) {
-		width: 75%;
-		margin: 0 auto;
-	}
-
-	.cover-image {
-		border: 3px solid #fff;
-		transform: rotate(-3deg);
-		transition: all 0.15s ease;
-		width: 250px;
-
-		&:hover {
-			transform: rotate(-5deg);
-		}
-	}
-	.pdf-text {
-		margin-left: 2.5rem;
-		width: 460px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		
-		.report-logo {
-			display: block;
-			margin-bottom: 1rem;
-			width: fit-content;
-		}
-		.pdf-file {
-			display: flex;
-			
-			.pdf-icon {
-				margin-right: 1rem;
-				width: 75px;
-			}
-			p {
-				margin: 0;
-				padding-top: 0.75rem;
-			}
-		}
-	}
-}
-
 .pdf-panel {
 	display: flex;
 	flex-direction: column;
@@ -711,7 +643,6 @@ h3 + .conditions-container {
 		}
 	}	
 }
-
 
 body {
     @media only screen and (min-width: 1555px) {
