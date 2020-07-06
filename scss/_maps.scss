@@ -279,6 +279,10 @@
     border: 1px solid #eaeaea;
     padding: 1rem 1.5rem 0.25rem 1.5rem;
     margin: 2rem 0;
+	
+	label {
+		margin-left: 0.25rem;
+	}
 }
 .subregion-info {
     display: none;	
