@@ -5,7 +5,6 @@
 
 .biodiversity {
     .checkbox-panel {
-		background-color: rgba(110, 188, 68, 0.1);
 		h3 {
 			color: $biodiversity-dark;
 		}
@@ -43,6 +42,11 @@
 }
 
 .heritage {
+    .checkbox-panel {
+		h3 {
+			color: $heritage-dark;
+		}
+	}
     .regiontabs { 
         border: 1px solid rgba(236, 36, 40, 0.2); 
         background-color: rgba(236, 36, 40, 0.1); 
@@ -75,6 +79,11 @@
 }
 
 .pollution {
+    .checkbox-panel {
+		h3 {
+			color: $pollution-dark;
+		}
+	}
     .regiontabs { 
         border: 1px solid rgba(241, 122, 47, 0.15); 
         background-color: rgba(241, 122, 47, 0.05); 
@@ -107,6 +116,11 @@
 }
 
 .climate {
+    .checkbox-panel {
+		h3 {
+			color: $climate-dark;
+		}
+	}
     .regiontabs { 
         border: 1px solid rgba(58, 83, 164, 0.15); 
         background-color: rgba(58, 83, 164, 0.05); 
@@ -140,6 +154,11 @@
 }
 
 .liveability {
+    .checkbox-panel {
+		h3 {
+			color: $liveability-dark;
+		}
+	}
     .regiontabs { 
         border: 1px solid rgba(127, 63, 152, 0.15); 
         background-color: rgba(127, 63, 152, 0.05); 
@@ -256,9 +275,11 @@
 }
 
 .checkbox-panel {
-	background-color: #f6f6f6;
-    border: 1px solid #e6e6e6;
+	background-color: #fafafa;
+    border: 1px solid #eaeaea;
     padding: 1rem 1.5rem 0.25rem 1.5rem;
     margin: 2rem 0;
 }
-
+.subregion-info {
+    display: none;	
+}
