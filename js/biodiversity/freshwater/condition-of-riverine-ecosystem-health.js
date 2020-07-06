@@ -57,12 +57,12 @@ var getCheckboxes = function (catchment) {
 	var checkboxen = ""
 	Object.keys(catchment).forEach(function (key, i) {
 		if (i == 0) {
-			checkboxen += '<h4>Select sub-catchments</h4><ul class="checkbox-list">\n';
+			checkboxen += '<div class="checkbox-panel"><h3>Select sub-catchments</h3><ul class="checkbox-list">\n';
 		}
 		checkboxen += String.format('<li><input type="checkbox" id="checkbox-{0}" data-subregion="{0}" class="checkbox-subregion" {2} /><label for="checkbox-{0}">{1}</label>\n',
 			key.toKebabCase(), key.replace(/-/, "&ndash;"), (i == 0 ? "checked" : ""));
 	});
-	checkboxen += "</ul>\n";
+	checkboxen += "</ul></div>\n";
 	return checkboxen;
 
 };
