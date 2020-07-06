@@ -280,11 +280,20 @@
 .checkbox-panel {
 	background-color: #fafafa;
     border: 1px solid #eaeaea;
-    padding: 1rem 1.5rem 0.25rem 1.5rem;
+    padding: 1rem 1.25rem;
     margin: 2rem 0;
 	
-	label {
-		margin-left: 0.25rem;
+	.checkbox-list {
+		@include screen(tablet) {
+			columns: 2;
+		}
+    	list-style-type: none;
+		margin: 0;
+		padding: 0 0 0 1.5rem;
+	
+		label {
+			margin-left: 0.25rem;
+		}
 	}
 }
 .subregion-info {
