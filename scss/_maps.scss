@@ -9,6 +9,9 @@
 			color: $biodiversity-dark;
 		}
 	}
+	.subregion-info {
+		border-bottom-color: $biodiversity;
+	}
 	
 	.regiontabs { 
         border: 1px solid #b7dda2; 
@@ -285,5 +288,7 @@
 	}
 }
 .subregion-info {
-    
+    padding: 0 1rem;    
+	margin-bottom: 2.5rem;
+    border-bottom: 2px solid #dadada;
 }
