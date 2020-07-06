@@ -50,6 +50,9 @@
 			color: $heritage-dark;
 		}
 	}
+	.subregion-info {
+		border-bottom-color: $heritage;
+	}
     .regiontabs { 
         border: 1px solid rgba(236, 36, 40, 0.2); 
         background-color: rgba(236, 36, 40, 0.1); 
@@ -86,6 +89,9 @@
 		h3 {
 			color: $pollution-dark;
 		}
+	}
+	.subregion-info {
+		border-bottom-color: $pollution;
 	}
     .regiontabs { 
         border: 1px solid rgba(241, 122, 47, 0.15); 
@@ -124,6 +130,9 @@
 			color: $climate-dark;
 		}
 	}
+	.subregion-info {
+		border-bottom-color: $climate;
+	}
     .regiontabs { 
         border: 1px solid rgba(58, 83, 164, 0.15); 
         background-color: rgba(58, 83, 164, 0.05); 
@@ -161,6 +170,9 @@
 		h3 {
 			color: $liveability-dark;
 		}
+	}
+	.subregion-info {
+		border-bottom-color: $liveability;
 	}
     .regiontabs { 
         border: 1px solid rgba(127, 63, 152, 0.15); 
@@ -295,6 +307,10 @@
 			margin-left: 0.25rem;
 		}
 	}
+}
+
+p + .subregion-info {
+	margin-top: 2.5rem;
 }
 .subregion-info {
     padding: 0 1rem;    
