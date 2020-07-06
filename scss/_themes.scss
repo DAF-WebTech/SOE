@@ -680,11 +680,10 @@ h3 + .conditions-container {
 		flex-direction: column;
 		justify-content: center;
 		@include screen(mobile) {
-			max-width: 425px;
 			margin-top: 2rem;
 		}
-
 		@include screen(tablet) {
+			max-width: 425px;
 			margin-left: 2.5rem;
 		}
 		@include screen(ipad-pro-portrait) {
