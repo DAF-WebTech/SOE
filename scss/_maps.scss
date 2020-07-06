@@ -132,6 +132,39 @@
     }
 }
 
+.liveability {
+    .regiontabs { 
+        border: 1px solid rgba(127, 63, 152, 0.15); 
+        background-color: rgba(127, 63, 152, 0.05); 
+    
+        .regionlink-tabs {
+            border-bottom: 1px solid rgb(127, 63, 152);
+
+            span {
+                color: rgb(58, 83, 164);
+                background-color: rgba(127, 63, 152, 0.125);
+            
+                &:hover {
+                    color: #001865;
+                    background-color: rgba(127, 63, 152, 0.2);
+                }
+            }
+            .active span {
+                background-color: rgb(127, 63, 152); 
+                
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+        .map-list { 
+            border: 1px solid rgba(127, 63, 152, 0.15); 
+            background-color: rgba(127, 63, 152, 0.05);
+            
+        }
+    }
+}
+
 .regiontabs {
     @include screen(tablet) {
         width: 50%;
