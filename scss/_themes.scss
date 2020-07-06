@@ -601,6 +601,10 @@ h3 + .conditions-container {
 	display: flex;
 	justify-content: center;
 	padding: 1.5rem;
+	@include screen(tablet) {
+		width: 75%;
+		margin: 0 auto;
+	}
 
 	.cover-image {
 		border: 3px solid #fff;
@@ -641,69 +645,69 @@ h3 + .conditions-container {
 
 .pdf-panel {
 	display: flex;
-	
-	.pdf-panel-container {
-        display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.5rem;
+	@include screen(tablet) {			
+		margin: 0 auto;
+		flex-direction: row;
+		width: 75%;
+	}
+
+	.pdf-cover {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		a {
+			display: block;
+			border: 3px solid #fff;
+			transform: rotate(-3deg);
+			transition: all 0.15s ease;
+			max-width: 250px;
+			@include screen(mobile) {
+				max-width: 200px;
+			}
+
+			&:hover {
+				transform: rotate(-5deg);
+			}
+		}
+	}
+
+	.pdf-text {
+		display: flex;
 		flex-direction: column;
-        justify-content: center;
-		padding: 1.5rem;
-        @include screen(tablet) {			
-	        margin: 0 auto;
-			flex-direction: row;
+		justify-content: center;
+		@include screen(mobile) {
+			margin-top: 2rem;
 		}
 
-        .pdf-cover {
-			display: flex;
-			align-items: center;
-			justify-content: center;
+		@include screen(tablet) {
+			margin-left: 2.5rem;
+		}
+		@include screen(ipad-pro-portrait) {
+			width: 330px;
+		}			
 
-			a {
-				display: block;
-				border: 3px solid #fff;
-				transform: rotate(-3deg);
-				transition: all 0.15s ease;
-				max-width: 250px;
-				@include screen(mobile) {
-					max-width: 200px;
-				}
-
-				&:hover {
-					transform: rotate(-5deg);
-				}
-			}
-        }
-        
-		.pdf-text {
-            display: flex;
-			flex-direction: column;
-			justify-content: center;
-			@include screen(mobile) {
-				margin-top: 2rem;
-			}
-			
-			@include screen(tablet) {
-				margin-left: 2.5rem;
-			}
-            @include screen(ipad-pro-portrait) {
-				width: 330px;
-			}			
-			
-            .pdf-logo {
-				display: block;
-    			margin-bottom: 1rem;
-            }
-            .pdf-icon {
-                float: left;
-                margin-right: 1rem;
-                width: 75px;
-            }
-            p {
-                margin: 0;
-                padding-top: 0.75rem;
-            }
-        }	
-	}
+		.pdf-logo {
+			display: block;
+			margin-bottom: 1rem;
+			align-self: start;
+		}
+		.pdf-icon {
+			float: left;
+			margin-right: 1rem;
+			width: 75px;
+			align-self: start;
+		}
+		p {
+			margin: 0;
+			padding-top: 0.75rem;
+		}
+	}	
 }
+
 
 body {
     @media only screen and (min-width: 1555px) {
