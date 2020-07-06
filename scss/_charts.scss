@@ -36,7 +36,9 @@
 
 .chart-table {
 	margin-bottom: 3em;
-	padding: 0 1.5em;
+	@include screen(tablet) {
+		padding: 0 1.5em;
+	}
 
 	> div {		
 		display: block;
