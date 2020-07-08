@@ -73,7 +73,7 @@ print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thea
 chartOptions = getDefaultColumnChartOptions();
 chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
 chartOptions.isStacked = true;
-chartOptions.vAxis.title = "State";
+chartOptions.vAxis.title = "Tonnes (millions)";
 chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
 
 //##########################################################################
