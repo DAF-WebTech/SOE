@@ -27,7 +27,7 @@ results.data.forEach(function(record) {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 1. 
-var heading = "Queensland underwater cultural heritage entries updated in the ANSDB"
+var heading = "Queensland underwater cultural heritage entries updated in the AUCHD"
 
 var arrayTable = []
 Object.keys(years).forEach(function(year) {
@@ -50,7 +50,7 @@ chartData.push({ options: options, data: arrayTable })
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. same but use different column
 
-heading = "Queensland underwater cultural heritage entries added to the ANSDB"
+heading = "Queensland underwater cultural heritage entries added to the AUCHD"
 
 arrayTable = []
 Object.keys(years).forEach(function(year) {
