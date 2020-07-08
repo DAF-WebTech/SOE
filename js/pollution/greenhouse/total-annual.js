@@ -70,11 +70,11 @@ heading = "Comparison of state and territory emissions by sector,  " + latestYea
 htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
-chartOptions = getDefaultBarChartOptions();
+chartOptions = getDefaultColumnChartOptions();
 chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
 chartOptions.isStacked = true;
 chartOptions.vAxis.title = "State";
-chartData.push({ type: "bar", options: chartOptions, data: arrayTable.transpose() });
+chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
 
 //##########################################################################
 // 3. line
