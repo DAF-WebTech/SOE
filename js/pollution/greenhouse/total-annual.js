@@ -71,7 +71,7 @@ htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFra
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartOptions = getDefaultColumnChartOptions();
-chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
+chartOptions.hAxis.title = "State";
 chartOptions.isStacked = true;
 chartOptions.vAxis.title = "Tonnes (millions)";
 chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
