@@ -40,7 +40,7 @@ options.hAxis.title = "State";
 
 
 tableChartItems.push({
-	data: chartTableData.transpose(),
+	data: chartTableData,
 	type: "column",
 	options: options,
 });
