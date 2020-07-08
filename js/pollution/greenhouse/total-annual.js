@@ -74,7 +74,7 @@ chartOptions = getDefaultBarChartOptions();
 chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
 chartOptions.isStacked = true;
 chartOptions.vAxis.title = "State";
-chartData.push({ type: "bar", options: chartOptions, data: arrayTable });
+chartData.push({ type: "bar", options: chartOptions, data: arrayTable.transpose() });
 
 //##########################################################################
 // 3. line
