@@ -66,7 +66,7 @@ print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thea
 
 options = getDefaultAreaChartOptions();
 options.vAxis.title = "Tonnes of carbon dioxide equivalent (million)";
-options.legend.position = "none";
+
 
 tableChartItems.push({
 	data: chartTableData.transpose(),
