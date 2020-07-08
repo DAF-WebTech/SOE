@@ -660,7 +660,7 @@ var regionInfoTemplateDialAndTable = "\
 ";
 
 var regionInfoTemplateDialAndChart = "\
-<div class=\"subregion-info subregion-{0} dial-{0} {5} \"> \n\
+<div class=\"subregion-info subregion-{0} dial-{0} {6} \"> \n\
 	<h3>{1}</h3>\n\
 	<ul class=\"conditions-container\"> \n\
 		<li class=\"condition-dial\"> \n\
