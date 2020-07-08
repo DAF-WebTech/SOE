@@ -37,6 +37,7 @@ print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thea
 var options = getDefaultColumnChartOptions();
 options.vAxis.title = "Tonnes of carbon dioxide equivalent (million)";
 options.hAxis.title = "State";
+options.legend.position = "none"
 
 
 tableChartItems.push({
