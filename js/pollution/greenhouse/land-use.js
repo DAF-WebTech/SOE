@@ -21,8 +21,8 @@ var index = 0;
 var region = "queensland";
 var tableChartItems = [];
 
-///////////////////////////////////////////////////
-// bar
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// 1. column
 var heading = "Comparison of state and territory land use, land use change and forestry (LULUCF) emissions, " + latestYear;
 
 var chartTableData = [["State", "Emissions"]]
@@ -34,19 +34,20 @@ stateData.forEach(function(record) {
 var htmlTable = tableToHtml(chartTableData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
-var options = getDefaultBarChartOptions();
-options.hAxis.title = "Tonnes of carbon dioxide equivalent (million)";
-options.legend.position = "none";
+var options = getDefaultColumnChartOptions();
+options.vAxis.title = "Tonnes of carbon dioxide equivalent (million)";
+options.hAxis.title = "State";
+
 
 tableChartItems.push({
-	data: chartTableData,
-	type: "bar",
+	data: chartTableData.transpose(),
+	type: "column",
 	options: options,
 });
 
 
-//////////////////////////////////////////////////////////////////////////////////////
-// area
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// 2. area
 heading = "Trends in Queensland's net land use, land use change and forestry (LULUCF) emissions, by category"
 chartTableData = [["Year"]]
 results.meta.fields.slice(1).forEach(function(year) {
