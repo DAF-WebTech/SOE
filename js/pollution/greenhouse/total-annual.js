@@ -74,7 +74,7 @@ chartOptions = getDefaultColumnChartOptions();
 chartOptions.hAxis.title = "Emissions (million tonnes of carbon dioxide equivalent)";
 chartOptions.isStacked = true;
 chartOptions.vAxis.title = "State";
-chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
+chartData.push({ type: "column", options: chartOptions, data: arrayTable });
 
 //##########################################################################
 // 3. line
