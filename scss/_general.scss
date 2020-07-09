@@ -22,6 +22,10 @@ abbr {
     outline-style: auto;
     outline-width: 1px;
 }
-.content-image.original img {
-    width: auto;
+.content-image {
+	&.original img {
+    	width: auto;
+	&.image-center.original {
+		margin: 0 auto;
+	}
 }
