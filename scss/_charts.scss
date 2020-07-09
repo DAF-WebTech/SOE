@@ -51,4 +51,18 @@
 		text-align: center;
     	color: #444;
 	}
+
+	+ .table-note {
+		margin-top: -3rem;
+    	font-size: 0.85rem;
+	}
+}
+
+#regionCheckboxes {
+	list-style-type: none;
+
+	label {
+		margin-left: 0.25rem;
+		cursor: pointer;
+	}
 }
