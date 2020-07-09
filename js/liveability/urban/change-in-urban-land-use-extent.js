@@ -29,17 +29,19 @@ var dataHead = results.data.shift();
 var data = results.data;
 
 var totalQueenslandUrbanArea = data[2][13];
+var currentYear = "2017"
 
 ///////////////////////////////////////////////////
-var arrayTable = [["", "1999", "current"]];
+var arrayTable = [["", "1999", currentYear]];
 arrayTable.push(["Hectares", data[1][13], totalQueenslandUrbanArea]);
 
-var heading = "Queensland urban area growth between 1999 and 2017*";
+var heading = String.format("Queensland urban area growth between 1999 and {0}*", currentYear);
 var index = 0;
 var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, "*current data is composed of regional data sourced at different times"));
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, 
+	"* " + currentYear + " data is composed of regional data sourced at different times"));
 
 arrayTable[0][0] = "Year";
 chart1 = arrayTable.transpose();
@@ -75,7 +77,7 @@ chartData.push({ type: "pie", options: pieChartOptions, data: chart2 });
 
 print("<div class=\"region-info region-queensland\">\n");
 
-print("<h3>Urban area growth between 1999 and current by region</h3>(Current data is composed of regional data sourced at different times)\n");
+print(String.format("<h3>Urban area growth between 1999 and {0} by region</h3>({0} data is composed of regional data sourced at different times)\n", currentYear));
 
 var regions = dataHead.slice(1, dataHead.length - 1);
 
@@ -87,7 +89,7 @@ print("</ul></div>\n");
 
 regions.forEach(function (region, i) {
 
-	arrayTable = [["", "1999", "current"]];
+	arrayTable = [["", "1999", data[3][i + 1]]];
 	arrayTable.push(["Hectares", data[1][i + 1], data[2][i + 1]]);
 
 	heading = String.format("Urban area growth between 1999 and {0} in {1}", data[3][i + 1], region);
