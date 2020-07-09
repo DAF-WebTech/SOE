@@ -46,6 +46,7 @@ chart1 = arrayTable.transpose();
 var columnChartOptions = getDefaultColumnChartOptions(1);
 columnChartOptions.vAxis.minValue = 0;
 columnChartOptions.vAxis.title = "Hectares";
+columnChartOptions.legend.position = "none";
 chartData = [{ type: "column", options: columnChartOptions, data: chart1 }];
 
 
@@ -105,6 +106,7 @@ regions.forEach(function (region, i) {
 	columnChartOptions.vAxis.format = "short";
 	columnChartOptions.vAxis.title = "Total Area (hectares)";
 	columnChartOptions.hAxis.title = "Year";
+	columnChartOptions.legend.position = "none";
 	chartData.push({ type: "column", options: columnChartOptions, data: myChart });
 
 	// second time for map region click
