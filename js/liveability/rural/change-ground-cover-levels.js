@@ -96,7 +96,8 @@ results.data.forEach(function(record) {
 		})
 
 		htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 1, maximumFractionDigits: 1})
-		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + record.Region, index++, htmlTable.thead, htmlTable.tbody))
+		regionName = record.Region == "Mackay Whitsunday" ? "Mackay–Whitsunday" : record.Region
+		print(String.format(regionInfoTemplate, record.Region.toKebabCase(), heading + regionName, index++, htmlTable.thead, htmlTable.tbody))
 		
 		chartOptions = chartOptions
 		chartData.push({ 
