@@ -41,7 +41,7 @@ var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, 
-	"<p>*" + currentYear + " data is composed of regional data sourced at different times</p>"));
+	"<p class=table-note>*" + currentYear + " data is composed of regional data sourced at different times</p>"));
 
 arrayTable[0][0] = "Year";
 chart1 = arrayTable.transpose();
