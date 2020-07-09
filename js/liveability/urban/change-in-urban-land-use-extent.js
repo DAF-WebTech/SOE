@@ -77,7 +77,7 @@ chartData.push({ type: "pie", options: pieChartOptions, data: chart2 });
 
 print("<div class=\"region-info region-queensland\">\n");
 
-print(String.format("<h3>Urban area growth between 1999 and {0} by region</h3>({0} data is composed of regional data sourced at different times)\n", currentYear));
+print(String.format("<h3>Urban area growth by region</h3><p>({0} data is composed of regional data sourced at different times)</p>\n", currentYear));
 
 var regions = dataHead.slice(1, dataHead.length - 1);
 
