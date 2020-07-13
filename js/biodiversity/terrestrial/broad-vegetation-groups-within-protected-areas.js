@@ -52,7 +52,7 @@ regionNames.forEach(function(regionName) {
 	var htmlTable = tableToHtml(table, true);
 
 	// write out first table
-	var year = "2015";
+	var year = "2017";
 	var heading = String.format("Hectares of broad vegetation groups in protected areas {0}, {1}", 
 		regionName == "queensland" ? "" : ("in " + regionName), year);
 	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index, htmlTable.thead, htmlTable.tbody, htmlTable.tfoot));
