@@ -53,8 +53,8 @@ regionNames.forEach(function(regionName) {
 
 	// write out first table
 	var year = "2017";
-	var heading = String.format("Hectares of broad vegetation groups in protected areas {0}, {1}", 
-		regionName == "queensland" ? "" : ("in " + regionName), year);
+	var heading = String.format("Hectares of broad vegetation groups in protected areas{0}, {1}", 
+		regionName == "queensland" ? "" : (" in " + regionName), year);
 	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index, htmlTable.thead, htmlTable.tbody, htmlTable.tfoot));
 
 	// chart uses same data layout
@@ -77,8 +77,8 @@ regionNames.forEach(function(regionName) {
 		table[2][1] += group.np;
 	});
 	htmlTable = tableToHtml(table);
-	heading = String.format("Proportion of total remnant vegetation in protected areas {0}, {1}", 
-		regionName == "queensland" ? "" : ("in " + regionName), year);
+	heading = String.format("Proportion of total remnant vegetation in protected areas{0}, {1}", 
+		regionName == "queensland" ? "" : (" in " + regionName), year);
 	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading, index, htmlTable.thead, htmlTable.tbody));
 
 	// chart uses same data layout
