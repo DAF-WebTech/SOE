@@ -194,7 +194,7 @@ Object.keys(areas).forEach(function (k) {
 		}
 	}
 	else if (k.startsWith("Fitzroy")) {
-		options.rankings = ["A. Excellent", "B. Good", "C. Fair", "D. Poor", "F. Fail"];
+		options.rankings = ["A. Excellent", "B. Good", "C. Fair", "D. Poor", "E. Fail"];
 		options.ticks = [{ v: 0, f: "" }, { v: 1, f: "D" }, { v: 2, f: "C" }, { v: 3, f: "B" }, { v: 4, f: "A" }];
 		options.grades = ["E", "D", "C", "B", "A"];
 		options.getDialGrade = function (grade) {
