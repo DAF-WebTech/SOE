@@ -149,12 +149,7 @@ Object.keys(regions).forEach(function(region) {
 		options.vAxis.title = "Hectares";
 		options.vAxis.format = "short"
     chartData[chartData.length - 1].options = options;
-
-
-
 });
-
-
 
 
 
