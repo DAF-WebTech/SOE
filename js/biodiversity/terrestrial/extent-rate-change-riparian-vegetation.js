@@ -1,6 +1,6 @@
 var makeChart = function(record, isSubcatchment) {
 
-	var heading = "Loss of woody vegetation";
+	var heading = "Loss of riparian woody vegetation";
 	var myheading = heading + " in " + record.Subcatchment;
 
 	var keys = result.meta.fields.slice(2, 4);
