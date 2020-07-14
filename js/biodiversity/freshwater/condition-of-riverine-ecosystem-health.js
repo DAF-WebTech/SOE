@@ -163,7 +163,7 @@ Object.keys(areas).forEach(function (k) {
 	if (k.startsWith("Healthy")) {
 		options.grades = ["F", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+"];
 		options.ticks = [{ v: 0, f: "" }, { v: 2, f: "D" }, { v: 5, f: "C" }, { v: 8, f: "B" }, { v: 11, f: "A" }];
-		options.rankings = ["A. Excellent", "B. Good", "C. Fair", "D. Poor", "E. Fail"];
+		options.rankings = ["Excellent", "Good", "Fair", "Poor", "Fail"];
 		options.getDialGrade = function (grade) {
 			if (grade.startsWith("D"))
 				return "3";
@@ -180,7 +180,7 @@ Object.keys(areas).forEach(function (k) {
 
 
 	if (k.startsWith("Wet") || k.startsWith("Mackay") || k.startsWith("Townsville")) {
-		options.rankings = ["A. Very Good", "B. Good", "C. Moderate", "D. Poor", "E. Very Poor"];
+		options.rankings = ["Very Good", "Good", "Moderate", "Poor", "Very Poor"];
 		options.ticks = [{ v: 0, f: "" }, { v: 1, f: "D" }, { v: 2, f: "C" }, { v: 3, f: "B" }, { v: 4, f: "A" }];
 		options.grades = ["E", "D", "C", "B", "A"];
 		options.getDialGrade = function (grade) {
@@ -194,7 +194,7 @@ Object.keys(areas).forEach(function (k) {
 		}
 	}
 	else if (k.startsWith("Fitzroy")) {
-		options.rankings = ["A. Excellent", "B. Good", "C. Fair", "D. Poor", "E. Fail"];
+		options.rankings = ["Excellent", "Good", "Fair", "Poor", "Fail"];
 		options.ticks = [{ v: 0, f: "" }, { v: 1, f: "D" }, { v: 2, f: "C" }, { v: 3, f: "B" }, { v: 4, f: "A" }];
 		options.grades = ["E", "D", "C", "B", "A"];
 		options.getDialGrade = function (grade) {
@@ -236,7 +236,7 @@ var printReefDial = function (data, name) {
 		dial: String((data["Numeric equivalent"] * 2) - 1),
 		val: data.Grade,
 		measure: "Condition",
-		rankings: ["A. Very Good", "B. Good", "C. Moderate", "D. Poor", "E. Very Poor"],
+		rankings: ["Very Good", "Good", "Moderate", "Poor", "Very Poor"],
 		region: name.toKebabCase()
 	});
 }
