@@ -46,7 +46,7 @@ data = result.data.filter(function(record) {
 	return record.REGPage == "Queensland" && record.Figure == 2 ;
 });
 
-arrayTable = [["Region"]];
+arrayTable = [["Bioregion"]];
 keys.forEach(function(key) { 
 	arrayTable[0].push(key.replace("unit dependent", "Count"));
 });
@@ -63,7 +63,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() }); 
 chartData[chartData.length - 1].options.vAxis.title = "Count";
-chartData[chartData.length - 1].options.hAxis.title = "Region";
+chartData[chartData.length - 1].options.hAxis.title = "Bioregion";
 
 //########################################################################
 // chart 3, all Qld 
@@ -74,7 +74,7 @@ data = result.data.filter(function(record) {
 	return record.REGPage == "Queensland" && record.Figure == 3;
 });
 
-arrayTable = [["Region"]];
+arrayTable = [["Bioregion"]];
 keys.forEach(function(key) { 
 	arrayTable[0].push(key.replace("unit dependent", "Count per 1000km²"));
 });
@@ -92,7 +92,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
 chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
-chartData[chartData.length - 1].options.hAxis.title = "Region";
+chartData[chartData.length - 1].options.hAxis.title = "Bioregion";
 
 // -=-----------------------------------------------------------------
 // get the regions and iterate the regions, making charts for each one
