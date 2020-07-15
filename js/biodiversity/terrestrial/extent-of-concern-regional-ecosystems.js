@@ -66,6 +66,7 @@ chartData.push({ data: arrayTable, type: "column" });
 options = getDefaultColumnChartOptions();
 options.hAxis.title = "Bioregion";
 options.vAxis.title = "Hectares";
+options.vAxis.format = "short"
 options.isStacked = true;
 chartData[chartData.length - 1].options = options;
 
@@ -90,6 +91,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 chartData.push({ data: arrayTable, type: "line" });
 options = getDefaultLineChartOptions();
 options.vAxis.title = "Hectares";
+options.vAxis.format = "short"
 chartData[chartData.length - 1].options = options;
 
 
@@ -144,7 +146,8 @@ Object.keys(regions).forEach(function(region) {
     
     chartData.push({ data: arrayTable, type: "line" });
     options = getDefaultLineChartOptions();
-    options.vAxis.title = "Hectares";
+		options.vAxis.title = "Hectares";
+		options.vAxis.format = "short"
     chartData[chartData.length - 1].options = options;
 
 
