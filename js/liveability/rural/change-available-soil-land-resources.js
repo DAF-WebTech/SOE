@@ -85,7 +85,7 @@ result.data.forEach(function(record) {
 	chartData.push({ data: arrayTable });
 	var options = getDefaultColumnChartOptions();
 	options.vAxis.title = "Hectares";
-	options.hAxis.title = "Use";
+	options.hAxis.title = "Land use Classification";
 	options.legend.position = "none"
 	chartData[chartData.length - 1].options = options;
 	
