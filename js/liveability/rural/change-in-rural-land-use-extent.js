@@ -57,7 +57,8 @@ var index = 0;
 var region = "queensland";
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null ,"<em>*current data is composed of regional data sourced at different times</em>"));
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null ,
+	String.format("<p class=table-note>*{0} data is composed of regional data sourced at different times</p>", latestYear)));
 
 arrayTable[0][0] = "Time";
 chart1 = arrayTable.transpose();
