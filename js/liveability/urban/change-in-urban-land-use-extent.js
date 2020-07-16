@@ -31,11 +31,11 @@ var data = results.data;
 var totalQueenslandUrbanArea = data[2][13];
 var currentYear = "2017"
 
-///////////////////////////////////////////////////
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 var arrayTable = [["", "1999", currentYear]];
 arrayTable.push(["Hectares", data[1][13], totalQueenslandUrbanArea]);
 
-var heading = String.format("Queensland urban area growth between 1999 and {0}*", currentYear);
+var heading = String.format("Urban area growth between 1999 and {0}*", currentYear);
 var index = 0;
 var region = "queensland";
 
@@ -53,7 +53,7 @@ chartData = [{ type: "column", options: columnChartOptions, data: chart1 }];
 
 
 
-/////////////////////////////////////////////////////////////////////////////
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // chart 2, queensland pie chart
 
 var totalQueenslandArea = data[0][13];
@@ -62,7 +62,7 @@ var queenslandNonUrbanArea = totalQueenslandArea - totalQueenslandUrbanArea;
 var arrayTable = [["", "Urban", "Non-Urban"]];
 arrayTable.push(["Hectares", totalQueenslandUrbanArea, queenslandNonUrbanArea]);
 
-var heading = "Queensland urban area as a proportion of total state area";
+var heading = "Proportion of urban and non-urban areas as at " + latestYear;
 
 var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));

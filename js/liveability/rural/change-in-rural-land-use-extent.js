@@ -43,7 +43,7 @@ data.forEach(function(record) {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 1. stacked column chart for qld figures
-var heading = "Rural area growth between 1999 and current*"
+var heading = String.format("Rural area growth between 1999 and {0}*", latestYear)
 
 var arrayTable = [["Use", "1999", latestYear]];
 
@@ -70,7 +70,7 @@ chartData[chartData.length - 1].options = columnChartOptions;
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. Pie chart which is just the latest year figures from above
-heading = "Proportion of Queensland made up of rural and other areas"
+heading = "Proportion of rural and other areas as at " + latestYear
 
 arrayTable = [["Use", latestYear]]
 
