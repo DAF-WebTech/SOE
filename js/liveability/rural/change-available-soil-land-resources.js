@@ -33,7 +33,8 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 chartData.push({ data: arrayTable });
 var options = getDefaultColumnChartOptions();
 options.vAxis.title = "Hectares";
-options.hAxis.title = "Use";
+options.hAxis.title = "Land use classification";
+options.legend.position = "none"
 chartData[chartData.length - 1].options = options;
 
 
@@ -59,8 +60,9 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 chartData.push({ data: arrayTable });
 var options = getDefaultColumnChartOptions();
-options.vAxis.title = "Percent";
-options.hAxis.title = "Use";
+options.vAxis.title = "Percentage change in land classification (%)";
+options.hAxis.title = "Land use classification";
+options.legend.position = "none"
 chartData[chartData.length - 1].options = options;
 
 
@@ -84,6 +86,7 @@ result.data.forEach(function(record) {
 	var options = getDefaultColumnChartOptions();
 	options.vAxis.title = "Hectares";
 	options.hAxis.title = "Use";
+	options.legend.position = "none"
 	chartData[chartData.length - 1].options = options;
 	
 
