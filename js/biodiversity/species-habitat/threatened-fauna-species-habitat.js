@@ -112,7 +112,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 
 		var record = bioregion[group]
 
-		print(String.format("<div class=\"group group-{0}\">", group.toKebabCase()))
+		print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase()))
 
 		//##############################################
 		// line chart for group in region
@@ -130,12 +130,10 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 
 		htmlTable = tableToHtml(arrayTable, false)
 		if (sum == 0) {
-			print(String.format(tableOnlyInner, bioregionName.toKebabCase(), heading, index + 1000, htmlTable.thead, htmlTable.tbody,
-				"", "subgroup subgroup-" + group))
+			print(String.format(tableOnlyInner, heading, index + 1000, htmlTable.thead, htmlTable.tbody))
 		}
 		else {
-			print(String.format(tableChartInner, bioregionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody,
-				"", "subgroup subgroup-" + group))
+			print(String.format(tableChartInner, heading, index++, htmlTable.thead, htmlTable.tbody))
 			options = getDefaultLineChartOptions()
 			options.vAxis.format = "short"
 			options.vAxis.title = "Hectares"
@@ -146,7 +144,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 		
 		if (bioregionName == "Queensland") {
 
-			print("<div class=\"group group-queensland\">")
+			print("<div class=\"group-info group-queensland\">")
 			
 			//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			// pie chart to show each region
@@ -157,7 +155,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 					arrayTable.push([bkey, bioregions[bkey][group]["Pre-clear"]]);
 			})
 			htmlTable = tableToHtml(arrayTable, false)
-			print(String.format(tableChartInner, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
+			print(String.format(tableChartInner, heading, index++, htmlTable.thead, htmlTable.tbody))
 
 			options = getDefaultPieChartOptions()
 			chartData.push({ data: arrayTable, type: "pie", options: options })
