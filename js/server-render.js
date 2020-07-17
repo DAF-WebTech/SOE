@@ -599,6 +599,7 @@ var regionInfoTemplateTableOnly = "\n\
 		</div>\n\
 </div>\n";
 
+//handlebars
 var chartTableTemplate = " \
 {{#each regions as | region |}} \
 <div class=\"region-info region-{{region.kebab}} {{region.extraClass}}\" {{region.extraAttribute}}> \
