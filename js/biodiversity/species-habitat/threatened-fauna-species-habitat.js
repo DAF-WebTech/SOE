@@ -112,7 +112,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 
 		var record = bioregion[group]
 
-		print(String.format("<div class=\"region-info group-info group-{0}\">", group.toKebabCase()))
+		print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase()))
 
 		//##############################################
 		// line chart for group in region
@@ -144,7 +144,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 		
 		if (bioregionName == "Queensland") {
 
-			print(String.format("<div class=\"region-info group-info group-{0}\">", group.toKebabCase()))
+			print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase()))
 			
 			//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			// pie chart to show each region
