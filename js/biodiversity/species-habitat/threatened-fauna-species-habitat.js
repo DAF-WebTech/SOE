@@ -113,7 +113,7 @@ Object.keys(bioregions).forEach(function(bioregionName) {
 
 		//##############################################
 		// line chart for group in region
-		var heading = String.format("Trend in threatened {0} habitat ", group)
+		var heading = String.format("Trend in threatened {0} habitat ", group.toLowerCase())
 		if (bioregionName != "Queensland") {
 			heading += "in the " + bioregionName 
 		}
@@ -141,7 +141,7 @@ Object.keys(bioregions).forEach(function(bioregionName) {
 
 			//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			// pie chart to show each region
-			heading = String.format("Proportion of pre-clear threatened {0} habitat by bioregion", group)
+			heading = String.format("Proportion of pre-clear threatened {0} habitat by bioregion", group.toLowerCase())
 			arrayTable = [["Region", "Pre-clear"]]
 			Object.keys(bioregions).forEach(function(bkey) {
 				if (bkey != "Queensland")
