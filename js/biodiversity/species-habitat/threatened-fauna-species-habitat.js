@@ -127,10 +127,12 @@ Object.keys(bioregions).forEach(function(bioregionName) {
 
 		htmlTable = tableToHtml(arrayTable, false)
 		if (sum == 0) {
-			print(String.format(regionInfoTemplateTableOnly, bioregionName.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
+			print(String.format(regionInfoTemplateTableOnly, bioregionName.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody, 
+				"", "subgroup subgroup-" + group))
 		}
 		else {
-			print(String.format(regionInfoTemplate, bioregionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
+			print(String.format(regionInfoTemplate, bioregionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody,
+				"", "subgroup subgroup-" + group))
 			options = getDefaultLineChartOptions()
 			options.vAxis.format = "short"
 			options.vAxis.title = "Hectares"
