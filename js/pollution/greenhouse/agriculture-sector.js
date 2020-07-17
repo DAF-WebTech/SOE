@@ -102,7 +102,8 @@ print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thea
 
 
 options = getDefaultLineChartOptions()
-options.vAxis.title = "Tonnes (millions)"
+options.vAxis.title = "Tonnes"
+options.vAxis.format = "#M"
 
 tables.push({
 	data: chart,
