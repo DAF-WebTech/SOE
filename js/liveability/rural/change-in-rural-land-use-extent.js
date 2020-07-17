@@ -116,7 +116,7 @@ checkboxes += "  </ul>\n";
 //#################################################################
 // 3  these charts show/hide depending on region checkboxes
 var subregionTemplate = "\n\
-<div class=\"subregion subregion-{0}\"> \n\
+<div class=\"region-info subregion subregion-{0}\"> \n\
 		<h4>{1}</h4> \n\
 		<ul class=chart-tabs data-index={2}> \n\
 				<li class=active><span>Chart</span></li> \n\
