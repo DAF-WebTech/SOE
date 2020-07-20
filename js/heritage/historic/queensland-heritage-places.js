@@ -20,6 +20,7 @@ var options = getDefaultColumnChartOptions()
 options.legend.position = "none"
 options.vAxis.title = "Number of places"
 options.vAxis.format = "short"
+options.vAxis.minValue = 0
 
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
