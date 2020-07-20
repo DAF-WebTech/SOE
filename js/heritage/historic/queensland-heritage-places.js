@@ -19,8 +19,7 @@ var endKeys = results.meta.fields.slice(-3)
 var options = getDefaultColumnChartOptions()
 options.legend.position = "none"
 options.vAxis.title = "Number of places"
-//options.vAxis.format = "0"
-//options.vAxis.minValue = 0
+options.vAxis.minValue = 0
 
 
 
@@ -80,23 +79,41 @@ print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index+10
 //##################################################################
 // for each region a column chart
 
-
 results.data.forEach(function(record) {
 	heading = "Number of places on the heritage register in " + record.LGA
 	arrayTable = [["Year", "Number of places"]]
 	var sum = 0
+	var max = 0
 	keys.forEach(function(key) {
 		if (record[key] != null) {
-			arrayTable.push([key, record[key]]);
+			arrayTable.push([key, record[key]])
 			sum += record[key]
+			max = Math.max(max, record[key])
 		}
 	})
 
 	htmlTable = tableToHtml(arrayTable, false)
 
+	var options = getDefaultColumnChartOptions()
+	options.legend.position = "none"
+	options.vAxis.title = "Number of places"
+	options.vAxis.minValue = 0
+
+
 	if (sum > 0) {
 		print(String.format(regionInfoTemplate, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
-		chartData.push({ options: options, data: arrayTable })
+
+		if (max <= 30) {
+			var ceiling = Math.ceil(max / 4) * 4
+			options.vAxis.viewWindow = {max: ceiling}
+			options.vAxis.ticks = []
+			for (var i = 0; i <= ceiling; i += ceiling / 4)
+				options.vAxis.ticks.push(i)
+		}
+
+		chartData.push({ data: arrayTable, options: options })
+//		chartData[chartData.length-1].options = options
+
 	} else {
 		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
 	}
