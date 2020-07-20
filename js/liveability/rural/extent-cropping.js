@@ -25,7 +25,7 @@ var heading = "Cropped area by season (million ha) in "
 var chartData = []
 
 var chartOptions = getDefaultColumnChartOptions()
-chartOptions.vAxis.format = "#M"
+chartOptions.vAxis.format = "short"
 chartOptions.vAxis.title = "Hectares"
 chartOptions.isStacked = true
 
@@ -49,7 +49,11 @@ Object.keys(regions).forEach(function(regionName) {
 
 	var htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2})
 	print(String.format(regionInfoTemplate, regionName.toKebabCase(), heading + regionName, index++, htmlTable.thead, htmlTable.tbody))
-		
+	
+	// these numbers are in whole millions, so make them the full amount for chart
+	for(var i = 1; i < arrayTable.length; ++i)
+		for (var j = 1; j < arrayTable[i].length; ++j)
+			arrayTable[i][j] *= 1000000
 
 	chartData.push({ 
 		data: arrayTable, 
