@@ -65,6 +65,7 @@ chart1 = arrayTable.transpose();
 chartData = [{ type: "column", data: chart1 }];
 var columnChartOptions = getDefaultColumnChartOptions();
 columnChartOptions.isStacked = true;
+columnChartOptions.vAxis.format = "short"
 columnChartOptions.vAxis.title = "Hectares"
 chartData[chartData.length - 1].options = columnChartOptions;
 
@@ -101,7 +102,7 @@ chartData[chartData.length - 1].options = pieChartOptions
 // checkboxes for each region
 delete regions["Queensland Wide"];
 
-var checkboxes = "<div class=\"region-info region-queensland\"> \n \
+var checkboxes = "<div class=\"region-info region-queensland checkbox-panel\"> \n \
 <h3>Rural area growth between 1999 and current by region*</h3> \n \
 <ul id=regionCheckboxList> \n";
 
@@ -161,6 +162,7 @@ Object.keys(regions).forEach(function(regionName) {
 
 	columnChartOptions = getDefaultColumnChartOptions()
 	columnChartOptions.isStacked = true
+	columnChartOptions.vAxis.format = "short"
 	columnChartOptions.vAxis.title = "Hectares"
 	chartData[chartData.length - 1].options = columnChartOptions
 	
@@ -202,6 +204,7 @@ Object.keys(regions).forEach(function(regionName) {
 
 	columnChartOptions = getDefaultColumnChartOptions()
 	columnChartOptions.isStacked = true
+	columnChartOptions.vAxis.format = "short"
 	columnChartOptions.vAxis.title = "Hectares"
 	chartData[chartData.length - 1].options = columnChartOptions
 	
