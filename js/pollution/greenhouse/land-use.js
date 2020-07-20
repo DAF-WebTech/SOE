@@ -73,9 +73,9 @@ options.vAxis.format = "short"
 options.vAxis.title = "Tonnes of carbon dioxide equivalent";
 
 // we have to multiply by a million
-for (var i = 1; i < tableChartData.length; ++i)
-	for (var j = 1; j < tableChartData[i].length; ++j)
-		tableChartData[i][j] *= 1000000
+for (var i = 1; i < chartTableData.length; ++i)
+	for (var j = 1; j < chartTableData[i].length; ++j)
+		chartTableData[i][j] *= 1000000
 
 
 tableChartItems.push({
