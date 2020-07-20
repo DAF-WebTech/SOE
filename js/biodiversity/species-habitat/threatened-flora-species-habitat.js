@@ -101,7 +101,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 	groups.forEach(function (group) {
 		html += String.format(
 			"<li><input type=checkbox id=checkbox_{0}_{1} class=checkbox-subregion data-region={0} data-group={1}> \
-			<label for=checkbox_{0}_{1}>{1}</label>", bioregionName.toKebabCase(), group)
+			<label for=checkbox_{0}_{1}>{2}</label>", bioregionName.toKebabCase(), group.toKebabCase(), group)
 	})
 
 	html += "</ul></div>"
