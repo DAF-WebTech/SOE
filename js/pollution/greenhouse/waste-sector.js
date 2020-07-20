@@ -109,7 +109,7 @@ options.vAxis.title = "Tonnes"
 // we have to multiply by a million
 for (var i = 1; i < tableChartData.length; ++i)
 	for (var j = 1; j < tableChartData[i].length; ++j)
-	tableChartData[i][j] *= 1000000
+		tableChartData[i][j] *= 1000000
 
 frontEndCharts.push({
 	data: tableChartData,
