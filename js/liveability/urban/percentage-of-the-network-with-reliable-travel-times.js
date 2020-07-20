@@ -20,7 +20,7 @@ data.filter(function (d) {
 });
 arrayTable[2][0] = "Off-Peak";
 
-var heading = "Percentage of network with good travel time reliability";
+var heading = "Percentage of network travel time reliability (%)";
 var index = 0;
 var region = "queensland";
 
