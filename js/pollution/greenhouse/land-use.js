@@ -69,7 +69,8 @@ htmlTable = tableToHtml(chartTableData, false, {minimumFractionDigits: 3, maximu
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 options = getDefaultAreaChartOptions();
-options.vAxis.title = "Tonnes of carbon dioxide equivalent (million)";
+options.vAxis.format = "short"
+options.vAxis.title = "Tonnes of carbon dioxide equivalent";
 
 // we have to multiply by a million
 for (var i = 1; i < tableChartData.length; ++i)
