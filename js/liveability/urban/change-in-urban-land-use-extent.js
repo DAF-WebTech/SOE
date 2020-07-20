@@ -65,7 +65,7 @@ arrayTable.push(["Hectares", totalQueenslandUrbanArea, queenslandNonUrbanArea]);
 var heading = "Proportion of urban and non-urban areas as at " + currentYear;
 
 var htmlTable = tableToHtml(arrayTable, false)
-var nb = String.format("({0} data is composed of regional data sourced at different times)", currentYear)
+var nb = String.format("<p>({0} data is composed of regional data sourced at different times)</p>", currentYear)
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, nb));
 
 arrayTable[0][0] = "Year";
