@@ -65,7 +65,8 @@ arrayTable.push(["Hectares", totalQueenslandUrbanArea, queenslandNonUrbanArea]);
 var heading = "Proportion of urban and non-urban areas as at " + currentYear;
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
+var nb = String.format("({0} data is composed of regional data sourced at different times)", currentYear)
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, nb));
 
 arrayTable[0][0] = "Year";
 var chart2 = arrayTable.transpose();
@@ -77,7 +78,7 @@ chartData.push({ type: "pie", options: pieChartOptions, data: chart2 });
 
 print("<div class=\"region-info region-queensland\">\n");
 
-print(String.format("<h3>Urban area growth by region</h3><p>({0} data is composed of regional data sourced at different times)</p>\n", currentYear));
+print("<h3>Urban area growth by region</h3>\n");
 
 var regions = dataHead.slice(1, dataHead.length - 1);
 
