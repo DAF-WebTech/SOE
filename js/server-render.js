@@ -597,6 +597,7 @@ var regionInfoTemplateTableOnly = "\n\
 						</table>\n\
 				</div>\n\
 		</div>\n\
+		{8} \n\
 </div>\n";
 
 //handlebars
