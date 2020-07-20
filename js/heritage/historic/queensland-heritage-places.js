@@ -19,7 +19,8 @@ var endKeys = results.meta.fields.slice(-3)
 var options = getDefaultColumnChartOptions()
 options.legend.position = "none"
 options.vAxis.minValue = 0
-options.vAxis.format = "0"
+options.vAxis.title = "Number of places"
+options.vAxis.format = "short"
 
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
