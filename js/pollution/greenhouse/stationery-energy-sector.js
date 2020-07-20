@@ -88,9 +88,17 @@ heading = "Trends in Queensland’s stationary energy emissions, by category";
 htmlTable = tableToHtml(chartData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
+// we have to multiply by a million
+for (var i = 1; i < chartData.length; ++i)
+	for (var j = 1; j < chartData[i].length; ++j)
+		chartData[i][j] *= 1000000
+
+
 var options = getDefaultAreaChartOptions();
 options.isStacked = true;
-options.vAxis.title = "Tonnes (millions)";
+options.vAxis.format = "short"
+options.vAxis.title = "Tonnes";
+
 chartItems.push(
 	{
 		heading: heading,
