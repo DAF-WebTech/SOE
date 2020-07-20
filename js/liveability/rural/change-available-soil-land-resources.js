@@ -32,6 +32,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 chartData.push({ data: arrayTable });
 var options = getDefaultColumnChartOptions();
+options.vAxis.format = "short"
 options.vAxis.title = "Hectares";
 options.hAxis.title = "Land use classification";
 options.legend.position = "none"

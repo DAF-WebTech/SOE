@@ -121,7 +121,7 @@ regions.forEach(function (region, i) {
 	// 1. Showing proportion of region area covered by Urban. 
 	// Made up of two parts, first, Region Non Urban Area (Region area minus urban area) and second, Region Urban area.
 
-	var heading = String.format("Proportion of {0} made up of urban areas in {1}", region, data[3][i + 1]);
+	heading = String.format("Proportion of {0} made up of urban areas in {1}", region, data[3][i + 1]);
 	
 
 	var regionUrbanArea = data[2][i + 1];
