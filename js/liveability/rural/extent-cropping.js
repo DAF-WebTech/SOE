@@ -25,7 +25,8 @@ var heading = "Cropped area by season (million ha) in "
 var chartData = []
 
 var chartOptions = getDefaultColumnChartOptions()
-chartOptions.vAxis.title = "Million hectares"
+chartOptions.vAxis.format = "#M"
+chartOptions.vAxis.title = "Hectares"
 chartOptions.isStacked = true
 
 Object.keys(regions).forEach(function(regionName) {
