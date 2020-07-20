@@ -139,7 +139,6 @@ regions.forEach(function (region, i) {
 		
 	// 2. Showing proportion of region area covered by Urban. 
 	// Made up of two parts, first, Queensland Non Urban Area (Queensland area minus region urban area) and second, Region Urban area.
-	heading = String.format("{0} urban area as a proportion of total Queensland area in {1}", region, data[3][i + 1]);
 	var qldIndex = data[0].length - 1;
 	var queenslandArea = data[0][qldIndex];
 	var queenslandNonUrbanArea = queenslandArea - regionUrbanArea;
