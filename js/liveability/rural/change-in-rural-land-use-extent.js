@@ -102,7 +102,8 @@ chartData[chartData.length - 1].options = pieChartOptions
 // checkboxes for each region
 delete regions["Queensland Wide"];
 
-var checkboxes = "<div class=\"region-info region-queensland checkbox-panel\"> \n \
+var checkboxes = "<div class=\"region-info region-queensland\"> \n \
+<div class=checkbox-panel> \n \
 <h3>Rural area growth between 1999 and current by region*</h3> \n \
 <ul id=regionCheckboxList> \n";
 
@@ -110,7 +111,7 @@ Object.keys(regions).forEach(function(regionName) {
 	var region = regions[regionName];
 	checkboxes += String.format("    <li><input type=checkbox id=checkbox_{0} value={0}><label for=checkbox_{0}>{1}</label> \n", regionName.toKebabCase(), getCheckBoxLabel(regionName));
 });
-checkboxes += "  </ul>\n";
+checkboxes += "  </ul></div>\n";
 
 
 
