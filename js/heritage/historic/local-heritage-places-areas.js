@@ -55,7 +55,7 @@ var head = [results.meta.fields[1]].concat(results.meta.fields.slice(2))
 arrayTable.unshift(head)
 
 htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+index, htmlTable.thead, htmlTable.tbody, null, null, "LGAs can occur multiple times in the table if they operate under more than one planning scheme"))
+print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+index, htmlTable.thead, htmlTable.tbody, null, null, null, "<p>LGAs can occur multiple times in the table if they operate under more than one planning scheme"))
 
 
 
