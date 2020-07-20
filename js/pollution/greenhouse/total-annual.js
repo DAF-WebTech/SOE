@@ -70,11 +70,19 @@ heading = "Comparison of state and territory emissions by sector,  " + latestYea
 htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
+arrayTable = arrayTable.transpose()
+
+// we have to multiply by a million
+for (var i = 1; i < arrayTable.length; ++i)
+	for (var j = 1; j < arrayTable[i].length; ++j)
+		arrayTable[i][j] *= 1000000
+
 chartOptions = getDefaultColumnChartOptions();
 chartOptions.hAxis.title = "State";
 chartOptions.isStacked = true;
-chartOptions.vAxis.title = "Tonnes (millions)";
-chartData.push({ type: "column", options: chartOptions, data: arrayTable.transpose() });
+chartOptions.vAxis.format = "short"
+chartOptions.vAxis.title = "Tonnes";
+chartData.push({ type: "column", options: chartOptions, data: arrayTable });
 
 //##########################################################################
 // 3. line
