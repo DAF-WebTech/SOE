@@ -101,6 +101,7 @@ var drawColumnCharts = function (record, isSQSubregion) { // a row from the data
 			(hasNP ? "NB In 2018–19 some hay crops were not reported at the NRM level due to confidentiality, therefore the sum of the regions does not equal the Queensland total for value and production.  This is indicated by n.p. (not published) " : "")));
 		chartData.push({ data: arrayTable, type: "column" });
 		var options = getDefaultColumnChartOptions();
+		options.vAxis.format = "short"
 		options.vAxis.title = record.Quantity;
 		chartData[chartData.length - 1].options = options;
 	}
@@ -148,6 +149,7 @@ var drawLineChart = function (records, regionName, isSQSubregion) {
 			(hasNP ? "NB In 2018–19 some hay crops were not reported at the NRM level due to confidentiality, therefore the sum of the regions does not equal the Queensland total for value and production.  This is indicated by n.p. (not published) " : "")));
 		chartData.push({ data: arrayTable, type: "line" });
 		var options = getDefaultLineChartOptions();
+		options.vAxis.format = "short"
 		options.vAxis.title = "Value ($)";
 		chartData[chartData.length - 1].options = options;
 //	}
