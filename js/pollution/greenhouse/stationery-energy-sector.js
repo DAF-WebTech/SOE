@@ -94,10 +94,10 @@ for (var i = 1; i < chartData.length; ++i)
 		chartData[i][j] *= 1000000
 
 
-var options = getDefaultAreaChartOptions();
-options.isStacked = true;
+var options = getDefaultAreaChartOptions()
+options.isStacked = true
 options.vAxis.format = "short"
-options.vAxis.title = "Tonnes";
+options.vAxis.title = "Tonnes"
 
 chartItems.push(
 	{
