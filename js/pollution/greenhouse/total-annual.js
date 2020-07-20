@@ -106,9 +106,16 @@ heading = "Trends in Queensland emissions, by sector";
 htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
+// we have to multiply by a million for chart
+for (var i = 1; i < arrayTable.length; ++i)
+	for (var j = 1; j < arrayTable[i].length; ++j)
+		arrayTable[i][j] *= 1000000
+
 chartOptions = getDefaultLineChartOptions();
 chartOptions.isStacked = true;
-chartOptions.vAxis.title = "Tonnes (million)";
+chartOptions.vAxis.format = "short"
+chartOptions.vAxis.title = "Tonnes";
+
 chartData.push({ type: "line", options: chartOptions, data: arrayTable });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
