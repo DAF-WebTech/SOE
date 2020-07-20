@@ -12,7 +12,7 @@ var chartData = [];
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 1 is qld., 
-var heading = "Proportion of land by use";
+var heading = "Proportion of land by use, 2019";
 var keys = result.meta.fields.slice(1);
 
 arrayTable = [["Use", "Hectares"]];
