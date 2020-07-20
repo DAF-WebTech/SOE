@@ -93,7 +93,7 @@ regions.forEach(function (region, i) {
 	arrayTable = [["", "1999", data[3][i + 1]]];
 	arrayTable.push(["Hectares", data[1][i + 1], data[2][i + 1]]);
 
-	heading = String.format("Urban area growth between 1999 and {0} in {1}", data[3][i + 1], region);
+	heading = String.format("Proportion of {0} NRM region made up of urban areas in {1}", region, data[3][i + 1]);
 
 	htmlTable = tableToHtml(arrayTable, false);
 
