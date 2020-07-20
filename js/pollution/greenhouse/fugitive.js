@@ -108,7 +108,7 @@ print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thea
 
 options = getDefaultAreaChartOptions()
 options.vAxis.format = "short"
-options.vAxis.title = "Tonnes (millions)"
+options.vAxis.title = "Tonnes"
 
 // convert numbers to millions
 // we have to multiply by a million
