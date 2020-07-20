@@ -20,7 +20,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 				<script src=/js/server-render.js></script>
 				<script>
 						var request = new XMLHttpRequest();
-						request.open("GET", "/data/indicator-5-2-0-2.csv", false);  // `false` makes the request synchronous
+						request.open("GET", "/data/indicator-3-4-0-8.csv", false);  // `false` makes the request synchronous
 						var numberFormattingOptions =	{minimumFractionDigits: 2, maximumFractionDigits: 2}; 
 						request.send(null);
 						var csv = "";
@@ -29,7 +29,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 						}
 				</script>
 
-				<script src="js\liveability\rural\extent-cropping.js"></script>
+				<script src="js\pollution\greenhouse\waste-sector.js"></script>
 
 				<script>
 						//document.getElementById("chartData").textContent = JSON.stringify(chartData);
@@ -105,7 +105,7 @@ ul.checkbox-list {columns: 2;list-style-type: none;}</style>
 												default:
 													var chart = new google
 																.visualization
-																.LineChart(document.getElementById("chart_" + i));
+																.AreaChart(document.getElementById("chart_" + i));
 										}
 
 										google

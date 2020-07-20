@@ -79,8 +79,8 @@ frontEndCharts.push({
 });
 
 
-//////////////////////////////////////////////////////////////////////////////////////
-// area
+//###################################################################
+// 3 area
 heading = "Trends in Queensland’s waste emissions, by category"
 
 tableChartData = [["Year"]];
@@ -96,15 +96,23 @@ categoryData.forEach(function(record) {
 	tableChartData.push(item)
 })
 
-htmlTable = tableToHtml(tableChartData.transpose(), false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
+tableChartData = tableChartData.transpose()
+
+htmlTable = tableToHtml(tableChartData, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 
 options = getDefaultAreaChartOptions()
-options.vAxis.title = "Tonnes (millions)"
+options.vAxis.format = "short"
+options.vAxis.title = "Tonnes"
+
+// we have to multiply by a million
+for (var i = 1; i < tableChartData.length; ++i)
+	for (var j = 1; j < tableChartData[i].length; ++j)
+	tableChartData[i][j] *= 1000000
 
 frontEndCharts.push({
-	data: tableChartData.transpose(),
+	data: tableChartData,
 	type: "area",
 	options: options,
 });
