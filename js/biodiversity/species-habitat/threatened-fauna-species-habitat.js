@@ -158,6 +158,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 			print(String.format(tableChartInner, heading, index++, htmlTable.thead, htmlTable.tbody))
 
 			options = getDefaultPieChartOptions()
+			options.colors = thirteenChartColors
 			chartData.push({ data: arrayTable, type: "pie", options: options })
 
 			print("</div>")
