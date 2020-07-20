@@ -100,9 +100,14 @@ heading = "Trends in Queensland’s transport emissions, by category";
 htmlTable = tableToHtml(chart, false, {minimumFractionDigits: 3, maximumFractionDigits: 3});
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
+// we have to multiply by a million
+for (var i = 1; i < chart.length; ++i)
+	for (var j = 1; j < chart[i].length; ++j)
+		chart[i][j] *= 1000000
 
 options = getDefaultAreaChartOptions()
-options.vAxis.title = "Tonnes (millions)"
+options.vAxis.format = "short"
+options.vAxis.title = "Tonnes"
 
 tables.push({
 	data: chart,
