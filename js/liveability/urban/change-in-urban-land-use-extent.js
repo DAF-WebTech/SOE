@@ -93,7 +93,7 @@ regions.forEach(function (region, i) {
 	arrayTable = [["", "1999", data[3][i + 1]]];
 	arrayTable.push(["Hectares", data[1][i + 1], data[2][i + 1]]);
 
-	heading = String.format("Proportion of {0} NRM region made up of urban areas in {1}", region, data[3][i + 1]);
+	heading = String.format("Urban area growth between 1999 and {0} in {1}", data[3][i + 1], region);
 
 	htmlTable = tableToHtml(arrayTable, false);
 
@@ -121,7 +121,8 @@ regions.forEach(function (region, i) {
 	// 1. Showing proportion of region area covered by Urban. 
 	// Made up of two parts, first, Region Non Urban Area (Region area minus urban area) and second, Region Urban area.
 
-	var heading = String.format("{0} urban area as a proportion of total Region area in {1}", region, data[3][i + 1]);
+	var heading = String.format("Proportion of {0} NRM region made up of urban areas in {1}", region, data[3][i + 1]);
+	
 
 	var regionUrbanArea = data[2][i + 1];
 	var regionNonUrbanArea = data[0][i + 1] - regionUrbanArea;
