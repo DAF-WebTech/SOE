@@ -42,6 +42,7 @@ chartData.push({ options: options, data: arrayTable })
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. table only, same as data file, but sort by first field
+heading = "Number of local heritage places on local heritage registers by local government area (LGA), 2020"
 
 arrayTable = results.data.map(function(record) {
 	return [record[results.meta.fields[0]], record[results.meta.fields[2]], record[results.meta.fields[3]], record[results.meta.fields[4]]]
@@ -54,7 +55,7 @@ var head = [results.meta.fields[1]].concat(results.meta.fields.slice(2))
 arrayTable.unshift(head)
 
 htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+index, htmlTable.thead, htmlTable.tbody))
+print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+index, htmlTable.thead, htmlTable.tbody, null, null, "LGAs can occur multiple times in the table if they operate under more than one planning scheme"))
 
 
 
@@ -85,4 +86,4 @@ Object.keys(groups).forEach(function(lga) {
 
 
 
-print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>");
+print("<script id=chartData type=application/json>" + JSON.stringify(chartData) + "</" + "script>")
