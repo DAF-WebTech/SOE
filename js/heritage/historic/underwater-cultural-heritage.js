@@ -15,6 +15,7 @@ var results = Papa.parse(
 var chartData = []
 var index = 0
 var options = getDefaultColumnChartOptions()
+options.vAxis.title = "Number of entries"
 options.isStacked = true
 
 var years = {}
