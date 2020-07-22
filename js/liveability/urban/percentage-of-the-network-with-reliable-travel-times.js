@@ -29,7 +29,7 @@ var htmlTable = tableToHtml(arrayTable, false)
 print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody));
 
 var chartOptions = getDefaultLineChartOptions();
-chartOptions.vAxis.title = "Percentage of on-time reliability on public transport (%)";
+chartOptions.vAxis.title = "Percentage of network travel time reliability (%)";
 var chartData = [{ type: "line", options: chartOptions, data: arrayTable }];
 
 
