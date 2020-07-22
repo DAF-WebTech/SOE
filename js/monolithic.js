@@ -825,6 +825,11 @@ var soejs = {
 				});
 
 			}, 100);
+
+		// do anything else required by the page
+		if (soejs.afterCharts)
+			soejs.afterCharts();
+
 		} //~ if
 	}, //~ chartsLoaded2
 
