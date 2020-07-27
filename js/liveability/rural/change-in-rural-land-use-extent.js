@@ -72,7 +72,7 @@ chartData[chartData.length - 1].options = columnChartOptions;
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. Pie chart which is just the latest year figures from above
-heading = "Proportion of rural and other areas as at " + latestYear
+heading = String.format("Proportion of rural and other areas as at {0}*", latestYear)
 
 arrayTable = [["Use", latestYear]]
 
