@@ -91,7 +91,8 @@ qld.forEach(function(qldRecord) {
 arrayTable.push(["Non Rural area", totalQldArea - totalRural])
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody))
+var note = String.format("<p class=table-note>*{0} data is composed of regional data sourced at different times</p>", latestYear)
+print(String.format(regionInfoTemplate, region, heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, note))
 
 chartData.push({ type: "pie", data: arrayTable })
 var pieChartOptions = getDefaultPieChartOptions()
