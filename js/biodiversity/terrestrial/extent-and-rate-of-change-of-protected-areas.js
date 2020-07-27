@@ -36,7 +36,8 @@ data.forEach(function(record) {
 // convert to html
 var htmlTable = tableToHtml(table.transpose(), false);
 var heading = "Cumulated number of each protected area";
-print(String.format(regionInfoTemplate, "queensland", heading, 0, htmlTable.thead, htmlTable.tbody));
+print(String.format(regionInfoTemplate, "queensland", heading, 0, htmlTable.thead, htmlTable.tbody, 
+	null, null, null, "<p class=table-note>Data as at 30 June for years 2018–2020; previous years are based on calendar."));
 
 var chartData = [];
 var chartTable = table.transpose();
@@ -68,7 +69,8 @@ data.forEach(function(record) {
 // convert to html
 htmlTable = tableToHtml(table.transpose(), false);
 heading = "Cumulated extent of all protected areas";
-print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody));
+print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody,
+	null, null, null, "<p class=table-note>Data as at 30 June for years 2018–2020; previous years are based on calendar.")));
 
 
 chartTable = table.transpose();
