@@ -62,7 +62,7 @@ var queenslandNonUrbanArea = totalQueenslandArea - totalQueenslandUrbanArea;
 var arrayTable = [["", "Urban", "Non-Urban"]];
 arrayTable.push(["Hectares", totalQueenslandUrbanArea, queenslandNonUrbanArea]);
 
-var heading = "Proportion of urban and non-urban areas as at " + currentYear;
+var heading = String.format("Proportion of urban and non-urban areas as at {0}*", currentYear)
 
 var htmlTable = tableToHtml(arrayTable, false)
 var nb = String.format("<p class=table-note>*{0} data is composed of regional data sourced at different times</p>", currentYear)
