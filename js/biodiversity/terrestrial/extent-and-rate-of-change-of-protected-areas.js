@@ -70,7 +70,7 @@ data.forEach(function(record) {
 htmlTable = tableToHtml(table.transpose(), false);
 heading = "Cumulated extent of all protected areas";
 print(String.format(regionInfoTemplate, "queensland", heading, 1, htmlTable.thead, htmlTable.tbody,
-	null, null, null, "<p class=table-note>Data as at 30 June for years 2018–2020; previous years are based on calendar.")));
+	null, null, null, "<p class=table-note>Data as at 30 June for years 2018–2020; previous years are based on calendar."));
 
 
 chartTable = table.transpose();
