@@ -105,7 +105,7 @@ delete regions["Queensland Wide"];
 
 var checkboxes = "<div class=\"region-info region-queensland\"> \n \
 <div class=checkbox-panel> \n \
-<h3>Rural area growth between 1999 and current by region*</h3> \n \
+<h3>Rural area growth between 1999 and current by region</h3> \n \
 <ul id=regionCheckboxList> \n";
 
 Object.keys(regions).forEach(function(regionName) {
