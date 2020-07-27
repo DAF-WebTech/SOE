@@ -46,6 +46,7 @@ for (var i = 0; i < chartTable[0].length; ++i) {
 
 var options = getDefaultColumnChartOptions();	
 options.vAxis.title = "Number of protected areas";
+options.colors = thirteenChartColors;
 options.isStacked = true;
 
 
