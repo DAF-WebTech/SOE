@@ -241,7 +241,7 @@ Object.keys(regions).forEach(function(regionName) {
 
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// 6. a second pie chart per region
-	heading = String.format("Proportion of Queensland area made up of {0} rural", regionName);
+	heading = String.format("Proportion of Queensland made up of rural areas in {0} rural in {1}", regionName, latestYear);
 	arrayTable = [["Name", "Value"]]
 	var records = regions[regionName]
 	var totalRural = 0
