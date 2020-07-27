@@ -95,7 +95,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 
 	var html = String.format(
 		"<div class=\"region-info region-{0} checkbox-panel\"> \
-	<h3>Choose Flora Group to see habitat numbers:</h3> \
+	<h3>Choose flora group to see habitat numbers:</h3> \
 	<ul class=checkbox-list>", bioregionName.toKebabCase())
 
 	groups.forEach(function (group) {
