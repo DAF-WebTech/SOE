@@ -68,7 +68,8 @@ dl.glossary {
     > h2,
     .key-findings > h2,
     .box-heading,
-    .youtube-container h2 {
+    .youtube-container h2,
+	.case-studies h2 {
         position: relative;
         padding-left: 1em;
         line-height: 1.05;
@@ -216,7 +217,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #306910;
             &::before { background-color: #6fbc44; }
             &::after  { background-color: #b7dda2; }
@@ -269,7 +271,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 { 
             color: #bd0004;
             &::before { background-color: #ec2428; }
             &::after  { background-color: #f6987d; }
@@ -322,7 +325,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #b74700;
             &::before { background-color: #f17a2f; }
             &::after  { background-color: #f9b88b; }
@@ -375,7 +379,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #001865;
             &::before { background-color: #3a53a4; }
             &::after  { background-color: #9195ca; }
@@ -426,7 +431,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #6d1490;
             &::before { background-color: #7f3f98; }
             &::after  { background-color: #b292c4; }
@@ -477,7 +483,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #008ec3;
             &::before { background-color: #00aeef; }
             &::after  { background-color: #68d6ff; }
@@ -512,7 +519,8 @@ dl.glossary {
         > h2,
         .key-findings > h2,
         .box-heading,
-        .youtube-container h2 {
+        .youtube-container h2,
+		.case-studies h2 {
             color: #f4ac00;
             &::before { background-color: #f4c900; }
             &::after  { background-color: #ffe671; }
