@@ -47,7 +47,7 @@ arrayTable = results.data.map(function(record) {
 	return [record[results.meta.fields[0]].replace("-", "–"), record[results.meta.fields[2]], record[results.meta.fields[3]], record[results.meta.fields[4]]]
 })
 arrayTable.sort(function(a, b) {
-	return a[1] < b[1] ? 1 : -1
+	return Number(a[1]) < Number(b[1]) ? 1 : -1
 })
 
 var head = [results.meta.fields[1]].concat(results.meta.fields.slice(2))
