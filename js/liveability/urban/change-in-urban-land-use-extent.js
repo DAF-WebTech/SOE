@@ -105,7 +105,7 @@ regions.forEach(function (region, i) {
 	columnChartOptions = getDefaultColumnChartOptions(1);
 	columnChartOptions.vAxis.minValue = 0;
 	columnChartOptions.vAxis.format = "short";
-	columnChartOptions.vAxis.title = "Total Area (hectares)";
+	columnChartOptions.vAxis.title = "Hectares";
 	columnChartOptions.hAxis.title = "Year";
 		chartData.push({ type: "column", options: columnChartOptions, data: myChart });
 
