@@ -322,20 +322,19 @@ ol.sdg-list {
     }
     
 }
+.finding-sdg-panel {
+	margin-top: 2rem;
+}
 
 ul + .sdg-panel  {
     margin-top: 2rem;
-}
-
-.finding-sdg-panel {
-    margin-top: 2rem !important;
 }
 
 .sdg-title {
 	font-size: 1.1rem;
 	margin-bottom: 1rem;
 	
-	+ ul {
+	+ .finding-sdg-panel {
 		margin-top: 0;
 	}
 }
