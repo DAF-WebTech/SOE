@@ -330,3 +330,12 @@ ul + .sdg-panel  {
 .finding-sdg-panel {
     margin-top: 2rem !important;
 }
+
+.sdg-title {
+	font-size: 1.1rem;
+	margin-bottom: 1rem;
+	
+	+ ul {
+		margin-top: 0;
+	}
+}
