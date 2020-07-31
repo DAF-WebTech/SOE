@@ -98,10 +98,10 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 	<h3>Choose Fauna Group to see habitat numbers:</h3> \
 	<ul class=checkbox-list>", bioregionName.toKebabCase())
 
-	groups.forEach(function (group) {
+	groups.forEach(function (group, i) {
 		html += String.format(
-			"<li><input type=checkbox id=checkbox_{0}_{1} class=checkbox-subregion data-region={0} data-group={1}> \
-			<label for=checkbox_{0}_{1}>{1}</label>", bioregionName.toKebabCase(), group)
+			"<li><input type=checkbox id=checkbox_{0}_{1} class=checkbox-subregion data-region={0} data-group={1} {2}> \
+			<label for=checkbox_{0}_{1}>{1}</label>", bioregionName.toKebabCase(), group, (i==0 ? "checked" : ""))
 	})
 
 	html += "</ul></div>"
