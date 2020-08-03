@@ -311,36 +311,36 @@ var doReefComboChart = function(subcatchment, name) {
 var doReefPercentLineChart = function(subcatchment, name) {
 
 	var tbody = "";
-	var chartData = [["Year", "Percent", {role: "tooltip"}]];
+	//var chartData = [["Year", "Percent", {role: "tooltip"}]];
 	subcatchment.forEach(function (data) {
 		tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", 
 			data.Year, 
 			data["Loss of extent of natural wetlands/riparian extent (%)"] + "%");
-		var mypercent = data["Loss of extent of natural wetlands/riparian extent (%)"];
-		if (typeof (mypercent) == "string") {
-			mypercent = Number(mypercent.replace(/</, ""));
-		}
-		chartData.push([String(data.Year), mypercent, data["Loss of extent of natural wetlands/riparian extent (%)"] + "%"]);
+		//var mypercent = data["Loss of extent of natural wetlands/riparian extent (%)"];
+		//if (typeof (mypercent) == "string") {
+		//	mypercent = Number(mypercent.replace(/</, ""));
+		//}
+		//chartData.push([String(data.Year), mypercent, data["Loss of extent of natural wetlands/riparian extent (%)"] + "%"]);
 	});
-	print(String.format(tableChartInner,
+	print(String.format(tableOnlyInner,
 		name,
-		counter,
+		counter+1000,
 		"<th scope=col>Year<th scope=col class=num>Percent",
 		tbody
 	));
 
 // we changed this to a column chart
-	var chartOptions = getDefaultLineChartOptions();
-	chartOptions.vAxis.title = "Percent";
-	chartOptions.legend = {position: "none"};
-	charts.push({
-		data: chartData,
-		chartType: "line",
-		chartOptions: chartOptions,
-		index: counter,
-		tooltip: true
-	});
-	++counter;
+	// var chartOptions = getDefaultLineChartOptions();
+	// chartOptions.vAxis.title = "Percent";
+	// chartOptions.legend = {position: "none"};
+	// charts.push({
+	// 	data: chartData,
+	// 	chartType: "line",
+	// 	chartOptions: chartOptions,
+	// 	index: counter,
+	// 	tooltip: true
+	// });
+//	++counter;
 
 
 }
