@@ -375,8 +375,12 @@ Array.prototype.transpose = function () {
 	return ret;
 }
 
-String.prototype.toKebabCase = function () {
-	return this.toLowerCase().replace(/ /g, "-");
+String.prototype.toKebabCase = function (removeComma) {
+	var ret = this.toLowerCase().replace(/ /g, "-")
+	if (removeComma) {
+		ret = ret.replace(/,/g, "")
+	}
+	return ret;
 }
 
 if (!String.prototype.startsWith) {

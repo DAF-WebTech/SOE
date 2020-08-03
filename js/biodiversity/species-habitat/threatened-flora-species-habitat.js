@@ -55,7 +55,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 	})
 
 	var htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplate, bioregionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplate, bioregionName.toKebabCase(true), heading, index++, htmlTable.thead, htmlTable.tbody))
 
 	var options = getDefaultColumnChartOptions()
 	options.hAxis.title = "Flora Group"
@@ -80,7 +80,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 	})
 
 	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplate, bioregionName.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplate, bioregionName.toKebabCase(true), heading, index++, htmlTable.thead, htmlTable.tbody))
 
 	options = getDefaultColumnChartOptions()
 	options.hAxis.title = "Flora Group"
@@ -96,23 +96,23 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 	var html = String.format(
 		"<div class=\"region-info region-{0} checkbox-panel\"> \
 	<h3>Choose flora group to see habitat numbers:</h3> \
-	<ul class=checkbox-list>", bioregionName.toKebabCase())
+	<ul class=checkbox-list>", bioregionName.toKebabCase(true))
 
 	groups.forEach(function (group) {
 		html += String.format(
 			"<li><input type=checkbox id=checkbox_{0}_{1} class=checkbox-subregion data-region={0} data-group={1}> \
-			<label for=checkbox_{0}_{1}>{2}</label>", bioregionName.toKebabCase(), group.toKebabCase(), group)
+			<label for=checkbox_{0}_{1}>{2}</label>", bioregionName.toKebabCase(true), group.toKebabCase(true), group)
 	})
 
 	html += "</ul></div>"
 	print(html)
 
-	print(String.format("<div class=\"region-info region-{0}\">", bioregionName.toKebabCase()))
+	print(String.format("<div class=\"region-info region-{0}\">", bioregionName.toKebabCase(true)))
 	groups.forEach(function (group) {
 
 		var record = bioregion[group]
 
-		print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase()))
+		print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase(true)))
 
 		//##############################################
 		// line chart for group in region
@@ -144,7 +144,7 @@ Object.keys(bioregions).forEach(function (bioregionName) {
 		
 		if (bioregionName == "Queensland") {
 
-			print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase()))
+			print(String.format("<div class=\"group-info group-{0}\">", group.toKebabCase(true)))
 			
 			//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			// pie chart to show each region
