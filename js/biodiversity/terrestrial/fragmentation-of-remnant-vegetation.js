@@ -10,7 +10,7 @@ try {
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 1 is qld., 
-var heading = "Change in number of fragmentation classes";
+var heading = "Percent change in the number of fragmentation classes from previous reporting period";
 
 var data = result.data.filter(function(record) {
 	return record.REGPage == "Queensland" && record.Figure == 1 ;
@@ -41,7 +41,7 @@ chartData[chartData.length - 1].options.vAxis.title = "Percent";
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // chart 2, all Qld
 
-heading = "Density of fragmentation classes per 1000km² by region, 2017";
+heading = "Density change of fragmentation classes per 1000km² by region, 2015 to 2017";
 data = result.data.filter(function(record) {
 	return record.REGPage == "Queensland" && record.Figure == 2 ;
 });
@@ -62,13 +62,13 @@ htmlTable = tableToHtml(arrayTable, false, {minimumFractionDigits: 2, maximumFra
 print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody));
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() }); 
-chartData[chartData.length - 1].options.vAxis.title = "Count";
+chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
 chartData[chartData.length - 1].options.hAxis.title = "Bioregion";
 
 //########################################################################
 // chart 3, all Qld 
 
-heading = "Frequency of fragementation classes by region, 2017";
+heading = "Change in the number of fragmentation classes by region, 2015 to 2017";
 
 data = result.data.filter(function(record) {
 	return record.REGPage == "Queensland" && record.Figure == 3;
@@ -91,7 +91,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
+chartData[chartData.length - 1].options.vAxis.title = "Count";
 chartData[chartData.length - 1].options.hAxis.title = "Bioregion";
 
 // -=-----------------------------------------------------------------
