@@ -367,7 +367,7 @@ printReefDial(subcatchment[subcatchment.length - 1], name);// latest
 printReefLineChart(subcatchment, name);
 
 // second chart/table is a column for hectares
-doReefComboChart(subcatchment, name + " / riparian extent");
+doReefComboChart(subcatchment, name);
 
 // third chart is a line chart for %
 doReefPercentLineChart(subcatchment, name);
