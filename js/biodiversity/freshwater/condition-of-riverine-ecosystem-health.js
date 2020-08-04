@@ -326,8 +326,10 @@ var doReefPercentLineChart = function(subcatchment, name) {
 }
 
 
-print(String.format("\n<div class=\"region-info region-{0}\">\n", reefName.toKebabCase()));
-print(getCheckboxes(reefs));
+print(String.format("\n<div class=\"region-info region-{0}\">\n", reefName.toKebabCase()))
+// this is in the data file but they don't want it showing
+delete reefs["Late dry season ground cover"]
+print(getCheckboxes(reefs))
 
 //============================================================================
 // now we do a separate chart for each reef, which is very specific for each one.
@@ -388,50 +390,6 @@ doReefComboChart(subcatchment, name);
 
 // third chart is a line chart for %
 doReefPercentLineChart(subcatchment, name);
-
-
-
-print("</div>");//~subregion div
-
-// //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-// // •	Late dry season ground cover
-// //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-var name = "Late dry season ground cover";
-var subcatchment = reefs[name];
-print(String.format("\n<div class=\"subregion-info subregion-{0}\">\n", name.toKebabCase()));
-print(String.format("<h3>{0}</h3>\n", name));
-printReefDial(subcatchment[subcatchment.length - 1], name);// latest
-
-//first chart/table is the historic grades in a line
-printReefLineChart(subcatchment, name);
-
-// second chart is the same, but it's based on the percentage column, which makes a few differences
-var tbody = "";
-var chart = [[{ label: "Year", type: 'string' }, { label: "Percent", type: 'number' }]];
-
-subcatchment.forEach(function (data) {
-	tbody += String.format("<tr><th scope=row>{0}<td class=num>{1}", data.Year, data["Late dry season ground cover (%)"]);
-	chart.push([String(data.Year), data["Late dry season ground cover (%)"]]);
-});
-
-print(String.format(tableChartInner,
-	name,
-	counter,
-	"<th scope=col>Year<th scope=col class=num>Percent",
-	tbody
-));
-var chartOptions = getDefaultLineChartOptions();
-//chartOptions.legend = { position: "none" };
-chartOptions.vAxis.title = "percent";
-charts.push({
-	data: chart,
-	chartType: "line",
-	chartOptions: chartOptions,
-	index: counter,
-	tooltip: false
-});
-++counter;
-
 
 print("</div>");//~subregion div
 
