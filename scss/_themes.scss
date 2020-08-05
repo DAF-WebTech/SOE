@@ -539,7 +539,8 @@ h3 + .conditions-container {
 			a {
 				display: block;
 				border: 3px solid #fff;
-				transform: rotate(-3deg);
+				transform: rotate(0);
+				/*transform: rotate(-3deg);*/
 				transition: all 0.15s ease;
 
 				&:hover {
@@ -595,7 +596,8 @@ h3 + .conditions-container {
 		a {
 			display: block;
 			border: 3px solid #fff;
-			transform: rotate(-3deg);
+			transform: rotate(0);
+			/*transform: rotate(-3deg);*/
 			transition: all 0.15s ease;
 			max-width: 250px;
 			@include screen(mobile) {
