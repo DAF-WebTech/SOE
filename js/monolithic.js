@@ -67,6 +67,7 @@ if (!String.prototype.toKebabCase) {
 		returnValue = returnValue.replace(/\(/g, "");
 		returnValue = returnValue.replace(/\)/g, "");
 		returnValue = returnValue.replace(/,/g, "");
+		returnValue = returnValue.replace(/'/g, "");
 		return returnValue;
 	};
 }
