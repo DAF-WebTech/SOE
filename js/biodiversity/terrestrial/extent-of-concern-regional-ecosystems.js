@@ -74,7 +74,7 @@ chartData[chartData.length - 1].options = options;
 // third qld is the sums of all records
 heading = "Trends in extent of remnant vegetation, by biodiversity status";
 var years = result.meta.fields.slice(6);
-years = years.filter(function(year) { return year != "2006b"});
+
 
 arrayTable = [["Year", "Endangered", "Of concern", "No concern at present"]];
 years.forEach(function(year) {
