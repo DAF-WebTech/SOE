@@ -428,11 +428,7 @@ print(String.format(tableOnlyInner,
 
 print("</div>");//~subregion div
 
-
-//print("<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p>\n");
 print("</div>"); //~ this closes the reef div.region-info
-
-
 
 
 print("\n<script id=chartData type=application/json>" + JSON.stringify(charts) + "</" + "script>");

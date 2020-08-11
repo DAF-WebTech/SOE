@@ -106,7 +106,7 @@ regions.forEach(function(region) {
 
 	// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 	// chart 4 
-	heading = "Change in number of fragmentation classes in " + region;
+	heading = "Percent change in the number of fragmentation classes from previous reporting period in " + region;
 
 	data = result.data.filter(function(record) {
 		return record.Figure == 1 && record.REGPage == region;
@@ -134,7 +134,7 @@ regions.forEach(function(region) {
 
 	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// chart 5 per region 
-	heading = String.format("Density of fragmentation classes per 1000km² in {0}, 2017", region);
+	heading = String.format("Density change of fragmentation classes per 1000km² by {0}, 2015 to 2017", region);
 
 	data = result.data.filter(function(record) {
 		return record.Figure == 2 && record.REGPage == region;
@@ -161,13 +161,13 @@ regions.forEach(function(region) {
 	print(String.format(regionInfoTemplate, region.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody));
 	
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-	chartData[chartData.length - 1].options.vAxis.title = "Count";
+	chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
 	chartData[chartData.length - 1].options.hAxis.title = "Subregion";
 
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// chart 6 per region 
-	heading = String.format("Frequency of fragmentation classes in {0}, 2017", region);
+	heading = String.format("Change in the number of fragmentation classes by {0}, 2015 to 2017", region);
 
 	data = result.data.filter(function(record) {
 		return record.Figure == 3 && record.REGPage == region;
@@ -195,7 +195,7 @@ regions.forEach(function(region) {
 	
 
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-	chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
+	chartData[chartData.length - 1].options.vAxis.title = "Count";
 	chartData[chartData.length - 1].options.hAxis.title = "Subregion";
 
 	
