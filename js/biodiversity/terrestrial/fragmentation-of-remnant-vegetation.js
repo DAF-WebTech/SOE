@@ -134,7 +134,7 @@ regions.forEach(function(region) {
 
 	// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	// chart 5 per region 
-	heading = String.format("Density change of fragmentation classes per 1000km² by {0}, 2015 to 2017", region);
+	heading = String.format("Density change of fragmentation classes per 1000km² in {0}, 2015 to 2017", region);
 
 	data = result.data.filter(function(record) {
 		return record.Figure == 2 && record.REGPage == region;
@@ -167,7 +167,7 @@ regions.forEach(function(region) {
 
 	// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	// chart 6 per region 
-	heading = String.format("Change in the number of fragmentation classes by {0}, 2015 to 2017", region);
+	heading = String.format("Change in the number of fragmentation classes in {0}, 2015 to 2017", region);
 
 	data = result.data.filter(function(record) {
 		return record.Figure == 3 && record.REGPage == region;
