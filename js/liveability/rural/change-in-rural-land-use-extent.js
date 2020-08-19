@@ -251,7 +251,7 @@ Object.keys(regions).forEach(function(regionName) {
 			arrayTable.push(["All other Qld", totalQldArea - totalRural])
 		}
 		else {
-			totalRural += record[latestYear]
+			totalRural += record[subRegionLatestYear]
 		}
 	})
 	
