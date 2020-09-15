@@ -485,7 +485,7 @@ dl.glossary {
         .box-heading,
         .youtube-container h2,
 		.case-studies h2 {
-            color: #008ec3;
+            color: #555;
             &::before { background-color: #00aeef; }
             &::after  { background-color: #68d6ff; }
         }
@@ -521,7 +521,7 @@ dl.glossary {
         .box-heading,
         .youtube-container h2,
 		.case-studies h2 {
-            color: #f4ac00;
+            color: #555;
             &::before { background-color: #f4c900; }
             &::after  { background-color: #ffe671; }
         }
