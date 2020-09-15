@@ -267,8 +267,8 @@
 			font-size: 1.15rem;
 			font-weight: bold;
 			@include screen(tablet) {
-				font-weight: inherit;
-				font-size: inherit;
+			    font-size: 1.1rem;
+			    font-weight: bold;
 			}
         }
         
@@ -281,7 +281,7 @@
 			height: 44px;
 			
 			@include screen(tablet) {
-	            margin: 0 auto 0.25em auto;
+	            margin: 0 auto 0.5em auto;
 				padding: 4px 0 0 4px;
 	            width: 118px;
     	        height: 118px;				
