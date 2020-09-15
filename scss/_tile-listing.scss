@@ -252,10 +252,12 @@
         transition: all 0.15s ease;
         
         &.great-barrier-reef {
-            background-color: #00aeef;
+            background-color: transparent;
+            /* background-color: #00aeef; */
         }
         &.climate-change {
-            background-color: #f4c900;
+            background-color: transparent;
+			/* background-color: #f4c900; */
         }
         
         a {
