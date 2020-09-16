@@ -61,6 +61,7 @@
 .climate-change .section-nav {
     h3 a {
         background-color: #fd9d24;
+		text-shadow: 1px 1px 2pc rgb(0,0,0,0.25);
         &::after { background-color: #ffcf93; }
     }
     .secondary-nav .active > a {
