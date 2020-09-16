@@ -182,6 +182,11 @@ body {
                     color: $climate-change;
                     border-color: $climate-change;
                 }
+				.toggle {
+					color: #333;
+					border-color: #999;
+				}
+				
                 &:hover,
                 &:hover .toggle::after {
                     color: $climate-change-dark;
