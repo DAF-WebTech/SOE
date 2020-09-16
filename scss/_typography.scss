@@ -522,8 +522,8 @@ dl.glossary {
         .youtube-container h2,
 		.case-studies h2 {
             color: #555;
-            &::before { background-color: #f4c900; }
-            &::after  { background-color: #ffe671; }
+            &::before { background-color: $climate-change; }
+            &::after  { background-color: $climate-change-light; }
         }
         .key-findings > .dark-heading { color: #222; }
 
