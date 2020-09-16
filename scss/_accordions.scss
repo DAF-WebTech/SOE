@@ -178,14 +178,13 @@ body {
             }
             .accordion-title {
                 border-color: $climate-change;
-                .toggle::after {
-                    color: $climate-change;
-                    border-color: $climate-change;
-                }
-				.toggle {
+
+				.toggle::after {
 					color: #333;
 					border-color: #999;
-				}
+					/*color: $climate-change;
+                    border-color: $climate-change;*/
+                }
 				
                 &:hover,
                 &:hover .toggle::after {
