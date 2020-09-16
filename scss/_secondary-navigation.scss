@@ -60,8 +60,8 @@
 }
 .climate-change .section-nav {
     h3 a {
-        background-color: #444;
-        &::after { background-color: #f4c900; }
+        background-color: #fd9d24;
+        &::after { background-color: #ffcf93; }
     }
     .secondary-nav .active > a {
         background-color: $climate-change-light;
