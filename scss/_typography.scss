@@ -523,7 +523,7 @@ dl.glossary {
 		.case-studies h2 {
             color: #555;
             &::before { background-color: $climate-change; }
-            &::after  { background-color: $climate-change-light; }
+            &::after  { background-color: $climate-change-medium; }
         }
         .key-findings > .dark-heading { color: #222; }
 
