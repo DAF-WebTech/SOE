@@ -80,6 +80,7 @@
 					"1435022",
 					"1435030",
 					"1435038",
+					"1435046",
 					"1435054",
 					"1435062",
 					"1435070",
@@ -198,7 +199,6 @@
 				"TargetNumber": "6.6",
 				"Text": "By 2020, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes.",
 				"Findings": [
-					"1432525",
 					"1432525",
 					"1432547",
 					"1432567",
@@ -495,7 +495,7 @@
 					"1436054",
 					"1436086",
 					"1452054",
-					"1452089"
+					"1452097"
 				],
 				"ManagementResponses": [
 					"Liveability"
