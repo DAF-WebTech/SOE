@@ -498,7 +498,11 @@ var soejs = {
 				}
 			}
 			else {
-				soejs.map.controls[google.maps.ControlPosition.TOP_CENTER].pop(soejs.colourControl);
+				try {
+					soejs.map.controls[google.maps.ControlPosition.TOP_CENTER].pop(soejs.colourControl);
+				} catch(e) {
+					console.log("exception caught!", e);
+				}
 				soejs.fillOpacity = 0.75;
 				soejs.showRegionColourFlag = false;
 			}
