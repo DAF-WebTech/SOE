@@ -81,7 +81,7 @@ body {
     }
     &.heritage {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $heritage-dark;
             }
             .accordion-title {
@@ -99,7 +99,7 @@ body {
     }
     &.pollution {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $pollution-dark;
             }
             .accordion-title {
@@ -117,7 +117,7 @@ body {
     }    
     &.climate {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $climate-dark;
             }
             .accordion-title {
@@ -135,7 +135,7 @@ body {
     }
     &.liveability {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $liveability-dark;
             }
             .accordion-title {
@@ -154,7 +154,7 @@ body {
 
     &.great-barrier-reef {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $great-barrier-reef-dark;
             }
             .accordion-title {
@@ -173,7 +173,7 @@ body {
 
     &.climate-change {
         .accordion .accordion-item {
-            &.active h3 {
+            &.active .accordion-title {
                 color: $climate-change-dark;
             }
             .accordion-title {
