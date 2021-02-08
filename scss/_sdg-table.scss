@@ -34,6 +34,10 @@ $goal-17: #1a3668;
 				
 				&:hover {
 					color: #fff;
+					
+					&.toggle::after {
+						color: #fff;
+					}
 				}
 			}
 			.toggle {
