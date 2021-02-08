@@ -24,13 +24,15 @@ $goal-17: #1a3668;
     }
     
     .accordion-item {
+		margin-top: 0.5rem;
+		
 		h3 {
-			margin: 0.5em 0 0 0;
+			margin: 0;
 			
 			.accordion-title {
 				padding: 0;
 				border-style: none;
-				margin: 0;
+				margin: 0 0 -0.33rem 0;
 				
 				&:hover {
 					color: #fff;
