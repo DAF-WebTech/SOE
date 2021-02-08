@@ -30,7 +30,11 @@ $goal-17: #1a3668;
 			.accordion-title {
 				padding: 0;
 				border-style: none;
-				margin: 0;            
+				margin: 0;
+				
+				&:hover {
+					color: #fff;
+				}
 			}
 			.toggle {
 				position: absolute;
