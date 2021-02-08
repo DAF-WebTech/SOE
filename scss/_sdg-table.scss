@@ -29,10 +29,14 @@ $goal-17: #1a3668;
 		h3 {
 			margin: 0;
 			
+			.accordion-trigger {
+				margin: 0 0 -0.4rem 0;
+			}
+			
 			.accordion-title {
+				margin: 0;
 				padding: 0;
 				border-style: none;
-				margin: 0 0 -0.35rem 0;
 				
 				&:hover {
 					color: #fff;
