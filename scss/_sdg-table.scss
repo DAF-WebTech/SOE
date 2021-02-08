@@ -57,7 +57,8 @@ $goal-17: #1a3668;
 			}
         }
         &.active .toggle::after {
-            border-color: #fff;
+            color: #fff;
+			border-color: #fff;
             content: "\f077";
         }
 
