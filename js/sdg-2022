@@ -1,0 +1,626 @@
+[
+	{
+		"Name": "GOAL 1: NO POVERTY",
+		"Description": "End poverty in all its forms everywhere.",
+		"ImageId": "1460006",
+		"IconId": "1475161",
+		"Id": "sdg-01",
+		"Targets": [
+			{
+				"TargetNumber": "1.5",
+				"Text": "By 2030, build the resilience of the poor and those in vulnerable situations and reduce their exposure and vulnerability to climate-related extreme events and other economic, social and environmental shocks and disasters.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Climate",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 2: ZERO HUNGER",
+		"Description": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture.",
+		"ImageId": "1460007",
+		"IconId": "1475162",
+		"Id": "sdg-02",
+		"Targets": [
+			{
+				"TargetNumber": "2.4",
+				"Text": "By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change, extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Climate",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 3: GOOD HEALTH AND WELL-BEING",
+		"Description": "Ensure healthy lives and promote well-being for all at all ages.",
+		"ImageId": "1460008",
+		"IconId": "1475163",
+		"Id": "sdg-03",
+		"Targets": [
+			{
+				"TargetNumber": "3.9",
+				"Text": "By 2030, substantially reduce the number of deaths and illnesses from hazardous chemicals and air, water and soil pollution and contamination.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "3.D",
+				"Text": "Strengthen the capacity of all countries, in particular developing countries, for early warning, risk reduction and management of national and global health risks.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Climate"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 4: QUALITY EDUCATION",
+		"Description": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.",
+		"ImageId": "1460009",
+		"IconId": "1475164",
+		"Id": "sdg-04",
+		"Targets": []
+	},
+	{
+		"Name": "GOAL 5: GENDER EQUALITY",
+		"Description": "Achieve gender equality and empower all women and girls.",
+		"ImageId": "1460010",
+		"IconId": "1475165",
+		"Id": "sdg-05",
+		"Targets": []
+	},
+	{
+		"Name": "GOAL 6: CLEAN WATER AND SANITATION",
+		"Description": "Ensure availability and sustainable management of water and sanitation for all.",
+		"ImageId": "1460011",
+		"IconId": "1475166",
+		"Id": "sdg-06",
+		"Targets": [
+			{
+				"TargetNumber": "6.3",
+				"Text": "By 2030, improve water quality by reducing pollution, eliminating dumping and minimizing release of hazardous chemicals and materials, halving the proportion of untreated wastewater and substantially increasing recycling and safe reuse globally.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Biodiversity",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "6.5",
+				"Text": "By 2030, implement integrated water resources management at all levels, including through transboundary cooperation as appropriate.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "6.6",
+				"Text": "By 2020, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "6.B",
+				"Text": "Support and strengthen the participation of local communities in improving water and sanitation management.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Biodiversity",
+					"Pollution"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 7: AFFORDABLE AND CLEAN ENERGY",
+		"Description": "Ensure access to affordable, reliable, sustainable and modern energy for all.",
+		"ImageId": "1460012",
+		"IconId": "1475167",
+		"Id": "sdg-07",
+		"Targets": [
+			{
+				"TargetNumber": "7.2",
+				"Text": "By 2030, increase substantially the share of renewable energy in the global energy mix.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "7.3",
+				"Text": "By 2030, double the global rate of improvement in energy efficiency.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "7.4",
+				"Text": " By 2030, enhance international cooperation to facilitate access to clean energy research and technology, including renewable energy, energy efficiency and advanced and cleaner fossil-fuel technology, and promote investment in energy infrastructure and clean energy technology.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 8: DECENT WORK AND ECONOMIC GROWTH",
+		"Description": "Promote sustained, inclusive and sustainable economic growth, full and productive     employment and decent work for all.",
+		"ImageId": "1460013",
+		"IconId": "1475168",
+		"Id": "sdg-08",
+		"Targets": [
+			{
+				"TargetNumber": "8.3",
+				"Text": "Promote development-oriented policies that support productive activities, decent job creation, entrepreneurship, creativity and innovation, and encourage the formalization and growth of micro-, small- and medium-sized enterprises, including through access to financial services.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Biodiversity",
+					"Pollution",
+					"Circular Economy"
+				]
+			},
+			{
+				"TargetNumber": "8.4",
+				"Text": "Improve progressively, through 2030, global resource efficiency in consumption and production and endeavour to decouple economic growth from environmental degradation, in accordance with the 10‑Year Framework of Programmes on Sustainable Consumption and Production, with developed countries taking the lead.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Climate",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "8.9",
+				"Text": "By 2030, devise and implement policies to promote sustainable tourism that creates jobs and promotes local culture and products.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Heritage",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 9: INDUSTRY, INOVATION AND INFRASTRUCTURE",
+		"Description": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation.",
+		"ImageId": "1460014",
+		"IconId": "1475169",
+		"Id": "sdg-09",
+		"Targets": [
+			{
+				"TargetNumber": "9.1",
+				"Text": "Develop quality, reliable, sustainable and resilient infrastructure, including regional and transborder infrastructure, to support economic development and human well-being, with a focus on affordable and equitable access for all. ",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "9.4",
+				"Text": "By 2030, upgrade infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency and greater adoption of clean and environmentally sound technologies and industrial processes, with all countries taking action in accordance with their respective capabilities.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution",
+					"Liveability",
+					"Circular Economy"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 10: REDUCED INEQUALITIES",
+		"Description": "Reduce inequality within and among countries.",
+		"ImageId": "1460015",
+		"IconId": "1475170",
+		"Id": "sdg-10",
+		"Targets": []
+	},
+	{
+		"Name": "GOAL 11: SUSTAINABLE CITIES AND COMMUNITIES ",
+		"Description": "Make cities and human settlements inclusive, safe, resilient and sustainable.",
+		"ImageId": "1460016",
+		"IconId": "1475171",
+		"Id": "sdg-11",
+		"Targets": [
+			{
+				"TargetNumber": "11.2",
+				"Text": "By 2030, provide access to safe, affordable, accessible and sustainable transport systems for all, improving road safety, notably by expanding public transport, with special attention to the needs of those in vulnerable situations, women, children, persons with disabilities and older persons.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "11.3",
+				"Text": "By 2030, enhance inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "11.4",
+				"Text": "Strengthen efforts to protect and safeguard the world’s cultural and natural heritage.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Heritage",
+					"Biodiversity",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "11.6",
+				"Text": "By 2030, reduce the adverse per capita environmental impact of cities, including by paying special attention to air quality and municipal and other waste management.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Pollution",
+					"Liveability",
+					"Circular Economy"
+				]
+			},
+			{
+				"TargetNumber": "11.A",
+				"Text": "Support positive economic, social and environmental links between urban, per-urban and rural areas by strengthening national and regional development planning.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 12: RESPONSIBLE CONSUMPTION AND PRODUCTION",
+		"Description": "Ensure sustainable consumption and production patterns.",
+		"ImageId": "1460017",
+		"IconId": "1475172",
+		"Id": "sdg-12",
+		"Targets": [
+			{
+				"TargetNumber": "12.2",
+				"Text": "By 2030, achieve the sustainable management and efficient use of natural resources.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Biodiversity",
+					"Pollution",
+					"Liveability",
+					"Circular Economy"
+				]
+			},
+			{
+				"TargetNumber": "12.4",
+				"Text": "By 2020, achieve the environmentally sound management of chemicals and all wastes throughout their life cycle, in accordance with agreed international frameworks, and significantly reduce their release to air, water and soil in order to minimize their adverse impacts on human health and the environment.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Biodiversity",
+					"Climate Change",
+					"Pollution",
+					"Liveability",
+					"Circular Economy"
+				]
+			},
+			{
+				"TargetNumber": "12.5",
+				"Text": "By 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Pollution",
+					"Circular Economy"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 13: CLIMATE ACTION",
+		"Description": "Take urgent action to combat climate change and its impacts.",
+		"ImageId": "1460018",
+		"IconId": "1475173",
+		"Id": "sdg-13",
+		"Targets": [
+			{
+				"TargetNumber": "13.1",
+				"Text": "Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters in all countries.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Heritage",
+					"Climate"
+				]
+			},
+			{
+				"TargetNumber": "13.2",
+				"Text": "Integrate climate change measures into national policies, strategies and planning.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Climate",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "13.3",
+				"Text": "Improve education, awareness-raising and human and institutional capacity on climate change mitigation, adaptation, impact reduction and early warning.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Climate"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 14: LIFE BELOW WATER",
+		"Description": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development.",
+		"ImageId": "1460019",
+		"IconId": "1475174",
+		"Id": "sdg-14",
+		"Targets": [
+			{
+				"TargetNumber": "14.1",
+				"Text": "By 2025, prevent and significantly reduce marine pollution of all kinds, in particular from land-based activities, including marine debris and nutrient pollution.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Biodiversity",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "14.2",
+				"Text": "By 2020, sustainably manage and protect marine and coastal ecosystems to avoid significant adverse impacts, including by strengthening their resilience, and take action for their restoration in order to achieve healthy and productive oceans.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Climate",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "14.4",
+				"Text": "By 2020, effectively regulate harvesting and end overfishing, illegal, unreported and unregulated fishing and destructive fishing practices and implement science-based management plans, in order to restore fish stocks in the shortest time feasible, at least to levels that can produce maximum sustainable yield as determined by their biological characteristics.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "14.5",
+				"Text": "By 2020, conserve at least 10 per cent of coastal and marine areas, consistent with national and international law and based on the best available scientific information.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 15: LIFE ON LAND",
+		"Description": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss.",
+		"ImageId": "1460020",
+		"IconId": "1475175",
+		"Id": "sdg-15",
+		"Targets": [
+			{
+				"TargetNumber": "15.1",
+				"Text": "By 2020, ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems and their services, in particular forests, wetlands, mountains and drylands, in line with obligations under international agreements.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "15.2",
+				"Text": "By 2020, promote the implementation of sustainable management of all types of forests, halt deforestation, restore degraded forests and substantially increase afforestation and reforestation globally.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Climate Change",
+					"Biodiversity",
+					"Pollution",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "15.3",
+				"Text": "By 2030, combat desertification, restore degraded land and soil, including land affected by desertification, drought and floods, and strive to achieve a land degradation-neutral world.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Pollution",
+					"Climate",
+					"Liveability"
+				]
+			},
+			{
+				"TargetNumber": "15.4",
+				"Text": "By 2030, ensure the conservation of mountain ecosystems, including their biodiversity, in order to enhance their capacity to provide benefits that are essential for sustainable development.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "15.5",
+				"Text": "Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity and, by 2020, protect and prevent the extinction of threatened species.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "15.7",
+				"Text": "Take urgent action to end poaching and trafficking of protected species of flora and fauna and address both demand and supply of illegal wildlife products.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity"
+				]
+			},
+			{
+				"TargetNumber": "15.8",
+				"Text": "By 2020, introduce measures to prevent the introduction and significantly reduce the impact of invasive alien species on land and water ecosystems and control or eradicate the priority species.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Pollution"
+				]
+			},
+			{
+				"TargetNumber": "15.9",
+				"Text": "By 2020, integrate ecosystem and biodiversity values into national and local planning, development processes, poverty reduction strategies and accounts.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 16: PEACE, JUSTICE AND STRONG INSTITUTIONS",
+		"Description": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.",
+		"ImageId": "1460021",
+		"IconId": "1475176",
+		"Id": "sdg-16",
+		"Targets": [
+			{
+				"TargetNumber": "16.6",
+				"Text": "Develop effective, accountable and transparent institutions at all levels.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Climate",
+					"Liveability"
+				]
+			}
+		]
+	},
+	{
+		"Name": "GOAL 17: PARTNERSHIPS FOR THE GOALS",
+		"Description": "Strengthen the means of implementation and revitalize the global partnership for sustainable development.",
+		"ImageId": "1460022",
+		"IconId": "1475177",
+		"Id": "sdg-17",
+		"Targets": [
+			{
+				"TargetNumber": "17.14",
+				"Text": "Enhance policy coherence for sustainable development.",
+				"Findings": [],
+				"ManagementResponses": [
+					"Climate Change",
+					"Liveability",
+					"Environmental Economic Accounting"
+				]
+			},
+			{
+				"TargetNumber": "17.17",
+				"Text": "Encourage and promote effective public, public–private and civil society partnerships, building on the experience and resourcing strategies of partnerships.",
+				"Findings": [
+				],
+				"ManagementResponses": [
+					"Great Barrier Reef",
+					"Climate Change",
+					"Biodiversity",
+					"Heritage",
+					"Pollution",
+					"Climate",
+					"Liveability",
+					"Environmental Economic Accounting"
+				]
+			}
+		]
+	}
+]
