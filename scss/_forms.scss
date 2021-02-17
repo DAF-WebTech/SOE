@@ -11,6 +11,7 @@ form {
     input[type="tel"],
     input[type="password"],
     input[type="file"], 
+	input[type="search"], 
     textarea,
     select {
         background-color: #fff;
@@ -24,6 +25,7 @@ form {
     input[type="tel"]:focus,
     input[type="password"]:focus,
     input[type="file"]:focus,
+	input[type="search"]:focus,
     textarea:focus,
     select:focus {
         border-color: #007eb1;
@@ -36,6 +38,7 @@ form {
     input[type="tel"]:disabled,
     input[type="password"]:disabled,
     input[type="file"]:disabled,
+	input[type="search"]:focus,
     textarea:disabled,
     select:disabled {
         background-color: #e5e5e5;
