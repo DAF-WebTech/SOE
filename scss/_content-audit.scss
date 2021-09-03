@@ -22,6 +22,9 @@
             width: 50%;
             justify-content: flex-end;
         }
+		@include print {
+			display: none;
+		}
         display: flex;
     
         a {
