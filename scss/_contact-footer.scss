@@ -5,6 +5,9 @@
             color: #111;
         }
         .social {
+			@include print {
+				display: none;
+			}
             width: 100%;
             justify-content: center;
         }
