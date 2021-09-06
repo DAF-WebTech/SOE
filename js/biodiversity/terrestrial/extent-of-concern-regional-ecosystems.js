@@ -117,7 +117,7 @@ Object.keys(regions).forEach(function(region) {
     // fifth chart is another pie chart per region
     heading = String.format("Proportion area of biodiversity status in {0}, {1}", region, latestYear);
 
-    arrayTable = [["Biodiversity status", "Number of regional ecosystems"]];
+    arrayTable = [["Biodiversity status", "Hectares"]];
     regions[region].forEach(function(record) {
         arrayTable.push([record["Biodiversity Status"], record[latestYear]]);
     });
