@@ -215,7 +215,25 @@ document.addEventListener("DOMContentLoaded", function () {
 					// Get the selected region from the anchor link
 					var selected_region = this.getAttribute("href");
 					selected_region = selected_region.substring(1); // remove '#' part of anchor to get class name
-					soejs.selectFunction(selected_region);
+
+					// the select function should have been set with the google.maps.event (on pages js)
+					// but sometimes this doesn't happen in time, which is unpredictable
+					// and probably a disaster for the page, but we'll see if a setTimeout will help it.
+					if (soejs.selectFunction) {
+						soejs.selectFunction(selected_region);
+					}
+					else {
+						window.setTimeout(function() {
+							try {
+								soejs.selectFunction(selected_region);
+							} catch(e) {
+								console.log("error caught: soejs.selectFunction not set")
+								Sentry.captureException(e)
+
+							}
+						}, 500)
+					}
+
 				});
 			});
 		}
@@ -821,8 +839,24 @@ var soejs = {
 					if (!region.classList.contains(myRegion))
 						region.style.display = "none";
 				});
-				if (soejs.thisFindingHasRegionTabs)
-					soejs.selectFunction(myRegion);
+				if (soejs.thisFindingHasRegionTabs) {
+					// the select function should have been set with the google.maps.event (on pages js)
+					// but sometimes this doesn't happen in time, which is unpredictable
+					// and probably a disaster for the page, but we'll see if a setTimeout will help it.
+					if (soejs.selectFunction) {
+						soejs.selectFunction(myRegion);
+					}
+					else {
+						window.setTimeout(function() {
+							try {
+								soejs.selectFunction(myRegion);
+							} catch(e) {
+								console.log("error caught: soejs.selectFunction not set")
+								Sentry.captureException(e)
+							}
+						}, 500)
+					}
+				}
 
 				// hide any marked with initial-hide
 				document.querySelectorAll(".initial-hide").forEach(function (region) {
@@ -900,8 +934,24 @@ var soejs = {
 		});
 
 		// 5. set the map section if there is location hash region
-		if (soejs.thisFindingHasRegionTabs)
-			soejs.selectFunction(myRegion);
+		if (soejs.thisFindingHasRegionTabs) {
+			// the select function should have been set with the google.maps.event (on pages js)
+			// but sometimes this doesn't happen in time, which is unpredictable
+			// and probably a disaster for the page, but we'll see if a setTimeout will help it.
+			if (soejs.selectFunction) {
+				soejs.selectFunction(myRegion);
+			}
+			else {
+				window.setTimeout(function() {
+					try {
+						soejs.selectFunction(myRegion);
+					} catch(e) {
+						console.log("error caught: soejs.selectFunction not set")
+						Sentry.captureException(e)
+					}
+				}, 500)
+			}
+		}
 
 		// 6. hide anything with special class name "initial-hide" (BUT this class being used anywhere?)
 		document.querySelectorAll(".initial-hide").forEach(function (region) {
