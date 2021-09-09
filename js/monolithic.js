@@ -227,7 +227,9 @@ document.addEventListener("DOMContentLoaded", function () {
 							try {
 								soejs.selectFunction(myRegion);
 							} catch(e) {
-								//what can you do?
+								console.log("error caught: soejs.selectFunction not set")
+								Sentry.captureException(e)
+
 							}
 						}, 500)
 					}
@@ -850,7 +852,8 @@ var soejs = {
 							try {
 								soejs.selectFunction(myRegion);
 							} catch(e) {
-								//what can you do?
+								console.log("error caught: soejs.selectFunction not set")
+								Sentry.captureException(e)
 							}
 						}, 500)
 					}
@@ -944,7 +947,8 @@ var soejs = {
 					try {
 						soejs.selectFunction(myRegion);
 					} catch(e) {
-						//what can you do?
+						console.log("error caught: soejs.selectFunction not set")
+						Sentry.captureException(e)
 					}
 				}, 500)
 			}
