@@ -224,7 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
 					}
 					else {
 						window.setTimeout(function() {
-							soejs.selectFunction(myRegion);
+							try {
+								soejs.selectFunction(myRegion);
+							} catch(e) {
+								//what can you do?
+							}
 						}, 500)
 					}
 
@@ -843,7 +847,11 @@ var soejs = {
 					}
 					else {
 						window.setTimeout(function() {
-							soejs.selectFunction(myRegion);
+							try {
+								soejs.selectFunction(myRegion);
+							} catch(e) {
+								//what can you do?
+							}
 						}, 500)
 					}
 				}
@@ -933,7 +941,11 @@ var soejs = {
 			}
 			else {
 				window.setTimeout(function() {
-					soejs.selectFunction(myRegion);
+					try {
+						soejs.selectFunction(myRegion);
+					} catch(e) {
+						//what can you do?
+					}
 				}, 500)
 			}
 		}
