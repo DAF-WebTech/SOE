@@ -220,12 +220,12 @@ document.addEventListener("DOMContentLoaded", function () {
 					// but sometimes this doesn't happen in time, which is unpredictable
 					// and probably a disaster for the page, but we'll see if a setTimeout will help it.
 					if (soejs.selectFunction) {
-						soejs.selectFunction(myRegion);
+						soejs.selectFunction(selected_region);
 					}
 					else {
 						window.setTimeout(function() {
 							try {
-								soejs.selectFunction(myRegion);
+								soejs.selectFunction(selected_region);
 							} catch(e) {
 								console.log("error caught: soejs.selectFunction not set")
 								Sentry.captureException(e)
@@ -234,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
 						}, 500)
 					}
 
-					soejs.selectFunction(selected_region);
 				});
 			});
 		}
