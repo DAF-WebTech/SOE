@@ -103,7 +103,7 @@ var doCatchments = function (options) {
 			subname.toKebabCase(),
 			subname.replace(/-/, "&ndash;"),
 			counter,
-			"<th scope=col>Year<th>Grade",
+			"<th scope=col>Year<th scope=col>Grade",
 			tbody,
 			(name == "Townsville Dry Tropics report card" ? "" : "<h6>N.B. The range of measures that is used to create the grade may have changed over the years.</h6>" )
 		));
