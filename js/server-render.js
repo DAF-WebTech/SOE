@@ -571,7 +571,7 @@ var tableOnlyInner = " \n \
 
 var regionInfoTemplate = "\n\
 <div class=\"region-info region-{0} {6}\" {7}> \n\
-		<h4 id=chart{1}Heading>{1}</h4> \n\
+		<h4 id=chart{2}Heading>{1}</h4> \n\
 		<ul class=chart-tabs data-index={2}> \n\
 				<li class=active><span>Chart</span></li> \n\
 				<li><span>Table</span></li> \n\
