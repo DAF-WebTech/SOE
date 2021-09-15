@@ -255,19 +255,20 @@
     	    display: block;
     	    padding: 0.5em 0.75em;
     	    text-decoration: none;
-            background-color: rgba(110, 188, 68, 0.1);
-    	    background-color: #f1f1f1;
-    	    color: #999;
+            background-color: white;
+    	    color: #757575;
     	    transition: all 0.15s ease;
     	    margin-bottom: -1px;
             
             &:hover {
-            	color: #555;
+            	color: white;
+				background-color: #757575
             	margin-bottom: -1px;
             }
         }
         .active span {
-            color: #fff;
+			background-color: #757575;
+			color: white;
         }
     }
 
