@@ -73,7 +73,7 @@ Object.keys(result).forEach(function(key) {
 })
 
 htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index+1000, htmlTable.thead, htmlTable.tbody))
+print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
 
 
 //##################################################################
@@ -115,7 +115,7 @@ results.data.forEach(function(record) {
 //		chartData[chartData.length-1].options = options
 
 	} else {
-		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
+		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 	}
 
 
@@ -131,7 +131,7 @@ results.data.forEach(function(record) {
 	})
 
 	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index+1000, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 
 })
 
