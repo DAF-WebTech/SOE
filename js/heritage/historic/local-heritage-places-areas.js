@@ -54,7 +54,7 @@ var head = [results.meta.fields[1]].concat(results.meta.fields.slice(2))
 arrayTable.unshift(head)
 
 htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplateTableOnly, "queensland", heading, 1000+index, htmlTable.thead, htmlTable.tbody, null, null, null, "<p><em>LGAs can occur multiple times in the table if they operate under more than one planning scheme</em>"))
+print(String.format(regionInfoTemplateTableOnly, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody, null, null, null, "<p><em>LGAs can occur multiple times in the table if they operate under more than one planning scheme</em>"))
 
 
 
@@ -77,7 +77,7 @@ Object.keys(groups).forEach(function(lga) {
 	})
 	
 	htmlTable = tableToHtml(arrayTable, false)
-	print(String.format(regionInfoTemplateTableOnly, lga.toKebabCase(), heading, 1000+index, htmlTable.thead, htmlTable.tbody))
+	print(String.format(regionInfoTemplateTableOnly, lga.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
 	
 
 })
