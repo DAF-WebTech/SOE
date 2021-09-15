@@ -539,7 +539,7 @@ var tableToHtml = function (table, hasFoot, numberFormattingOptions) {
 }
 
 var tableChartInner = " \n \
-<h4 id=chart{1}Heading>{0}</h4> \n\
+<h4 id=table{1}Heading>{0}</h4> \n\
 <ul class=chart-tabs data-index={1}> \n\
 		<li class=active><span>Chart</span></li> \n\
 		<li><span>Table</span></li> \n\
@@ -547,7 +547,7 @@ var tableChartInner = " \n \
 <div class=chart-table id=chartgroup_{1}> \n\
 	<div id=chart_{1} class=chart ui-tabs-panel></div> \n\
 	<div id=table_{1} class=inactive> \n\
-		<table class=\"indicators zebra\" aria-describedby=chart{1}Heading> \n\
+		<table class=\"indicators zebra\" aria-describedby=table{1}Heading> \n\
 			<thead><tr>{2} \n\
 			<tbody>{3} \n\
 		</table> \n\
@@ -557,10 +557,10 @@ var tableChartInner = " \n \
 ";
 
 var tableOnlyInner = " \n \
-<h4 id=chart{1}Heading>{0}</h4> \n\
+<h4 id=table{1}Heading>{0}</h4> \n\
 <div class=chart-table> \n\
 	<div id=table_{1}> \n\
-		<table class=\"indicators zebra\" aria-describedby=chart{1}Heading> \n\
+		<table class=\"indicators zebra\" aria-describedby=table{1}Heading> \n\
 			<thead><tr>{2} \n\
 			<tbody>{3} \n\
 		</table> \n\
@@ -571,7 +571,7 @@ var tableOnlyInner = " \n \
 
 var regionInfoTemplate = "\n\
 <div class=\"region-info region-{0} {6}\" {7}> \n\
-		<h4 id=chart{2}Heading>{1}</h4> \n\
+		<h4 id=table{2}Heading>{1}</h4> \n\
 		<ul class=chart-tabs data-index={2}> \n\
 				<li class=active><span>Chart</span></li> \n\
 				<li><span>Table</span></li> \n\
@@ -579,7 +579,7 @@ var regionInfoTemplate = "\n\
 		<div class=chart-table> \n\
 				<div id=chart_{2} class=chart></div> \n\
 				<div id=table_{2} class=\"responsive-table sticky inactive\"> \n\
-						<table class=\"indicators zebra\" aria-describedby=chart{2}Heading> \n\
+						<table class=\"indicators zebra\" aria-describedby=table{2}Heading> \n\
 							<thead><tr>{3} \n\
 							<tbody>{4} \n\
 							{5} \
@@ -591,10 +591,10 @@ var regionInfoTemplate = "\n\
 
 var regionInfoTemplateTableOnly = "\n\
 <div class=\"region-info region-{0} {6}\" {7}>\n\
-		<h4 id=chart{2}Heading>{1}</h4>\n\
+		<h4 id=table{2}Heading>{1}</h4>\n\
 		<div class=chart-table>\n\
 				<div id=table_{2} class=\"responsive-table sticky\">\n\
-						<table class=\"indicators zebra\" aria-describedby=chart{2}Heading>\n\
+						<table class=\"indicators zebra\" aria-describedby=table{2}Heading>\n\
 							<thead><tr>{3}\n\
 							<tbody>{4}\n\
 							{5}\
@@ -608,7 +608,7 @@ var regionInfoTemplateTableOnly = "\n\
 var chartTableTemplate = " \
 {{#each regions as | region |}} \
 <div class=\"region-info region-{{region.kebab}} {{region.extraClass}}\" {{region.extraAttribute}}> \
-	<h4 index=chart{{@index}}Heading>{{region.heading}}</h4> \
+	<h4 index=table{{@index}}Heading>{{region.heading}}</h4> \
 	{{#unless region.hasNoChart}} \
 		<ul class=chart-tabs data-index={{@index}}> \
 			<li class=active><span>Chart</span> \
@@ -620,7 +620,7 @@ var chartTableTemplate = " \
 		<div id=chart_{{@index}} class=chart></div> \
 		{{/unless}} \
 		<div id=table_{{@index}} class=\"responsive-table sticky {{#unless region.hasNoChart}}inactive{{/unless}}\"> \
-			<table class=\"indicators zebra\" aria-describedby=chart{{@index}}Heading> \
+			<table class=\"indicators zebra\" aria-describedby=table{{@index}}Heading> \
 				<thead><tr>{{#each region.headings}}<th scope=col {{#unless @first}}class=num{{/unless}}>{{this}}{{/each}}</tr> \
 				<tbody>{{#each region.rows}} \
 					<tr>{{#each this as | td |}} \
@@ -652,10 +652,10 @@ var regionInfoTemplateDialAndTable = "\
 		</li> \n\
 	</ul> \n\
 	<p>See also: <a href=\"./?a=1434918\">Freshwater wetland ecosystems assessment summary</a>.</p> \n\
-	<h4 id=chart{2}Heading>Report card grades in {1}</h4>\n\
+	<h4 id=table{2}Heading>Report card grades in {1}</h4>\n\
 	<div class=chart-table>\n\
 		<div id=table_{2}>\n\
-			<table class=\"indicators zebra\" aria-describedby=chart{2}Heading>\n\
+			<table class=\"indicators zebra\" aria-describedby=table{2}Heading>\n\
 				<thead><tr>{3}\n\
 				<tbody>{4}\n\
 			</table>\n\
@@ -680,7 +680,7 @@ var regionInfoTemplateDialAndChart = "\
 			</ul> \n\
 		</li> \n\
 	</ul> \n\
-	<h4 id=chart{2}Heading>Report card grades in {1}</h4>\n\
+	<h4 id=table{2}Heading>Report card grades in {1}</h4>\n\
 	<ul class=chart-tabs data-index={2}> \n\
 		<li class=active><span>Chart</span></li> \n\
 		<li><span>Table</span></li> \n\
@@ -688,7 +688,7 @@ var regionInfoTemplateDialAndChart = "\
 	<div class=chart-table id=chartgroup_{2}> \n\
 		<div id=chart_{2} class=\"chart ui-tabs-panel\"></div> \n\
 		<div id=table_{2} class=inactive>\n\
-			<table class=\"indicators zebra\" aria-describedby=chart{2}Heading>\n\
+			<table class=\"indicators zebra\" aria-describedby=table{2}Heading>\n\
 				<thead><tr>{3}\n\
 				<tbody>{4}\n\
 			</table> \n\
