@@ -1,3 +1,6 @@
+
+/* _accordions.scss */
+
 .accordion-container {
     margin-bottom: 2rem;
     
@@ -69,8 +72,8 @@ body {
             .accordion-title {
                 border-color: $biodiversity-light;
                 .toggle::after {
-                    color: $biodiversity;
-                    border-color: $biodiversity;
+                    color: #4D832F;
+                    border-color: #4D832F;
                 }
                 &:hover,
                 &:hover .toggle::after {
@@ -200,3 +203,5 @@ body {
     }
     
 }
+
+/*~ _accordions.scss */
