@@ -64,15 +64,15 @@
             border-bottom: 1px solid #ec2428;
 
             span {
-                color: #ec2428;
-                background-color: rgba(236, 36, 40, 0.125);
+                color: #eb1418;
+                background-color: rgba(235, 20, 24, 0.1);
             
                 &:hover {
                     color: #bd0004;
                 }
             }
             .active span {
-                background-color: #ec2428; 
+                background-color: #eb1418; 
                 
                 &:hover {
                     color: #fff;
