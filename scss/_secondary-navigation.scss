@@ -1,6 +1,6 @@
 .biodiversity .section-nav {
     h3 a {
-        background-color: #60A53B; /* a unique color needed because of accessibility */
+        background-color: #60A53B; /* a unique color needed because of accessibility contrast */
         &::after { background-color: $biodiversity-medium }
     }
     .secondary-nav .active > a {
@@ -20,11 +20,11 @@
 }
 .pollution .section-nav {
     h3 a {
-        background-color: $pollution;
+        background-color: #EF6F1F; /* a unique color needed because of accessibility contrast */
         &::after { background-color: $pollution-medium; }
     }
     .secondary-nav .active > a {
-        background-color: $pollution-light;
+        background-color: #B34400; /* a unique color needed because of accessibility contrast */
         color: $pollution-dark;
     }
 }
