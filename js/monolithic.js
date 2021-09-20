@@ -171,18 +171,35 @@ document.addEventListener("DOMContentLoaded", function () {
 	soejs.clickable = document.querySelectorAll(".regiontabs").length > 0;
 	soejs.highlight_colour = soejs.clickable ? soejs.highlightColourClickable : soejs.highlightColour;
 
+	const toggleTabState = function(e) {
+			// click on tab headers, which are the event target
+			tabHeaders.forEach(function (myTabHeader) {
+				if (myTabHeader == e.currentTarget)
+					myTabHeader.classList.add("active");
+				else
+					myTabHeader.classList.remove("active");
+			});
+			// swap map/list
+			const regionMap = document.getElementById("regionmap")
+			const regionLinks = document.getElementById("regionlinks")
+			if (e.currentTarget.textContent == "Map") {
+				regionMap.classList.remove("inactive");
+				regionLinks.classList.add("inactive");
+			}
+			else { //List 
+				regionMap.classList.add("inactive");
+				regionLinks.classList.remove("inactive");
+			}
+	}
+
 	var tabHeaders = document.querySelectorAll("ul.regionlink-tabs li");
 	tabHeaders.forEach(function (tabHeader) {
-		tabHeader.addEventListener("click", function () {
-			tabHeaders.forEach(function (myTabHeader) {
-				myTabHeader.classList.toggle("active");
-			});
-			document.querySelectorAll("div.map-list > div").forEach(function (tabContent) {
-				tabContent.classList.toggle("inactive");
-			});
-		});
+		tabHeader.addEventListener("click", toggleTabState)
+		tabHeader.addEventListener("keydown", function(e){
+			if (e.keyCode == 13)
+				toggleTabState()
+		})
 	});
-
 
 	if (window.populateIndicatorCharts) { // it's a finding page
 		soejs.loadFindingData(populateIndicatorCharts);
