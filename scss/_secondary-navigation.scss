@@ -24,8 +24,8 @@
         &::after { background-color: $pollution-medium; }
     }
     .secondary-nav .active > a {
-        background-color: #B34400; /* a unique color needed because of accessibility contrast */
-        color: $pollution-dark;
+        background-color: $pollution-light;
+        color: #B34400; /* a unique color needed because of accessibility contrast */
     }
 }
 .climate .section-nav {
