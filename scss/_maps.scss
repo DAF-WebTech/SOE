@@ -1,3 +1,6 @@
+
+/* _maps.scss */
+
 .indicators {
     clear: both;
     margin-top: 1.5em;
@@ -29,7 +32,7 @@
                 }
             }
             .active span {
-                background-color: #6ebc44; 
+                background-color: #4D832F; 
                 
                 &:hover {
                     color: #fff;
@@ -328,3 +331,5 @@ p + .subregion-info {
     margin-top: 0.8em;
     margin-right: 0.8em;
 }
+
+/*~ _maps.scss */
