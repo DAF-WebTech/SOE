@@ -46,9 +46,10 @@ Object.keys(result).forEach(function(key) {
 })
 
 var htmlTable = tableToHtml(arrayTable, false)
-print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTable.thead, htmlTable.tbody))
+print(String.format(regionInfoTemplate, "queensland", heading, index, htmlTable.thead, htmlTable.tbody))
 
-chartData.push({ options: options, data: arrayTable })
+chartData.push({ options: options, data: arrayTable, chartDivIndex: index })
+++index
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 2. queensland table only
@@ -101,7 +102,7 @@ results.data.forEach(function(record) {
 
 
 	if (sum > 0) {
-		print(String.format(regionInfoTemplate, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
+		print(String.format(regionInfoTemplate, record.LGA.toKebabCase(), heading, index, htmlTable.thead, htmlTable.tbody))
 
 		if (max <= 30) {
 			var ceiling = Math.ceil(max / 4) * 4
@@ -111,8 +112,9 @@ results.data.forEach(function(record) {
 				options.vAxis.ticks.push(i)
 		}
 
-		chartData.push({ data: arrayTable, options: options })
-//		chartData[chartData.length-1].options = options
+		chartData.push({ data: arrayTable, options: options, chartDivIndex: index })
+		++index
+
 
 	} else {
 		print(String.format(regionInfoTemplateTableOnly, record.LGA.toKebabCase(), heading, index++, htmlTable.thead, htmlTable.tbody))
