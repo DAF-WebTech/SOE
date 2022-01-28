@@ -657,7 +657,10 @@ var soejs = {
 		}
 
 		// Highlight selected region
-		var GBR = ["region-fitzroy-basin-report-card", "region-fitzroy-report-card", "region-mackay-whitsunday-report-card", "region-gladstone-harbour-report-card", "region-qcatchment-endeavour", "region-qcatchment-jacky-jacky", "region-qcatchment-jeannie", "region-qcatchment-lockhart", "region-qcatchment-normanby", "region-qcatchment-olive-pascoe", "region-qcatchment-stewart", "region-wet-tropics-report-card", "region-qcatchment-burdekin", "region-townsville-dry-tropics"];
+		var GBR = ["region-fitzroy-basin-report-card", "region-fitzroy-report-card", 
+			"region-mackay-whitsunday-isaac-report-card", "region-gladstone-harbour-report-card", 
+			"region-qcatchment-endeavour", "region-qcatchment-jacky-jacky", "region-qcatchment-jeannie", "region-qcatchment-lockhart", "region-qcatchment-normanby", "region-qcatchment-olive-pascoe", "region-qcatchment-stewart", "region-wet-tropics-report-card", "region-qcatchment-burdekin", 
+			"region-townsville-dry-tropics-report-card", "region-wet-tropics-waterways-report-card"];
 
 		for (var i = 0; i < soejs.polygonArray.length; i++) {
 			soejs.polygonArray[i].set("fillColor", soejs.polygonArray[i].regioncolor); //set to default color of the filter
@@ -667,8 +670,8 @@ var soejs = {
 			}
 			// special handling for GBR area for Water Quality Catchments. should also highlight smaller polygon under GBR for water quality catchments
 			if (soejs.polyFilter == "qld-water-quality-catchments-poly-v4.js"
-				&& region_code == "region-great-barrier-reef-report-card"
-				&& (GBR.indexOf(soejs.polygonArray[i].id) != -1)) {
+					&& region_code == "region-great-barrier-reef-report-card"
+					&& GBR.includes(soejs.polygonArray[i].id)) {
 				soejs.polygonArray[i].set("fillColor", soejs.highlight_colour);
 			}
 
