@@ -27,7 +27,7 @@ years = years.slice(2);
 
 
 // chart 1 total clearing
-var heading = "Proportion of total woody vegetation clearing, by bioregion"; // {1}
+var heading = "Extent of total woody vegetation clearing, by bioregion"; // {1}
 
 
 
