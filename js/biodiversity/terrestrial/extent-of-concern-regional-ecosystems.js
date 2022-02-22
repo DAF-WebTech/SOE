@@ -28,7 +28,7 @@ var latestYear = result.meta.fields[result.meta.fields.length - 1];
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // chart 1 for qld stacked columns, pr
-var heading = "Proportion of regional ecosystems by biodiversity status, " + latestYear;
+var heading = "Extent of regional ecosystems by biodiversity status, " + latestYear;
 var arrayTable = [["Bioregion", "Endangered", "Of concern", "No concern at present"]];
 Object.keys(regions).forEach(function(region) {
     var item = [region];
