@@ -50,7 +50,7 @@ chartData[chartData.length - 1].options = options;
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // qld, coloumn chart for latest year
-heading = "Proportion area of biodiversity status, " + latestYear;
+heading = "Extent of biodiversity status area, " + latestYear;
 arrayTable = [["Bioregion", "Endangered", "Of concern", "No concern at present"]];
 Object.keys(regions).forEach(function(region) {
     var item = [region];
