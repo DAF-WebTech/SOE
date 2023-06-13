@@ -76,7 +76,7 @@ data = result.data.filter(function(record) {
 
 arrayTable = [["Bioregion"]];
 keys.forEach(function(key) { 
-	arrayTable[0].push(key.replace("unit dependent", "Count per 1000km²"));
+	arrayTable[0].push(key.replace("unit dependent", "Count"));
 });
 data.forEach(function(record) {
 	var item = [record.RegName];
@@ -91,7 +91,7 @@ print(String.format(regionInfoTemplate, "queensland", heading, index++, htmlTabl
 
 
 chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
+chartData[chartData.length - 1].options.vAxis.title = "Count";
 chartData[chartData.length - 1].options.hAxis.title = "Bioregion";
 
 // -=-----------------------------------------------------------------
@@ -180,7 +180,7 @@ regions.forEach(function(region) {
 	
 	arrayTable = [["Subregion"]];
 	keys.forEach(function(key) { 
-		arrayTable[0].push(key.replace("unit dependent", "Count per 1000km²"));
+		arrayTable[0].push(key.replace("unit dependent", "Count"));
 	});
 	data.forEach(function(record) {
 		var item = [record.RegName.replace(" - ", "–")];//ndash
@@ -195,7 +195,7 @@ regions.forEach(function(region) {
 	
 
 	chartData.push({data: arrayTable, options: getDefaultColumnChartOptions() });
-	chartData[chartData.length - 1].options.vAxis.title = "Count per 1000km²";
+	chartData[chartData.length - 1].options.vAxis.title = "Count";
 	chartData[chartData.length - 1].options.hAxis.title = "Subregion";
 
 	
